@@ -16,6 +16,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JButton;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
+import java.awt.SystemColor;
 
 
 public class Ventana03Registro {
@@ -36,6 +37,7 @@ public class Ventana03Registro {
 	
 	
 	private final ButtonGroup buttonGroup = new ButtonGroup();
+	private JPasswordField passwordField;
 	
 	public Ventana03Registro() {
 		crearVentana();
@@ -50,7 +52,7 @@ public class Ventana03Registro {
 	private void crearVentana() {
 		
 		frame = new JFrame();
-		frame.getContentPane().setBackground(Color.WHITE);
+		frame.getContentPane().setBackground(SystemColor.info);
 		frame.setBounds(100, 100, 1280, 720);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -99,36 +101,36 @@ public class Ventana03Registro {
 		
 	private void crearEtiquetas() {
 		
-		JLabel lblRepetir1 = new JLabel("Repetir");
-		lblRepetir1.setBounds(37, 429, 318, 39);
+		JLabel lblRepetir1 = new JLabel("Repetir contrase\u00F1a");
+		lblRepetir1.setBounds(48, 465, 318, 75);
 		panel_1.add(lblRepetir1);
 		lblRepetir1.setHorizontalTextPosition(SwingConstants.LEADING);
 		lblRepetir1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblRepetir1.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		
 		JLabel lblNombre = new JLabel("Nombre");
-		lblNombre.setBounds(37, 170, 318, 78);
+		lblNombre.setBounds(48, 117, 318, 78);
 		panel_1.add(lblNombre);
 		lblNombre.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblNombre.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 40));
 		
 		JLabel lblDni = new JLabel("DNI");
-		lblDni.setBounds(37, 85, 318, 75);
+		lblDni.setBounds(48, 32, 318, 75);
 		panel_1.add(lblDni);
 		lblDni.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblDni.setHorizontalAlignment(SwingConstants.CENTER);
 		lblDni.setFont(new Font("Tahoma", Font.PLAIN, 40));
 		
 		JLabel lblContrasena = new JLabel("Contrase\u00F1a");
-		lblContrasena.setBounds(37, 343, 318, 75);
+		lblContrasena.setBounds(48, 379, 318, 75);
 		panel_1.add(lblContrasena);
 		lblContrasena.setHorizontalTextPosition(SwingConstants.LEADING);
 		lblContrasena.setHorizontalAlignment(SwingConstants.CENTER);
 		lblContrasena.setFont(new Font("Tahoma", Font.PLAIN, 40));
 
 		JLabel lblApellido = new JLabel("Apellido");
-		lblApellido.setBounds(37, 257, 318, 78);
+		lblApellido.setBounds(48, 204, 318, 78);
 		panel_1.add(lblApellido);
 		lblApellido.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblApellido.setHorizontalAlignment(SwingConstants.CENTER);
@@ -139,19 +141,13 @@ public class Ventana03Registro {
 		lblNewLabel_1.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		lblNewLabel_1.setBounds(896, 21, 285, 244);
 		panel.add(lblNewLabel_1);
-		
-		JLabel lblNewLabel = new JLabel("contrase\u00F1a");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblNewLabel.setBounds(37, 479, 318, 25);
-		panel_1.add(lblNewLabel);
 
 	}
 	
 	private void crearCamposTexto() {
 		
 		txtDni = new JTextField();
-		txtDni.setBounds(355, 85, 300, 75);
+		txtDni.setBounds(366, 32, 300, 75);
 		panel_1.add(txtDni);
 		txtDni.setHorizontalAlignment(SwingConstants.CENTER);
 		txtDni.setFont(new Font("Tahoma", Font.PLAIN, 40));
@@ -159,7 +155,7 @@ public class Ventana03Registro {
 		txtDni.setBorder(new LineBorder(Color.BLACK, 2));
 		
 		txtNombre = new JTextField();
-		txtNombre.setBounds(355, 171, 300, 75);
+		txtNombre.setBounds(366, 118, 300, 75);
 		panel_1.add(txtNombre);
 		txtNombre.setHorizontalAlignment(SwingConstants.CENTER);
 		txtNombre.setFont(new Font("Tahoma", Font.PLAIN, 40));
@@ -167,7 +163,7 @@ public class Ventana03Registro {
 		txtNombre.setBorder(new LineBorder(Color.BLACK, 2));
 		
 		txtApellido = new JTextField();
-		txtApellido.setBounds(355, 257, 300, 75);
+		txtApellido.setBounds(366, 204, 300, 75);
 		panel_1.add(txtApellido);
 		txtApellido.setHorizontalAlignment(SwingConstants.CENTER);
 		txtApellido.setFont(new Font("Tahoma", Font.PLAIN, 40));
@@ -175,7 +171,7 @@ public class Ventana03Registro {
 		txtApellido.setBorder(new LineBorder(Color.BLACK, 2));
 		
 		passContrasena = new JPasswordField();
-		passContrasena.setBounds(355, 343, 300, 75);
+		passContrasena.setBounds(366, 379, 300, 75);
 		panel_1.add(passContrasena);
 		passContrasena.setHorizontalAlignment(SwingConstants.CENTER);
 		passContrasena.setFont(new Font("Tahoma", Font.PLAIN, 40));
@@ -183,7 +179,7 @@ public class Ventana03Registro {
 		passContrasena.setBorder(new LineBorder(Color.BLACK, 2));
 		
 		passContrasena2 = new JPasswordField();
-		passContrasena2.setBounds(355, 429, 300, 75);
+		passContrasena2.setBounds(366, 465, 300, 75);
 		panel_1.add(passContrasena2);
 		passContrasena2.setHorizontalAlignment(SwingConstants.CENTER);
 		passContrasena2.setFont(new Font("Tahoma", Font.PLAIN, 40));
@@ -193,7 +189,7 @@ public class Ventana03Registro {
 		CheckHombre = new JCheckBox("H");
 		CheckHombre.setOpaque(false);
 		CheckHombre.setHorizontalAlignment(SwingConstants.CENTER);
-		CheckHombre.setBounds(684, 90, 50, 75);
+		CheckHombre.setBounds(695, 37, 50, 75);
 		panel_1.add(CheckHombre);
 		CheckHombre.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		buttonGroup.add(CheckHombre);
@@ -201,10 +197,25 @@ public class Ventana03Registro {
 		CheckMujer = new JCheckBox("M");
 		CheckMujer.setOpaque(false);
 		CheckMujer.setHorizontalAlignment(SwingConstants.CENTER);
-		CheckMujer.setBounds(758, 90, 50, 75);
+		CheckMujer.setBounds(769, 37, 50, 75);
 		panel_1.add(CheckMujer);
 		CheckMujer.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		buttonGroup.add(CheckMujer);
+		
+		JLabel lblFecbaDeNacimiento = new JLabel("Fecha de nacimiento");
+		lblFecbaDeNacimiento.setBounds(48, 293, 318, 75);
+		panel_1.add(lblFecbaDeNacimiento);
+		lblFecbaDeNacimiento.setHorizontalTextPosition(SwingConstants.LEADING);
+		lblFecbaDeNacimiento.setHorizontalAlignment(SwingConstants.CENTER);
+		lblFecbaDeNacimiento.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(366, 293, 300, 75);
+		panel_1.add(passwordField);
+		passwordField.setHorizontalAlignment(SwingConstants.CENTER);
+		passwordField.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		passwordField.setColumns(10);
+		passwordField.setBorder(new LineBorder(Color.BLACK, 2));
 		
 	}
 	

@@ -87,12 +87,12 @@ public class Controlador03Registro implements MouseListener, KeyListener {
 					if (this.ventana03registro.getCheckHombre().isSelected()) {
 						cliente = new Cliente(this.ventana03registro.getTxtDni().getText(),
 								this.ventana03registro.getTxtNombre().getText(),
-								this.ventana03registro.getTxtApellido().getText(), "H");
+								this.ventana03registro.getTxtApellido().getText(), "x", "H", this.ventana03registro.getPassContrasena().getText());
 
 					} else {
 						cliente = new Cliente(this.ventana03registro.getTxtDni().getText(),
 								this.ventana03registro.getTxtNombre().getText(),
-								this.ventana03registro.getTxtApellido().getText(), "M");
+								this.ventana03registro.getTxtApellido().getText(), "x", "M", this.ventana03registro.getPassContrasena().getText());
 					}
 
 					if (ClienteDao.mRegistrarCliente(cliente)) {

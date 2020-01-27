@@ -19,7 +19,7 @@ public class ClienteDao {
 		Connection con=null;
 		
 
-		String sql = "{ CALL spInsertarCliente(?,?,?,?) }";
+		String sql = "{ CALL spInsertarCliente(?,?,?,?,?,?) }";
 		
 		try {
 			con=ConexionBus.conectar();
@@ -29,7 +29,9 @@ public class ClienteDao {
 		    cs.setString(1, cliente.getDni());
 		    cs.setString(2, cliente.getNombre());
 		    cs.setString(3, cliente.getApellido());
-		    cs.setString(4, cliente.getSexo());
+		    cs.setString(4, cliente.getNacimiento());
+		    cs.setString(5, cliente.getSexo());
+		    cs.setString(6, cliente.getContrasena());
 		    
 		    cs.execute();
 			
@@ -59,10 +61,12 @@ public class ClienteDao {
 			rs=stm.executeQuery(sql);
 			while (rs.next()) {
 				Cliente c=new Cliente();
-				c.setDNI(rs.getString(1));
+				c.setDni(rs.getString(1));
 				c.setNombre(rs.getString(2));
 				c.setApellido(rs.getString(3));
-				c.setSexo(rs.getString(4));
+				c.setNacimiento(rs.getString(4));
+				c.setSexo(rs.getString(5));
+				c.setContrasena(rs.getString(6));
 				listaClientes.add(c);
 			}
 			stm.close();

@@ -16,7 +16,9 @@ public class Cliente {
 		private String dni;
 		private String nombre;
 		private String apellido;
+		private String nacimiento;
 		private String sexo;
+		private String contrasena;
 		
 
 		
@@ -26,24 +28,25 @@ public class Cliente {
 			
 		}
 		
-		public Cliente(String pDni, String pNombre, String pApellido1, String pSexo){
+		public Cliente(String pDni, String pNombre, String pApellido, String pNacimiento, String pSexo, String pContrasena){
 			
 			this.dni = pDni;
 			this.nombre = pNombre;
-			this.apellido = pApellido1;			
+			this.apellido = pApellido;
+			this.nacimiento= pNacimiento;
 			this.sexo = pSexo;
+			this.contrasena = pContrasena;
 			
 		}
 		
-		
 		//*** Métodos get-set ***
-		
+
 		public String getDni() {
 			return dni;
 		}
 
-		public void setDNI(String dNI) {
-			dni = dNI;
+		public void setDni(String dni) {
+			this.dni = dni;
 		}
 
 		public String getNombre() {
@@ -58,8 +61,16 @@ public class Cliente {
 			return apellido;
 		}
 
-		public void setApellido(String apellido1) {
-			this.apellido = apellido1;
+		public void setApellido(String apellido) {
+			this.apellido = apellido;
+		}
+
+		public String getNacimiento() {
+			return nacimiento;
+		}
+
+		public void setNacimiento(String nacimiento) {
+			this.nacimiento = nacimiento;
 		}
 
 		public String getSexo() {
@@ -70,7 +81,12 @@ public class Cliente {
 			this.sexo = sexo;
 		}
 
+		public String getContrasena() {
+			return contrasena;
+		}
+
+		public void setContrasena(String contrasena) {
+			this.contrasena = contrasena;
+		}
 		
-
-
 }

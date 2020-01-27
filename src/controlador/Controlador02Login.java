@@ -54,7 +54,7 @@ public class Controlador02Login implements KeyListener, MouseListener {
 				
 				if (login == true) {
 					
-					Cliente cliente = new Cliente(this.ventanalogin.getTxtDni().getText(), "x", "x", "x");
+					Cliente cliente = new Cliente(this.ventanalogin.getTxtDni().getText(), "x", "x", "x", "x", this.ventanalogin.getTxtContrasena().getText());
 					ArrayList<Cliente> listaclientes = ClienteDao.mObtenerClientes();
 					
 					for (Cliente cliente1: listaclientes){
@@ -143,7 +143,7 @@ public class Controlador02Login implements KeyListener, MouseListener {
 				break;
 				
 		case "Omitir":
-				Cliente cliente1 = new Cliente("x", "Invitado", "x", "x");
+				Cliente cliente1 = new Cliente("x", "Invitado", "x", "x", "x", "x");
 				Ventana04Trayectos window4 = new Ventana04Trayectos();
 				Controlador04Trayectos controlador = new Controlador04Trayectos(window4);
 				window4.getFrame().setVisible(true);
