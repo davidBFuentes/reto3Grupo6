@@ -1,14 +1,5 @@
 package modelo;
 
-import java.sql.CallableStatement;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-
-import conexion.ConexionBus;
-
 public class Cliente {
 		
 		//*** Atributos ***
@@ -35,7 +26,7 @@ public class Cliente {
 			this.apellido = pApellido;
 			this.nacimiento= pNacimiento;
 			this.sexo = pSexo;
-			this.contrasena = pContrasena;
+			this.contrasena = Codificacion.md5(pContrasena);
 			
 		}
 		

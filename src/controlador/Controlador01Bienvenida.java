@@ -29,6 +29,7 @@ public class Controlador01Bienvenida implements MouseListener {
 		// TODO Auto-generated method stub
 		
 		Ventana02Login ventana02 = new Ventana02Login();
+		@SuppressWarnings("unused")
 		Controlador02Login controladorLogin = new Controlador02Login(ventana02);
 		ventana02.getLogin().setVisible(true);
 		this.ventanaBienvenida.getFrame().dispose();

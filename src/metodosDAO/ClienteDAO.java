@@ -1,4 +1,4 @@
-package modelo;
+package metodosDAO;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -8,8 +8,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import conexion.ConexionBus;
+import modelo.Cliente;
 
-public class ClienteDao {
+public class ClienteDAO {
 	
 	//*** Métodos CRUD ***
 	
@@ -19,7 +20,7 @@ public class ClienteDao {
 		Connection con=null;
 		
 
-		String sql = "{ CALL spInsertarCliente(?,?,?,?,?,?) }";
+		String sql = "INSERT INTO cliente (DNI, Nombre, Apellidos, Fecha_nac, Sexo, Contraseña) VALUES(?,?,?,?,?,?);"; 
 		
 		try {
 			con=ConexionBus.conectar();
@@ -51,7 +52,7 @@ public class ClienteDao {
 		Statement stm= null;
 		ResultSet rs=null;
 		
-		String sql="CALL spObtenerClientes()";
+		String sql="SELECT * FROM cliente;";
 		
 		ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
 		
@@ -73,7 +74,7 @@ public class ClienteDao {
 			rs.close();
 			co.close();
 		} catch (SQLException e) {
-			System.out.println("Error: Clase Contacto, método mObtenerContactos");
+			System.out.println("Error: Clase Cliente, método mObtenerClientes");
 			e.printStackTrace();
 		}
 		

@@ -5,15 +5,16 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
+import metodosDAO.LineaDAO;
 import modelo.Linea;
 import vista.Ventana01Bienvenida;
 import vista.Ventana04Trayectos;
 import vista.Ventana05ParadasFecha;
-import vista.Ventana06Desglose;
 
 public class Controlador04Trayectos implements MouseListener, MouseMotionListener, ActionListener {
 	
@@ -23,6 +24,7 @@ public class Controlador04Trayectos implements MouseListener, MouseMotionListene
 		
 		this.ventanatrayectos = pVentana02;
 		mIniciarControlador();
+		
 	}
 	
 	private void mIniciarControlador() {
@@ -34,6 +36,12 @@ public class Controlador04Trayectos implements MouseListener, MouseMotionListene
 		this.ventanatrayectos.getComboLineas().addActionListener(this);
 		this.ventanatrayectos.getComboLineas().setActionCommand("Combo");
 		
+		ArrayList <Linea> listalineas = LineaDAO.mObtenerLineas();
+		this.ventanatrayectos.getComboLineas().addItem("Seleccione su línea");
+		for (Linea linea : listalineas) {
+			this.ventanatrayectos.getComboLineas().addItem(linea.getCodLinea()+ " " + linea.getNombre());
+		}
+		
 	
 	}
 
@@ -42,34 +50,41 @@ public class Controlador04Trayectos implements MouseListener, MouseMotionListene
 		// TODO Auto-generated method stub
 		
 		switch (e.getComponent().getName()) {
-		case "Continuar":
-			if (this.ventanatrayectos.getComboLineas().getSelectedItem().toString().equalsIgnoreCase("Seleccione la línea en la que desea viajar")) {
-				JOptionPane.showMessageDialog(null, "Ha de seleccionar una línea para continuar", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
-			} else {
-				switch (this.ventanatrayectos.getComboLineas().getSelectedItem().toString()) {
-				case "Línea 1: Bilbao - Mungia":
-					Linea linea = new Linea();
+			case "Continuar":
+				if (this.ventanatrayectos.getComboLineas().getSelectedIndex() != 0) {
 					
-					break;
-
-				default:
-					break;
-				}
-				Ventana05ParadasFecha window1 = new Ventana05ParadasFecha();
-				Controlador05ParadasFecha controlador = new Controlador05ParadasFecha(window1);
-				window1.getFrame().setVisible(true);
+					Linea linea = new Linea(this.ventanatrayectos.getComboLineas().getSelectedItem().toString().substring
+					(0, this.ventanatrayectos.getComboLineas().getSelectedItem().toString().indexOf(' ')), "null");
+					
+					ArrayList <Linea> listalineas = LineaDAO.mObtenerLineas();
+					
+					for (Linea linea1 : listalineas) {
+						
+						if (linea.getCodLinea().equals(linea1.getCodLinea())) {
+							Linea linea2 = new Linea(linea.getCodLinea(), linea.getNombre());
+							Ventana05ParadasFecha window = new Ventana05ParadasFecha();
+							Controlador05ParadasFecha controlador = new Controlador05ParadasFecha(window, linea2);
+							window.getFrame().setVisible(true);
+							this.ventanatrayectos.getFrame().dispose();
+						}	
+					}
+					
+				
+				}  else {
+							
+					JOptionPane.showMessageDialog(null, "Ha de seleccionar una línea para continuar", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+						
+					}
+				
+				break;
+					
+				
+			case "Salir":
+				Ventana01Bienvenida window2 = new Ventana01Bienvenida();
+				Controlador01Bienvenida controlador = new Controlador01Bienvenida(window2);
+				window2.getFrame().setVisible(true);
 				this.ventanatrayectos.getFrame().dispose();
-			}
-			
-			break;
-
-		case "Salir":
-			Ventana01Bienvenida window2 = new Ventana01Bienvenida();
-			Controlador01Bienvenida controlador = new Controlador01Bienvenida(window2);
-			window2.getFrame().setVisible(true);
-			this.ventanatrayectos.getFrame().dispose();
-			
-			break;
+				break;
 			
 		}
 		

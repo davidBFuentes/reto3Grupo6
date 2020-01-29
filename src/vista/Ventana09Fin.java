@@ -30,6 +30,7 @@ public class Ventana09Fin{
 		Ventana8Fin.setBounds(100, 100, 1280, 720);
 		Ventana8Fin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Ventana8Fin.getContentPane().setLayout(null);
+		Ventana8Fin.setLocationRelativeTo(null);
 	}
 	
 	private void crearBotones() {

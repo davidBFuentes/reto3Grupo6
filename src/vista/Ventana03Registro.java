@@ -31,13 +31,14 @@ public class Ventana03Registro {
 	private JButton btnSalir;
 	private JCheckBox CheckHombre;
 	private JCheckBox CheckMujer;
+	private JTextField txtFechaNacimiento;
 	private JPanel panel;
 	private JPanel panel_1;
 	private JPanel panel_2;
 	
 	
 	private final ButtonGroup buttonGroup = new ButtonGroup();
-	private JPasswordField passwordField;
+	
 	
 	public Ventana03Registro() {
 		crearVentana();
@@ -141,6 +142,13 @@ public class Ventana03Registro {
 		lblNewLabel_1.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		lblNewLabel_1.setBounds(896, 21, 285, 244);
 		panel.add(lblNewLabel_1);
+		
+		JLabel lblFechaDeNacimiento = new JLabel("Fecha de nacimiento");
+		lblFechaDeNacimiento.setBounds(48, 293, 318, 75);
+		panel_1.add(lblFechaDeNacimiento);
+		lblFechaDeNacimiento.setHorizontalTextPosition(SwingConstants.LEADING);
+		lblFechaDeNacimiento.setHorizontalAlignment(SwingConstants.CENTER);
+		lblFechaDeNacimiento.setFont(new Font("Tahoma", Font.PLAIN, 30));
 
 	}
 	
@@ -186,6 +194,18 @@ public class Ventana03Registro {
 		passContrasena2.setColumns(10);
 		passContrasena2.setBorder(new LineBorder(Color.BLACK, 2));
 		
+		txtFechaNacimiento = new JTextField();
+		txtFechaNacimiento.setBounds(366, 293, 300, 75);
+		panel_1.add(txtFechaNacimiento);
+		txtFechaNacimiento.setHorizontalAlignment(SwingConstants.CENTER);
+		txtFechaNacimiento.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		txtFechaNacimiento.setColumns(10);
+		txtFechaNacimiento.setBorder(new LineBorder(Color.BLACK, 2));
+		
+	}
+	
+	private void crearCheckBox() {
+		
 		CheckHombre = new JCheckBox("H");
 		CheckHombre.setOpaque(false);
 		CheckHombre.setHorizontalAlignment(SwingConstants.CENTER);
@@ -201,25 +221,6 @@ public class Ventana03Registro {
 		panel_1.add(CheckMujer);
 		CheckMujer.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		buttonGroup.add(CheckMujer);
-		
-		JLabel lblFecbaDeNacimiento = new JLabel("Fecha de nacimiento");
-		lblFecbaDeNacimiento.setBounds(48, 293, 318, 75);
-		panel_1.add(lblFecbaDeNacimiento);
-		lblFecbaDeNacimiento.setHorizontalTextPosition(SwingConstants.LEADING);
-		lblFecbaDeNacimiento.setHorizontalAlignment(SwingConstants.CENTER);
-		lblFecbaDeNacimiento.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(366, 293, 300, 75);
-		panel_1.add(passwordField);
-		passwordField.setHorizontalAlignment(SwingConstants.CENTER);
-		passwordField.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		passwordField.setColumns(10);
-		passwordField.setBorder(new LineBorder(Color.BLACK, 2));
-		
-	}
-	
-	private void crearCheckBox() {
 			
 	}
 	
@@ -314,5 +315,13 @@ public class Ventana03Registro {
 
 	public void setCheckMujer(JCheckBox checkMujer) {
 		CheckMujer = checkMujer;
+	}
+
+	public JTextField getTxtFechaNacimiento() {
+		return txtFechaNacimiento;
+	}
+
+	public void setTxtFechaNacimiento(JTextField txtFechaNacimiento) {
+		this.txtFechaNacimiento = txtFechaNacimiento;
 	}
 }

@@ -53,7 +53,7 @@ public class Ventana01Bienvenida {
 		panel_1 = new JPanel();
 		panel_1.setBackground(new Color(245, 245, 220));
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		panel_1.setBounds(18, 424, 1162, 182);
+		panel_1.setBounds(18, 424, 1162, 180);
 		panel.add(panel_1);
 		panel_1.setLayout(null);
 	
@@ -86,7 +86,7 @@ public class Ventana01Bienvenida {
 		JLabel lblTermibus = new JLabel("");
 		lblTermibus.setBorder(new LineBorder(Color.BLACK, 2));
 		lblTermibus.setIcon(new ImageIcon(Ventana01Bienvenida.class.getResource("/imagenes/cabeceraBienvenida.jpg")));
-		lblTermibus.setBounds(18, 12, 1163, 400);
+		lblTermibus.setBounds(18, 20, 1163, 386);
 		panel.add(lblTermibus);
 		
 	}

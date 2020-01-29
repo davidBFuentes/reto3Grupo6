@@ -8,11 +8,12 @@ import java.io.IOException;
 
 import javax.swing.JOptionPane;
 
+import metodosDAO.ClienteDAO;
 import modelo.Cliente;
-import modelo.ClienteDao;
 import modelo.Fichero;
 import vista.Ventana01Bienvenida;
 import vista.Ventana03Registro;
+import vista.Ventana04Trayectos;
 
 public class Controlador03Registro implements MouseListener, KeyListener {
 
@@ -40,6 +41,8 @@ public class Controlador03Registro implements MouseListener, KeyListener {
 		this.ventana03registro.getPassContrasena().setName("Pass");
 		this.ventana03registro.getPassContrasena2().addKeyListener(this);
 		this.ventana03registro.getPassContrasena2().setName("Pass2");
+		this.ventana03registro.getTxtFechaNacimiento().addKeyListener(this);
+		this.ventana03registro.getTxtFechaNacimiento().setName("Nacimiento");
 	}
 
 	@Override
@@ -58,20 +61,64 @@ public class Controlador03Registro implements MouseListener, KeyListener {
 
 		case "Registrarse":
 			
-			if (this.ventana03registro.getTxtDni().getText().length() == 0
+			if (this.ventana03registro.getTxtDni().getText().length() != 0
+					&& this.ventana03registro.getTxtNombre().getText().length() != 0
+					&& this.ventana03registro.getTxtApellido().getText().length() != 0
+					&& this.ventana03registro.getPassContrasena().getText().length() != 0
+					&& this.ventana03registro.getPassContrasena2().getText().length() != 0
+					&& this.ventana03registro.getTxtFechaNacimiento().getText().length() != 0 
+					&& (this.ventana03registro.getCheckHombre().isSelected()
+					|| this.ventana03registro.getCheckMujer().isSelected())
+					&& this.ventana03registro.getTxtDni().getText().length() == 9
+					&& this.ventana03registro.getPassContrasena().getText().equals
+					(this.ventana03registro.getPassContrasena2().getText())) {
+				
+					Cliente cliente;
+	
+					if (this.ventana03registro.getCheckHombre().isSelected()) {
+						cliente = new Cliente(this.ventana03registro.getTxtDni().getText(),
+								this.ventana03registro.getTxtNombre().getText(),
+								this.ventana03registro.getTxtApellido().getText(), this.ventana03registro.getTxtFechaNacimiento().getText(), "V", this.ventana03registro.getPassContrasena().getText());
+	
+					} else {
+						cliente = new Cliente(this.ventana03registro.getTxtDni().getText(),
+								this.ventana03registro.getTxtNombre().getText(),
+								this.ventana03registro.getTxtApellido().getText(), this.ventana03registro.getTxtFechaNacimiento().getText(), "M", this.ventana03registro.getPassContrasena().getText());
+					}
+	
+					if (ClienteDAO.mRegistrarCliente(cliente)) {
+	
+						try {
+							Fichero.mCrearFichero(cliente.getDni(),
+									cliente.getContrasena());
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+						
+						JOptionPane.showMessageDialog(null, "Registro realizado  con éxito", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+						Ventana04Trayectos window1 = new Ventana04Trayectos();
+						Controlador04Trayectos controlador = new Controlador04Trayectos(window1);
+						window1.getFrame().setVisible(true);
+						this.ventana03registro.getFrame().dispose();
+					}
+					
+
+			} else {
+				
+				if (this.ventana03registro.getTxtDni().getText().length() == 0
 					|| this.ventana03registro.getTxtNombre().getText().length() == 0
 					|| this.ventana03registro.getTxtApellido().getText().length() == 0
 					|| this.ventana03registro.getPassContrasena().getText().length() == 0
 					|| this.ventana03registro.getPassContrasena2().getText().length() == 0
+					|| this.ventana03registro.getTxtFechaNacimiento().getText().length() == 0 
 					|| (!this.ventana03registro.getCheckHombre().isSelected()
-							&& !this.ventana03registro.getCheckMujer().isSelected())) {
-
-				JOptionPane.showMessageDialog(null, "Debe rellenar todos los campos", "Mensaje de error",
-						JOptionPane.ERROR_MESSAGE);
-
-			} else {
-
-				if (this.ventana03registro.getTxtDni().getText().length() < 9) {
+					&&  !this.ventana03registro.getCheckMujer().isSelected())) {
+					
+					JOptionPane.showMessageDialog(null, "Debe rellenar todos los campos", "Mensaje de error",
+							JOptionPane.ERROR_MESSAGE);
+					
+				} if (this.ventana03registro.getTxtDni().getText().length() < 9) {
 					JOptionPane.showMessageDialog(null, "No ha introducido un DNI válido", "Mensaje de error",
 							JOptionPane.ERROR_MESSAGE);
 					
@@ -80,38 +127,14 @@ public class Controlador03Registro implements MouseListener, KeyListener {
 					JOptionPane.showMessageDialog(null, "No ha repetido la contraseña", "Mensaje de error",
 							JOptionPane.ERROR_MESSAGE);
 
-				} else {
-
-					Cliente cliente;
-
-					if (this.ventana03registro.getCheckHombre().isSelected()) {
-						cliente = new Cliente(this.ventana03registro.getTxtDni().getText(),
-								this.ventana03registro.getTxtNombre().getText(),
-								this.ventana03registro.getTxtApellido().getText(), "x", "H", this.ventana03registro.getPassContrasena().getText());
-
-					} else {
-						cliente = new Cliente(this.ventana03registro.getTxtDni().getText(),
-								this.ventana03registro.getTxtNombre().getText(),
-								this.ventana03registro.getTxtApellido().getText(), "x", "M", this.ventana03registro.getPassContrasena().getText());
-					}
-
-					if (ClienteDao.mRegistrarCliente(cliente)) {
-
-						try {
-							Fichero.mCrearFichero(this.ventana03registro.getTxtDni().getText(),
-									this.ventana03registro.getPassContrasena().getText());
-						} catch (IOException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}
-					}
 				}
+		
 			}
-
-			break;
-
+	
+		break;
+		
 		}
-
+		
 	}
 
 	@Override
@@ -171,6 +194,12 @@ public class Controlador03Registro implements MouseListener, KeyListener {
 			
 		case "Pass2":
 			if(this.ventana03registro.getPassContrasena2().getText().length()>10) {  
+				   e.consume();
+				 }
+			break;
+			
+		case "Nacimiento":
+			if(this.ventana03registro.getTxtFechaNacimiento().getText().length()>10) {  
 				   e.consume();
 				 }
 			break;

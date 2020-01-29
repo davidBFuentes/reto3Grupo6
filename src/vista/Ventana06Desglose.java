@@ -49,6 +49,7 @@ public class Ventana06Desglose{
 		Ventana06Desglose.setBounds(100, 100, 1280, 720);
 		Ventana06Desglose.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Ventana06Desglose.getContentPane().setLayout(null);
+		Ventana06Desglose.setLocationRelativeTo(null);
 	}
 	
 	private void crearBotones() {

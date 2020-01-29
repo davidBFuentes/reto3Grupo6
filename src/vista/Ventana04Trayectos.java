@@ -9,7 +9,6 @@ import javax.swing.border.LineBorder;
 import java.awt.Font;
 
 
-import modelo.Cliente;
 import rojeru_san.RSLabelFecha;
 import rojeru_san.RSLabelHora;
 
@@ -17,10 +16,7 @@ import java.awt.Color;
 import javax.swing.JButton;
 
 import javax.swing.ImageIcon;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
 
 
 public class Ventana04Trayectos {
@@ -28,7 +24,7 @@ public class Ventana04Trayectos {
 	private JFrame frame;
 	private JButton btnSalir;
 	private JButton btnContinuar;
-	private JComboBox comboLineas;
+	private JComboBox<String> comboLineas;
 	private JLabel lblFondoCiudad;
 	private JPanel panel;
 	private JPanel panel_2;
@@ -113,10 +109,9 @@ public class Ventana04Trayectos {
 	
 	public void crearCombobox() {
 		
-		comboLineas = new JComboBox<Object>();
+		comboLineas = new JComboBox<String>();
 		comboLineas.setBounds(21, 24, 396, 62);
 		panel.add(comboLineas);
-		comboLineas.setModel(new DefaultComboBoxModel(new String[] {"Seleccione su l\u00EDnea", "L\u00EDnea 1: Bilbao - Mungia", "L\u00EDnea 2: Bilbao - Donosti", "L\u00EDnea 3: Bilbao - Gernika"}));
 		comboLineas.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
 	
 	}
@@ -137,11 +132,11 @@ public class Ventana04Trayectos {
 		this.btnContinuar = btnContinuar;
 	}
 
-	public JComboBox<?> getComboLineas() {
+	public JComboBox<String> getComboLineas() {
 		return comboLineas;
 	}
 
-	public void setComboLineas(JComboBox<?> comboLineas) {
+	public void setComboLineas(JComboBox<String> comboLineas) {
 		this.comboLineas = comboLineas;
 	}
 

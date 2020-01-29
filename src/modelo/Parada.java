@@ -5,18 +5,22 @@ public class Parada {
 	private String codParada;
 	private String calle;
 	private String nombre;
-	private Float[] coordenadas;
+	private Float latitud;
+	private Float longitud;
+	private String codigoPostal;
 	
 	public Parada() {
 		
 	}
 	
-	public Parada(String codParada, String calle, String nombre, Float[] coordenadas) {
+	public Parada(String pCodParada, String pCalle, String pNombre, Float pLatitud, Float pLongitud, String pCodigoPostal) {
 		
-		this.codParada = codParada;
-		this.calle = calle;
-		this.nombre = nombre;
-		this.coordenadas = coordenadas;
+		this.codParada = pCodParada;
+		this.calle = pCalle;
+		this.nombre = pNombre;
+		this.latitud = pLatitud;
+		this.longitud = pLongitud;
+		this.codigoPostal = pCodigoPostal;
 	}
 
 	public String getCodParada() {
@@ -43,18 +47,30 @@ public class Parada {
 		this.nombre = nombre;
 	}
 
-	public Float[] getCoordenadas() {
-		return coordenadas;
+	public Float getLatitud() {
+		return latitud;
 	}
 
-	public void setCoordenadas(Float[] coordenadas) {
-		this.coordenadas = coordenadas;
+	public void setLatitud(Float latitud) {
+		this.latitud = latitud;
 	}
-	
-	public String toString() {
-		
-		return nombre;	
+
+	public Float getLongitud() {
+		return longitud;
 	}
+
+	public void setLongitud(Float longitud) {
+		this.longitud = longitud;
+	}
+
+	public String getCodigoPostal() {
+		return codigoPostal;
+	}
+
+	public void setCodigoPostal(String codigoPostal) {
+		this.codigoPostal = codigoPostal;
+	}
+
 	
 	
 }

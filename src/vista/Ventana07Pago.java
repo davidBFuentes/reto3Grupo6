@@ -120,6 +120,7 @@ public class Ventana07Pago{
 		Ventana07Pago.setBounds(100, 100, 1280, 720);
 		Ventana07Pago.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Ventana07Pago.getContentPane().setLayout(null);
+		Ventana07Pago.setLocationRelativeTo(null);
 	}
 	
 	private void crearBotones() {

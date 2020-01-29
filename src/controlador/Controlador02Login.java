@@ -4,13 +4,12 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
+
+import metodosDAO.ClienteDAO;
 import modelo.Cliente;
-import modelo.ClienteDao;
-import modelo.Fichero;
 import vista.Ventana02Login;
 import vista.Ventana03Registro;
 import vista.Ventana04Trayectos;
@@ -48,22 +47,29 @@ public class Controlador02Login implements KeyListener, MouseListener {
 		
 			boolean login = false;
 		
-			try {
+				Cliente cliente = new Cliente(this.ventanalogin.getTxtDni().getText(), "x", "x", "x", "x", this.ventanalogin.getTxtContrasena().getText());
+				ArrayList<Cliente> listaclientes = ClienteDAO.mObtenerClientes();
+				for (Cliente cliente1: listaclientes){
+					if(cliente.getContrasena().equals(cliente1.getContrasena())) {
+						login = true;
+						
+					}
+				}
 				
-				login = Fichero.mComprobarFichero(this.ventanalogin.getTxtDni().getText(), this.ventanalogin.getTxtContrasena().getText());
 				
 				if (login == true) {
-					
-					Cliente cliente = new Cliente(this.ventanalogin.getTxtDni().getText(), "x", "x", "x", "x", this.ventanalogin.getTxtContrasena().getText());
-					ArrayList<Cliente> listaclientes = ClienteDao.mObtenerClientes();
-					
+			
 					for (Cliente cliente1: listaclientes){
 						
 						if (cliente.getDni().equals(cliente1.getDni())) {
 							cliente.setNombre(cliente1.getNombre());
 							cliente.setApellido(cliente1.getApellido());
+							cliente.setNacimiento(cliente1.getNacimiento());
 							cliente.setSexo(cliente1.getSexo());
+							cliente.setContrasena(cliente1.getContrasena());
+							JOptionPane.showMessageDialog(null, "Bienvenido, "+ cliente.getNombre(), "Mensaje", JOptionPane.INFORMATION_MESSAGE);
 							Ventana04Trayectos window4 = new Ventana04Trayectos();
+							@SuppressWarnings("unused")
 							Controlador04Trayectos controlador = new Controlador04Trayectos(window4);
 							window4.getFrame().setVisible(true);
 							this.ventanalogin.getLogin().dispose();
@@ -71,17 +77,12 @@ public class Controlador02Login implements KeyListener, MouseListener {
 						
 					}
 					
-					System.out.println("Identificado");
+					
 					
 				} else {
 					
-					System.out.println("Datos incorrectos");
+					JOptionPane.showMessageDialog(null, "Datos incorrectos", "Mensaje", JOptionPane.ERROR_MESSAGE);
 				}
-				
-			} catch (FileNotFoundException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
 				
 			return login;
 		}
@@ -145,7 +146,7 @@ public class Controlador02Login implements KeyListener, MouseListener {
 		case "Omitir":
 				Cliente cliente1 = new Cliente("x", "Invitado", "x", "x", "x", "x");
 				Ventana04Trayectos window4 = new Ventana04Trayectos();
-				Controlador04Trayectos controlador = new Controlador04Trayectos(window4);
+				@SuppressWarnings("unused") Controlador04Trayectos controlador = new Controlador04Trayectos(window4);
 				window4.getFrame().setVisible(true);
 				this.ventanalogin.getLogin().dispose();
 				break;
@@ -153,13 +154,10 @@ public class Controlador02Login implements KeyListener, MouseListener {
 		case "Registrarse":
 			
 				Ventana03Registro window3 = new Ventana03Registro();
-				Controlador03Registro cRegistro = new Controlador03Registro(window3);
+				@SuppressWarnings("unused") Controlador03Registro cRegistro = new Controlador03Registro(window3);
 				window3.getFrame().setVisible(true);	
 				this.ventanalogin.getLogin().dispose();
 				break;
-				
-		case "Numero":
-			
 			
 		}
 		

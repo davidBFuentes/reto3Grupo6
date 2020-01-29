@@ -3,18 +3,16 @@ package modelo;
 public class Linea {
 	
 	private String codLinea;
-	private Autobus autobus;
-	private Municipio municipio;
+	private String nombre;
 	
 	public Linea() {
 		
 	}
 	
-	public Linea(String codLinea, Autobus autobus, Municipio municipio) {
+	public Linea(String codLinea, String nombre) {
 		
 		this.codLinea = codLinea;
-		this.autobus = autobus;
-		this.municipio = municipio;
+		this.nombre = nombre;
 		
 	}
 
@@ -26,20 +24,13 @@ public class Linea {
 		this.codLinea = codLinea;
 	}
 
-	public Autobus getAutobus() {
-		return autobus;
+
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setAutobus(Autobus autobus) {
-		this.autobus = autobus;
-	}
-
-	public Municipio getMunicipio() {
-		return municipio;
-	}
-
-	public void setMunicipio(Municipio municipio) {
-		this.municipio = municipio;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 }

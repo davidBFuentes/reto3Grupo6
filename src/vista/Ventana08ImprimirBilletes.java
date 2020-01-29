@@ -65,6 +65,7 @@ public class Ventana08ImprimirBilletes{
 		Ventana7ImprimirBilletes.setBounds(100, 100, 1280, 720);
 		Ventana7ImprimirBilletes.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Ventana7ImprimirBilletes.getContentPane().setLayout(null);
+		Ventana7ImprimirBilletes.setLocationRelativeTo(null);
 	}
 	
 	private void crearBotones() {
