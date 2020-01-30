@@ -12,14 +12,14 @@ public class Billete {
 	private String fecha;
 	private String hora;
 	private String dni;
-	private String precio;
+	private double precio;
 	
 	public Billete () {
 		
 	}
 	
 	public Billete (String pCod_Billete, String pCod_Linea, String pCod_Bus, int pCod_Parada_Inicio, 
-			String pNombre_Parada_Origen, int pCod_Parada_Fin, String pNombre_Parada_Destino, String pFecha, String pHora, String pDni, String pPrecio) {
+			String pNombre_Parada_Origen, int pCod_Parada_Fin, String pNombre_Parada_Destino, String pFecha, String pHora, String pDni, double pPrecio) {
 		
 		this.cod_Billete = pCod_Billete;
 		this.cod_Linea = pCod_Linea;
@@ -99,11 +99,11 @@ public class Billete {
 		this.dni = dni;
 	}
 
-	public String getPrecio() {
+	public double getPrecio() {
 		return precio;
 	}
 
-	public void setPrecio(String precio) {
+	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
 

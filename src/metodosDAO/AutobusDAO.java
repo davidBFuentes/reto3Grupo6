@@ -50,4 +50,12 @@ public class AutobusDAO {
 		return autobus;
 	}
 	
+	public boolean mComprobarAsientos() {
+		
+		
+		
+		return true;
+
+	}
+	
 }
