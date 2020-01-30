@@ -32,9 +32,9 @@ public class BilleteDAO {
 		    cs.setInt(4, billete.getCod_Parada_Inicio());
 		    cs.setInt(5, billete.getCod_Parada_Fin());
 		    cs.setString(6, billete.getFecha());
-		    cs.setString(5, billete.getHora());
-		    cs.setString(6, billete.getDni());
-		    cs.setDouble(6, billete.getPrecio());
+		    cs.setString(7, billete.getHora());
+		    cs.setString(8, billete.getDni());
+		    cs.setDouble(9, billete.getPrecio());
 		    
 		    
 		    cs.execute();

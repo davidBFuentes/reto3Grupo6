@@ -46,16 +46,47 @@ public class AutobusDAO {
 			e.printStackTrace();
 		}
 		
-		System.out.println(autobus.getColor());
 		return autobus;
+		
 	}
 	
-	public boolean mComprobarAsientos() {
+	public boolean mComprobarAsientosLibres(Autobus autobus, Billete billete) {
 		
+		Connection co =null;
+		Statement stm= null;
+		ResultSet rs=null;
 		
+		String sql = "SELECT max(Cod_Billete) from billete where Fecha = '" + billete.getFecha() + "' && Cod_Bus = '" + billete.getCod_Bus() + "' && Hora = '" + billete.getHora() + "';"; 
+		int billetesvendidos = 0;
 		
-		return true;
-
+		try {			
+			co= ConexionBus.conectar();
+			stm=co.createStatement();
+			rs=stm.executeQuery(sql);
+			while (rs.next()) {
+				
+				billetesvendidos = (rs.getInt(1)); 
+					
+			}
+			
+			stm.close();
+			rs.close();
+			co.close();
+		} catch (SQLException e) {
+			System.out.println("Error: Clase AutobusDAO, método mObtenerAsientosLibres");
+			e.printStackTrace();
+		}
+		
+		if (autobus.getNumPlazas() - billetesvendidos == 0) {
+			
+			return false;
+			
+		} else {
+			
+			return true;
+			
+		}
+		
 	}
 	
 }
