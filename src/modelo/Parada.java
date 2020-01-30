@@ -92,38 +92,29 @@ public class Parada implements Comparable<Parada> {
 		return distanciaEuclidea;
 		
 	}
-	
-
-
- 	public static int calcularDistanciaEntreParadas(double lon1, double lat1, double lon2, double lat2) {
-
-		double earthRadius = 6371; // km
-		
-		lat1 = Math.toRadians(lat1);
-		lon1 = Math.toRadians(lon1);
-		lat2 = Math.toRadians(lat2);
-		lon2 = Math.toRadians(lon2);
-		
-		double dLon = (lon2 - lon1);
-		double dLat = (lat2 - lat1);
-		
-		double sinLat = Math.sin(dLat / 2);
-		double sinLon = Math.sin(dLon / 2);
-		
-		double a = (sinLat * sinLat) + Math.cos(lat1)*Math.cos(lat2)*(sinLon*sinLon);
-		double c = 2 * Math.asin (Math.min(1.0, Math.sqrt(a)));
-		
-		double distanceInKM = earthRadius * c;
-		
-		return (int)distanceInKM;
-	
-	 }
+ 	
+ 	public static Double calcularDistanciaEntreParadas(double lon1, double lat1, double lon2, double lat2) {
+ 	
+ 		final int R = 6371; // Radio de la tierra
+ 
+ 		Double latDistancia = toRad(lat2-lat1);
+ 		Double lonDistancia = toRad(lon2-lon1);
+ 		Double a = Math.sin(latDistancia / 2) * Math.sin(latDistancia / 2) + 
+ 		Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * 
+ 		Math.sin(lonDistancia / 2) * Math.sin(lonDistancia / 2);
+ 		Double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+ 		Double distancia = R * c;
+ 		 
+		return distancia;
+ 	}
+ 	
+	private static Double toRad(Double value) {
+		return value * Math.PI / 180;
+	}
  	
  	public int calcularDistanciaBillete() {
 	
  		return 0;
- 		
- 		
  	}
  	
     @Override
