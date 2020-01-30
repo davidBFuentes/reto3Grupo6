@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import metodosDAO.ClienteDAO;
+import modelo.Billete;
 import modelo.Cliente;
 import vista.Ventana02Login;
 import vista.Ventana03Registro;
@@ -67,12 +68,16 @@ public class Controlador02Login implements KeyListener, MouseListener {
 							cliente.setNacimiento(cliente1.getNacimiento());
 							cliente.setSexo(cliente1.getSexo());
 							cliente.setContrasena(cliente1.getContrasena());
+							Billete billete = new Billete();
+							billete.setDni(cliente.getDni());
 							JOptionPane.showMessageDialog(null, "Bienvenido, "+ cliente.getNombre(), "Mensaje", JOptionPane.INFORMATION_MESSAGE);
 							Ventana04Trayectos window4 = new Ventana04Trayectos();
 							@SuppressWarnings("unused")
-							Controlador04Trayectos controlador = new Controlador04Trayectos(window4);
+							Controlador04Trayectos controlador = new Controlador04Trayectos(window4, billete);
 							window4.getFrame().setVisible(true);
 							this.ventanalogin.getLogin().dispose();
+							
+
 						}
 						
 					}
@@ -102,6 +107,7 @@ public class Controlador02Login implements KeyListener, MouseListener {
 
 		case "pass":
 			 if(this.ventanalogin.getTxtContrasena().getText().length()>9) {  
+				 
 				   e.consume();
 				 }
 			break;
@@ -146,7 +152,8 @@ public class Controlador02Login implements KeyListener, MouseListener {
 		case "Omitir":
 				Cliente cliente1 = new Cliente("x", "Invitado", "x", "x", "x", "x");
 				Ventana04Trayectos window4 = new Ventana04Trayectos();
-				@SuppressWarnings("unused") Controlador04Trayectos controlador = new Controlador04Trayectos(window4);
+				Billete billete = new Billete();
+				@SuppressWarnings("unused") Controlador04Trayectos controlador = new Controlador04Trayectos(window4, billete);
 				window4.getFrame().setVisible(true);
 				this.ventanalogin.getLogin().dispose();
 				break;

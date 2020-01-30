@@ -195,6 +195,7 @@ public class Ventana03Registro {
 		passContrasena2.setBorder(new LineBorder(Color.BLACK, 2));
 		
 		txtFechaNacimiento = new JTextField();
+		txtFechaNacimiento.setText("aaaa/mm/dd");
 		txtFechaNacimiento.setBounds(366, 293, 300, 75);
 		panel_1.add(txtFechaNacimiento);
 		txtFechaNacimiento.setHorizontalAlignment(SwingConstants.CENTER);

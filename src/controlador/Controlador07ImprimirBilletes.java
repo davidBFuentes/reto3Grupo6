@@ -5,7 +5,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import vista.Ventana01Bienvenida;
-import vista.Ventana06Desglose;
 import vista.Ventana08ImprimirBilletes;
 import vista.Ventana09Fin;
 

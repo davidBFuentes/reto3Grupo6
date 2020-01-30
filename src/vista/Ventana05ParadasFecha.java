@@ -3,8 +3,6 @@ package vista;
 import javax.swing.JFrame;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
-import javax.swing.ButtonGroup;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 
 import java.awt.Color;
@@ -17,18 +15,16 @@ import rojeru_san.RSLabelHora;
 import javax.swing.JCheckBox;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
-
-import javax.swing.event.ChangeListener;
-import javax.swing.event.ChangeEvent;
+import javax.swing.DefaultComboBoxModel;
 
 
 public class Ventana05ParadasFecha {
 
 
+	private static final int MAX_MESES = 6;
+	
 	private JFrame frame;
 	private JButton btnProcederAlPago;
 	private JButton btnSalir;
@@ -36,10 +32,12 @@ public class Ventana05ParadasFecha {
 	private JLabel lblVuelta;
 	private JLabel lblOrigenVuelta;
 	private JLabel lblDestinoVuelta;
-	private JComboBox<String> cbxOrigenIda;
-	private JComboBox<String> cbxDestinoIda;
-	private JComboBox<String> cbxOrigenVuelta;
-	private JComboBox<String> cbxDestinoVuelta;
+	private JComboBox<Parada> cbxOrigenIda;
+	private JComboBox<Parada> cbxDestinoIda;
+	private JComboBox<Parada> cbxOrigenVuelta;
+	private JComboBox<Parada> cbxDestinoVuelta;
+	private JComboBox<String> cbxHorariosIda;
+	private JComboBox<String> cbxHorariosVuelta;
 	private JCheckBox chkbxIdaYVuelta;
 	private JDateChooser dateChooserIda;
 	private JDateChooser dateChooserVuelta;
@@ -48,6 +46,8 @@ public class Ventana05ParadasFecha {
 
 	private String fechaIda;
 	private String fechaVuelta;
+	private JLabel lblHoraIda;
+	private JLabel lblHoraVuelta;
 	
 
 	
@@ -97,7 +97,7 @@ public class Ventana05ParadasFecha {
 		
 		JLabel lblOrigenIda = new JLabel("Origen:");
 		lblOrigenIda.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblOrigenIda.setBounds(91, 181, 67, 22);
+		lblOrigenIda.setBounds(100, 181, 67, 22);
 		frame.getContentPane().add(lblOrigenIda);
 		
 		JLabel lblDestinoIda = new JLabel("Destino:");
@@ -133,25 +133,38 @@ public class Ventana05ParadasFecha {
 		
 	private void crearComboBox() {
 		
-		cbxOrigenIda = new JComboBox<String>();
+		cbxOrigenIda = new JComboBox<Parada>();
+		cbxOrigenIda.setModel(new DefaultComboBoxModel(new String[] {"Seleccione su parada de origen"}));
 		cbxOrigenIda.setBounds(170, 180, 160, 23);
-	//	cbxOrigen.setModel(new DefaultComboBoxModel(new String[] {"Seleccione su l\u00EDnea", "L\u00EDnea 1: Bilbao - Mungia", "L\u00EDnea 2: Bilbao - Donosti", "L\u00EDnea 3: Bilbao - Gernika"}));
 		frame.getContentPane().add(cbxOrigenIda);
 		
-		cbxDestinoIda = new JComboBox<String>();
+		cbxDestinoIda = new JComboBox<Parada>();
+		cbxDestinoIda.setModel(new DefaultComboBoxModel(new String[] {"Seleccione su parada de destino"}));
 		cbxDestinoIda.setBounds(170, 238, 160, 23);
-		//cbxVuelta.setModel(new DefaultComboBoxModel(new String[] {"Seleccione su l\u00EDnea", "L\u00EDnea 1: Bilbao - Mungia", "L\u00EDnea 2: Bilbao - Donosti", "L\u00EDnea 3: Bilbao - Gernika"}));
 		frame.getContentPane().add(cbxDestinoIda);
 		
-		cbxOrigenVuelta = new JComboBox<String>();
+		cbxOrigenVuelta = new JComboBox<Parada>();
+		cbxOrigenVuelta.setModel(new DefaultComboBoxModel(new String[] {"Seleccione su parada de origen"}));
 		cbxOrigenVuelta.setBounds(813, 183, 160, 23);
 		frame.getContentPane().add(cbxOrigenVuelta);
 		cbxOrigenVuelta.setVisible(false);
 		
-		cbxDestinoVuelta = new JComboBox<String>();
-		cbxDestinoVuelta.setBounds(813, 238, 160, 23);
+		cbxDestinoVuelta = new JComboBox<Parada>();
+		cbxDestinoVuelta.setModel(new DefaultComboBoxModel(new String[] {"Seleccione su parada de destino"}));
+		cbxDestinoVuelta.setBounds(813, 239, 160, 23);
 		frame.getContentPane().add(cbxDestinoVuelta);
 		cbxDestinoVuelta.setVisible(false);
+		
+		cbxHorariosIda = new JComboBox<String>();
+		cbxHorariosIda.setModel(new DefaultComboBoxModel(new String[] {"Seleccione hora"}));
+		cbxHorariosIda.setBounds(170, 294, 160, 23);
+		frame.getContentPane().add(cbxHorariosIda);
+		
+		cbxHorariosVuelta = new JComboBox<String>();
+		cbxHorariosVuelta.setModel(new DefaultComboBoxModel(new String[] {"Seleccione hora"}));
+		cbxHorariosVuelta.setBounds(813, 294, 160, 23);
+		frame.getContentPane().add(cbxHorariosVuelta);
+		cbxHorariosVuelta.setVisible(false);
 	}
 	
 	private void crearCalendarios() {
@@ -164,7 +177,7 @@ public class Ventana05ParadasFecha {
 		
 		Calendar cal = Calendar.getInstance();
 		Date localDate = cal.getTime();
-		cal.add(Calendar.MONTH, 6);
+		cal.add(Calendar.MONTH, MAX_MESES);
 		Date maxDate = cal.getTime();
 		
 		dateChooserIda = new JDateChooser();
@@ -173,8 +186,6 @@ public class Ventana05ParadasFecha {
 		dateChooserIda.setMinSelectableDate(localDate);
 		dateChooserIda.setMaxSelectableDate(maxDate);
 
-		
-		
 		dateChooserVuelta = new JDateChooser();
 		dateChooserVuelta.setBounds(930, 373, 111, 22);
 		frame.getContentPane().add(dateChooserVuelta);
@@ -192,6 +203,7 @@ public class Ventana05ParadasFecha {
 	}
 		
 	private void crearFechaHora() {
+		
 		RSLabelHora labelHora = new RSLabelHora();
 		labelHora.setForeground(Color.BLACK);
 		labelHora.setBounds(1050, 13, 200, 40);
@@ -201,6 +213,16 @@ public class Ventana05ParadasFecha {
 		labelFecha.setForeground(Color.BLACK);
 		labelFecha.setBounds(12, 13, 200, 40);
 		frame.getContentPane().add(labelFecha);
+		
+		lblHoraIda = new JLabel("Hora:");
+		lblHoraIda.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblHoraIda.setBounds(110, 295, 48, 14);
+		frame.getContentPane().add(lblHoraIda);
+		
+		lblHoraVuelta = new JLabel("Hora:");
+		lblHoraVuelta.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblHoraVuelta.setBounds(734, 295, 48, 14);
+		frame.getContentPane().add(lblHoraVuelta);
 		
 
 	}
@@ -254,22 +276,22 @@ public class Ventana05ParadasFecha {
 		return lblSeleccionFechaVuelta;
 	}
 	
-	public JComboBox<String> getComboBoxOrigenIda() {
+	public JComboBox<Parada> getComboBoxOrigenIda() {
 		
 		return cbxOrigenIda;
 	}
 	
-	public JComboBox<String> getComboBoxDestinoIda() {
+	public JComboBox<Parada> getComboBoxDestinoIda() {
 		
 		return cbxDestinoIda;
 	}
 	
-	public JComboBox<String> getComboBoxOrigenVuelta() {
+	public JComboBox<Parada> getComboBoxOrigenVuelta() {
 		
 		return cbxOrigenVuelta;
 	}
 	
-	public JComboBox<String> getComboBoxDestinoVuelta() {
+	public JComboBox<Parada> getComboBoxDestinoVuelta() {
 		
 		return cbxDestinoVuelta;
 	}
@@ -282,19 +304,41 @@ public class Ventana05ParadasFecha {
 		return dateChooserVuelta;
 	}
 	
-	public String getFechaIda() {
-		
-		formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
-		fechaIda = formatoFecha.format(dateChooserIda.getDate());
-		return fechaIda;
-			
+
+	public JComboBox<String> getComboBoxHorariosIda() {
+		return cbxHorariosIda;
+	}
+
+	public void setComboBoxHorariosIda(JComboBox<String> horarios) {
+		cbxHorariosIda = horarios;
+	}
+
+	public JComboBox<String> getComboBoxHorariosVuelta() {
+		return cbxHorariosVuelta;
+	}
+
+	public void setComboBoxHorariosVuelta(JComboBox<String> cbxHorariosVuelta) {
+		this.cbxHorariosVuelta = cbxHorariosVuelta;
 	}
 	
-	public String getFechaVuelta() {
-		
-		formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
-		fechaIda = formatoFecha.format(dateChooserVuelta.getDate());
-		return fechaVuelta;
+	public String getFechaIda() {
 			
-	}
+			try{
+				formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+				fechaIda = formatoFecha.format(dateChooserIda.getDate());
+			}
+			catch(NullPointerException e){
+				return null;
+			}
+			return fechaIda;
+				
+		}
+		
+		public String getFechaVuelta() {
+			
+			formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+			fechaIda = formatoFecha.format(dateChooserVuelta.getDate());
+			return fechaVuelta;
+				
+		}
 }

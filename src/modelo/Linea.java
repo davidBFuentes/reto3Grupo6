@@ -32,6 +32,12 @@ public class Linea {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	
+	public String toString() {
+		
+		return this.getCodLinea() + " " + this.getNombre();
+		
+	}
 
 }
 

@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 import metodosDAO.LineaDAO;
+import modelo.Billete;
 import modelo.Linea;
 import vista.Ventana01Bienvenida;
 import vista.Ventana04Trayectos;
@@ -19,15 +20,20 @@ import vista.Ventana05ParadasFecha;
 public class Controlador04Trayectos implements MouseListener, MouseMotionListener, ActionListener {
 	
 	private Ventana04Trayectos ventanatrayectos;
+	private Billete billete;
 	
-	public Controlador04Trayectos (Ventana04Trayectos pVentana02) {
+	public Controlador04Trayectos (Ventana04Trayectos pVentana02, Billete pBillete) {
+		
 		
 		this.ventanatrayectos = pVentana02;
+		this.billete = pBillete;
+		
 		mIniciarControlador();
 		
 	}
 	
-	private void mIniciarControlador() {
+	private void mIniciarControlador( ) {
+		
 		
 		this.ventanatrayectos.getBtnContinuar().addMouseListener(this);
 		this.ventanatrayectos.getBtnContinuar().setName("Continuar");
@@ -37,9 +43,10 @@ public class Controlador04Trayectos implements MouseListener, MouseMotionListene
 		this.ventanatrayectos.getComboLineas().setActionCommand("Combo");
 		
 		ArrayList <Linea> listalineas = LineaDAO.mObtenerLineas();
-		this.ventanatrayectos.getComboLineas().addItem("Seleccione su línea");
+		
 		for (Linea linea : listalineas) {
-			this.ventanatrayectos.getComboLineas().addItem(linea.getCodLinea()+ " " + linea.getNombre());
+			this.ventanatrayectos.getComboLineas().addItem(linea);
+
 		}
 		
 	
@@ -53,23 +60,14 @@ public class Controlador04Trayectos implements MouseListener, MouseMotionListene
 			case "Continuar":
 				if (this.ventanatrayectos.getComboLineas().getSelectedIndex() != 0) {
 					
-					Linea linea = new Linea(this.ventanatrayectos.getComboLineas().getSelectedItem().toString().substring
-					(0, this.ventanatrayectos.getComboLineas().getSelectedItem().toString().indexOf(' ')), "null");
+					Linea linea = new Linea();
+					linea = (Linea) this.ventanatrayectos.getComboLineas().getSelectedItem();
+					billete.setCod_Linea(linea.getCodLinea());
+					Ventana05ParadasFecha window = new Ventana05ParadasFecha();
+					Controlador05ParadasFecha controlador = new Controlador05ParadasFecha(window, linea, billete);
+					window.getFrame().setVisible(true);
+					this.ventanatrayectos.getFrame().dispose();
 					
-					ArrayList <Linea> listalineas = LineaDAO.mObtenerLineas();
-					
-					for (Linea linea1 : listalineas) {
-						
-						if (linea.getCodLinea().equals(linea1.getCodLinea())) {
-							Linea linea2 = new Linea(linea.getCodLinea(), linea.getNombre());
-							Ventana05ParadasFecha window = new Ventana05ParadasFecha();
-							Controlador05ParadasFecha controlador = new Controlador05ParadasFecha(window, linea2);
-							window.getFrame().setVisible(true);
-							this.ventanatrayectos.getFrame().dispose();
-						}	
-					}
-					
-				
 				}  else {
 							
 					JOptionPane.showMessageDialog(null, "Ha de seleccionar una línea para continuar", "Mensaje de error",JOptionPane.ERROR_MESSAGE);

@@ -6,6 +6,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
+import modelo.Linea;
+
 import java.awt.Font;
 
 
@@ -17,6 +19,8 @@ import javax.swing.JButton;
 
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import java.awt.Cursor;
 
 
 public class Ventana04Trayectos {
@@ -24,7 +28,7 @@ public class Ventana04Trayectos {
 	private JFrame frame;
 	private JButton btnSalir;
 	private JButton btnContinuar;
-	private JComboBox<String> comboLineas;
+	private JComboBox <Linea> comboLineas;
 	private JLabel lblFondoCiudad;
 	private JPanel panel;
 	private JPanel panel_2;
@@ -87,6 +91,7 @@ public class Ventana04Trayectos {
 	private void crearEtiquetas() {
 		
 		lblFondoCiudad = new JLabel("");
+		lblFondoCiudad.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		lblFondoCiudad.setIcon(new ImageIcon(Ventana04Trayectos.class.getResource("/imagenes/fondoBilbao.png")));
 		lblFondoCiudad.setBounds(21, 24, 1160, 582);
 		panel.add(lblFondoCiudad);
@@ -109,8 +114,12 @@ public class Ventana04Trayectos {
 	
 	public void crearCombobox() {
 		
-		comboLineas = new JComboBox<String>();
-		comboLineas.setBounds(21, 24, 396, 62);
+		comboLineas = new JComboBox<Linea>();
+		comboLineas.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+		comboLineas.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		comboLineas.setMaximumRowCount(4);
+		comboLineas.setModel(new DefaultComboBoxModel(new String[] {"Elija su l\u00EDnea"}));
+		comboLineas.setBounds(21, 24, 389, 62);
 		panel.add(comboLineas);
 		comboLineas.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
 	
@@ -132,11 +141,11 @@ public class Ventana04Trayectos {
 		this.btnContinuar = btnContinuar;
 	}
 
-	public JComboBox<String> getComboLineas() {
+	public JComboBox<Linea> getComboLineas() {
 		return comboLineas;
 	}
 
-	public void setComboLineas(JComboBox<String> comboLineas) {
+	public void setComboLineas(JComboBox<Linea> comboLineas) {
 		this.comboLineas = comboLineas;
 	}
 

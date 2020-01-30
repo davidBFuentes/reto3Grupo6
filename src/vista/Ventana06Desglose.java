@@ -4,11 +4,7 @@ import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JButton;
-import javax.swing.JComponent;
-
 import java.awt.Font;
-import java.awt.Window;
-
 import javax.swing.SwingConstants;
 
 import rojeru_san.RSLabelFecha;

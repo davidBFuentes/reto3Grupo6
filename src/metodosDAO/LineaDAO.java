@@ -40,5 +40,35 @@ public class LineaDAO {
 		
 		return listalineas;
 	}
+	
+	public static Linea mObtenerLinea(Linea linea) {
+		
+		Connection co =null;
+		Statement stm= null;
+		ResultSet rs=null;
+		
+		String sql="SELECT * FROM linea where Cod_Linea = '" + linea.getCodLinea() + "';";
+		
+		
+		try {			
+			co= ConexionBus.conectar();
+			stm=co.createStatement();
+			rs=stm.executeQuery(sql);
+			while (rs.next()) {
+				Linea l=new Linea();
+				l.setCodLinea(rs.getString(1));
+				l.setNombre(rs.getString(2));
+			}
+			stm.close();
+			rs.close();
+			co.close();
+		} catch (SQLException e) {
+			System.out.println("Error: Clase LineaDAO, método mObtenerLinea");
+			e.printStackTrace();
+		}
+		
+		
+		return linea;
+	}
 
 }

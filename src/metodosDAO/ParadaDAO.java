@@ -18,7 +18,6 @@ public class ParadaDAO {
 		ResultSet rs=null;
 		
 		String sql= "SELECT * from parada where Cod_Parada in (select Cod_Parada from `linea-parada` where cod_linea = " + "'" + linea.getCodLinea() + "'" + ");";
-		
 		ArrayList<Parada> listaParadas = new ArrayList<Parada>();
 		
 		try {			
@@ -27,7 +26,7 @@ public class ParadaDAO {
 			rs=stm.executeQuery(sql);
 			while (rs.next()) {
 				Parada parada=new Parada();
-				parada.setCodParada(rs.getString(1));
+				parada.setCodParada(rs.getInt(1));
 				parada.setNombre(rs.getString(2));
 				parada.setCalle(rs.getString(3));
 				parada.setLongitud(rs.getFloat(4));

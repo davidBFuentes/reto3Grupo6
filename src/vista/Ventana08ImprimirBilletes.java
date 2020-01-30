@@ -5,8 +5,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.Font;
-import java.awt.Window;
-
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import rojeru_san.RSLabelFecha;

@@ -1,19 +1,20 @@
 package modelo;
 
-public class Parada {
+public class Parada implements Comparable<Parada> {
 	
-	private String codParada;
+	private int codParada;
 	private String calle;
 	private String nombre;
 	private Float latitud;
 	private Float longitud;
 	private String codigoPostal;
+	private double distanciaATermibus;
 	
 	public Parada() {
 		
 	}
 	
-	public Parada(String pCodParada, String pCalle, String pNombre, Float pLatitud, Float pLongitud, String pCodigoPostal) {
+	public Parada(int pCodParada, String pCalle, String pNombre, Float pLatitud, Float pLongitud, String pCodigoPostal) {
 		
 		this.codParada = pCodParada;
 		this.calle = pCalle;
@@ -23,11 +24,11 @@ public class Parada {
 		this.codigoPostal = pCodigoPostal;
 	}
 
-	public String getCodParada() {
+	public int getCodParada() {
 		return codParada;
 	}
 
-	public void setCodParada(String codParada) {
+	public void setCodParada(int codParada) {
 		this.codParada = codParada;
 	}
 
@@ -70,7 +71,72 @@ public class Parada {
 	public void setCodigoPostal(String codigoPostal) {
 		this.codigoPostal = codigoPostal;
 	}
-
 	
+	public void setDistanciaATermibus(double distanciaATermibus) {
+		this.distanciaATermibus = distanciaATermibus;
+	}
+	
+	public double getDistanciaATermibus() {
+		return distanciaATermibus;
+	}
+	
+	public String toString () {
+		
+		return this.getNombre();
+	}
+	
+	public static double calcularDistanciaEuclidea(double lon1, double lat1, double lon2, double lat2) {
+		
+		double distanciaEuclidea = Math.hypot((lon2-lon1), (lat2 - lat1));
+		
+		return distanciaEuclidea;
+		
+	}
+	
+
+
+ 	public static int calcularDistanciaEntreParadas(double lon1, double lat1, double lon2, double lat2) {
+
+		double earthRadius = 6371; // km
+		
+		lat1 = Math.toRadians(lat1);
+		lon1 = Math.toRadians(lon1);
+		lat2 = Math.toRadians(lat2);
+		lon2 = Math.toRadians(lon2);
+		
+		double dLon = (lon2 - lon1);
+		double dLat = (lat2 - lat1);
+		
+		double sinLat = Math.sin(dLat / 2);
+		double sinLon = Math.sin(dLon / 2);
+		
+		double a = (sinLat * sinLat) + Math.cos(lat1)*Math.cos(lat2)*(sinLon*sinLon);
+		double c = 2 * Math.asin (Math.min(1.0, Math.sqrt(a)));
+		
+		double distanceInKM = earthRadius * c;
+		
+		return (int)distanceInKM;
+	
+	 }
+ 	
+ 	public int calcularDistanciaBillete() {
+	
+ 		return 0;
+ 		
+ 		
+ 	}
+ 	
+    @Override
+    public int compareTo(Parada o) {
+        if (this.distanciaATermibus < o.distanciaATermibus) {
+            return -1;
+        }
+        if (this.distanciaATermibus > o.distanciaATermibus) {
+            return 1;
+        }
+        return 0;
+    }
 	
 }
+
+

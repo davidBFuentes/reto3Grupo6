@@ -4,7 +4,7 @@ public class Autobus {
 	
 	private String codAutobus;
 	private int numPlazas;
-	private float consumo;
+	private double consumo;
 	private String color;
 	
 	public Autobus() {
@@ -31,11 +31,11 @@ public class Autobus {
 		this.numPlazas = numPlazas;
 	}
 
-	public float getConsumo() {
+	public double getConsumo() {
 		return consumo;
 	}
 
-	public void setConsumo(float consumo) {
+	public void setConsumo(double consumo) {
 		this.consumo = consumo;
 	}
 

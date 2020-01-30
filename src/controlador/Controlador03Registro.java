@@ -5,10 +5,13 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import javax.swing.JOptionPane;
 
 import metodosDAO.ClienteDAO;
+import modelo.Billete;
 import modelo.Cliente;
 import modelo.Fichero;
 import vista.Ventana01Bienvenida;
@@ -71,7 +74,8 @@ public class Controlador03Registro implements MouseListener, KeyListener {
 					|| this.ventana03registro.getCheckMujer().isSelected())
 					&& this.ventana03registro.getTxtDni().getText().length() == 9
 					&& this.ventana03registro.getPassContrasena().getText().equals
-					(this.ventana03registro.getPassContrasena2().getText())) {
+					(this.ventana03registro.getPassContrasena2().getText())
+					&& validarFecha(this.ventana03registro.getTxtFechaNacimiento().getText()) == true) {
 				
 					Cliente cliente;
 	
@@ -97,8 +101,10 @@ public class Controlador03Registro implements MouseListener, KeyListener {
 						}
 						
 						JOptionPane.showMessageDialog(null, "Registro realizado  con éxito", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+						Billete billete = new Billete();
+						billete.setDni(cliente.getDni());
 						Ventana04Trayectos window1 = new Ventana04Trayectos();
-						Controlador04Trayectos controlador = new Controlador04Trayectos(window1);
+						Controlador04Trayectos controlador = new Controlador04Trayectos(window1, billete);
 						window1.getFrame().setVisible(true);
 						this.ventana03registro.getFrame().dispose();
 					}
@@ -127,6 +133,9 @@ public class Controlador03Registro implements MouseListener, KeyListener {
 					JOptionPane.showMessageDialog(null, "No ha repetido la contraseña", "Mensaje de error",
 							JOptionPane.ERROR_MESSAGE);
 
+				} if (validarFecha(this.ventana03registro.getTxtFechaNacimiento().getText()) == false) {
+					JOptionPane.showMessageDialog(null, "Formato de fecha inválido, ha de ser aaaa/mm/dd", "Mensaje de error",
+							JOptionPane.ERROR_MESSAGE);
 				}
 		
 			}
@@ -219,4 +228,15 @@ public class Controlador03Registro implements MouseListener, KeyListener {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public static boolean validarFecha(String fecha) {
+        try {
+            SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy/MM/dd");
+            formatoFecha.setLenient(false);
+            formatoFecha.parse(fecha);
+        } catch (ParseException e) {
+            return false;
+        }
+        return true;
+    }
 }

@@ -2,8 +2,6 @@ package vista;
 
 
 import java.awt.Color;
-import java.awt.Component;
-
 import javax.swing.JFrame;
 import rojeru_san.RSLabelFecha;
 import rojeru_san.RSLabelHora;
@@ -24,7 +22,6 @@ public class Ventana07Pago{
 
 	public JFrame Ventana07Pago;
 	private JTextField txtIntroducido;
-	private JFrame frame;
 	private JButton btnSalir;
 	private JButton btnContinuar;
 	private JButton btn_0;

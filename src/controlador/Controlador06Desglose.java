@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-
+import modelo.Billete;
 import vista.Ventana01Bienvenida;
 
 import vista.Ventana06Desglose;
@@ -17,10 +17,12 @@ import vista.Ventana07Pago;
 public class Controlador06Desglose implements MouseListener {
 
 	private Ventana06Desglose ventanadeglose;
+	private Billete billete;
 	
-	public Controlador06Desglose (Ventana06Desglose pVentana06) {
+	public Controlador06Desglose (Ventana06Desglose pVentana06, Billete pBillete) {
 		
 		this.ventanadeglose = pVentana06;
+		this.billete = pBillete;
 		mIniciarControlador();
 		
 		
