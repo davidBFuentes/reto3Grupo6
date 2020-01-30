@@ -32,6 +32,8 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 	private Billete billete;
 	ArrayList<Parada> listaParadas;
 	ArrayList<String> horarios;
+	ArrayList<Parada> paradasBillete;
+	Autobus autobus;
 	
 	public Controlador05ParadasFecha (Ventana05ParadasFecha pVentana05, Linea pLinea, Billete pBillete) {
 		
@@ -40,6 +42,7 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 		this.billete = pBillete;
 		listaParadas = ParadaDAO.mObtenerParadas(linea);
 		horarios = HorariosDAO.mObtenerHorarios(linea);
+
 		
 		
 		mIniciarControlador();
@@ -137,7 +140,7 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 	
 	public double calcularDistanciaBillete(ArrayList<Parada> listaParadas) {
 			
-		ArrayList<Parada> paradasBillete = new ArrayList<>();
+		paradasBillete = new ArrayList<>();
 	
 		double distanciaTotal = 0;
 		double distancia;
@@ -160,6 +163,16 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 		
 		return distanciaTotal; 	
 			
+	}
+	
+	public void calcularPrecioBillete() {
+		
+		double costeTotal = calcularDistanciaBillete(paradasBillete) * autobus.getConsumo() * Autobus.PRECIO_DIESEL * autobus.getNumPlazas();
+		double beneficioTotal = costeTotal * 0.2;
+		double beneficioPorBillete = beneficioTotal / autobus.getNumPlazas();
+		double costePorBillete = (calcularDistanciaBillete(paradasBillete) * autobus.getConsumo() * Autobus.PRECIO_DIESEL) + beneficioPorBillete;
+ 		
+		billete.setPrecio(costePorBillete);
 	}
 	
 	
@@ -195,10 +208,12 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 				billete.setFecha(this.ventanaParadasFecha.getFechaIda());
 				billete.setHora(this.ventanaParadasFecha.getComboBoxHorariosIda().getSelectedItem().toString());
 				System.out.println(calcularDistanciaBillete(listaParadas) + "km");
-				Autobus autobus = new Autobus();
 				autobus = AutobusDAO.mObtenerBus(billete);
+				calcularPrecioBillete();
+				System.out.println(billete.getPrecio() + "€");
 				System.out.println(autobus.getCodAutobus());
 				System.out.println(autobus.getConsumo());
+
 				Ventana06Desglose window1 = new Ventana06Desglose();
 				Controlador06Desglose controlador = new Controlador06Desglose(window1, billete);
 				window1.getFrame().setVisible(true);

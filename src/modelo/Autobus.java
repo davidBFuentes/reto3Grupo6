@@ -2,6 +2,8 @@ package modelo;
 
 public class Autobus {
 	
+	public static final double PRECIO_DIESEL = 0.8;
+	
 	private String codAutobus;
 	private int numPlazas;
 	private double consumo;
