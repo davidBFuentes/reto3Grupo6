@@ -180,7 +180,7 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 	
 	public void calcularPrecioBillete() {
 		
-		double costeTotal = calcularDistanciaBillete(paradasBillete) * autobus.getConsumo() * Autobus.PRECIO_DIESEL * autobus.getNumPlazas();
+		double costeTotal = calcularDistanciaBillete(paradasBillete) * autobus.getConsumo() * Autobus.PRECIO_DIESEL;
 		double beneficioTotal = costeTotal * 0.2;
 		double beneficioPorBillete = beneficioTotal / autobus.getNumPlazas();
 		double costePorBillete = (calcularDistanciaBillete(paradasBillete) * autobus.getConsumo() * Autobus.PRECIO_DIESEL) + beneficioPorBillete;
@@ -227,6 +227,7 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 				System.out.println(billete.getPrecio() + "€");
 				System.out.println(autobus.getCodAutobus());
 				System.out.println(autobus.getConsumo());
+				billete.setCod_Bus(autobus.getCodAutobus());
 
 				Ventana06Desglose window1 = new Ventana06Desglose();
 				Controlador06Desglose controlador = new Controlador06Desglose(window1, billete);
