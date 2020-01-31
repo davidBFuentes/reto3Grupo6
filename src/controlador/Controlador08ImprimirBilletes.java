@@ -8,11 +8,11 @@ import vista.Ventana01Bienvenida;
 import vista.Ventana08ImprimirBilletes;
 import vista.Ventana09Fin;
 
-public class Controlador07ImprimirBilletes implements MouseListener  {
+public class Controlador08ImprimirBilletes implements MouseListener  {
 
 	private Ventana08ImprimirBilletes ventanaImprimirBilletes;
 	
-	public Controlador07ImprimirBilletes(Ventana08ImprimirBilletes pVentana07) {
+	public Controlador08ImprimirBilletes(Ventana08ImprimirBilletes pVentana07) {
 		// TODO Auto-generated constructor stub
 		this.ventanaImprimirBilletes = pVentana07;
 		mIniciarControlador();
@@ -54,7 +54,12 @@ public class Controlador07ImprimirBilletes implements MouseListener  {
 		case "Finalizar":
 			
 			Ventana09Fin ventana = new Ventana09Fin();
-			Controlador08Fin controladorBienvenida = new Controlador08Fin(ventana);
+			try {
+				Controlador09Fin controladorBienvenida = new Controlador09Fin(ventana);
+			} catch (InterruptedException e1) {
+				// TODO Bloque catch generado automáticamente
+				e1.printStackTrace();
+			}
 			ventana.getFrame().setVisible(true);
 			this.ventanaImprimirBilletes.getRegistro().dispose();
 				

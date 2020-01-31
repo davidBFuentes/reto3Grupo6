@@ -217,7 +217,7 @@ public class Ventana08ImprimirBilletes{
 	}
 
 	public JFrame getRegistro() {
-		// TODO Auto-generated method stub
+	
 		return Ventana7ImprimirBilletes;
 	}
 	

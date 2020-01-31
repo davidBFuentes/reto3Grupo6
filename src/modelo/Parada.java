@@ -99,9 +99,7 @@ public class Parada implements Comparable<Parada> {
  
  		Double latDistancia = toRad(lat2-lat1);
  		Double lonDistancia = toRad(lon2-lon1);
- 		Double a = Math.sin(latDistancia / 2) * Math.sin(latDistancia / 2) + 
- 		Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * 
- 		Math.sin(lonDistancia / 2) * Math.sin(lonDistancia / 2);
+ 		Double a = Math.sin(latDistancia / 2) * Math.sin(latDistancia / 2) + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(lonDistancia / 2) * Math.sin(lonDistancia / 2);
  		Double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
  		Double distancia = R * c;
  		 
@@ -111,12 +109,7 @@ public class Parada implements Comparable<Parada> {
 	private static Double toRad(Double value) {
 		return value * Math.PI / 180;
 	}
- 	
- 	public int calcularDistanciaBillete() {
-	
- 		return 0;
- 	}
- 	
+
     @Override
     public int compareTo(Parada o) {
         if (this.distanciaATermibus < o.distanciaATermibus) {

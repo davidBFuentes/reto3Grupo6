@@ -78,7 +78,7 @@ public class Controlador07Pago implements MouseListener {
 		case "Continuar":
 			
 				Ventana08ImprimirBilletes ventana = new Ventana08ImprimirBilletes();
-				Controlador07ImprimirBilletes controladorBienvenida = new Controlador07ImprimirBilletes(ventana);
+				Controlador08ImprimirBilletes controladorBienvenida = new Controlador08ImprimirBilletes(ventana);
 				ventana.getFrame().setVisible(true);
 				this.ventanaPago.getRegistro().dispose();
 				break;

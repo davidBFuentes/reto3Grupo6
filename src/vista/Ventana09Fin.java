@@ -35,7 +35,7 @@ public class Ventana09Fin{
 	private void crearBotones() {
 		
 		JButton btnLogo = new JButton("");
-		btnLogo.setIcon(new ImageIcon(Ventana09Fin.class.getResource("/imagenes/cabeceraBienvenida.jpg")));
+		btnLogo.setIcon(new ImageIcon(Ventana09Fin.class.getResource("/imagenes/cabeceraVentana01.jpg")));
 		btnLogo.setBounds(117, 82, 988, 362);
 		Ventana8Fin.getContentPane().add(btnLogo);
 	}
