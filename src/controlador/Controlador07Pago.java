@@ -311,8 +311,7 @@ public class Controlador07Pago implements MouseListener {
 					this.ventanaPago.getBtn_coma().setEnabled(true);
 					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + ".");
 					this.ventanaPago.getBtn_coma().setEnabled(true);
-					distancia = this.ventanaPago.getTxtIntroducido().getText().indexOf(".");
-					decimales = distancia +2;
+
 				}
 
 			}

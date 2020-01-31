@@ -27,6 +27,8 @@ import vista.Ventana06Desglose;
 
 public class Controlador05ParadasFecha implements MouseListener, MouseMotionListener, ActionListener  {
 	
+	
+	//Creamos los atributos de la clase que vamos a manipular
 	private Ventana05ParadasFecha ventanaParadasFecha;
 	private Linea linea;
 	private Billete billete;
@@ -35,25 +37,33 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 	ArrayList<Parada> paradasBillete;
 	Autobus autobus;
 	
+	//Constructor que inicializara el funcionamiento del controlador habiendo recibido tres parametros (la ventana de trayectos, el objeto linea y el objeto billete)
 	public Controlador05ParadasFecha (Ventana05ParadasFecha pVentana05, Linea pLinea, Billete pBillete) {
 		
+		//Recibimos los objetos del controlador anterior
 		this.ventanaParadasFecha = pVentana05;
 		this.linea = pLinea;
 		this.billete = pBillete;
+		
+		//Cargamos los arraylist de paradas y horarios en funcion de la linea seleccionada previamente
 		listaParadas = ParadaDAO.mObtenerParadas(linea);
 		horarios = HorariosDAO.mObtenerHorarios(linea);
 
-		
-		
+		//Iniciamos el controlador
 		mIniciarControlador();
+		
+		//Rellenamos los combobox con las paradas y horarios cargados
 		rellenarComboBox(calcularOrdenParadas(listaParadas), horarios);
+		
+		//Llamamos al metodo que mostrara las opciones de vuelta, si el checkbox ha sido seleccionado
 		mostrarVuelta();
 		
 	}
 	
+	//Metodo para cargar las acciones de los botones
 	private void mIniciarControlador() {
 		
-		
+		//Añadimos los mouselistener a los botones
 		this.ventanaParadasFecha.getBtnProcederAlPago().addMouseListener(this);
 		this.ventanaParadasFecha.getBtnProcederAlPago().setName("Proceder al pago");
 		this.ventanaParadasFecha.getBtnSalir().addMouseListener(this);
@@ -62,6 +72,7 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 		
 	}
 	
+	//Metodo para rellenar los combobox a mostrar
 	private void rellenarComboBox(ArrayList<Parada> listaparadas, ArrayList<String> horarios) {
 		
 		
@@ -147,7 +158,9 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 		
 		
 		for(Parada parada : listaParadas) {
-			if (parada.getCodParada() >= billete.getCod_Parada_Inicio() && parada.getCodParada() <= billete.getCod_Parada_Fin()) {
+			if (parada.getCodParada() >= billete.getCod_Parada_Inicio() && parada.getCodParada() <= billete.getCod_Parada_Fin() 
+					|| parada.getCodParada() <= billete.getCod_Parada_Inicio() && parada.getCodParada() >= billete.getCod_Parada_Fin()) {
+				
 				paradasBillete.add(parada);
 			}
 		}
@@ -183,7 +196,8 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 		switch (e.getComponent().getName()) {
 		case "Proceder al pago":
 			
-			if ((this.ventanaParadasFecha.getComboBoxOrigenIda().getSelectedIndex() == 0) && (this.ventanaParadasFecha.getComboBoxDestinoIda().getSelectedIndex() == 0)){
+			if ((this.ventanaParadasFecha.getComboBoxOrigenIda().getSelectedIndex() == 0) 
+					&& (this.ventanaParadasFecha.getComboBoxDestinoIda().getSelectedIndex() == 0)){
 				
 				JOptionPane.showMessageDialog(null, "Ha de seleccionar una parada de origen y otra de destino para continuar", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
 			}	
