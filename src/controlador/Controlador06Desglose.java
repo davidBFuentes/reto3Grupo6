@@ -19,6 +19,14 @@ public class Controlador06Desglose implements MouseListener {
 	private Ventana06Desglose ventanadeglose;
 	private Billete billete;
 	
+	public Billete getBillete() {
+		return billete;
+	}
+
+	public void setBillete(Billete billete) {
+		this.billete = billete;
+	}
+
 	public Controlador06Desglose (Ventana06Desglose pVentana06, Billete pBillete) {
 		
 		this.ventanadeglose = pVentana06;
@@ -31,6 +39,24 @@ public class Controlador06Desglose implements MouseListener {
 	private void mIniciarControlador() {
 		
 		
+		this.ventanadeglose.getTxtDNI().setText(billete.getDni());
+		this.ventanadeglose.getTxtOrigen().setText(billete.getNombre_Parada_Origen());
+		this.ventanadeglose.getTxtDestino().setText(billete.getNombre_Parada_Destino());
+		this.ventanadeglose.getTxtFecha().setText(billete.getFecha() + " " + billete.getHora());
+		
+		
+		
+		System.out.println(billete.getCod_Bus());
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		this.ventanadeglose.getTxtNAutobus().setText(billete.getCod_Bus());
 		
 		this.ventanadeglose.getBtnSalir().addMouseListener(this);
 		this.ventanadeglose.getBtnSalir().setName("Salir");
@@ -77,7 +103,7 @@ public class Controlador06Desglose implements MouseListener {
 		case "Continuar":
 			
 				Ventana07Pago window1 = new Ventana07Pago();
-				Controlador07Pago controlador = new Controlador07Pago(window1);
+				Controlador07Pago controlador = new Controlador07Pago(window1,billete);
 				window1.getVentana07Pago().setVisible(true);
 				this.ventanadeglose.getFrame().dispose();
 			break;

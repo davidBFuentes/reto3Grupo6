@@ -22,6 +22,12 @@ public class Ventana06Desglose{
 	private JTextField txtFecha;
 	private JTextField txtDestino;
 	private JTextField txtOrigen;
+	public JTextField getTxtFecha() {
+		return txtFecha;
+	}
+	public void setTxtFecha(JTextField txtFecha) {
+		this.txtFecha = txtFecha;
+	}
 	public JFrame frame;
 	private JButton btnSalir;
 	private JButton btnProcederPago;
@@ -140,25 +146,25 @@ public class Ventana06Desglose{
 	
 		txtNAutobus = new JTextField();
 		txtNAutobus.setEditable(false);
-		txtNAutobus.setBounds(807, 414, 96, 20);
+		txtNAutobus.setBounds(807, 414, 200, 20);
 		Ventana06Desglose.getContentPane().add(txtNAutobus);
 		txtNAutobus.setColumns(10);
 		
 		txtFecha = new JTextField();
 		txtFecha.setEditable(false);
-		txtFecha.setBounds(807, 355, 96, 20);
+		txtFecha.setBounds(807, 355, 200, 20);
 		Ventana06Desglose.getContentPane().add(txtFecha);
 		txtFecha.setColumns(10);
 		
 		txtDestino = new JTextField();
 		txtDestino.setEditable(false);
-		txtDestino.setBounds(807, 296, 96, 20);
+		txtDestino.setBounds(807, 296, 200, 20);
 		Ventana06Desglose.getContentPane().add(txtDestino);
 		txtDestino.setColumns(10);
 		
 		txtOrigen = new JTextField();
 		txtOrigen.setEditable(false);
-		txtOrigen.setBounds(807, 236, 96, 20);
+		txtOrigen.setBounds(807, 236, 200, 20);
 		Ventana06Desglose.getContentPane().add(txtOrigen);
 		txtOrigen.setColumns(10);
 	}
