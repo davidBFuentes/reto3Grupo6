@@ -17,9 +17,9 @@ import javax.swing.SwingConstants;
 public class Ventana01Bienvenida {
 
 	private JFrame frame;
-	private JButton btnVentana02;
 	private JPanel panel_1;
 	private JPanel panel;
+	private JButton btnVentana02;
 	
 	public Ventana01Bienvenida() {
 		
@@ -33,7 +33,8 @@ public class Ventana01Bienvenida {
 	private void crearVentana() {
 		
 		frame = new JFrame();
-		frame.getContentPane().setBackground(new Color(255, 255, 240));
+		frame.setResizable(false);
+		frame.getContentPane().setBackground(new Color(245, 245, 220));
 		frame.setBounds(100, 100, 1280, 720);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -46,14 +47,14 @@ public class Ventana01Bienvenida {
 		panel = new JPanel();
 		panel.setBorder(new LineBorder(Color.BLACK, 2));
 		panel.setBackground(new Color(255, 255, 255));
-		panel.setBounds(32, 25, 1198, 623);
+		panel.setBounds(29, 29, 1216, 633);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
 		panel_1 = new JPanel();
 		panel_1.setBackground(new Color(245, 245, 220));
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		panel_1.setBounds(18, 424, 1162, 180);
+		panel_1.setBounds(20, 436, 1174, 178);
 		panel.add(panel_1);
 		panel_1.setLayout(null);
 	
@@ -61,45 +62,45 @@ public class Ventana01Bienvenida {
 	
 	private void crearBotones() {
 		
-		btnVentana02 = new JButton("New button");
+		btnVentana02 = new JButton("");
 		btnVentana02.setContentAreaFilled(false);
 		btnVentana02.setBorderPainted(false);
-		btnVentana02.setBounds(0, 0, 1264, 681);
+		btnVentana02.setBounds(0, 0, 1274, 691);
 		frame.getContentPane().add(btnVentana02);
 		
 	}
 	
-	private void crearEtiquetas() {	
+	private void crearEtiquetas() {
 		
 		JLabel lblBienvenido = new JLabel("Bienvenido a Termibus ");
 		lblBienvenido.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lblBienvenido.setHorizontalAlignment(SwingConstants.CENTER);
-		lblBienvenido.setBounds(0, 27, 1162, 37);
+		lblBienvenido.setBounds(0, 40, 1174, 37);
 		panel_1.add(lblBienvenido);
 		
 		JLabel lblBienvenido2 = new JLabel("Pulse en la pantalla para proceder a la compra de billetes");
 		lblBienvenido2.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lblBienvenido2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblBienvenido2.setBounds(0, 97, 1162, 37);
+		lblBienvenido2.setBounds(0, 97, 1174, 37);
 		panel_1.add(lblBienvenido2);
 		
-		JLabel lblTermibus = new JLabel("");
-		lblTermibus.setBorder(new LineBorder(Color.BLACK, 2));
-		lblTermibus.setIcon(new ImageIcon(Ventana01Bienvenida.class.getResource("/imagenes/cabeceraBienvenida.jpg")));
-		lblTermibus.setBounds(18, 20, 1163, 386);
-		panel.add(lblTermibus);
+		JLabel lblCabeceraTermibus = new JLabel("");
+		lblCabeceraTermibus.setBorder(new LineBorder(Color.BLACK, 2));
+		lblCabeceraTermibus.setIcon(new ImageIcon(Ventana01Bienvenida.class.getResource("/imagenes/cabeceraVentana01.jpg")));
+		lblCabeceraTermibus.setBounds(20, 20, 1174, 397);
+		panel.add(lblCabeceraTermibus);
 		
 	}
 	
 	public void crearFechaHora() {
 		
 		RSLabelFecha labelFecha = new RSLabelFecha();
-		labelFecha.setBounds(48, 0, 82, 26);
+		labelFecha.setBounds(30, 0, 100, 30);
 		frame.getContentPane().add(labelFecha);
 		labelFecha.setForeground(Color.BLACK);
 		
 		RSLabelHora labelHora = new RSLabelHora();
-		labelHora.setBounds(1120, 0, 95, 26);
+		labelHora.setBounds(1144, 0, 100, 30);
 		frame.getContentPane().add(labelHora);
 		labelHora.setForeground(Color.BLACK);
 		

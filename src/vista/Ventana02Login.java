@@ -43,7 +43,8 @@ public class Ventana02Login {
 		
 		
 		frame = new JFrame();
-		frame.getContentPane().setBackground(new Color(255, 255, 240));
+		frame.setResizable(false);
+		frame.getContentPane().setBackground(new Color(245, 245, 220));
 		frame.setBounds(100, 100, 1280, 720);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -56,21 +57,21 @@ public class Ventana02Login {
 		panel = new JPanel();
 		panel.setBorder(new LineBorder(Color.BLACK, 2));
 		panel.setBackground(new Color(255, 255, 255));
-		panel.setBounds(32, 25, 1198, 623);
+		panel.setBounds(29, 29, 1216, 633);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
 		panel_1 = new JPanel();
 		panel_1.setBackground(new Color(245, 245, 220));
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		panel_1.setBounds(18, 287, 866, 319);
+		panel_1.setBounds(20, 294, 864, 319);
 		panel.add(panel_1);
 		panel_1.setLayout(null);
 		
 		panel_2 = new JPanel();
 		panel_2.setBackground(new Color(245, 245, 220));
 		panel_2.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		panel_2.setBounds(896, 287, 285, 319);
+		panel_2.setBounds(901, 294, 293, 319);
 		panel.add(panel_2);
 		panel_2.setLayout(null);
 		
@@ -81,20 +82,20 @@ public class Ventana02Login {
 		
 		bIdentificarse = new JButton("Iniciar sesi\u00F3n");
 		bIdentificarse.setHorizontalAlignment(SwingConstants.CENTER);
-		bIdentificarse.setBounds(609, 30, 239, 254);
+		bIdentificarse.setBounds(611, 30, 231, 254);
 		panel_1.add(bIdentificarse);
 		bIdentificarse.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		bIdentificarse.setFont(new Font("Tahoma", Font.BOLD, 20));
 		
 		bRegistrarse = new JButton("Registrarse");
-		bRegistrarse.setBounds(21, 30, 247, 115);
+		bRegistrarse.setBounds(21, 20, 251, 131);
 		panel_2.add(bRegistrarse);
 		bRegistrarse.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		bRegistrarse.setFont(new Font("Tahoma", Font.BOLD, 20));
 		
 
 		bOmitir = new JButton("Omitir");
-		bOmitir.setBounds(21, 167, 247, 115);
+		bOmitir.setBounds(21, 168, 251, 131);
 		panel_2.add(bOmitir);
 		bOmitir.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		bOmitir.setFont(new Font("Tahoma", Font.BOLD, 20));
@@ -103,14 +104,14 @@ public class Ventana02Login {
 	private void crearEtiquetas() {
 		
 		JLabel lblDni = new JLabel("DNI");
-		lblDni.setBounds(37, 30, 217, 116);
+		lblDni.setBounds(0, 30, 293, 116);
 		panel_1.add(lblDni);
 		lblDni.setHorizontalAlignment(SwingConstants.CENTER);
 		lblDni.setHorizontalTextPosition(SwingConstants.LEADING);
 		lblDni.setFont(new Font("Tahoma", Font.PLAIN, 40));
 		
 		JLabel lblContrasena = new JLabel("Contrase\u00F1a");
-		lblContrasena.setBounds(37, 167, 217, 116);
+		lblContrasena.setBounds(0, 167, 293, 116);
 		panel_1.add(lblContrasena);
 		lblContrasena.setHorizontalTextPosition(SwingConstants.LEADING);
 		lblContrasena.setHorizontalAlignment(SwingConstants.CENTER);
@@ -118,8 +119,8 @@ public class Ventana02Login {
 		
 		JLabel lblCabecera = new JLabel("");
 		lblCabecera.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		lblCabecera.setIcon(new ImageIcon(Ventana02Login.class.getResource("/imagenes/cabeceraTermibus.jpg")));
-		lblCabecera.setBounds(18, 18, 1163, 257);
+		lblCabecera.setIcon(new ImageIcon(Ventana02Login.class.getResource("/imagenes/cabeceraVentana02.jpg")));
+		lblCabecera.setBounds(20, 20, 1174, 257);
 		panel.add(lblCabecera);
 	}
 	
@@ -128,7 +129,7 @@ public class Ventana02Login {
 		txtContrasena = new JPasswordField();
 		txtContrasena.setHorizontalAlignment(SwingConstants.CENTER);
 		txtContrasena.setMargin(new Insets(0, 5, 5, 0));
-		txtContrasena.setBounds(286, 168, 300, 116);
+		txtContrasena.setBounds(291, 168, 300, 116);
 		panel_1.add(txtContrasena);
 		txtContrasena.setFont(new Font("Tahoma", Font.PLAIN, 40));
 		txtContrasena.setColumns(10);
@@ -138,7 +139,7 @@ public class Ventana02Login {
 		txtDni.setBorder(new LineBorder(Color.BLACK, 2));
 		txtDni.setHorizontalAlignment(SwingConstants.CENTER);
 		txtDni.setMargin(new Insets(0, 5, 0, 5));
-		txtDni.setBounds(286, 30, 300, 116);
+		txtDni.setBounds(291, 30, 300, 116);
 		panel_1.add(txtDni);
 		txtDni.setFont(new Font("Tahoma", Font.PLAIN, 40));
 		txtDni.setColumns(10);
@@ -148,12 +149,12 @@ public class Ventana02Login {
 	public void crearFechaHora() {
 		
 		RSLabelFecha labelFecha = new RSLabelFecha();
-		labelFecha.setBounds(48, 0, 82, 26);
+		labelFecha.setBounds(30, 0, 100, 30);
 		frame.getContentPane().add(labelFecha);
 		labelFecha.setForeground(Color.BLACK);
 		
 		RSLabelHora labelHora = new RSLabelHora();
-		labelHora.setBounds(1120, 0, 95, 26);
+		labelHora.setBounds(1144, 0, 100, 30);
 		frame.getContentPane().add(labelHora);
 		labelHora.setForeground(Color.BLACK);
 	}

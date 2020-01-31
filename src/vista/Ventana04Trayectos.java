@@ -29,9 +29,9 @@ public class Ventana04Trayectos {
 	private JButton btnSalir;
 	private JButton btnContinuar;
 	private JComboBox <Linea> comboLineas;
-	private JLabel lblFondoCiudad;
 	private JPanel panel;
 	private JPanel panel_2;
+	private JLabel lblFondoVentana04;
 	
 	public Ventana04Trayectos() {
 		
@@ -47,6 +47,7 @@ public class Ventana04Trayectos {
 	private void crearVentana() {
 		
 		frame = new JFrame();
+		frame.setResizable(false);
 		frame.getContentPane().setBackground(new Color(245, 245, 220));
 		frame.setBounds(100, 100, 1280, 720);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -59,14 +60,14 @@ public class Ventana04Trayectos {
 		panel = new JPanel();
 		panel.setBorder(new LineBorder(Color.BLACK, 2));
 		panel.setBackground(new Color(255, 255, 255));
-		panel.setBounds(32, 25, 1198, 623);
+		panel.setBounds(29, 29, 1216, 633);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
 		panel_2 = new JPanel();
 		panel_2.setBackground(new Color(245, 245, 220));
 		panel_2.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		panel_2.setBounds(896, 287, 285, 319);
+		panel_2.setBounds(901, 294, 293, 319);
 		panel.add(panel_2);
 		panel_2.setLayout(null);
 		
@@ -90,23 +91,17 @@ public class Ventana04Trayectos {
 	
 	private void crearEtiquetas() {
 		
-		lblFondoCiudad = new JLabel("");
-		lblFondoCiudad.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		lblFondoCiudad.setIcon(new ImageIcon(Ventana04Trayectos.class.getResource("/imagenes/fondoBilbao.png")));
-		lblFondoCiudad.setBounds(21, 24, 1160, 582);
-		panel.add(lblFondoCiudad);
-		
 	}
 
 	public void crearFechaHora() {
 		
 		RSLabelFecha labelFecha = new RSLabelFecha();
-		labelFecha.setBounds(48, 0, 82, 26);
+		labelFecha.setBounds(29, 0, 100, 30);
 		frame.getContentPane().add(labelFecha);
 		labelFecha.setForeground(Color.BLACK);
 		
 		RSLabelHora labelHora = new RSLabelHora();
-		labelHora.setBounds(1120, 0, 95, 26);
+		labelHora.setBounds(1145, 0, 100, 30);
 		frame.getContentPane().add(labelHora);
 		labelHora.setForeground(Color.BLACK);
 		
@@ -117,11 +112,16 @@ public class Ventana04Trayectos {
 		comboLineas = new JComboBox<Linea>();
 		comboLineas.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		comboLineas.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		comboLineas.setMaximumRowCount(4);
+		comboLineas.setMaximumRowCount(5);
 		comboLineas.setModel(new DefaultComboBoxModel(new String[] {"Elija su l\u00EDnea"}));
-		comboLineas.setBounds(21, 24, 389, 62);
+		comboLineas.setBounds(20, 20, 355, 62);
 		panel.add(comboLineas);
 		comboLineas.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
+		
+		lblFondoVentana04 = new JLabel("");
+		lblFondoVentana04.setIcon(new ImageIcon(Ventana04Trayectos.class.getResource("/imagenes/fondoBilbaoVentana04.png")));
+		lblFondoVentana04.setBounds(20, 20, 1174, 593);
+		panel.add(lblFondoVentana04);
 	
 	}
 
@@ -157,11 +157,11 @@ public class Ventana04Trayectos {
 		this.frame = frame;
 	}
 
-	public JLabel getLblFondoCiudad() {
-		return lblFondoCiudad;
+	public JLabel getLblFondoVentana04() {
+		return lblFondoVentana04;
 	}
 
-	public void setLblFondoCiudad(JLabel lblFondoCiudad) {
-		this.lblFondoCiudad = lblFondoCiudad;
+	public void setLblFondoVentana04(JLabel lblFondoCiudad) {
+		this.lblFondoVentana04 = lblFondoCiudad;
 	}
 }

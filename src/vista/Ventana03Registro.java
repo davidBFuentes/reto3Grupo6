@@ -53,7 +53,7 @@ public class Ventana03Registro {
 	private void crearVentana() {
 		
 		frame = new JFrame();
-		frame.getContentPane().setBackground(SystemColor.info);
+		frame.getContentPane().setBackground(new Color(245, 245, 220));
 		frame.setBounds(100, 100, 1280, 720);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -65,21 +65,21 @@ public class Ventana03Registro {
 	    panel = new JPanel();
 		panel.setBorder(new LineBorder(Color.BLACK, 2));
 		panel.setBackground(new Color(255, 255, 255));
-		panel.setBounds(32, 25, 1198, 623);
+		panel.setBounds(29, 29, 1216, 633);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
 		panel_1 = new JPanel();
 		panel_1.setBackground(new Color(245, 245, 220));
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		panel_1.setBounds(18, 22, 856, 584);
+		panel_1.setBounds(20, 20, 862, 593);
 		panel.add(panel_1);
 		panel_1.setLayout(null);
 		
 		panel_2 = new JPanel();
 		panel_2.setBackground(new Color(245, 245, 220));
 		panel_2.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		panel_2.setBounds(896, 287, 285, 319);
+		panel_2.setBounds(901, 294, 293, 319);
 		panel.add(panel_2);
 		panel_2.setLayout(null);
 
@@ -89,13 +89,13 @@ public class Ventana03Registro {
 		
 		btnSalir = new JButton("Salir");
 		btnSalir.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		btnSalir.setBounds(21, 167, 247, 115);
+		btnSalir.setBounds(21, 168, 251, 131);
 		panel_2.add(btnSalir);
 		btnSalir.setFont(new Font("Tahoma", Font.BOLD, 20));
 		
 		btnRegistrarse = new JButton("Registrarse");
 		btnRegistrarse.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		btnRegistrarse.setBounds(21, 30, 247, 115);
+		btnRegistrarse.setBounds(21, 20, 251, 131);
 		panel_2.add(btnRegistrarse);
 		btnRegistrarse.setFont(new Font("Tahoma", Font.BOLD, 20));
 	}
@@ -138,9 +138,9 @@ public class Ventana03Registro {
 		lblApellido.setFont(new Font("Tahoma", Font.PLAIN, 40));
 
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(Ventana03Registro.class.getResource("/imagenes/barik.jpg")));
+		lblNewLabel_1.setIcon(new ImageIcon(Ventana03Registro.class.getResource("/imagenes/barikVentana03.jpg")));
 		lblNewLabel_1.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		lblNewLabel_1.setBounds(896, 21, 285, 244);
+		lblNewLabel_1.setBounds(901, 22, 293, 254);
 		panel.add(lblNewLabel_1);
 		
 		JLabel lblFechaDeNacimiento = new JLabel("Fecha de nacimiento");
@@ -228,12 +228,12 @@ public class Ventana03Registro {
 	public void crearFechaHora() {
 		
 		RSLabelFecha labelFecha = new RSLabelFecha();
-		labelFecha.setBounds(48, 0, 82, 26);
+		labelFecha.setBounds(30, 0, 100, 30);
 		frame.getContentPane().add(labelFecha);
 		labelFecha.setForeground(Color.BLACK);
 		
 		RSLabelHora labelHora = new RSLabelHora();
-		labelHora.setBounds(1120, 0, 95, 26);
+		labelHora.setBounds(1145, 0, 100, 30);
 		frame.getContentPane().add(labelHora);
 		labelHora.setForeground(Color.BLACK);
 	}
