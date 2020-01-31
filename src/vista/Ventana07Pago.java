@@ -5,23 +5,21 @@ import java.awt.Color;
 import javax.swing.JFrame;
 import rojeru_san.RSLabelFecha;
 import rojeru_san.RSLabelHora;
-
 import javax.swing.JButton;
-import javax.swing.JTextPane;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Window;
-
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
-import javax.swing.JFormattedTextField;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import javax.swing.JTextArea;
+
+
 
 public class Ventana07Pago{
 
 	public JFrame Ventana07Pago;
 	private JTextField txtIntroducido;
+
 	private JButton btnSalir;
 	private JButton btnContinuar;
 	private JButton btn_0;
@@ -35,6 +33,18 @@ public class Ventana07Pago{
 	private JButton btn_8;
 	private JButton btn_9;
 	private JButton btn_coma;
+	private JButton btn_c;
+	private JButton btn_borrar;
+	private JButton btn_pagar;
+	private JTextField txtOrigen;
+	private JTextField txtDestino;
+	private JTextField txtFechaSalida;
+	private JTextField txtPrecioBillete;
+	private JTextField txtPrecioSinIva;
+	private JTextField txtPrecioConIva;
+	private JTextField txtPrecioAPagar;
+	private JTextArea txtVueltas;
+	
 
 	public JTextField getTxtIntroducido() {
 		return txtIntroducido;
@@ -96,6 +106,42 @@ public class Ventana07Pago{
 		return btn_coma;
 	}
 	
+	public JButton getBtn_c() {
+		return btn_c;
+	}
+
+	public JButton getBtn_borrar() {
+		return btn_borrar;
+	}
+	
+	public JButton getBtn_pagar() {
+		return btn_pagar;
+	}
+
+	public JTextArea getTxtVueltas() {
+		return txtVueltas;
+	}
+	
+
+	public JTextField getTxtPrecioAPagar() {
+		return txtPrecioAPagar;
+	}
+	
+
+	public JTextField getTxtPrecioConIva() {
+		return txtPrecioConIva;
+	}
+
+	public void setTxtPrecioAPagar(JTextField txtPrecioAPagar) {
+		this.txtPrecioAPagar = txtPrecioAPagar;
+	}
+
+	public void setTxtVueltas(JTextArea txtVueltas) {
+		this.txtVueltas = txtVueltas;
+	}
+
+	
+
 	public JFrame getVentana07Pago() {
 		
 		return Ventana07Pago;
@@ -169,15 +215,9 @@ public class Ventana07Pago{
 		lblIntroducido.setBounds(483, 590, 190, 26);
 		Ventana07Pago.getContentPane().add(lblIntroducido);
 		
-		
-		JLabel lblNbillete = new JLabel("N\u00AA Billete");
-		lblNbillete.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblNbillete.setBounds(73, 139, 108, 20);
-		Ventana07Pago.getContentPane().add(lblNbillete);
-		
 		JLabel lblOrigen = new JLabel("Origen");
 		lblOrigen.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblOrigen.setBounds(224, 139, 108, 20);
+		lblOrigen.setBounds(210, 139, 108, 20);
 		Ventana07Pago.getContentPane().add(lblOrigen);
 		
 		JLabel lblDestino = new JLabel("Destino");
@@ -242,12 +282,6 @@ public class Ventana07Pago{
 		Ventana07Pago.getContentPane().add(btn_6);
 		
 		btn_7 = new JButton("7");
-		btn_7.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				
-			}
-		});
 		btn_7.setBounds(530, 269, 89, 75);
 		Ventana07Pago.getContentPane().add(btn_7);
 		
@@ -259,11 +293,11 @@ public class Ventana07Pago{
 		btn_9.setBounds(701, 269, 89, 75);
 		Ventana07Pago.getContentPane().add(btn_9);
 		
-		JButton btn_borrar = new JButton("<--");
+		btn_borrar = new JButton("<--");
 		btn_borrar.setBounds(530, 485, 89, 75);
 		Ventana07Pago.getContentPane().add(btn_borrar);
 		
-		JButton btn_c = new JButton("C");
+		btn_c = new JButton("C");
 		btn_c.setBounds(812, 269, 89, 75);
 		Ventana07Pago.getContentPane().add(btn_c);
 		
@@ -271,6 +305,11 @@ public class Ventana07Pago{
 		btn_coma.setEnabled(false);
 		btn_coma.setBounds(701, 485, 89, 75);
 		Ventana07Pago.getContentPane().add(btn_coma);
+		
+		btn_pagar = new JButton("Pagar");
+
+		btn_pagar.setBounds(812, 371, 89, 63);
+		Ventana07Pago.getContentPane().add(btn_pagar);
 		
 	}
 		
@@ -280,52 +319,49 @@ public class Ventana07Pago{
 		txtIntroducido.setEditable(false);
 		txtIntroducido.setBounds(641, 590, 132, 20);
 		Ventana07Pago.getContentPane().add(txtIntroducido);
-	
-		JTextPane txtNBillete = new JTextPane();
-		txtNBillete.setEditable(false);
-		txtNBillete.setBounds(63, 170, 89, 20);
-		Ventana07Pago.getContentPane().add(txtNBillete);
 		
-		JTextPane txtOrigen = new JTextPane();
+		txtOrigen = new JTextField();
 		txtOrigen.setEditable(false);
 		txtOrigen.setBounds(210, 170, 89, 20);
 		Ventana07Pago.getContentPane().add(txtOrigen);
 		
-		JTextPane txtDestino = new JTextPane();
+		txtDestino = new JTextField();
 		txtDestino.setEditable(false);
 		txtDestino.setBounds(342, 170, 89, 20);
 		Ventana07Pago.getContentPane().add(txtDestino);
 		
-		JTextPane txtFechaSalida = new JTextPane();
+		txtFechaSalida = new JTextField();
 		txtFechaSalida.setEditable(false);
 		txtFechaSalida.setBounds(483, 170, 89, 20);
 		Ventana07Pago.getContentPane().add(txtFechaSalida);
 		
-		JTextPane txtPrecioBillete = new JTextPane();
+		txtPrecioBillete = new JTextField();
 		txtPrecioBillete.setEditable(false);
-		txtPrecioBillete.setBounds(625, 170, 89, 20);
+		txtPrecioBillete.setBounds(625, 173, 89, 20);
 		Ventana07Pago.getContentPane().add(txtPrecioBillete);
 		
-		JTextField txtPrecioSinIVA = new JTextField();
-		txtPrecioSinIVA.setEditable(false);
-		txtPrecioSinIVA.setBounds(224, 310, 166, 20);
-		Ventana07Pago.getContentPane().add(txtPrecioSinIVA);
+		txtPrecioSinIva = new JTextField();
+		txtPrecioSinIva.setEditable(false);
+		txtPrecioSinIva.setBounds(224, 310, 166, 20);
+		Ventana07Pago.getContentPane().add(txtPrecioSinIva);
 		
-		JTextField txtPrecioConIVA = new JTextField();
-		txtPrecioConIVA.setEditable(false);
-		txtPrecioConIVA.setBounds(224, 374, 166, 20);
-		Ventana07Pago.getContentPane().add(txtPrecioConIVA);
+		txtPrecioConIva = new JTextField();
+		txtPrecioConIva.setText("10");
+		txtPrecioConIva.setEditable(false);
+		txtPrecioConIva.setBounds(224, 374, 166, 20);
+		Ventana07Pago.getContentPane().add(txtPrecioConIva);
 		
-		JFormattedTextField txtPrecioAPagar = new JFormattedTextField();
+		txtPrecioAPagar = new JTextField();
 		txtPrecioAPagar.setEditable(false);
 		txtPrecioAPagar.setBounds(224, 436, 166, 20);
 		Ventana07Pago.getContentPane().add(txtPrecioAPagar);
 		
-		JTextPane txtVueltas = new JTextPane();
+		txtVueltas = new JTextArea();
 		txtVueltas.setEditable(false);
 		txtVueltas.setBounds(995, 189, 223, 282);
 		Ventana07Pago.getContentPane().add(txtVueltas);	
 	}
+
 
 	public void crearFechaHora() {
 		RSLabelHora labelHora = new RSLabelHora();
@@ -337,6 +373,8 @@ public class Ventana07Pago{
 		labelFecha.setForeground(Color.BLACK);
 		labelFecha.setBounds(12, 13, 200, 40);
 		Ventana07Pago.getContentPane().add(labelFecha);
+		
+
 	}
 
 	public Window getRegistro() {
@@ -353,6 +391,4 @@ public class Ventana07Pago{
 		// TODO Auto-generated method stub
 		return Ventana07Pago;
 	}
-
-
 }

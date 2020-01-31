@@ -4,15 +4,29 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.JOptionPane;
+
+import controlador.ControladorVueltas;
 import vista.Ventana01Bienvenida;
 import vista.Ventana08ImprimirBilletes;
 import vista.Ventana07Pago;
+
 
 
 public class Controlador07Pago implements MouseListener {
 
 	
 	private Ventana07Pago ventanaPago;
+
+	private int coma;
+	private boolean comprobarComa;
+	private float restante;
+	private float total;
+	private float introducido;
+	private int distancia = 0;
+	private int decimales = 3;
+	
+
 	
 	public Controlador07Pago (Ventana07Pago window) {
 		// TODO Auto-generated constructor stub
@@ -22,6 +36,11 @@ public class Controlador07Pago implements MouseListener {
 
 
 	private void mIniciarControlador() {
+		
+		
+		this.ventanaPago.getTxtPrecioAPagar().setText(this.ventanaPago.getTxtPrecioConIva().getText());
+		
+		
 		
 		this.ventanaPago.getBtnSalir().addMouseListener(this);
 		this.ventanaPago.getBtnSalir().setName("Salir");
@@ -49,7 +68,16 @@ public class Controlador07Pago implements MouseListener {
 		this.ventanaPago.getBtn_9().setName("9");
 		this.ventanaPago.getBtn_coma().addMouseListener(this);
 		this.ventanaPago.getBtn_coma().setName("coma");
-
+		this.ventanaPago.getBtn_c().addMouseListener(this);
+		this.ventanaPago.getBtn_c().setName("eliminar");
+		this.ventanaPago.getBtn_borrar().addMouseListener(this);
+		this.ventanaPago.getBtn_borrar().setName("borrar");
+		this.ventanaPago.getBtn_pagar().addMouseListener(this);
+		this.ventanaPago.getBtn_pagar().setName("pagar");
+		
+		
+		
+		
 	
 	}
 
@@ -74,76 +102,292 @@ public class Controlador07Pago implements MouseListener {
 				window.getFrame().setVisible(true);
 				this.ventanaPago.getRegistro().dispose();
 			break;
-			
-		case "Continuar":
-			
-				Ventana08ImprimirBilletes ventana = new Ventana08ImprimirBilletes();
-				Controlador07ImprimirBilletes controladorBienvenida = new Controlador07ImprimirBilletes(ventana);
-				ventana.getFrame().setVisible(true);
-				this.ventanaPago.getRegistro().dispose();
-				break;
 				
 		case "0":
 			
-			this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "0");
-			//txtIntroducido.setText(txtIntroducido.getText()+"0");
+			
+			if (comprobarComa == false) {
+				if (this.ventanaPago.getTxtIntroducido().getText().length()<3) {
+					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "0");
+				}else {
+					JOptionPane.showMessageDialog(null, "Maximo de 3 numeros antes de la coma", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+				}
+			} else {
+
+				if (distancia < decimales) {
+					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "0");
+					distancia++;
+				}else {
+					JOptionPane.showMessageDialog(null, "Maximo de 2 decimales", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+				}
+			}	
+
 			break;
 			
 		case "1":
-			
-			this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "1");
+
+			if (comprobarComa == false) {
+				if (this.ventanaPago.getTxtIntroducido().getText().length()<3) {
+					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "1");
+				}else {
+					JOptionPane.showMessageDialog(null, "Maximo de 3 numeros antes de la coma", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+				}
+			} else {
+
+				if (distancia < decimales) {
+					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "1");
+					distancia++;
+				}else {
+					JOptionPane.showMessageDialog(null, "Maximo de 2 decimales", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+				}
+			}	
+
 			break;
 
 		case "2":
-			
-			this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "2");
-			break;
 
+			if (comprobarComa == false) {
+				if (this.ventanaPago.getTxtIntroducido().getText().length()<3) {
+					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "2");
+				}else {
+					JOptionPane.showMessageDialog(null, "Maximo de 3 numeros antes de la coma", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+				}
+			} else {
+
+				if (distancia < decimales) {
+					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "2");
+					distancia++;
+				}else {
+					JOptionPane.showMessageDialog(null, "Maximo de 2 decimales", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+				}
+			}	
+			break;
 		case "3":
-			
-			this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "3");
+
+			if (comprobarComa == false) {
+				if (this.ventanaPago.getTxtIntroducido().getText().length()<3) {
+					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "3");
+				}else {
+					JOptionPane.showMessageDialog(null, "Maximo de 3 numeros antes de la coma", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+				}
+			} else {
+
+				if (distancia < decimales) {
+					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "3");
+					distancia++;
+				}else {
+					JOptionPane.showMessageDialog(null, "Maximo de 2 decimales", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+				}
+			}	
 			break;
 
 		case "4":
-			
-			this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "4");
+
+			if (comprobarComa == false) {
+				if (this.ventanaPago.getTxtIntroducido().getText().length()<3) {
+					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "4");
+				}else {
+					JOptionPane.showMessageDialog(null, "Maximo de 3 numeros antes de la coma", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+				}
+			} else {
+
+				if (distancia < decimales) {
+					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "4");
+					distancia++;
+				}else {
+					JOptionPane.showMessageDialog(null, "Maximo de 2 decimales", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+				}
+			}	
 			break;
 
 		case "5":
-			
-			this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "5");
+ 
+			if (comprobarComa == false) {
+				if (this.ventanaPago.getTxtIntroducido().getText().length()<3) {
+					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "5");
+				}else {
+					JOptionPane.showMessageDialog(null, "Maximo de 3 numeros antes de la coma", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+				}
+			} else {
+
+				if (distancia < decimales) {
+					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "5");
+					distancia++;
+				}else {
+					JOptionPane.showMessageDialog(null, "Maximo de 2 decimales", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+				}
+			}	
 			break;
 
 		case "6":
-			
-			this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "6");
+
+			if (comprobarComa == false) {
+				if (this.ventanaPago.getTxtIntroducido().getText().length()<3) {
+					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "6");
+				}else {
+					JOptionPane.showMessageDialog(null, "Maximo de 3 numeros antes de la coma", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+				}
+			} else {
+
+				if (distancia < decimales) {
+					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "6");
+					distancia++;
+				}else {
+					JOptionPane.showMessageDialog(null, "Maximo de 2 decimales", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+				}
+			}	
 			break;
 
 		case "7":
 			
-			this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "7");
+			if (comprobarComa == false) {
+				if (this.ventanaPago.getTxtIntroducido().getText().length()<3) {
+					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "7");
+				}else {
+					JOptionPane.showMessageDialog(null, "Maximo de 3 numeros antes de la coma", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+				}
+			} else {
+
+				if (distancia < decimales) {
+					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "7");
+					distancia++;
+				}else {
+					JOptionPane.showMessageDialog(null, "Maximo de 2 decimales", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+				}
+			}	
 			break;
 
 		case "8":
-			
-			this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "8");
+
+			if (comprobarComa == false) {
+				if (this.ventanaPago.getTxtIntroducido().getText().length()<3) {
+					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "8");
+				}else {
+					JOptionPane.showMessageDialog(null, "Maximo de 3 numeros antes de la coma", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+				}
+			} else {
+
+				if (distancia < decimales) {
+					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "8");
+					distancia++;
+				}else {
+					JOptionPane.showMessageDialog(null, "Maximo de 2 decimales", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+				}
+			}
 			break;
 
 		case "9":
 			
-			this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "9");
+			if (comprobarComa == false) {
+				if (this.ventanaPago.getTxtIntroducido().getText().length()<3) {
+					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "9");
+				}else {
+					JOptionPane.showMessageDialog(null, "Maximo de 3 numeros antes de la coma", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+				}
+			} else {
+
+				if (distancia < decimales) {
+					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "9");
+					distancia++;
+				}else {
+					JOptionPane.showMessageDialog(null, "Maximo de 2 decimales", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+				}
+			}
 			break;
 			
 		case "coma":
+			
+			coma = this.ventanaPago.getTxtIntroducido().getText().indexOf(".");
+			if (coma != -1) {
+				comprobarComa = false;
+			}else {
+				comprobarComa = true;
+			}
+			
+			
+			
 			if (!this.ventanaPago.getTxtIntroducido().getText().equals("")) {
-				
-				this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + ".");
+				if (comprobarComa == true) {
+					this.ventanaPago.getBtn_coma().setEnabled(true);
+					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + ".");
+					this.ventanaPago.getBtn_coma().setEnabled(true);
+					distancia = this.ventanaPago.getTxtIntroducido().getText().indexOf(".");
+					decimales = distancia +2;
+				}
+
 			}
 			
 			break;
 
+		case "eliminar":
+			
+				this.ventanaPago.getTxtIntroducido().setText("");
+				if (comprobarComa == true) {
+					distancia = 0;
+					decimales = 3;
+				}
+				
+			break;
+		
+		case "borrar":
 
+				this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText().substring(0,this.ventanaPago.getTxtIntroducido().getText().length()-1));
+				if (comprobarComa == true && distancia !=0) {
+					distancia--;
+				}
+				break;
+			
+		case "pagar":
+			
+			
+			if (this.ventanaPago.getTxtPrecioAPagar().getText().length() > 0) {
+				total = Float.valueOf(this.ventanaPago.getTxtPrecioAPagar().getText());
+			}
+			if (this.ventanaPago.getTxtIntroducido().getText().length() > 0 ) {
+				introducido = Float.valueOf(this.ventanaPago.getTxtIntroducido().getText());
+				
+			}	
 
+			if (total > introducido) {
+				restante = total-introducido;
+				restante = (float) (Math.floor(restante*100)/100);
+				this.ventanaPago.getTxtPrecioAPagar().setText(Float.toString(restante));
+				this.ventanaPago.getTxtIntroducido().setText("");
+				introducido = 0;
+			}
+		
+			if (total < introducido) {
+				restante = introducido - total;
+				this.ventanaPago.getTxtVueltas().setText(ControladorVueltas.adevolver(restante));
+				this.ventanaPago.getTxtPrecioAPagar().setText("0");
+				this.ventanaPago.getTxtIntroducido().setText("");
+				introducido = 0;
+			}
+		
+			if (total == introducido) {
+				this.ventanaPago.getTxtPrecioAPagar().setText("0");
+				this.ventanaPago.getTxtVueltas().setText("Gracias por su compra \n retire sus productos \n pulse continuar");
+				this.ventanaPago.getTxtIntroducido().setText("");
+				introducido = 0;
+			}
+			
+			break;
+			
+		case "Continuar":
+			if (this.ventanaPago.getTxtPrecioAPagar().getText().length() > 0) {
+				total = Float.valueOf(this.ventanaPago.getTxtPrecioAPagar().getText());
+			}
+			if (total!=0) {
+				JOptionPane.showMessageDialog(null, "Debe pagar el precio entero del billete", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+			}else {
+				Ventana08ImprimirBilletes ventana = new Ventana08ImprimirBilletes();
+				Controlador07ImprimirBilletes controladorBienvenida = new Controlador07ImprimirBilletes(ventana);
+				ventana.getFrame().setVisible(true);
+				this.ventanaPago.getRegistro().dispose();
+			}
+			
+
+			break;
 		}
 	}
 

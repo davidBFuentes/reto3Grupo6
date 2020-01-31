@@ -15,8 +15,6 @@ import javax.swing.JTextField;
 public class Ventana06Desglose{
 
 	public JFrame Ventana06Desglose;
-
-	private JTextField txtNbillete;
 	private JTextField txtDNI;
 	private JTextField txtNombre;
 	private JTextField txtApellidos;
@@ -60,11 +58,6 @@ public class Ventana06Desglose{
 	}
 	
 	private void crearEtiquetas() {
-		
-		JLabel lblBillete = new JLabel("N\u00BA Billete");
-		lblBillete.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblBillete.setBounds(91, 92, 110, 27);
-		Ventana06Desglose.getContentPane().add(lblBillete);
 	
 		JLabel lblDatosPasajero = new JLabel("Datos del pasajero");
 		lblDatosPasajero.setHorizontalAlignment(SwingConstants.CENTER);
@@ -126,11 +119,6 @@ public class Ventana06Desglose{
 	}
 		
 	private void crearCamposTexto() {
-		txtNbillete = new JTextField();
-		txtNbillete.setEditable(false);
-		txtNbillete.setBounds(182, 98, 96, 20);
-		Ventana06Desglose.getContentPane().add(txtNbillete);
-		txtNbillete.setColumns(10);
 		
 		txtDNI = new JTextField();
 		txtDNI.setEditable(false);
@@ -194,12 +182,7 @@ public class Ventana06Desglose{
 	
 
 	
-	public JTextField getTxtNbillete() {
-		return txtNbillete;
-	}
-	public void setTxtNbillete(JTextField txtNbillete) {
-		this.txtNbillete = txtNbillete;
-	}
+
 	public JTextField getTxtDNI() {
 		return txtDNI;
 	}

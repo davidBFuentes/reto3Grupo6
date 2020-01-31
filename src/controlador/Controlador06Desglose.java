@@ -30,11 +30,14 @@ public class Controlador06Desglose implements MouseListener {
 	
 	private void mIniciarControlador() {
 		
+		
+		
 		this.ventanadeglose.getBtnSalir().addMouseListener(this);
 		this.ventanadeglose.getBtnSalir().setName("Salir");
 		this.ventanadeglose.getBtnContinuar().addMouseListener(this);
 		this.ventanadeglose.getBtnContinuar().setName("Continuar");
 	
+		
 	}
 
 	public void actionPerformed(ActionEvent e) {
