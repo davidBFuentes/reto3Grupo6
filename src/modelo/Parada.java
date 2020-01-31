@@ -1,5 +1,8 @@
 package modelo;
 
+import java.util.Comparator;
+
+
 public class Parada implements Comparable<Parada> {
 	
 	private int codParada;
@@ -85,33 +88,11 @@ public class Parada implements Comparable<Parada> {
 		return this.getNombre();
 	}
 	
-	public static double calcularDistanciaEuclidea(double lon1, double lat1, double lon2, double lat2) {
-		
-		double distanciaEuclidea = Math.hypot((lon2-lon1), (lat2 - lat1));
-		
-		return distanciaEuclidea;
-		
-	}
- 	
- 	public static Double calcularDistanciaEntreParadas(double lon1, double lat1, double lon2, double lat2) {
- 	
- 		final int R = 6371; // Radio de la tierra
- 
- 		Double latDistancia = toRad(lat2-lat1);
- 		Double lonDistancia = toRad(lon2-lon1);
- 		Double a = Math.sin(latDistancia / 2) * Math.sin(latDistancia / 2) + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(lonDistancia / 2) * Math.sin(lonDistancia / 2);
- 		Double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
- 		Double distancia = R * c;
- 		 
-		return distancia;
- 	}
- 	
-	private static Double toRad(Double value) {
-		return value * Math.PI / 180;
-	}
 
-    @Override
-    public int compareTo(Parada o) {
+
+
+	@Override
+	public int compareTo(Parada o) {
         if (this.distanciaATermibus < o.distanciaATermibus) {
             return -1;
         }
@@ -120,7 +101,15 @@ public class Parada implements Comparable<Parada> {
         }
         return 0;
     }
-	
 }
+
+
+
+    
+	
+	
+
+
+	
 
 

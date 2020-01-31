@@ -66,6 +66,50 @@ public class Ventana07Pago{
 		return btn_0;
 	}
 
+	public JTextField getTxtOrigen() {
+		return txtOrigen;
+	}
+
+	public void setTxtOrigen(JTextField txtOrigen) {
+		this.txtOrigen = txtOrigen;
+	}
+
+	public JTextField getTxtDestino() {
+		return txtDestino;
+	}
+
+	public void setTxtDestino(JTextField txtDestino) {
+		this.txtDestino = txtDestino;
+	}
+
+	public JTextField getTxtFechaSalida() {
+		return txtFechaSalida;
+	}
+
+	public void setTxtFechaSalida(JTextField txtFechaSalida) {
+		this.txtFechaSalida = txtFechaSalida;
+	}
+
+	public JTextField getTxtPrecioBillete() {
+		return txtPrecioBillete;
+	}
+
+	public void setTxtPrecioBillete(JTextField txtPrecioBillete) {
+		this.txtPrecioBillete = txtPrecioBillete;
+	}
+
+	public JTextField getTxtPrecioSinIva() {
+		return txtPrecioSinIva;
+	}
+
+	public void setTxtPrecioSinIva(JTextField txtPrecioSinIva) {
+		this.txtPrecioSinIva = txtPrecioSinIva;
+	}
+
+	public void setTxtPrecioConIva(JTextField txtPrecioConIva) {
+		this.txtPrecioConIva = txtPrecioConIva;
+	}
+
 	public JButton getBtn_1() {
 		return btn_1;
 	}

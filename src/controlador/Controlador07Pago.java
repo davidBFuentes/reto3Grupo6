@@ -7,6 +7,7 @@ import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
 
 import controlador.ControladorVueltas;
+import modelo.Billete;
 import vista.Ventana01Bienvenida;
 import vista.Ventana08ImprimirBilletes;
 import vista.Ventana07Pago;
@@ -25,19 +26,27 @@ public class Controlador07Pago implements MouseListener {
 	private float introducido;
 	private int distancia = 0;
 	private int decimales = 3;
-	
+	private Billete billete;
+
 
 	
-	public Controlador07Pago (Ventana07Pago window) {
+	public Controlador07Pago (Ventana07Pago window, Billete pbillete) {
 		// TODO Auto-generated constructor stub
 		this.ventanaPago = window;
+		this.billete = pbillete;
 		mIniciarControlador();
 	}
 
 
 	private void mIniciarControlador() {
 		
-		
+
+		this.ventanaPago.getTxtDestino().setText(billete.getNombre_Parada_Destino());
+		this.ventanaPago.getTxtOrigen().setText(billete.getNombre_Parada_Origen());
+		this.ventanaPago.getTxtPrecioBillete().setText(Double.toString(billete.getPrecio()));
+		this.ventanaPago.getTxtPrecioSinIva().setText(Double.toString(billete.getPrecio()));
+		this.ventanaPago.getTxtFechaSalida().setText(billete.getFecha() + " " + billete.getHora());
+		this.ventanaPago.getTxtPrecioConIva().setText(Double.toString(billete.getPrecio() + billete.getPrecio()*0.21));
 		this.ventanaPago.getTxtPrecioAPagar().setText(this.ventanaPago.getTxtPrecioConIva().getText());
 		
 		
@@ -311,7 +320,8 @@ public class Controlador07Pago implements MouseListener {
 					this.ventanaPago.getBtn_coma().setEnabled(true);
 					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + ".");
 					this.ventanaPago.getBtn_coma().setEnabled(true);
-
+					distancia = this.ventanaPago.getTxtIntroducido().getText().indexOf(".");
+					decimales = distancia +2;
 				}
 
 			}
@@ -380,7 +390,7 @@ public class Controlador07Pago implements MouseListener {
 				JOptionPane.showMessageDialog(null, "Debe pagar el precio entero del billete", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
 			}else {
 				Ventana08ImprimirBilletes ventana = new Ventana08ImprimirBilletes();
-				Controlador07ImprimirBilletes controladorBienvenida = new Controlador07ImprimirBilletes(ventana);
+				Controlador08ImprimirBilletes controladorBienvenida = new Controlador08ImprimirBilletes(ventana, billete);
 				ventana.getFrame().setVisible(true);
 				this.ventanaPago.getRegistro().dispose();
 			}

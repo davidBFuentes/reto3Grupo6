@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import modelo.Billete;
 import vista.Ventana01Bienvenida;
 import vista.Ventana08ImprimirBilletes;
 import vista.Ventana09Fin;
@@ -11,10 +12,12 @@ import vista.Ventana09Fin;
 public class Controlador08ImprimirBilletes implements MouseListener  {
 
 	private Ventana08ImprimirBilletes ventanaImprimirBilletes;
+	private Billete billete;
 	
-	public Controlador08ImprimirBilletes(Ventana08ImprimirBilletes pVentana07) {
+	public Controlador08ImprimirBilletes(Ventana08ImprimirBilletes pVentana08, Billete pBillete) {
 		// TODO Auto-generated constructor stub
-		this.ventanaImprimirBilletes = pVentana07;
+		this.ventanaImprimirBilletes = pVentana08;
+		this.billete = pBillete;
 		mIniciarControlador();
 	}
 
