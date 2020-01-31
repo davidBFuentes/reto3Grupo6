@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import calculosMatematicos.Calculo;
 import metodosDAO.AutobusDAO;
 import metodosDAO.HorariosDAO;
 import metodosDAO.ParadaDAO;
@@ -53,7 +54,7 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 		mIniciarControlador();
 		
 		//Rellenamos los combobox con las paradas y horarios cargados
-		rellenarComboBox(calcularOrdenParadas(listaParadas), horarios);
+		rellenarComboBox(Calculo.calcularOrdenParadas(listaParadas), horarios);
 		
 		//Llamamos al metodo que mostrara las opciones de vuelta, si el checkbox ha sido seleccionado
 		mostrarVuelta();
@@ -132,62 +133,6 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 	}
 
 	
-	private ArrayList<Parada> calcularOrdenParadas(ArrayList<Parada> listaParadas) {
-			
-			
-		Parada paradaTermibus = listaParadas.get(0);
-		for (Parada parada : listaParadas) {
-			parada.setDistanciaATermibus(Parada.calcularDistanciaEuclidea(paradaTermibus.getLongitud(), paradaTermibus.getLatitud(), parada.getLongitud(), parada.getLatitud()));
-		}
-		Collections.sort(listaParadas);
-		
-		for(Parada parada : listaParadas) {
-			System.out.println(parada.getNombre() + " " + parada.getDistanciaATermibus());
-			
-		}
-		return listaParadas;	
-		 
-	}
-	
-	public double calcularDistanciaBillete(ArrayList<Parada> listaParadas) {
-			
-		paradasBillete = new ArrayList<>();
-	
-		double distanciaTotal = 0;
-		double distancia;
-		
-		
-		for(Parada parada : listaParadas) {
-			if (parada.getCodParada() >= billete.getCod_Parada_Inicio() && parada.getCodParada() <= billete.getCod_Parada_Fin() 
-					|| parada.getCodParada() <= billete.getCod_Parada_Inicio() && parada.getCodParada() >= billete.getCod_Parada_Fin()) {
-				
-				paradasBillete.add(parada);
-			}
-		}
-		
-		Parada parada1 = paradasBillete.get(0);
-
-		for(Parada parada : paradasBillete) {
-			
-			distancia = Parada.calcularDistanciaEntreParadas(parada1.getLongitud(), parada1.getLatitud(), parada.getLongitud(), parada.getLatitud());
-	 		parada1 = parada;
-	 		distanciaTotal = distancia + distanciaTotal;
-		}
-		
-		return distanciaTotal; 	
-			
-	}
-	
-	public void calcularPrecioBillete() {
-		
-		double costeTotal = calcularDistanciaBillete(paradasBillete) * autobus.getConsumo() * Autobus.PRECIO_DIESEL * autobus.getNumPlazas();
-		double beneficioTotal = costeTotal * 0.2;
-		double beneficioPorBillete = beneficioTotal / autobus.getNumPlazas();
-		double costePorBillete = (calcularDistanciaBillete(paradasBillete) * autobus.getConsumo() * Autobus.PRECIO_DIESEL) + beneficioPorBillete;
- 		
-		billete.setPrecio(costePorBillete);
-	}
-	
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {
@@ -221,9 +166,10 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 				billete.setNombre_Parada_Destino(this.ventanaParadasFecha.getComboBoxDestinoIda().getSelectedItem().toString());
 				billete.setFecha(this.ventanaParadasFecha.getFechaIda());
 				billete.setHora(this.ventanaParadasFecha.getComboBoxHorariosIda().getSelectedItem().toString());
-				System.out.println(calcularDistanciaBillete(listaParadas) + "km");
+				paradasBillete = Calculo.filtrarParadas(listaParadas, billete);
+				System.out.println(Calculo.calcularDistanciaBillete(paradasBillete) + "km");
 				autobus = AutobusDAO.mObtenerBus(billete);
-				calcularPrecioBillete();
+				Calculo.calcularPrecioBillete(billete, paradasBillete, autobus);
 				System.out.println(billete.getPrecio() + "€");
 				System.out.println(autobus.getCodAutobus());
 				System.out.println(autobus.getConsumo());
