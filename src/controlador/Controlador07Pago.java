@@ -6,6 +6,7 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JOptionPane;
 
+import calculosMatematicos.Calculo;
 import controlador.ControladorVueltas;
 import metodosDAO.BilleteDAO;
 import modelo.Billete;
@@ -68,8 +69,8 @@ public class Controlador07Pago implements MouseListener {
 		
 
 		
-		this.ventanaPago.getTxtPrecioSinIva().setText(Double.toString(this.preciototal));
-		this.ventanaPago.getTxtPrecioConIva().setText(Double.toString(this.preciototal + this.preciototal*0.21));
+		this.ventanaPago.getTxtPrecioSinIva().setText(Double.toString(Calculo.formatearPrecio(this.preciototal)));
+		this.ventanaPago.getTxtPrecioConIva().setText(Double.toString(Calculo.formatearPrecio(this.preciototal + this.preciototal*0.21)));
 		this.ventanaPago.getTxtPrecioAPagar().setText(this.ventanaPago.getTxtPrecioConIva().getText());
 		
 		

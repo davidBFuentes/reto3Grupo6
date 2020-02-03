@@ -6,10 +6,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-
 import javax.swing.JOptionPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -28,7 +27,7 @@ import vista.Ventana04Trayectos;
 import vista.Ventana05ParadasFecha;
 import vista.Ventana06Desglose;
 
-public class Controlador05ParadasFecha implements MouseListener, MouseMotionListener, ActionListener  {
+public class Controlador05ParadasFecha implements MouseListener, MouseMotionListener, ActionListener {
 	
 	
 	//Creamos los atributos de la clase que vamos a manipular
@@ -64,52 +63,31 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 		mIniciarControlador();
 		
 		//Rellenamos los combobox con las paradas y horarios cargados
-		rellenarComboBox(Calculo.calcularOrdenParadas(listaParadas), horarios);
+		ventanaParadasFecha.rellenarComboBoxParadas(Calculo.calcularOrdenParadas(listaParadas));
 		
 		//Llamamos al metodo que mostrara las opciones de vuelta, si el checkbox ha sido seleccionado
 		mostrarVuelta();
 		
 	}
 	
-	//Metodo para cargar las acciones de los botones
+	/**
+	 * Metodo para cargar las acciones de los botones
+	 */
 	private void mIniciarControlador() {
 		
-		//Añadimos los mouselistener a los botones
+		//Añadimos los listeners a los botones
 		this.ventanaParadasFecha.getBtnProcederAlPago().addMouseListener(this);
 		this.ventanaParadasFecha.getBtnProcederAlPago().setName("Proceder al pago");
 		this.ventanaParadasFecha.getBtnVolver().addMouseListener(this);
 		this.ventanaParadasFecha.getBtnVolver().setName("Volver");
 		this.ventanaParadasFecha.getBtnSalir().addMouseListener(this);
 		this.ventanaParadasFecha.getBtnSalir().setName("Salir");
-		
-		
+		this.ventanaParadasFecha.getDateChooserIda().addPropertyChangeListener(new DateListener(linea, ventanaParadasFecha));		
 	}
 	
-	//Metodo para rellenar los combobox a mostrar
-	private void rellenarComboBox(ArrayList<Parada> listaparadas, ArrayList<String> horarios) {
-		
-		
-		for (Parada parada : listaparadas) {
-			ventanaParadasFecha.getComboBoxOrigenIda().addItem(parada);
-		}
-		
-		
-		for (Parada parada : listaparadas) {
-			ventanaParadasFecha.getComboBoxDestinoIda().addItem(parada);
-		}
-		
-		
-		for(String horario: horarios) {
-			ventanaParadasFecha.getComboBoxHorariosIda().addItem(horario);
-		}
-		
-		for(String horario: horarios) {
-			ventanaParadasFecha.getComboBoxHorariosVuelta().addItem(horario);
-		}
-		
-		
-	}
-	
+	/**
+	 * Metodo que muestra las opciones para la vuelta si el checkbox ha sido seleccionado
+	 */
 	private void mostrarVuelta() {
 		
 		ventanaParadasFecha.getCheckBox().addChangeListener(new ChangeListener() {
@@ -128,8 +106,6 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 		});
 	}
 
-	
-	
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
@@ -150,11 +126,26 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 				
 				JOptionPane.showMessageDialog(null, "Ha de seleccionar una parada de destino para continuar", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
 			}
+			else if(this.ventanaParadasFecha.getComboBoxOrigenIda().getSelectedIndex() == this.ventanaParadasFecha.getComboBoxDestinoIda().getSelectedIndex()) {
+				
+				JOptionPane.showMessageDialog(null, "La parada de origen no puede ser la misma que la de destino", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+			}
 			else if(this.ventanaParadasFecha.getFechaIda() == null) {
 				
-				JOptionPane.showMessageDialog(null, "Ha de seleccionar una fecha para continuar", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Ha de seleccionar una fecha de ida para continuar", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
 			}
-
+			else if(this.ventanaParadasFecha.getComboBoxHorariosIda().getSelectedIndex() == 0) {
+				
+				JOptionPane.showMessageDialog(null, "Ha de seleccionar un horario de ida para continuar", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+			}
+			else if(this.ventanaParadasFecha.getCheckBox().isSelected() && this.ventanaParadasFecha.getFechaVuelta() == null) {
+				
+				JOptionPane.showMessageDialog(null, "Ha de seleccionar una fecha de vuelta para continuar", "Mensaje de error",JOptionPane.ERROR_MESSAGE);				
+			}
+			else if(this.ventanaParadasFecha.getCheckBox().isSelected() && this.ventanaParadasFecha.getComboBoxHorariosVuelta().getSelectedIndex() == 0) {
+				
+				JOptionPane.showMessageDialog(null, "Ha de seleccionar un horario de vuelta para continuar", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+			}
 			else {
 				
 				billete.setCod_Parada_Inicio(((Parada) this.ventanaParadasFecha.getComboBoxOrigenIda().getSelectedItem()).getCodParada());
@@ -172,9 +163,6 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 				paradaOrigen.setCodParada((((Parada) this.ventanaParadasFecha.getComboBoxOrigenIda().getSelectedItem()).getCodParada()));
 				Parada paradaDestino = new Parada();
 				paradaDestino.setCodParada((((Parada) this.ventanaParadasFecha.getComboBoxDestinoIda().getSelectedItem()).getCodParada()));
-				
-				
-			
 				
 				if (this.ventanaParadasFecha.getCheckBox().isSelected()) {
 					
@@ -262,6 +250,7 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 		// TODO Apéndice de método generado automáticamente
 		
 	}
+	
 
 	
 }

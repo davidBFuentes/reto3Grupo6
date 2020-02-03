@@ -129,6 +129,7 @@ public class Controlador06Desglose implements MouseListener {
 			Controlador05ParadasFecha controlador05 = new Controlador05ParadasFecha(window2, linea, billete, cliente);
 			window2.getFrame().setVisible(true);
 			this.ventanadeglose.Ventana06Desglose.dispose();
+			break;
 
 		}
 		// TODO Auto-generated method stub

@@ -141,7 +141,7 @@ public class Calculo {
 	 * @param paradasBillete Arraylist 
 	 * @param autobus Objeto autobus del trayecto seleccionado
 	 */
-	public static void calcularPrecioBillete(Billete billete, ArrayList<Parada> paradasBillete, Autobus autobus) {
+	public static double calcularPrecioBillete(Billete billete, ArrayList<Parada> paradasBillete, Autobus autobus) {
 		
 		//Calculamos el precio del billete
 		double costeTotal = calcularDistanciaBillete(paradasBillete) * autobus.getConsumo() * Autobus.PRECIO_DIESEL;
@@ -149,14 +149,22 @@ public class Calculo {
 		double beneficioPorBillete = beneficioTotal / autobus.getNumPlazas();
 		double costePorBillete = (calcularDistanciaBillete(paradasBillete) * autobus.getConsumo() * Autobus.PRECIO_DIESEL) + beneficioPorBillete;
 
+		 double precioBillete = Calculo.formatearPrecio(costePorBillete);
+		
+		return precioBillete;
+	
+	}
+	
+	public static double formatearPrecio(double numeroSinFormatear) {
+		
 		//Creamos un objeto Mathcontext al que le pasaremos como parametro la precision que deseamos y redondeara 
-		MathContext formatoPrecio = new MathContext(3, RoundingMode.HALF_UP);
+		MathContext formatoPrecio = new MathContext(2, RoundingMode.HALF_UP);
 	
 		//Creamos un objeto Bigdecimal pasandole la variable a formatear y el formato creado previamente
-		BigDecimal precioFormateado = new BigDecimal(costePorBillete, formatoPrecio);
+		BigDecimal precioFormateado = new BigDecimal(numeroSinFormatear, formatoPrecio);
 		
-		//Volvemos a cargar la variable ya formateada en el billete
-		billete.setPrecio(precioFormateado.doubleValue());
+		return precioFormateado.doubleValue();
+		
 	}
 	
 	
