@@ -25,7 +25,7 @@ public class ParadaDAO {
 		Statement stm= null;
 		ResultSet rs=null;
 		
-		String sql= "SELECT * from parada where Cod_Parada in (select Cod_Parada from `linea-parada` where cod_linea = " + "'" + linea.getCodLinea() + "'" + ");";
+		String sql= "SELECT * from parada where Cod_Parada in (select Cod_Parada from linea_parada where cod_linea = " + "'" + linea.getCodLinea() + "'" + ");";
 		ArrayList<Parada> listaParadas = new ArrayList<Parada>();
 		
 		try {			

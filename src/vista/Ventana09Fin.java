@@ -7,10 +7,11 @@ import rojeru_san.RSLabelHora;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import java.awt.Font;
 import javax.swing.JPanel;
-import javax.swing.border.LineBorder;
 import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
+
+import java.awt.Font;
 
 public class Ventana09Fin {
 
@@ -18,6 +19,9 @@ public class Ventana09Fin {
 	private JPanel panel;
 	private JPanel panel_1;
 
+	/**
+	 * Metodo que inicializa todos los objetos que contendra todos los objetos de la VentanaFin
+	 */
 	public Ventana09Fin() {
 		
 		crearVentana();
@@ -26,6 +30,9 @@ public class Ventana09Fin {
 		crearFechaHora();
 	}
 	
+	/**
+	 * Metodo que crea una ventana
+	 */
 	private void crearVentana() {
 		
 		frame = new JFrame();
@@ -37,6 +44,10 @@ public class Ventana09Fin {
 		frame.setLocationRelativeTo(null);
 	}
 	
+	
+	/**
+	 * Metodo que crea los botones de la VentanaFin 
+	 */
 	private void crearPaneles() {
 		
 		panel = new JPanel();
@@ -53,7 +64,10 @@ public class Ventana09Fin {
 		panel.add(panel_1);
 		panel_1.setLayout(null);
 	}
-
+	
+	/**
+	 * Metodo que crea las etiquetas de la VentanaFin
+	 */
 	private void crearEtiquetas() {
 	
 		JLabel lblMensaje = new JLabel("\u00A1Gracias por su compra!");
@@ -75,6 +89,9 @@ public class Ventana09Fin {
 		panel.add(lblCabeceraTermibus);
 	}
 	
+	/**
+	 * Metodo que carga la fecha y hora
+	 */
 	private void crearFechaHora() {
 		RSLabelHora labelHora = new RSLabelHora();
 		labelHora.setForeground(Color.BLACK);
@@ -87,7 +104,11 @@ public class Ventana09Fin {
 		frame.getContentPane().add(labelFecha);
 		
 	}
-
+	
+	/**
+	 * Metodo que devuelve la ventana
+	 *
+	 */
 	public JFrame getFrame() {
 		return frame;
 	}

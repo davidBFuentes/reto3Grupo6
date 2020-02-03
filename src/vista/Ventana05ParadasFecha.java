@@ -9,6 +9,9 @@ import javax.swing.JButton;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+
 import com.toedter.calendar.JDateChooser;
 
 import modelo.Parada;
@@ -17,6 +20,7 @@ import rojeru_san.RSLabelHora;
 import javax.swing.JCheckBox;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
@@ -361,5 +365,34 @@ public class Ventana05ParadasFecha {
 	public void setBtnVolver(JButton btnVolver) {
 		
 		this.btnVolver = btnVolver;
+	}
+	/**
+	 * Metodo para rellenar los combobox a mostrar
+	 * @param listaparadas
+	 * @param horarios
+	 */
+	public void rellenarComboBoxParadas(ArrayList<Parada> listaparadas) {
+		
+		
+		for (Parada parada : listaparadas) {
+			getComboBoxOrigenIda().addItem(parada);
+		}
+		
+		for (Parada parada : listaparadas) {
+			getComboBoxDestinoIda().addItem(parada);
+		}
+	}
+	
+	public void rellenarComboBoxHorarios(ArrayList<String> horarios) {	
+		
+		for(String horario: horarios) {
+			getComboBoxHorariosIda().addItem(horario);
+		}
+		
+		for(String horario: horarios) {
+			getComboBoxHorariosVuelta().addItem(horario);
+		}
+		
+		
 	}
 }
