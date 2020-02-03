@@ -47,7 +47,7 @@ public class BilleteDAO {
 		
 
 		} catch (SQLException e) {
-			System.out.println("Error: Clase Cliente, método registrar");
+			System.out.println("Error: Clase Billete, método mRegistrarBillete");
 			e.printStackTrace();
 		}
 		return registrar;

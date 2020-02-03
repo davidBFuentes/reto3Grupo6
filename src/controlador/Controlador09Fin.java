@@ -27,6 +27,7 @@ public class Controlador09Fin {
 					Controlador01Bienvenida controlador = new Controlador01Bienvenida(window);
 					window.getFrame().setVisible(true);
 					ventanaFin.getFrame().dispose();
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
