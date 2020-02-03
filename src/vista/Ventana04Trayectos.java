@@ -77,19 +77,24 @@ public class Ventana04Trayectos {
 		
 		btnContinuar = new JButton("Continuar");
 		btnContinuar.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		btnContinuar.setBounds(21, 30, 247, 115);
+		btnContinuar.setBounds(21, 20, 251, 131);
 		panel_2.add(btnContinuar);
 		btnContinuar.setFont(new Font("Tahoma", Font.BOLD, 20));
 		
 		btnSalir = new JButton("Salir");
 		btnSalir.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		btnSalir.setBounds(21, 167, 247, 115);
+		btnSalir.setBounds(21, 168, 251, 131);
 		panel_2.add(btnSalir);
 		btnSalir.setFont(new Font("Tahoma", Font.BOLD, 20));
 		
 	}
 	
 	private void crearEtiquetas() {
+		
+		lblFondoVentana04 = new JLabel("");
+		lblFondoVentana04.setIcon(new ImageIcon(Ventana04Trayectos.class.getResource("/imagenes/fondoBilbaoVentana04.png")));
+		lblFondoVentana04.setBounds(20, 20, 1174, 593);
+		panel.add(lblFondoVentana04);
 		
 	}
 
@@ -118,10 +123,6 @@ public class Ventana04Trayectos {
 		panel.add(comboLineas);
 		comboLineas.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
 		
-		lblFondoVentana04 = new JLabel("");
-		lblFondoVentana04.setIcon(new ImageIcon(Ventana04Trayectos.class.getResource("/imagenes/fondoBilbaoVentana04.png")));
-		lblFondoVentana04.setBounds(20, 20, 1174, 593);
-		panel.add(lblFondoVentana04);
 	
 	}
 

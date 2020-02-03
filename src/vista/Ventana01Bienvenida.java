@@ -16,7 +16,7 @@ import javax.swing.SwingConstants;
 
 public class Ventana01Bienvenida {
 
-	private JFrame frame;
+	public JFrame frame;
 	private JPanel panel_1;
 	private JPanel panel;
 	private JButton btnVentana02;
@@ -28,6 +28,7 @@ public class Ventana01Bienvenida {
 		crearEtiquetas();
 		crearBotones();
 		crearFechaHora();
+
 	}
 	
 	private void crearVentana() {

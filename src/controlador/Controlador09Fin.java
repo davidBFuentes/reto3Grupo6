@@ -1,8 +1,6 @@
 package controlador;
 
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
+import java.awt.EventQueue;
 
 import vista.Ventana01Bienvenida;
 import vista.Ventana09Fin;
@@ -12,26 +10,33 @@ public class Controlador09Fin {
 	private Ventana09Fin ventanaFin;
 
 	
-	public Controlador09Fin(Ventana09Fin pVentanaImprimirBilletes) throws InterruptedException {
+	public Controlador09Fin(Ventana09Fin pVentana09) {
 		
-		this.ventanaFin = pVentanaImprimirBilletes;
+		this.ventanaFin = pVentana09;
 		mIniciarControlador();
-	
+		
 	}
 	
-	private void mIniciarControlador() throws InterruptedException {
+	private void mIniciarControlador() {
+		
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Thread.sleep(2000);
+					Ventana01Bienvenida window = new Ventana01Bienvenida();
+					Controlador01Bienvenida controlador = new Controlador01Bienvenida(window);
+					window.getFrame().setVisible(true);
+					ventanaFin.getFrame().dispose();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 		
 		
-		Ventana01Bienvenida window = new Ventana01Bienvenida();
-		Controlador01Bienvenida controladorBienvenida = new Controlador01Bienvenida(window);
-	
 		
-		window.getFrame().setVisible(true);
-		ScheduledExecutorService es = Executors.newScheduledThreadPool(1);
-		TimeUnit.SECONDS.sleep(4);
-
-
-		this.ventanaFin.getFrame().dispose();
 	}
 
 }
+
+

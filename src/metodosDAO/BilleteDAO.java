@@ -2,7 +2,10 @@ package metodosDAO;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 import conexion.ConexionBus;
 import modelo.Billete;
@@ -18,7 +21,7 @@ public class BilleteDAO {
 		Connection con=null;
 		
 
-		String sql = "INSERT INTO cliente (Cod_Billete, Cod_Linea, Cod_Bus,	Cod_Parada_Inicio, Cod_Parada_Fin, Fecha, Hora, DNI, Precio" + 
+		String sql = "INSERT INTO billete (Cod_Billete, Cod_Linea, Cod_Bus,	Cod_Parada_Inicio, Cod_Parada_Fin, Fecha, Hora, DNI, Precio" + 
 				") VALUES(?,?,?,?,?,?,?,?,?);"; 
 		
 		try {
@@ -26,7 +29,7 @@ public class BilleteDAO {
 			
 		    CallableStatement cs = con.prepareCall(sql);
 		    
-		    cs.setString(1, billete.getCod_Billete());
+		    cs.setInt(1, billete.getCod_Billete());
 		    cs.setString(2, billete.getCod_Linea());
 		    cs.setString(3, billete.getCod_Bus());
 		    cs.setInt(4, billete.getCod_Parada_Inicio());
@@ -48,6 +51,44 @@ public class BilleteDAO {
 			e.printStackTrace();
 		}
 		return registrar;
+	}
+	
+	public static int mObtenerCodigoBillete(Billete billete) {
+		
+		Connection co =null;
+		Statement stm= null;
+		ResultSet rs=null;
+		int codigoBillete = 0;
+		
+		String sql="SELECT max(cod_billete) FROM billete;";
+			
+		try {			
+			co= ConexionBus.conectar();
+			stm=co.createStatement();
+			rs=stm.executeQuery(sql);
+			while (rs.next()) {
+				codigoBillete = (rs.getInt(1));
+				
+				if (codigoBillete > 0){
+					
+					codigoBillete = (rs.getInt(1)+1);
+					
+				}else {
+					
+					codigoBillete = 1;
+				}
+			}
+			stm.close();
+			rs.close();
+			co.close();
+			
+		} catch (SQLException e) {
+			System.out.println("Error: Clase BilleteDAO, método mObtenerCodigoBillete");
+			e.printStackTrace();
+		}
+		
+		return codigoBillete;
+		
 	}
 
 }

@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 
 import metodosDAO.LineaDAO;
 import modelo.Billete;
+import modelo.Cliente;
 import modelo.Linea;
 import vista.Ventana01Bienvenida;
 import vista.Ventana04Trayectos;
@@ -21,12 +22,14 @@ public class Controlador04Trayectos implements MouseListener, MouseMotionListene
 	
 	private Ventana04Trayectos ventanatrayectos;
 	private Billete billete;
+	private Cliente cliente;
 	
-	public Controlador04Trayectos (Ventana04Trayectos pVentana02, Billete pBillete) {
+	public Controlador04Trayectos (Ventana04Trayectos pVentana02, Billete pBillete, Cliente pCliente) {
 		
 		
 		this.ventanatrayectos = pVentana02;
 		this.billete = pBillete;
+		this.cliente = pCliente;
 		
 		mIniciarControlador();
 		
@@ -64,7 +67,7 @@ public class Controlador04Trayectos implements MouseListener, MouseMotionListene
 					linea = (Linea) this.ventanatrayectos.getComboLineas().getSelectedItem();
 					billete.setCod_Linea(linea.getCodLinea());
 					Ventana05ParadasFecha window = new Ventana05ParadasFecha();
-					Controlador05ParadasFecha controlador = new Controlador05ParadasFecha(window, linea, billete);
+					Controlador05ParadasFecha controlador = new Controlador05ParadasFecha(window, linea, billete, cliente);
 					window.getFrame().setVisible(true);
 					this.ventanatrayectos.getFrame().dispose();
 					
@@ -161,7 +164,7 @@ public class Controlador04Trayectos implements MouseListener, MouseMotionListene
 				this.ventanatrayectos.getLblFondoVentana04().setIcon(new ImageIcon(Ventana04Trayectos.class.getResource("/imagenes/fondoDurangoVentana04.png")));
 			} 
 			
-			if(this.ventanatrayectos.getComboLineas().getSelectedItem().toString().contains("Seleccione")) {
+			if(this.ventanatrayectos.getComboLineas().getSelectedItem().toString().contains("Elija")) {
 				this.ventanatrayectos.getLblFondoVentana04().setIcon(new ImageIcon(Ventana04Trayectos.class.getResource("/imagenes/fondoBilbaoVentana04.png")));
 			} 
 			break;

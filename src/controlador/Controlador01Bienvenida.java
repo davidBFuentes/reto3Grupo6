@@ -1,5 +1,6 @@
 package controlador;
 
+import java.awt.EventQueue;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -14,6 +15,7 @@ public class Controlador01Bienvenida implements MouseListener {
 		
 		this.ventanaBienvenida = pVentana01;
 		mInicializarControlador();
+	
 		
 	}
 	

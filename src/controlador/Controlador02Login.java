@@ -26,7 +26,6 @@ public class Controlador02Login implements KeyListener, MouseListener {
 		this.ventanalogin = pVentana02;
 		mInicializarControlador();
 		
-		
 	}
 	
 	private void mInicializarControlador () {
@@ -41,6 +40,7 @@ public class Controlador02Login implements KeyListener, MouseListener {
 		this.ventanalogin.getTxtDni().setName("dni");
 		this.ventanalogin.getTxtContrasena().addKeyListener(this);
 		this.ventanalogin.getTxtContrasena().setName("pass");
+		
 			
 	}
 
@@ -73,7 +73,7 @@ public class Controlador02Login implements KeyListener, MouseListener {
 							JOptionPane.showMessageDialog(null, "Bienvenido, "+ cliente.getNombre(), "Mensaje", JOptionPane.INFORMATION_MESSAGE);
 							Ventana04Trayectos window4 = new Ventana04Trayectos();
 							@SuppressWarnings("unused")
-							Controlador04Trayectos controlador = new Controlador04Trayectos(window4, billete);
+							Controlador04Trayectos controlador = new Controlador04Trayectos(window4, billete, cliente);
 							window4.getFrame().setVisible(true);
 							this.ventanalogin.getLogin().dispose();
 							
@@ -153,7 +153,7 @@ public class Controlador02Login implements KeyListener, MouseListener {
 				Cliente cliente1 = new Cliente("x", "Invitado", "x", "x", "x", "x");
 				Ventana04Trayectos window4 = new Ventana04Trayectos();
 				Billete billete = new Billete();
-				@SuppressWarnings("unused") Controlador04Trayectos controlador = new Controlador04Trayectos(window4, billete);
+				@SuppressWarnings("unused") Controlador04Trayectos controlador = new Controlador04Trayectos(window4, billete, cliente1);
 				window4.getFrame().setVisible(true);
 				this.ventanalogin.getLogin().dispose();
 				break;
