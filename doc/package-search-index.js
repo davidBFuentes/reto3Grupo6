@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"conexion"},{"l":"controlador"},{"l":"metodosDAO"},{"l":"modelo"},{"l":"principal"},{"l":"vista"}]
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"calculosMatematicos"},{"l":"conexion"},{"l":"controlador"},{"l":"metodosDAO"},{"l":"modelo"},{"l":"principal"},{"l":"vista"}]

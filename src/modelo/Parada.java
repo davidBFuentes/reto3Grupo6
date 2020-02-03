@@ -87,9 +87,6 @@ public class Parada implements Comparable<Parada> {
 		
 		return this.getNombre();
 	}
-	
-
-
 
 	@Override
 	public int compareTo(Parada o) {

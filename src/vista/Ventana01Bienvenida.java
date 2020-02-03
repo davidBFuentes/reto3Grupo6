@@ -82,7 +82,7 @@ public class Ventana01Bienvenida {
 		lblBienvenido2.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lblBienvenido2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBienvenido2.setBounds(0, 97, 1174, 37);
-		panel_1.add(lblBienvenido2);
+		panel_1.add(lblBienvenido2); 
 		
 		JLabel lblCabeceraTermibus = new JLabel("");
 		lblCabeceraTermibus.setBorder(new LineBorder(Color.BLACK, 2));

@@ -14,6 +14,9 @@ public class Ventana09Fin{
 
 	private JFrame Ventana8Fin;
 
+	/**
+	 * Metodo que inicializa todos los objetos que contendra todos los objetos de la VentanaFin
+	 */
 	public Ventana09Fin() {
 		
 		crearVentana();
@@ -22,6 +25,9 @@ public class Ventana09Fin{
 		crearFechaHora();
 	}
 	
+	/**
+	 * Metodo que crea una ventana
+	 */
 	private void crearVentana() {
 		
 		Ventana8Fin = new JFrame();
@@ -32,6 +38,10 @@ public class Ventana09Fin{
 		Ventana8Fin.setLocationRelativeTo(null);
 	}
 	
+	
+	/**
+	 * Metodo que crea los botones de la VentanaFin 
+	 */
 	private void crearBotones() {
 		
 		JButton btnLogo = new JButton("");
@@ -39,7 +49,10 @@ public class Ventana09Fin{
 		btnLogo.setBounds(117, 82, 988, 362);
 		Ventana8Fin.getContentPane().add(btnLogo);
 	}
-
+	
+	/**
+	 * Metodo que crea las etiquetas de la VentanaFin
+	 */
 	private void crearEtiquetas() {
 	
 		JLabel lblMensaje = new JLabel("\u00A1Gracias por su compra!");
@@ -53,6 +66,9 @@ public class Ventana09Fin{
 		Ventana8Fin.getContentPane().add(lblMensaje1);
 	}
 	
+	/**
+	 * Metodo que carga la fecha y hora
+	 */
 	private void crearFechaHora() {
 		RSLabelHora labelHora = new RSLabelHora();
 		labelHora.setForeground(Color.BLACK);
@@ -64,7 +80,11 @@ public class Ventana09Fin{
 		labelFecha.setBounds(12, 13, 200, 40);
 		Ventana8Fin.getContentPane().add(labelFecha);
 	}
-
+	
+	/**
+	 * Metodo que devuelve la ventana
+	 *
+	 */
 	public JFrame getFrame() {
 		// TODO Auto-generated method stub
 		return Ventana8Fin;

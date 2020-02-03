@@ -42,18 +42,9 @@ public class Controlador06Desglose implements MouseListener {
 		this.ventanadeglose.getTxtDNI().setText(billete.getDni());
 		this.ventanadeglose.getTxtOrigen().setText(billete.getNombre_Parada_Origen());
 		this.ventanadeglose.getTxtDestino().setText(billete.getNombre_Parada_Destino());
-		this.ventanadeglose.getTxtFecha().setText(billete.getFecha() + " " + billete.getHora());
-		
-		
+		this.ventanadeglose.getTxtFecha().setText(billete.getFecha() + " " + billete.getHora());	
 		
 		System.out.println(billete.getCod_Bus());
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		this.ventanadeglose.getTxtNAutobus().setText(billete.getCod_Bus());

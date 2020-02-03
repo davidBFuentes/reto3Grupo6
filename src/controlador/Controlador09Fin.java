@@ -25,10 +25,13 @@ public class Controlador09Fin {
 		Ventana01Bienvenida window = new Ventana01Bienvenida();
 		Controlador01Bienvenida controladorBienvenida = new Controlador01Bienvenida(window);
 	
+		
 		window.getFrame().setVisible(true);
-	
-		this.ventanaFin.getFrame().dispose();
+		ScheduledExecutorService es = Executors.newScheduledThreadPool(1);
+		TimeUnit.SECONDS.sleep(4);
 
+
+		this.ventanaFin.getFrame().dispose();
 	}
 
 }

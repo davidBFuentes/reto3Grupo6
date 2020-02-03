@@ -38,7 +38,12 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 	ArrayList<Parada> paradasBillete;
 	Autobus autobus;
 	
-	//Constructor que inicializara el funcionamiento del controlador habiendo recibido tres parametros (la ventana de trayectos, el objeto linea y el objeto billete)
+	/**
+	 * Constructor que inicializara el funcionamiento del controlador habiendo recibido tres parametros (la ventana de seleccion de paradas y fecha, el objeto linea y el objeto billete)
+	 * @param pVentana05 
+	 * @param pLinea
+	 * @param pBillete
+	 */
 	public Controlador05ParadasFecha (Ventana05ParadasFecha pVentana05, Linea pLinea, Billete pBillete) {
 		
 		//Recibimos los objetos del controlador anterior
@@ -157,6 +162,11 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 			else if(this.ventanaParadasFecha.getFechaIda() == null) {
 				
 				JOptionPane.showMessageDialog(null, "Ha de seleccionar una fecha para continuar", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+			}
+			
+			else if (ventanaParadasFecha.getComboBoxOrigenIda().getSelectedIndex() == ventanaParadasFecha.getComboBoxDestinoIda().getSelectedIndex()){
+				
+				JOptionPane.showMessageDialog(null, "No puede seleccionar la misma parada de origen y de destino", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
 			}
 
 			else {
