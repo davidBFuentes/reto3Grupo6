@@ -22,17 +22,16 @@ public class Controlador09Fin {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Thread.sleep(2000);
 					Ventana01Bienvenida window = new Ventana01Bienvenida();
 					Controlador01Bienvenida controlador = new Controlador01Bienvenida(window);
 					window.getFrame().setVisible(true);
 					ventanaFin.getFrame().dispose();
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
-		
 		
 	}
 

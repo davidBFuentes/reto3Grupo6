@@ -6,7 +6,7 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JOptionPane;
 
-import controlador.ControladorVueltas;
+import metodosDAO.BilleteDAO;
 import metodosDAO.BilleteDAO;
 import modelo.Billete;
 import modelo.Cliente;

@@ -22,7 +22,7 @@ public class AutobusDAO {
 		System.out.println(billete.getHora());
 		
 		
-		String sql = "SELECT * FROM autobus WHERE Cod_bus = (SELECT Cod_bus FROM linea_autobus WHERE Cod_Linea = '" + billete.getCod_Linea() + "' && Hora = '" + billete.getHora() + "');"; 
+		String sql = "SELECT * FROM autobus WHERE Cod_bus in (SELECT Cod_bus FROM linea_autobus WHERE Cod_Linea = '" + billete.getCod_Linea() + "' && Fecha = '" + billete.getFecha() + "');"; 
 		
 		Autobus autobus = new Autobus();
 		

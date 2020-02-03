@@ -91,11 +91,6 @@ public class Ventana04Trayectos {
 	
 	private void crearEtiquetas() {
 		
-		lblFondoVentana04 = new JLabel("");
-		lblFondoVentana04.setIcon(new ImageIcon(Ventana04Trayectos.class.getResource("/imagenes/fondoBilbaoVentana04.png")));
-		lblFondoVentana04.setBounds(20, 20, 1174, 593);
-		panel.add(lblFondoVentana04);
-		
 	}
 
 	public void crearFechaHora() {
@@ -117,11 +112,16 @@ public class Ventana04Trayectos {
 		comboLineas = new JComboBox<Linea>();
 		comboLineas.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		comboLineas.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		comboLineas.setMaximumRowCount(5);
+		comboLineas.setMaximumRowCount(10);
 		comboLineas.setModel(new DefaultComboBoxModel(new String[] {"Elija su l\u00EDnea"}));
-		comboLineas.setBounds(20, 20, 355, 62);
+		comboLineas.setBounds(20, 20, 868, 59);
 		panel.add(comboLineas);
-		comboLineas.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
+		comboLineas.setFont(new Font("Trebuchet MS", Font.BOLD, 25));
+		
+		lblFondoVentana04 = new JLabel("");
+		lblFondoVentana04.setIcon(new ImageIcon(Ventana04Trayectos.class.getResource("/imagenes/fondoBilbaoVentana04.png")));
+		lblFondoVentana04.setBounds(20, 20, 1174, 593);
+		panel.add(lblFondoVentana04);
 		
 	
 	}
