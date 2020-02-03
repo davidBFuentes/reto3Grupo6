@@ -7,8 +7,12 @@ import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
 
 import controlador.ControladorVueltas;
+import metodosDAO.BilleteDAO;
 import modelo.Billete;
+import modelo.Cliente;
+import modelo.Linea;
 import vista.Ventana01Bienvenida;
+import vista.Ventana06Desglose;
 import vista.Ventana08ImprimirBilletes;
 import vista.Ventana07Pago;
 
@@ -26,27 +30,46 @@ public class Controlador07Pago implements MouseListener {
 	private float introducido;
 	private int distancia = 0;
 	private int decimales = 3;
+	private Linea linea;
 	private Billete billete;
+	private Billete billete2;
+	private Cliente cliente;
+	private double preciototal = 0;
 
 
 	
-	public Controlador07Pago (Ventana07Pago window, Billete pbillete) {
+	public Controlador07Pago (Ventana07Pago window, Linea pLinea, Billete pbillete, Billete pBillete2, Cliente pCliente) {
 		// TODO Auto-generated constructor stub
+		
 		this.ventanaPago = window;
+		this.linea = pLinea;
 		this.billete = pbillete;
+		this.billete2 = pBillete2;
+		this.cliente = pCliente;
+		
+		if (billete.getCod_Linea() == billete2.getCod_Linea()) {
+			preciototal = billete.getPrecio() + billete2.getPrecio();
+			
+		} else {
+			preciototal = billete.getPrecio();
+		}
+		
 		mIniciarControlador();
+		
+		System.out.println(billete2.getCod_Bus());
+		System.out.println(billete2.getHora());
+		System.out.println(billete2.getFecha());
+		System.out.println(billete.getFecha());
+		System.out.println(billete2.getPrecio());
 	}
 
 
 	private void mIniciarControlador() {
 		
 
-		this.ventanaPago.getTxtDestino().setText(billete.getNombre_Parada_Destino());
-		this.ventanaPago.getTxtOrigen().setText(billete.getNombre_Parada_Origen());
-		this.ventanaPago.getTxtPrecioBillete().setText(Double.toString(billete.getPrecio()));
-		this.ventanaPago.getTxtPrecioSinIva().setText(Double.toString(billete.getPrecio()));
-		this.ventanaPago.getTxtFechaSalida().setText(billete.getFecha() + " " + billete.getHora());
-		this.ventanaPago.getTxtPrecioConIva().setText(Double.toString(billete.getPrecio() + billete.getPrecio()*0.21));
+		
+		this.ventanaPago.getTxtPrecioSinIva().setText(Double.toString(this.preciototal));
+		this.ventanaPago.getTxtPrecioConIva().setText(Double.toString(this.preciototal + this.preciototal*0.21));
 		this.ventanaPago.getTxtPrecioAPagar().setText(this.ventanaPago.getTxtPrecioConIva().getText());
 		
 		
@@ -83,6 +106,8 @@ public class Controlador07Pago implements MouseListener {
 		this.ventanaPago.getBtn_borrar().setName("borrar");
 		this.ventanaPago.getBtn_pagar().addMouseListener(this);
 		this.ventanaPago.getBtn_pagar().setName("pagar");
+		this.ventanaPago.getBtnVolver().addMouseListener(this);
+		this.ventanaPago.getBtnVolver().setName("Volver");
 		
 		
 		
@@ -109,7 +134,7 @@ public class Controlador07Pago implements MouseListener {
 				Ventana01Bienvenida window = new Ventana01Bienvenida();
 				Controlador01Bienvenida controladorbienvenida = new Controlador01Bienvenida(window);
 				window.getFrame().setVisible(true);
-				this.ventanaPago.getRegistro().dispose();
+				this.ventanaPago.Ventana07Pago.dispose();
 			break;
 				
 		case "0":
@@ -389,13 +414,30 @@ public class Controlador07Pago implements MouseListener {
 			if (total!=0) {
 				JOptionPane.showMessageDialog(null, "Debe pagar el precio entero del billete", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
 			}else {
+				
+				billete.setCod_Billete(BilleteDAO.mObtenerCodigoBillete(billete));
+				BilleteDAO.mRegistrarBillete(billete);
+				
+				if (billete2.getCod_Linea() != null) {
+					billete2.setCod_Billete(BilleteDAO.mObtenerCodigoBillete(billete2));
+					BilleteDAO.mRegistrarBillete(billete2);
+				}
+				
 				Ventana08ImprimirBilletes ventana = new Ventana08ImprimirBilletes();
-				Controlador08ImprimirBilletes controladorBienvenida = new Controlador08ImprimirBilletes(ventana, billete);
-				ventana.getFrame().setVisible(true);
-				this.ventanaPago.getRegistro().dispose();
+				Controlador08ImprimirBilletes controladorBienvenida = new Controlador08ImprimirBilletes(ventana, billete, billete2, cliente);
+				ventana.ventana08ImprimirBilletes.setVisible(true);
+				this.ventanaPago.Ventana07Pago.dispose();
 			}
 			
 
+			break;
+			
+		case "Volver":
+			Ventana06Desglose window1 = new Ventana06Desglose();
+			Controlador06Desglose controlador = new Controlador06Desglose(window1, linea, billete, billete2, cliente);
+			window1.Ventana06Desglose.setVisible(true);
+			this.ventanaPago.Ventana07Pago.dispose();
+			
 			break;
 		}
 	}

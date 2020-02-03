@@ -104,7 +104,7 @@ public class Controlador03Registro implements MouseListener, KeyListener {
 						Billete billete = new Billete();
 						billete.setDni(cliente.getDni());
 						Ventana04Trayectos window1 = new Ventana04Trayectos();
-						Controlador04Trayectos controlador = new Controlador04Trayectos(window1, billete);
+						Controlador04Trayectos controlador = new Controlador04Trayectos(window1, billete, cliente);
 						window1.getFrame().setVisible(true);
 						this.ventana03registro.getFrame().dispose();
 					}

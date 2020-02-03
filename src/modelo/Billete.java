@@ -2,7 +2,7 @@ package modelo;
 
 public class Billete {
 	
-	private String cod_Billete;
+	private int cod_Billete;
 	private String cod_Linea;
 	private String cod_Bus;
 	private int cod_Parada_Inicio;
@@ -18,7 +18,7 @@ public class Billete {
 		
 	}
 	
-	public Billete (String pCod_Billete, String pCod_Linea, String pCod_Bus, int pCod_Parada_Inicio, 
+	public Billete (int pCod_Billete, String pCod_Linea, String pCod_Bus, int pCod_Parada_Inicio, 
 			String pNombre_Parada_Origen, int pCod_Parada_Fin, String pNombre_Parada_Destino, String pFecha, String pHora, String pDni, double pPrecio) {
 		
 		this.cod_Billete = pCod_Billete;
@@ -35,11 +35,11 @@ public class Billete {
 		
 	}
 
-	public String getCod_Billete() {
+	public int getCod_Billete() {
 		return cod_Billete;
 	}
 
-	public void setCod_Billete(String cod_Billete) {
+	public void setCod_Billete(int cod_Billete) {
 		this.cod_Billete = cod_Billete;
 	}
 

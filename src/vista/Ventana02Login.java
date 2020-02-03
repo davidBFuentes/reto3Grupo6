@@ -37,6 +37,7 @@ public class Ventana02Login {
 		crearEtiquetas();
 		crearCamposTexto();
 		crearFechaHora();
+
 	}
 	
 	private void crearVentana() {

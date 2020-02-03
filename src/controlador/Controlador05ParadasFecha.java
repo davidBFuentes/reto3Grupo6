@@ -20,9 +20,11 @@ import metodosDAO.HorariosDAO;
 import metodosDAO.ParadaDAO;
 import modelo.Autobus;
 import modelo.Billete;
+import modelo.Cliente;
 import modelo.Linea;
 import modelo.Parada;
 import vista.Ventana01Bienvenida;
+import vista.Ventana04Trayectos;
 import vista.Ventana05ParadasFecha;
 import vista.Ventana06Desglose;
 
@@ -33,18 +35,21 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 	private Ventana05ParadasFecha ventanaParadasFecha;
 	private Linea linea;
 	private Billete billete;
+	private Cliente cliente;
 	ArrayList<Parada> listaParadas;
 	ArrayList<String> horarios;
 	ArrayList<Parada> paradasBillete;
+	ArrayList<Parada> paradasBillete2;
 	Autobus autobus;
 	
 	//Constructor que inicializara el funcionamiento del controlador habiendo recibido tres parametros (la ventana de trayectos, el objeto linea y el objeto billete)
-	public Controlador05ParadasFecha (Ventana05ParadasFecha pVentana05, Linea pLinea, Billete pBillete) {
+	public Controlador05ParadasFecha (Ventana05ParadasFecha pVentana05, Linea pLinea, Billete pBillete, Cliente pCliente) {
 		
 		//Recibimos los objetos del controlador anterior
 		this.ventanaParadasFecha = pVentana05;
 		this.linea = pLinea;
 		this.billete = pBillete;
+		this.cliente = pCliente;
 		
 		//Cargamos los arraylist de paradas y horarios en funcion de la linea seleccionada previamente
 		listaParadas = ParadaDAO.mObtenerParadas(linea);
@@ -67,6 +72,8 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 		//Añadimos los mouselistener a los botones
 		this.ventanaParadasFecha.getBtnProcederAlPago().addMouseListener(this);
 		this.ventanaParadasFecha.getBtnProcederAlPago().setName("Proceder al pago");
+		this.ventanaParadasFecha.getBtnVolver().addMouseListener(this);
+		this.ventanaParadasFecha.getBtnVolver().setName("Volver");
 		this.ventanaParadasFecha.getBtnSalir().addMouseListener(this);
 		this.ventanaParadasFecha.getBtnSalir().setName("Salir");
 		
@@ -81,17 +88,12 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 			ventanaParadasFecha.getComboBoxOrigenIda().addItem(parada);
 		}
 		
-		for (Parada parada : listaparadas) {
-			ventanaParadasFecha.getComboBoxOrigenVuelta().addItem(parada);
-		}
 		
 		for (Parada parada : listaparadas) {
 			ventanaParadasFecha.getComboBoxDestinoIda().addItem(parada);
 		}
 		
-		for (Parada parada : listaparadas) {
-			ventanaParadasFecha.getComboBoxDestinoVuelta().addItem(parada);
-		}
+		
 		
 		for(String horario: horarios) {
 			ventanaParadasFecha.getComboBoxHorariosIda().addItem(horario);
@@ -109,24 +111,14 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 		ventanaParadasFecha.getCheckBox().addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent arg0) {
 				if (ventanaParadasFecha.getCheckBox().isSelected()){
-					ventanaParadasFecha.getLblVuelta().setVisible(true);
-					ventanaParadasFecha.getLblOrigenVuelta().setVisible(true);
-					ventanaParadasFecha.getLblDestinoVuelta().setVisible(true);
-					ventanaParadasFecha.getComboBoxOrigenVuelta().setVisible(true);
-					ventanaParadasFecha.getComboBoxDestinoVuelta().setVisible(true);
-					ventanaParadasFecha.getLblSeleccionFechaDeVuelta().setVisible(true);
 					ventanaParadasFecha.getDateChooserVuelta().setVisible(true);
 					ventanaParadasFecha.getComboBoxHorariosVuelta().setVisible(true);
+					ventanaParadasFecha.getLblSeleccionFechaDeVuelta().setVisible(true);
 				}
 				else {
-					ventanaParadasFecha.getLblVuelta().setVisible(false);
-					ventanaParadasFecha.getLblOrigenVuelta().setVisible(false);
-					ventanaParadasFecha.getLblDestinoVuelta().setVisible(false);
-					ventanaParadasFecha.getComboBoxOrigenVuelta().setVisible(false);
-					ventanaParadasFecha.getComboBoxDestinoVuelta().setVisible(false);
-					ventanaParadasFecha.getLblSeleccionFechaDeVuelta().setVisible(false);
 					ventanaParadasFecha.getDateChooserVuelta().setVisible(false);
 					ventanaParadasFecha.getComboBoxHorariosVuelta().setVisible(false);
+					ventanaParadasFecha.getLblSeleccionFechaDeVuelta().setVisible(false);
 				}
 			}
 		});
@@ -160,6 +152,7 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 			}
 
 			else {
+				
 				billete.setCod_Parada_Inicio(((Parada) this.ventanaParadasFecha.getComboBoxOrigenIda().getSelectedItem()).getCodParada());
 				billete.setNombre_Parada_Origen(this.ventanaParadasFecha.getComboBoxOrigenIda().getSelectedItem().toString());
 				billete.setCod_Parada_Fin(((Parada) this.ventanaParadasFecha.getComboBoxDestinoIda().getSelectedItem()).getCodParada());
@@ -167,18 +160,41 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 				billete.setFecha(this.ventanaParadasFecha.getFechaIda());
 				billete.setHora(this.ventanaParadasFecha.getComboBoxHorariosIda().getSelectedItem().toString());
 				paradasBillete = Calculo.filtrarParadas(listaParadas, billete);
-				System.out.println(Calculo.calcularDistanciaBillete(paradasBillete) + "km");
 				autobus = AutobusDAO.mObtenerBus(billete);
-				Calculo.calcularPrecioBillete(billete, paradasBillete, autobus);
-				System.out.println(billete.getPrecio() + "€");
-				System.out.println(autobus.getCodAutobus());
-				System.out.println(autobus.getConsumo());
-
-				billete.setCod_Bus(autobus.getCodAutobus());
+				billete.setPrecio(Calculo.calcularPrecioBillete(billete, paradasBillete, autobus));
+				billete.setCod_Bus(autobus.getCodAutobus());	
+				Billete billete2 = new Billete();
+				Parada paradaOrigen = new Parada();
+				paradaOrigen.setCodParada((((Parada) this.ventanaParadasFecha.getComboBoxOrigenIda().getSelectedItem()).getCodParada()));
+				Parada paradaDestino = new Parada();
+				paradaDestino.setCodParada((((Parada) this.ventanaParadasFecha.getComboBoxDestinoIda().getSelectedItem()).getCodParada()));
+				
+				
+			
+				
+				if (this.ventanaParadasFecha.getCheckBox().isSelected()) {
+					
+					billete2.setDni(billete.getDni());
+					billete2.setCod_Linea(billete.getCod_Linea());
+					billete2.setCod_Parada_Inicio(billete.getCod_Parada_Fin());
+					billete2.setCod_Parada_Fin(billete.getCod_Parada_Inicio());
+					billete2.setNombre_Parada_Origen(billete.getNombre_Parada_Destino());
+					billete2.setNombre_Parada_Destino(billete.getNombre_Parada_Origen());
+					billete2.setFecha(this.ventanaParadasFecha.getFechaVuelta());
+					billete2.setHora(this.ventanaParadasFecha.getComboBoxHorariosVuelta().getSelectedItem().toString());
+					Autobus autobus2 = new Autobus();
+					autobus2 = AutobusDAO.mObtenerBus(billete2);
+					paradasBillete2 = Calculo.filtrarParadas(listaParadas, billete2);
+					billete2.setPrecio(Calculo.calcularPrecioBillete(billete2, paradasBillete2, autobus2));
+					billete2.setCod_Bus(autobus2.getCodAutobus());
+					
+				}
+				
 				Ventana06Desglose window1 = new Ventana06Desglose();
-				Controlador06Desglose controlador = new Controlador06Desglose(window1, billete);
-				window1.getFrame().setVisible(true);
+				Controlador06Desglose controlador = new Controlador06Desglose(window1, linea, billete, billete2, cliente);
+				window1.getVentana06Desglose().setVisible(true);
 				this.ventanaParadasFecha.getFrame().dispose();
+				
 			}
 			
 			break;
@@ -191,7 +207,14 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 			
 			break;
 			
-		}	
+		case "Volver":
+			Ventana04Trayectos window3 = new Ventana04Trayectos();
+			Controlador04Trayectos controlador2 = new Controlador04Trayectos(window3, billete, cliente);
+			window3.getFrame().setVisible(true);
+			this.ventanaParadasFecha.getFrame().dispose();
+			
+		}
+		
 	}
 
 	@Override
@@ -235,6 +258,5 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 		// TODO Apéndice de método generado automáticamente
 		
 	}
-
 	
 }

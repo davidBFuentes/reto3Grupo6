@@ -12,6 +12,14 @@ import modelo.Parada;
 
 public class ParadaDAO {
 	
+	public static Parada mObtenerParada(Parada parada) {
+		
+		String sql = "Select * from parada where Cod_Parada = ?;";
+		
+		return parada;
+		
+	}
+	
 	public static ArrayList<Parada> mObtenerParadas(Linea linea) {
 		Connection co =null;
 		Statement stm= null;

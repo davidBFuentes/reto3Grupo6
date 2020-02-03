@@ -92,7 +92,7 @@ public class Calculo {
 			
 	}
 	
-	public static void calcularPrecioBillete(Billete billete, ArrayList<Parada> paradasBillete, Autobus autobus) {
+	public static double calcularPrecioBillete(Billete billete, ArrayList<Parada> paradasBillete, Autobus autobus) {
 		
 		double costeTotal = calcularDistanciaBillete(paradasBillete) * autobus.getConsumo() * Autobus.PRECIO_DIESEL;
 		double beneficioTotal = costeTotal * 0.2;
@@ -101,7 +101,9 @@ public class Calculo {
 		
 		DecimalFormat formatoPrecio = new DecimalFormat("#,##");
  		
-		billete.setPrecio(Double.parseDouble(formatoPrecio.format(costePorBillete)));
+		return Double.parseDouble(formatoPrecio.format(costePorBillete));
+		
+		
 	}
 	
 	

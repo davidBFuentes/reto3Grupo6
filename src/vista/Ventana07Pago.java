@@ -10,10 +10,14 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Window;
 import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
-
-
+import javax.swing.JPanel;
+import javax.swing.ImageIcon;
+import java.awt.SystemColor;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Ventana07Pago{
 
@@ -36,14 +40,310 @@ public class Ventana07Pago{
 	private JButton btn_c;
 	private JButton btn_borrar;
 	private JButton btn_pagar;
-	private JTextField txtOrigen;
-	private JTextField txtDestino;
-	private JTextField txtFechaSalida;
-	private JTextField txtPrecioBillete;
+	private JButton btnVolver;
 	private JTextField txtPrecioSinIva;
 	private JTextField txtPrecioConIva;
 	private JTextField txtPrecioAPagar;
 	private JTextArea txtVueltas;
+	private JPanel panel;
+	private JPanel panel_1;
+	private JPanel panel_2;
+	private JPanel panel_3;
+	private JPanel panel_4;
+	private JPanel panel_6;
+	
+	public Ventana07Pago() {
+		
+		crearVentana();
+		crearPaneles();
+		crearBotones();
+		crearEtiquetas();
+		crearTecladoNumerico();
+		crearPanelesTexto();
+		crearFechaHora();
+	}
+
+	private void crearVentana() {
+		
+		Ventana07Pago = new JFrame();
+		Ventana07Pago.setResizable(false);
+		Ventana07Pago.getContentPane().setBackground(new Color(245, 245, 220));
+		Ventana07Pago.setBounds(100, 100, 1280, 720);
+		Ventana07Pago.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Ventana07Pago.getContentPane().setLayout(null);
+		Ventana07Pago.setLocationRelativeTo(null);
+	}
+	
+	private void crearPaneles() {
+		
+		panel = new JPanel();
+		panel.setBorder(new LineBorder(Color.BLACK, 2));
+		panel.setBackground(new Color(255, 255, 255));
+		panel.setBounds(29, 29, 1216, 633);
+		Ventana07Pago.getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		panel_1 = new JPanel();
+		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		panel_1.setBackground(new Color(245, 245, 220));
+		panel_1.setBounds(901, 294, 293, 319);
+		panel.add(panel_1);
+		panel_1.setLayout(null);
+		
+		panel_2 = new JPanel();
+		panel_2.setBackground(new Color(245, 245, 220));
+		panel_2.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		panel_2.setBounds(20, 458, 287, 155);
+		panel.add(panel_2);
+		panel_2.setLayout(null);
+		
+		panel_3 = new JPanel();
+		panel_3.setBackground(new Color(245, 245, 220));
+		panel_3.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		panel_3.setBounds(328, 20, 556, 255);
+		panel.add(panel_3);
+		panel_3.setLayout(null);
+		
+		panel_4 = new JPanel();
+		panel_4.setBackground(new Color(245, 245, 220));
+		panel_4.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		panel_4.setBounds(20, 20, 287, 419);
+		panel.add(panel_4);
+		panel_4.setLayout(null);
+		
+		panel_6 = new JPanel();
+		panel_6.setBackground(new Color(245, 245, 220));
+		panel_6.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		panel_6.setBounds(901, 21, 287, 255);
+		panel.add(panel_6);
+		panel_6.setLayout(null);
+		
+	}
+	
+	private void crearBotones() {
+		
+		btnContinuar = new JButton("Continuar");
+		btnContinuar.setFont(new Font("Tahoma", Font.BOLD, 20));
+		btnContinuar.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		btnContinuar.setBounds(21, 20, 251, 131);
+		panel_1.add(btnContinuar);
+		
+		btnSalir = new JButton("Salir");
+		btnSalir.setFont(new Font("Tahoma", Font.BOLD, 20));
+		btnSalir.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		btnSalir.setBounds(21, 168, 251, 131);
+		panel_1.add(btnSalir);
+		
+		btnVolver = new JButton("Volver");
+		btnVolver.setFont(new Font("Tahoma", Font.BOLD, 20));
+		btnVolver.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		btnVolver.setBounds(20, 20, 247, 115);
+		panel_2.add(btnVolver);
+		
+		btn_pagar = new JButton("Pagar");
+		btn_pagar.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+		btn_pagar.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btn_pagar.setBounds(116, 296, 136, 58);
+		panel_4.add(btn_pagar);
+		
+	}
+	
+	private void crearEtiquetas() {
+		
+		JLabel lblPrecioSinIVA = new JLabel("Precio sin IVA");
+		lblPrecioSinIVA.setBounds(53, 53, 252, 41);
+		panel_3.add(lblPrecioSinIVA);
+		lblPrecioSinIVA.setFont(new Font("Tahoma", Font.BOLD, 30));
+		
+		JLabel lblPrecioConIva = new JLabel("Precio con IVA");
+		lblPrecioConIva.setBounds(53, 110, 252, 41);
+		panel_3.add(lblPrecioConIva);
+		lblPrecioConIva.setFont(new Font("Tahoma", Font.BOLD, 30));
+		
+		JLabel lblPrecioAPagar = new JLabel("Precio a pagar");
+		lblPrecioAPagar.setBounds(53, 170, 240, 41);
+		panel_3.add(lblPrecioAPagar);
+		lblPrecioAPagar.setFont(new Font("Tahoma", Font.BOLD, 30));
+		
+		JLabel lblEuro1 = new JLabel("\u20AC");
+		lblEuro1.setBounds(466, 53, 56, 41);
+		panel_3.add(lblEuro1);
+		lblEuro1.setFont(new Font("Tahoma", Font.BOLD, 30));
+		
+		JLabel lblEuro2 = new JLabel("\u20AC");
+		lblEuro2.setBounds(466, 111, 56, 39);
+		panel_3.add(lblEuro2);
+		lblEuro2.setFont(new Font("Tahoma", Font.BOLD, 30));
+		
+		JLabel lblEuro3 = new JLabel("\u20AC");
+		lblEuro3.setBounds(466, 170, 25, 41);
+		panel_3.add(lblEuro3);
+		lblEuro3.setFont(new Font("Tahoma", Font.BOLD, 30));
+		
+		JLabel lblIntroducido = new JLabel("Dinero introducido");
+		lblIntroducido.setBounds(44, 365, 130, 32);
+		panel_4.add(lblIntroducido);
+		lblIntroducido.setFont(new Font("Tahoma", Font.BOLD, 13));
+		
+		JLabel lblEuro4 = new JLabel("\u20AC");
+		lblEuro4.setBounds(230, 368, 20, 20);
+		panel_4.add(lblEuro4);
+		lblEuro4.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		
+		JLabel lblVueltas = new JLabel("Vueltas");
+		lblVueltas.setBounds(0, 11, 287, 41);
+		panel_6.add(lblVueltas);
+		lblVueltas.setHorizontalAlignment(SwingConstants.CENTER);
+		lblVueltas.setFont(new Font("Tahoma", Font.BOLD, 30));
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(Ventana07Pago.class.getResource("/imagenes/fondoEVentana07.jpg")));
+		lblNewLabel.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		lblNewLabel.setBounds(328, 294, 556, 319);
+		panel.add(lblNewLabel);	
+	}
+	
+	private void crearTecladoNumerico() {
+		
+		btn_7 = new JButton("7");
+		btn_7.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+		btn_7.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btn_7.setBounds(194, 20, 58, 58);
+		panel_4.add(btn_7);
+		
+		btn_8 = new JButton("8");
+		btn_8.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+		btn_8.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btn_8.setBounds(116, 20, 58, 58);
+		panel_4.add(btn_8);
+		
+		btn_9 = new JButton("9");
+		btn_9.setForeground(new Color(0, 0, 0));
+		btn_9.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+		btn_9.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btn_9.setBounds(40, 20, 58, 58);
+		panel_4.add(btn_9);
+		
+		btn_4 = new JButton("4");
+		btn_4.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+		btn_4.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btn_4.setBounds(194, 89, 58, 58);
+		panel_4.add(btn_4);
+		
+		btn_borrar = new JButton("<--");
+		btn_borrar.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+		btn_borrar.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btn_borrar.setBounds(40, 296, 58, 58);
+		panel_4.add(btn_borrar);
+		
+		btn_c = new JButton("C");
+		btn_c.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+		btn_c.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btn_c.setBounds(194, 227, 58, 58);
+		panel_4.add(btn_c);
+		
+		btn_5 = new JButton("5");
+		btn_5.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+		btn_5.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btn_5.setBounds(116, 89, 58, 58);
+		panel_4.add(btn_5);
+		
+		btn_6 = new JButton("6");
+		btn_6.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btn_6.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+		btn_6.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btn_6.setBounds(40, 89, 58, 58);
+		panel_4.add(btn_6);
+		
+		btn_3 = new JButton("3");
+		btn_3.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+		btn_3.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btn_3.setBounds(40, 158, 58, 58);
+		panel_4.add(btn_3);
+		
+		btn_0 = new JButton("0");
+		btn_0.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+		btn_0.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btn_0.setBounds(40, 227, 58, 58);
+		panel_4.add(btn_0);
+		
+		btn_coma = new JButton(".");
+		btn_coma.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+		btn_coma.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btn_coma.setBounds(116, 227, 58, 58);
+		panel_4.add(btn_coma);
+		
+		btn_2 = new JButton("2");
+		btn_2.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+		btn_2.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btn_2.setBounds(116, 158, 58, 58);
+		panel_4.add(btn_2);
+		
+		btn_1 = new JButton("1");
+		btn_1.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+		btn_1.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btn_1.setBounds(194, 158, 58, 58);
+		panel_4.add(btn_1);
+		
+	}
+		
+	private void crearPanelesTexto() {
+		
+		txtPrecioSinIva = new JTextField();
+		txtPrecioSinIva.setBorder(null);
+		txtPrecioSinIva.setOpaque(false);
+		txtPrecioSinIva.setFont(new Font("Tahoma", Font.BOLD, 30));
+		txtPrecioSinIva.setBounds(307, 53, 149, 41);
+		panel_3.add(txtPrecioSinIva);
+		txtPrecioSinIva.setEditable(false);
+		
+		txtPrecioConIva = new JTextField();
+		txtPrecioConIva.setBorder(null);
+		txtPrecioConIva.setOpaque(false);
+		txtPrecioConIva.setFont(new Font("Tahoma", Font.BOLD, 30));
+		txtPrecioConIva.setBounds(307, 110, 149, 41);
+		panel_3.add(txtPrecioConIva);
+		txtPrecioConIva.setEditable(false);
+		
+		txtPrecioAPagar = new JTextField();
+		txtPrecioAPagar.setBorder(null);
+		txtPrecioAPagar.setOpaque(false);
+		txtPrecioAPagar.setFont(new Font("Tahoma", Font.BOLD, 30));
+		txtPrecioAPagar.setBounds(307, 170, 149, 41);
+		panel_3.add(txtPrecioAPagar);
+		txtPrecioAPagar.setEditable(false);
+		
+		txtIntroducido = new JTextField();
+		txtIntroducido.setFont(new Font("Tahoma", Font.BOLD, 13));
+		txtIntroducido.setBorder(null);
+		txtIntroducido.setOpaque(false);
+		txtIntroducido.setBounds(173, 365, 51, 32);
+		panel_4.add(txtIntroducido);
+		txtIntroducido.setEditable(false);
+		
+		txtVueltas = new JTextArea();
+		txtVueltas.setFont(new Font("Tahoma", Font.BOLD, 12));
+		txtVueltas.setOpaque(false);
+		txtVueltas.setBorder(null);
+		txtVueltas.setBounds(30, 56, 220, 199);
+		panel_6.add(txtVueltas);
+		txtVueltas.setEditable(false);
+		
+	}
+	
+	public void crearFechaHora() {
+		
+		RSLabelHora labelHora = new RSLabelHora();
+		labelHora.setForeground(Color.BLACK);
+		labelHora.setBounds(1145, 0, 100, 30);
+		Ventana07Pago.getContentPane().add(labelHora);
+		
+		RSLabelFecha labelFecha = new RSLabelFecha();
+		labelFecha.setForeground(Color.BLACK);
+		labelFecha.setBounds(29, 0, 100, 30);
+		Ventana07Pago.getContentPane().add(labelFecha);
+
+	}
 	
 
 	public JTextField getTxtIntroducido() {
@@ -64,38 +364,6 @@ public class Ventana07Pago{
 
 	public JButton getBtn_0() {
 		return btn_0;
-	}
-
-	public JTextField getTxtOrigen() {
-		return txtOrigen;
-	}
-
-	public void setTxtOrigen(JTextField txtOrigen) {
-		this.txtOrigen = txtOrigen;
-	}
-
-	public JTextField getTxtDestino() {
-		return txtDestino;
-	}
-
-	public void setTxtDestino(JTextField txtDestino) {
-		this.txtDestino = txtDestino;
-	}
-
-	public JTextField getTxtFechaSalida() {
-		return txtFechaSalida;
-	}
-
-	public void setTxtFechaSalida(JTextField txtFechaSalida) {
-		this.txtFechaSalida = txtFechaSalida;
-	}
-
-	public JTextField getTxtPrecioBillete() {
-		return txtPrecioBillete;
-	}
-
-	public void setTxtPrecioBillete(JTextField txtPrecioBillete) {
-		this.txtPrecioBillete = txtPrecioBillete;
 	}
 
 	public JTextField getTxtPrecioSinIva() {
@@ -191,248 +459,20 @@ public class Ventana07Pago{
 		return Ventana07Pago;
 	}
 
-	public Ventana07Pago() {
-		
-		crearVentana();
-		crearBotones();
-		crearEtiquetas();
-		crearTecladoNumerico();
-		crearPanelesTexto();
-		crearFechaHora();
-	}
-
-	private void crearVentana() {
-		Ventana07Pago = new JFrame();
-		Ventana07Pago.getContentPane().setBackground(Color.WHITE);
-		Ventana07Pago.setBounds(100, 100, 1280, 720);
-		Ventana07Pago.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		Ventana07Pago.getContentPane().setLayout(null);
-		Ventana07Pago.setLocationRelativeTo(null);
-	}
-	
-	private void crearBotones() {
-		
-		btnSalir = new JButton("Salir");
-		btnSalir.setBounds(36, 592, 147, 56);
-		Ventana07Pago.getContentPane().add(btnSalir);
-		
-		btnContinuar = new JButton("Continuar");
-		btnContinuar.setBounds(1051, 592, 147, 56);
-		Ventana07Pago.getContentPane().add(btnContinuar);
-	}
-	
-	private void crearEtiquetas() {
-	
-		JLabel lblEuro = new JLabel("\u20AC");
-		lblEuro.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblEuro.setBounds(734, 170, 56, 20);
-		Ventana07Pago.getContentPane().add(lblEuro);
-		
-		JLabel lblEuro1 = new JLabel("\u20AC");
-		lblEuro1.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblEuro1.setBounds(400, 309, 56, 20);
-		Ventana07Pago.getContentPane().add(lblEuro1);
-		
-		JLabel lblEuro2 = new JLabel("\u20AC");
-		lblEuro2.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblEuro2.setBounds(400, 374, 56, 20);
-		Ventana07Pago.getContentPane().add(lblEuro2);
-		
-		JLabel lblEuro3 = new JLabel("\u20AC");
-		lblEuro3.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblEuro3.setBounds(400, 440, 56, 20);
-		Ventana07Pago.getContentPane().add(lblEuro3);
-		
-		JLabel lblEuro4 = new JLabel("\u20AC");
-		lblEuro4.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblEuro4.setBounds(783, 590, 56, 20);
-		Ventana07Pago.getContentPane().add(lblEuro4);
-		
-		JLabel lblVueltas = new JLabel("Vueltas");
-		lblVueltas.setHorizontalAlignment(SwingConstants.CENTER);
-		lblVueltas.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblVueltas.setBounds(995, 145, 198, 41);
-		Ventana07Pago.getContentPane().add(lblVueltas);
-		
-		JLabel lblIntroducido = new JLabel("Dinero introducido");
-		lblIntroducido.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblIntroducido.setBounds(483, 590, 190, 26);
-		Ventana07Pago.getContentPane().add(lblIntroducido);
-		
-		JLabel lblOrigen = new JLabel("Origen");
-		lblOrigen.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblOrigen.setBounds(210, 139, 108, 20);
-		Ventana07Pago.getContentPane().add(lblOrigen);
-		
-		JLabel lblDestino = new JLabel("Destino");
-		lblDestino.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblDestino.setBounds(342, 139, 108, 20);
-		Ventana07Pago.getContentPane().add(lblDestino);
-		
-		JLabel lblFecha = new JLabel("Fecha salida");
-		lblFecha.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblFecha.setBounds(483, 139, 108, 20);
-		Ventana07Pago.getContentPane().add(lblFecha);
-		
-		JLabel lblPrecioBillete = new JLabel("Precio billete");
-		lblPrecioBillete.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblPrecioBillete.setBounds(625, 139, 108, 20);
-		Ventana07Pago.getContentPane().add(lblPrecioBillete);
-		
-		JLabel lblPrecioSinIVA = new JLabel("Precio Sin IVA");
-		lblPrecioSinIVA.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblPrecioSinIVA.setBounds(73, 299, 114, 41);
-		Ventana07Pago.getContentPane().add(lblPrecioSinIVA);
-		
-		JLabel lblPrecioConIva = new JLabel("Precio Con IVA");
-		lblPrecioConIva.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblPrecioConIva.setBounds(73, 359, 126, 41);
-		Ventana07Pago.getContentPane().add(lblPrecioConIva);
-		
-		JLabel lblPrecioAPagar = new JLabel("Precio A Pagar");
-		lblPrecioAPagar.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblPrecioAPagar.setBounds(73, 430, 119, 41);
-		Ventana07Pago.getContentPane().add(lblPrecioAPagar);
-	}
-	
-	private void crearTecladoNumerico() {
-		
-		btn_0 = new JButton("0");
-		btn_0.setBounds(615, 485, 89, 75);
-		Ventana07Pago.getContentPane().add(btn_0);
-		
-		btn_1 = new JButton("1");
-		btn_1.setBounds(530, 414, 89, 75);
-		Ventana07Pago.getContentPane().add(btn_1);
-		
-		btn_2 = new JButton("2");
-		btn_2.setBounds(615, 414, 89, 75);
-		Ventana07Pago.getContentPane().add(btn_2);
-		
-		btn_3 = new JButton("3");
-		btn_3.setBounds(701, 414, 89, 75);
-		Ventana07Pago.getContentPane().add(btn_3);
-		
-		btn_4 = new JButton("4");
-		btn_4.setBounds(530, 342, 89, 75);
-		Ventana07Pago.getContentPane().add(btn_4);
-		
-		btn_5 = new JButton("5");
-		btn_5.setBounds(615, 342, 89, 75);
-		Ventana07Pago.getContentPane().add(btn_5);
-		
-		btn_6 = new JButton("6");
-		btn_6.setBounds(701, 342, 89, 75);
-		Ventana07Pago.getContentPane().add(btn_6);
-		
-		btn_7 = new JButton("7");
-		btn_7.setBounds(530, 269, 89, 75);
-		Ventana07Pago.getContentPane().add(btn_7);
-		
-		btn_8 = new JButton("8");
-		btn_8.setBounds(615, 269, 89, 75);
-		Ventana07Pago.getContentPane().add(btn_8);
-		
-		btn_9 = new JButton("9");
-		btn_9.setBounds(701, 269, 89, 75);
-		Ventana07Pago.getContentPane().add(btn_9);
-		
-		btn_borrar = new JButton("<--");
-		btn_borrar.setBounds(530, 485, 89, 75);
-		Ventana07Pago.getContentPane().add(btn_borrar);
-		
-		btn_c = new JButton("C");
-		btn_c.setBounds(812, 269, 89, 75);
-		Ventana07Pago.getContentPane().add(btn_c);
-		
-		btn_coma = new JButton(".");
-		btn_coma.setEnabled(false);
-		btn_coma.setBounds(701, 485, 89, 75);
-		Ventana07Pago.getContentPane().add(btn_coma);
-		
-		btn_pagar = new JButton("Pagar");
-
-		btn_pagar.setBounds(812, 371, 89, 63);
-		Ventana07Pago.getContentPane().add(btn_pagar);
-		
-	}
-		
-	private void crearPanelesTexto() {
-
-		txtIntroducido = new JTextField();
-		txtIntroducido.setEditable(false);
-		txtIntroducido.setBounds(641, 590, 132, 20);
-		Ventana07Pago.getContentPane().add(txtIntroducido);
-		
-		txtOrigen = new JTextField();
-		txtOrigen.setEditable(false);
-		txtOrigen.setBounds(210, 170, 89, 20);
-		Ventana07Pago.getContentPane().add(txtOrigen);
-		
-		txtDestino = new JTextField();
-		txtDestino.setEditable(false);
-		txtDestino.setBounds(342, 170, 89, 20);
-		Ventana07Pago.getContentPane().add(txtDestino);
-		
-		txtFechaSalida = new JTextField();
-		txtFechaSalida.setEditable(false);
-		txtFechaSalida.setBounds(483, 170, 89, 20);
-		Ventana07Pago.getContentPane().add(txtFechaSalida);
-		
-		txtPrecioBillete = new JTextField();
-		txtPrecioBillete.setEditable(false);
-		txtPrecioBillete.setBounds(625, 173, 89, 20);
-		Ventana07Pago.getContentPane().add(txtPrecioBillete);
-		
-		txtPrecioSinIva = new JTextField();
-		txtPrecioSinIva.setEditable(false);
-		txtPrecioSinIva.setBounds(224, 310, 166, 20);
-		Ventana07Pago.getContentPane().add(txtPrecioSinIva);
-		
-		txtPrecioConIva = new JTextField();
-		txtPrecioConIva.setText("10");
-		txtPrecioConIva.setEditable(false);
-		txtPrecioConIva.setBounds(224, 374, 166, 20);
-		Ventana07Pago.getContentPane().add(txtPrecioConIva);
-		
-		txtPrecioAPagar = new JTextField();
-		txtPrecioAPagar.setEditable(false);
-		txtPrecioAPagar.setBounds(224, 436, 166, 20);
-		Ventana07Pago.getContentPane().add(txtPrecioAPagar);
-		
-		txtVueltas = new JTextArea();
-		txtVueltas.setEditable(false);
-		txtVueltas.setBounds(995, 189, 223, 282);
-		Ventana07Pago.getContentPane().add(txtVueltas);	
-	}
-
-
-	public void crearFechaHora() {
-		RSLabelHora labelHora = new RSLabelHora();
-		labelHora.setForeground(Color.BLACK);
-		labelHora.setBounds(1050, 13, 200, 40);
-		Ventana07Pago.getContentPane().add(labelHora);
-		
-		RSLabelFecha labelFecha = new RSLabelFecha();
-		labelFecha.setForeground(Color.BLACK);
-		labelFecha.setBounds(12, 13, 200, 40);
-		Ventana07Pago.getContentPane().add(labelFecha);
-		
-
-	}
-
-	public Window getRegistro() {
-		// TODO Auto-generated method stub
-		return Ventana07Pago;
-	}
-
 	public void setTxtIntroducido(String string) {
 		// TODO Auto-generated method stub
 
 	}
 
-	public JFrame getFrame() {
-		// TODO Auto-generated method stub
-		return Ventana07Pago;
+	public JButton getBtnVolver() {
+		return btnVolver;
+	}
+
+	public void setBtnVolver(JButton btnVolver) {
+		this.btnVolver = btnVolver;
+	}
+
+	public void setVentana07Pago(JFrame ventana07Pago) {
+		Ventana07Pago = ventana07Pago;
 	}
 }
