@@ -16,7 +16,6 @@ import javax.swing.JCheckBox;
 import javax.swing.JButton;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
-import java.awt.SystemColor;
 
 
 public class Ventana03Registro {
