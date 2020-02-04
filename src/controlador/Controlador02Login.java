@@ -44,54 +44,6 @@ public class Controlador02Login implements KeyListener, MouseListener {
 			
 	}
 
-	private boolean mIdentificarse() {
-		
-			boolean login = false;
-		
-				Cliente cliente = new Cliente(this.ventanalogin.getTxtDni().getText(), "x", "x", "x", "x", this.ventanalogin.getTxtContrasena().getText());
-				ArrayList<Cliente> listaclientes = ClienteDAO.mObtenerClientes();
-				for (Cliente cliente1: listaclientes){
-					if(cliente.getContrasena().equals(cliente1.getContrasena())) {
-						login = true;
-						
-					}
-				}
-				
-				
-				if (login == true) {
-			
-					for (Cliente cliente1: listaclientes){
-						
-						if (cliente.getDni().equals(cliente1.getDni())) {
-							cliente.setNombre(cliente1.getNombre());
-							cliente.setApellido(cliente1.getApellido());
-							cliente.setNacimiento(cliente1.getNacimiento());
-							cliente.setSexo(cliente1.getSexo());
-							cliente.setContrasena(cliente1.getContrasena());
-							Billete billete = new Billete();
-							billete.setDni(cliente.getDni());
-							JOptionPane.showMessageDialog(null, "Bienvenido, "+ cliente.getNombre(), "Mensaje", JOptionPane.INFORMATION_MESSAGE);
-							Ventana04Trayectos window4 = new Ventana04Trayectos();
-							@SuppressWarnings("unused")
-							Controlador04Trayectos controlador = new Controlador04Trayectos(window4, billete, cliente);
-							window4.getFrame().setVisible(true);
-							this.ventanalogin.getLogin().dispose();
-							
-
-						}
-						
-					}
-					
-					
-					
-				} else {
-					
-					JOptionPane.showMessageDialog(null, "Datos incorrectos", "Mensaje", JOptionPane.ERROR_MESSAGE);
-				}
-				
-			return login;
-		}
-
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
@@ -142,8 +94,28 @@ public class Controlador02Login implements KeyListener, MouseListener {
 					JOptionPane.showMessageDialog(null, "Introduzca un DNI válido", "Mensaje de error", JOptionPane.ERROR_MESSAGE);
 				
 				} else {
+					
+					boolean login = false;
+					
+					Cliente cliente = new Cliente(this.ventanalogin.getTxtDni().getText(), "x", "x", "x", "x", this.ventanalogin.getTxtContrasena().getText());
+					login = ClienteDAO.mIdentificarCliente(cliente);
+									
+					if (login == true) {
 				
-				mIdentificarse();
+							Billete billete = new Billete();
+							billete.setDni(cliente.getDni());
+							JOptionPane.showMessageDialog(null, "Bienvenido, "+ cliente.getNombre(), "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+							Ventana04Trayectos window4 = new Ventana04Trayectos();
+							@SuppressWarnings("unused")
+							Controlador04Trayectos controlador = new Controlador04Trayectos(window4, billete, cliente);
+							window4.getFrame().setVisible(true);
+							this.ventanalogin.getLogin().dispose();
+							
+						
+						} else {
+							
+							JOptionPane.showMessageDialog(null, "Datos incorrectos", "Mensaje", JOptionPane.ERROR_MESSAGE);
+						}
 				
 				}
 				

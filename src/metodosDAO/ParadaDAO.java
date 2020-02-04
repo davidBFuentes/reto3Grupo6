@@ -1,9 +1,9 @@
 package metodosDAO;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 import conexion.ConexionBus;
@@ -11,27 +11,20 @@ import modelo.Linea;
 import modelo.Parada;
 
 public class ParadaDAO {
-	
-	public static Parada mObtenerParada(Parada parada) {
-		
-		String sql = "Select * from parada where Cod_Parada = ?;";
-		
-		return parada;
-		
-	}
-	
+
 	public static ArrayList<Parada> mObtenerParadas(Linea linea) {
 		Connection co =null;
-		Statement stm= null;
+		PreparedStatement stm= null;
 		ResultSet rs=null;
 		
-		String sql= "SELECT * from parada where Cod_Parada in (select Cod_Parada from linea_parada where cod_linea = " + "'" + linea.getCodLinea() + "'" + ");";
+		String sql= "SELECT * from parada where Cod_Parada in (select Cod_Parada from linea_parada where cod_linea = ?);";
 		ArrayList<Parada> listaParadas = new ArrayList<Parada>();
 		
 		try {			
 			co= ConexionBus.conectar();
-			stm=co.createStatement();
-			rs=stm.executeQuery(sql);
+			stm=co.prepareStatement(sql);
+			stm.setString(1, linea.getCodLinea());
+			rs=stm.executeQuery();
 			while (rs.next()) {
 				Parada parada=new Parada();
 				parada.setCodParada(rs.getInt(1));

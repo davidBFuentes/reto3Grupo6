@@ -167,21 +167,21 @@ public class Ventana05ParadasFecha {
 		
 		cbxOrigenIda = new JComboBox<Parada>();
 		cbxOrigenIda.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		cbxOrigenIda.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
+		cbxOrigenIda.setFont(new Font("Trebuchet MS", Font.BOLD, 13));
 		cbxOrigenIda.setModel(new DefaultComboBoxModel(new String[] {"Seleccione su parada de origen"}));
 		cbxOrigenIda.setBounds(50, 52, 344, 30);
 		panel_1.add(cbxOrigenIda);
 		
 		cbxDestinoIda = new JComboBox<Parada>();
 		cbxDestinoIda.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		cbxDestinoIda.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
+		cbxDestinoIda.setFont(new Font("Trebuchet MS", Font.BOLD, 13));
 		cbxDestinoIda.setModel(new DefaultComboBoxModel(new String[] {"Seleccione su parada de destino"}));
 		cbxDestinoIda.setBounds(456, 52, 344, 30);
 		panel_1.add(cbxDestinoIda);
 		
 		cbxHorariosIda = new JComboBox<String>();
 		cbxHorariosIda.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		cbxHorariosIda.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
+		cbxHorariosIda.setFont(new Font("Trebuchet MS", Font.BOLD, 13));
 		cbxHorariosIda.setModel(new DefaultComboBoxModel(new String[] {"Seleccione hora"}));
 		cbxHorariosIda.setBounds(456, 168, 344, 30);
 		panel_1.add(cbxHorariosIda);
@@ -190,7 +190,7 @@ public class Ventana05ParadasFecha {
 		cbxHorariosVuelta.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		cbxHorariosVuelta.setBounds(33, 169, 233, 30);
 		panel_3.add(cbxHorariosVuelta);
-		cbxHorariosVuelta.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
+		cbxHorariosVuelta.setFont(new Font("Trebuchet MS", Font.BOLD, 13));
 		cbxHorariosVuelta.setModel(new DefaultComboBoxModel(new String[] {"Seleccione hora de vuelta"}));
 		cbxHorariosVuelta.setVisible(false);
 		dateChooserVuelta.setVisible(false);

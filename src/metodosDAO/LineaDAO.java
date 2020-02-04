@@ -1,6 +1,7 @@
 package metodosDAO;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -16,7 +17,7 @@ public class LineaDAO {
 		Statement stm= null;
 		ResultSet rs=null;
 		
-		String sql="SELECT * FROM linea;";
+		String sql="SELECT cod_linea, upper(nombre) FROM linea;";
 		
 		ArrayList<Linea> listalineas = new ArrayList<Linea>();
 		
@@ -44,16 +45,17 @@ public class LineaDAO {
 	public static Linea mObtenerLinea(Linea linea) {
 		
 		Connection co =null;
-		Statement stm= null;
+		PreparedStatement stm= null;
 		ResultSet rs=null;
 		
-		String sql="SELECT * FROM linea where Cod_Linea = '" + linea.getCodLinea() + "';";
+		String sql="SELECT * FROM linea where Cod_Linea = ?;";
 		
 		
 		try {			
 			co= ConexionBus.conectar();
-			stm=co.createStatement();
-			rs=stm.executeQuery(sql);
+			stm=co.prepareStatement(sql);
+			stm.setString(1, linea.getCodLinea());
+			rs=stm.executeQuery();
 			while (rs.next()) {
 				Linea l=new Linea();
 				l.setCodLinea(rs.getString(1));

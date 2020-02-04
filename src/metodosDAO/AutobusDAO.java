@@ -1,9 +1,9 @@
 package metodosDAO;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import conexion.ConexionBus;
 import modelo.Autobus;
 import modelo.Billete;
@@ -15,23 +15,26 @@ public class AutobusDAO {
 	public static Autobus mObtenerBus(Billete billete) {
 		
 		Connection co =null;
-		Statement stm= null;
+		PreparedStatement stm= null;
 		ResultSet rs=null;
 		
 		System.out.print(billete.getCod_Linea());
 		System.out.println(billete.getHora());
 		
 		
-		String sql = "SELECT * FROM autobus WHERE Cod_bus in (SELECT Cod_bus FROM linea_autobus WHERE Cod_Linea = '" + billete.getCod_Linea() + "' && Fecha = '" + billete.getFecha() + "');"; 
+		String sql = "SELECT * FROM autobus WHERE Cod_bus = (SELECT Cod_bus FROM linea_autobus WHERE Cod_Linea = ? && Fecha = ? && Hora = ?);"; 
 		
 		Autobus autobus = new Autobus();
 		
 		try {			
 			co= ConexionBus.conectar();
-			stm=co.createStatement();
-			rs=stm.executeQuery(sql);
+			stm=co.prepareStatement(sql);
+			stm.setString(1, billete.getCod_Linea());
+			stm.setString(2, billete.getFecha());
+			stm.setString(3, billete.getHora());
+			rs=stm.executeQuery();
+			
 			while (rs.next()) {
-				
 				autobus.setCodAutobus((rs.getString(1))); 
 				autobus.setNumPlazas((rs.getInt(2))); 
 				autobus.setConsumo((rs.getDouble(3))); 
@@ -53,16 +56,19 @@ public class AutobusDAO {
 	public boolean mComprobarAsientosLibres(Autobus autobus, Billete billete) {
 		
 		Connection co =null;
-		Statement stm= null;
+		PreparedStatement stm= null;
 		ResultSet rs=null;
 		
-		String sql = "SELECT max(Cod_Billete) from billete where Fecha = '" + billete.getFecha() + "' && Cod_Bus = '" + billete.getCod_Bus() + "' && Hora = '" + billete.getHora() + "';"; 
+		String sql = "SELECT max(Cod_Billete) from billete where Fecha = ? && Cod_Bus = ? && Hora = ?;"; 
 		int billetesvendidos = 0;
 		
 		try {			
 			co= ConexionBus.conectar();
-			stm=co.createStatement();
-			rs=stm.executeQuery(sql);
+			stm=co.prepareStatement(sql);
+			stm.setString(1, billete.getFecha());
+			stm.setString(2, billete.getCod_Bus());
+			stm.setString(3, billete.getFecha());
+			rs=stm.executeQuery();
 			while (rs.next()) {
 				
 				billetesvendidos = (rs.getInt(1)); 
