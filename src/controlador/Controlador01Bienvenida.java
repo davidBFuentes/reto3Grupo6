@@ -1,6 +1,5 @@
 package controlador;
 
-import java.awt.EventQueue;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 

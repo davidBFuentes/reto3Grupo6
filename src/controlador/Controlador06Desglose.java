@@ -30,6 +30,7 @@ public class Controlador06Desglose implements MouseListener {
 		this.billete = pBillete;
 		this.billete2 = pBillete2;
 		this.cliente = pCliente;
+		this.linea = pLinea;
 		
 		mIniciarControlador();
 		
@@ -125,10 +126,10 @@ public class Controlador06Desglose implements MouseListener {
 			break;
 			
 		case "Volver":
-			Ventana05ParadasFecha window2 = new Ventana05ParadasFecha();
-			Controlador05ParadasFecha controlador05 = new Controlador05ParadasFecha(window2, linea, billete, cliente);
-			window2.getFrame().setVisible(true);
-			this.ventanadeglose.Ventana06Desglose.dispose();
+				Ventana05ParadasFecha window2 = new Ventana05ParadasFecha();
+				Controlador05ParadasFecha controlador05 = new Controlador05ParadasFecha(window2, linea, billete, cliente);
+				window2.getFrame().setVisible(true);
+				this.ventanadeglose.Ventana06Desglose.dispose();
 			break;
 
 		}

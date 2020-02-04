@@ -16,11 +16,13 @@ import javax.swing.event.ChangeListener;
 import calculosMatematicos.Calculo;
 import metodosDAO.AutobusDAO;
 import metodosDAO.HorariosDAO;
+import metodosDAO.MunicipioDAO;
 import metodosDAO.ParadaDAO;
 import modelo.Autobus;
 import modelo.Billete;
 import modelo.Cliente;
 import modelo.Linea;
+import modelo.Municipio;
 import modelo.Parada;
 import vista.Ventana01Bienvenida;
 import vista.Ventana04Trayectos;
@@ -160,10 +162,14 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 				billete.setCod_Bus(autobus.getCodAutobus());	
 				Billete billete2 = new Billete();
 				Parada paradaOrigen = new Parada();
-				paradaOrigen.setCodParada((((Parada) this.ventanaParadasFecha.getComboBoxOrigenIda().getSelectedItem()).getCodParada()));
+				paradaOrigen = (Parada) this.ventanaParadasFecha.getComboBoxOrigenIda().getSelectedItem();
 				Parada paradaDestino = new Parada();
-				paradaDestino.setCodParada((((Parada) this.ventanaParadasFecha.getComboBoxDestinoIda().getSelectedItem()).getCodParada()));
-				
+				paradaDestino = (Parada) this.ventanaParadasFecha.getComboBoxDestinoIda().getSelectedItem();
+				Municipio municipioOrigen = new Municipio();
+				municipioOrigen = MunicipioDAO.mObtenerMunicipio(paradaOrigen);
+				Municipio municipioDestino = new Municipio();
+				municipioDestino = MunicipioDAO.mObtenerMunicipio(paradaDestino);
+
 				if (this.ventanaParadasFecha.getCheckBox().isSelected()) {
 					
 					billete2.setDni(billete.getDni());
@@ -179,7 +185,7 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 					paradasBillete2 = Calculo.filtrarParadas(listaParadas, billete2);
 					billete2.setPrecio(Calculo.calcularPrecioBillete(billete2, paradasBillete2, autobus2));
 					billete2.setCod_Bus(autobus2.getCodAutobus());
-					
+				
 				}
 				
 				Ventana06Desglose window1 = new Ventana06Desglose();

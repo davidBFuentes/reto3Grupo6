@@ -114,9 +114,9 @@ public class Ventana04Trayectos {
 		comboLineas.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		comboLineas.setMaximumRowCount(10);
 		comboLineas.setModel(new DefaultComboBoxModel(new String[] {"Elija su l\u00EDnea"}));
-		comboLineas.setBounds(20, 20, 868, 59);
+		comboLineas.setBounds(20, 20, 824, 59);
 		panel.add(comboLineas);
-		comboLineas.setFont(new Font("Trebuchet MS", Font.BOLD, 25));
+		comboLineas.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
 		
 		lblFondoVentana04 = new JLabel("");
 		lblFondoVentana04.setIcon(new ImageIcon(Ventana04Trayectos.class.getResource("/imagenes/fondoBilbaoVentana04.png")));

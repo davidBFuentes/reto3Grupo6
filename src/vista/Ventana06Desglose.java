@@ -256,7 +256,7 @@ public class Ventana06Desglose{
 		lblNAutobusVuelta2 = new JLabel("");
 		lblNAutobusVuelta2.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNAutobusVuelta2.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNAutobusVuelta2.setBounds(434, 64, 103, 45);
+		lblNAutobusVuelta2.setBounds(434, 64, 114, 45);
 		panel_5.add(lblNAutobusVuelta2);
 		
 		JLabel lblHoraVuelta = new JLabel("Hora");
@@ -280,7 +280,7 @@ public class Ventana06Desglose{
 		lblPrecioVuelta2 = new JLabel("");
 		lblPrecioVuelta2.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblPrecioVuelta2.setHorizontalAlignment(SwingConstants.LEFT);
-		lblPrecioVuelta2.setBounds(434, 99, 90, 45);
+		lblPrecioVuelta2.setBounds(434, 99, 114, 45);
 		panel_5.add(lblPrecioVuelta2);
 		
 		lblImagen = new JLabel("");
@@ -342,10 +342,10 @@ public class Ventana06Desglose{
 		
 		txtDestino = new JTextField();
 		txtDestino.setHorizontalAlignment(SwingConstants.LEFT);
-		txtDestino.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		txtDestino.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		txtDestino.setBorder(null);
 		txtDestino.setOpaque(false);
-		txtDestino.setBounds(551, 131, 263, 33);
+		txtDestino.setBounds(537, 131, 277, 33);
 		panel_1.add(txtDestino);
 		txtDestino.setEditable(false);
 		txtDestino.setColumns(10);
@@ -354,7 +354,7 @@ public class Ventana06Desglose{
 		txtOrigen.setHorizontalAlignment(SwingConstants.LEFT);
 		txtOrigen.setOpaque(false);
 		txtOrigen.setBorder(null);
-		txtOrigen.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		txtOrigen.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		txtOrigen.setBounds(140, 131, 292, 33);
 		panel_1.add(txtOrigen);
 		txtOrigen.setEditable(false);

@@ -5,7 +5,6 @@ import javax.swing.JFrame;
 import rojeru_san.RSLabelFecha;
 import rojeru_san.RSLabelHora;
 
-import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
