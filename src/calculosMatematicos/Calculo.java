@@ -163,7 +163,7 @@ public class Calculo {
 	public static double formatearPrecio(double numeroSinFormatear) {
 		
 		//Creamos un objeto Mathcontext al que le pasaremos como parametro la precision que deseamos y redondeara 
-		MathContext formatoPrecio = new MathContext(3, RoundingMode.HALF_UP);
+		MathContext formatoPrecio = new MathContext(2, RoundingMode.HALF_UP);
 	
 		//Creamos un objeto Bigdecimal pasandole la variable a formatear y el formato creado previamente
 		BigDecimal precioFormateado = new BigDecimal(numeroSinFormatear, formatoPrecio);

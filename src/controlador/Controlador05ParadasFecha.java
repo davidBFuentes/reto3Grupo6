@@ -158,7 +158,7 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 				billete.setHora(this.ventanaParadasFecha.getComboBoxHorariosIda().getSelectedItem().toString());
 				paradasBillete = Calculo.filtrarParadas(listaParadas, billete);
 				autobus = AutobusDAO.mObtenerBus(billete);
-				billete.setPrecio(Calculo.calcularPrecioBillete(billete, paradasBillete, autobus));
+				billete.setPrecio(Calculo.formatearPrecio(Calculo.calcularPrecioBillete(billete, paradasBillete, autobus)));
 				billete.setCod_Bus(autobus.getCodAutobus());	
 				Billete billete2 = new Billete();
 				Parada paradaOrigen = new Parada();

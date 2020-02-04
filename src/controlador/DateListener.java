@@ -26,6 +26,8 @@ public class DateListener implements PropertyChangeListener {
 	public void propertyChange(PropertyChangeEvent evt) {
 	
 			horarios = metodosDAO.HorariosDAO.mObtenerHorarios(linea);
+			ventana05ParadasFecha.getComboBoxHorariosIda().removeAllItems();
+			ventana05ParadasFecha.getComboBoxHorariosVuelta().removeAllItems();
 			ventana05ParadasFecha.rellenarComboBoxHorarios(horarios);
 	}
 }

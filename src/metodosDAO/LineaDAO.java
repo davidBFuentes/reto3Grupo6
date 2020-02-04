@@ -28,7 +28,7 @@ public class LineaDAO {
 			while (rs.next()) {
 				Linea l=new Linea();
 				l.setCodLinea(rs.getString(1));
-				l.setNombre(rs.getString(2).toUpperCase());
+				l.setNombre(rs.getString(2));
 				listalineas.add(l);
 			}
 			stm.close();
@@ -59,7 +59,7 @@ public class LineaDAO {
 			while (rs.next()) {
 				Linea l=new Linea();
 				l.setCodLinea(rs.getString(1));
-				l.setNombre(rs.getString(2).toUpperCase());
+				l.setNombre(rs.getString(2));
 			}
 			stm.close();
 			rs.close();
