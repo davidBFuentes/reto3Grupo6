@@ -27,7 +27,7 @@ public class LineaDAO {
 			while (rs.next()) {
 				Linea l=new Linea();
 				l.setCodLinea(rs.getString(1));
-				l.setNombre(rs.getString(2));
+				l.setNombre(rs.getString(2).toUpperCase());
 				listalineas.add(l);
 			}
 			stm.close();
@@ -57,7 +57,7 @@ public class LineaDAO {
 			while (rs.next()) {
 				Linea l=new Linea();
 				l.setCodLinea(rs.getString(1));
-				l.setNombre(rs.getString(2));
+				l.setNombre(rs.getString(2).toUpperCase());
 			}
 			stm.close();
 			rs.close();
@@ -66,7 +66,6 @@ public class LineaDAO {
 			System.out.println("Error: Clase LineaDAO, método mObtenerLinea");
 			e.printStackTrace();
 		}
-		
 		
 		return linea;
 	}

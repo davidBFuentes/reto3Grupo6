@@ -155,10 +155,15 @@ public class Calculo {
 	
 	}
 	
+	/**
+	 * Metodo que formatea un numero de tipo double con la precision y el redondeo escogido
+	 * @param numeroSinFormatear Numero de tipo double
+	 * @return Devuelve el numero de tipo double formateado
+	 */
 	public static double formatearPrecio(double numeroSinFormatear) {
 		
 		//Creamos un objeto Mathcontext al que le pasaremos como parametro la precision que deseamos y redondeara 
-		MathContext formatoPrecio = new MathContext(2, RoundingMode.HALF_UP);
+		MathContext formatoPrecio = new MathContext(3, RoundingMode.HALF_UP);
 	
 		//Creamos un objeto Bigdecimal pasandole la variable a formatear y el formato creado previamente
 		BigDecimal precioFormateado = new BigDecimal(numeroSinFormatear, formatoPrecio);

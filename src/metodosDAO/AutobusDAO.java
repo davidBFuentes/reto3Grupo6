@@ -11,7 +11,11 @@ import modelo.Billete;
 public class AutobusDAO {
 	
 	//*** Métodos CRUD ***
-	
+	/**
+	 * Metodo que obtiene que hace una llamada a la base de datos y obtiene los atributos del objeto autobus en funcion de la linea escogida en el billete
+	 * @param billete
+	 * @return
+	 */
 	public static Autobus mObtenerBus(Billete billete) {
 		
 		Connection co =null;
@@ -50,6 +54,12 @@ public class AutobusDAO {
 		
 	}
 	
+	/**
+	 * 
+	 * @param autobus
+	 * @param billete
+	 * @return
+	 */
 	public boolean mComprobarAsientosLibres(Autobus autobus, Billete billete) {
 		
 		Connection co =null;

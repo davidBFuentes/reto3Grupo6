@@ -25,9 +25,7 @@ public class DateListener implements PropertyChangeListener {
 	@Override
 	public void propertyChange(PropertyChangeEvent evt) {
 	
-	
 			horarios = metodosDAO.HorariosDAO.mObtenerHorarios(linea);
 			ventana05ParadasFecha.rellenarComboBoxHorarios(horarios);
-		
 	}
 }
