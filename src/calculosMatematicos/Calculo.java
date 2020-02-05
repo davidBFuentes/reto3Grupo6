@@ -159,17 +159,31 @@ public class Calculo {
 	 * @param numeroSinFormatear Numero de tipo double
 	 * @return Devuelve el numero de tipo double formateado
 	 */
-	public static double formatearPrecio(double numeroSinFormatear) {
+	public static double formatearPrecio1(double numeroSinFormatear) {
 		
 		//Creamos un objeto Mathcontext al que le pasaremos como parametro la precision que deseamos y redondeara 
-		MathContext formatoPrecio = new MathContext(2, RoundingMode.HALF_UP);
+		//MathContext formatoPrecio = new MathContext(4, RoundingMode.HALF_UP);
 	
 		//Creamos un objeto Bigdecimal pasandole la variable a formatear y el formato creado previamente
-		BigDecimal precioFormateado = new BigDecimal(numeroSinFormatear, formatoPrecio);
+		BigDecimal precioFormateado = new BigDecimal(numeroSinFormatear);
+		
+		precioFormateado.setScale(2, RoundingMode.HALF_UP);
 		
 		return precioFormateado.doubleValue();
 		
 	}
 	
+	public static double formatearPrecio(double valorInicial) {
+       
+		int numeroDecimales = 2;
+		double parteEntera, resultado;
+        resultado = valorInicial;
+        parteEntera = Math.floor(resultado);
+        resultado=(resultado-parteEntera)*Math.pow(10, numeroDecimales);
+        resultado=Math.round(resultado);
+        resultado=(resultado/Math.pow(10, numeroDecimales))+parteEntera;
+        return resultado;
+    }
+
 	
 }
