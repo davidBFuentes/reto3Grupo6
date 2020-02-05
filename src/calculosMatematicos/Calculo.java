@@ -141,7 +141,7 @@ public class Calculo {
 	 * @param paradasBillete Arraylist 
 	 * @param autobus Objeto autobus del trayecto seleccionado
 	 */
-	public static double calcularPrecioBillete(Billete billete, ArrayList<Parada> paradasBillete, Autobus autobus) {
+	public static void calcularPrecioBillete(Billete billete, ArrayList<Parada> paradasBillete, Autobus autobus) {
 		
 		//Calculamos el precio del billete
 		double costeTotal = calcularDistanciaBillete(paradasBillete) * autobus.getConsumo() * Autobus.PRECIO_DIESEL;
@@ -149,10 +149,9 @@ public class Calculo {
 		double beneficioPorBillete = beneficioTotal / autobus.getNumPlazas();
 		double costePorBillete = (calcularDistanciaBillete(paradasBillete) * autobus.getConsumo() * Autobus.PRECIO_DIESEL) + beneficioPorBillete;
 
-		 double precioBillete = Calculo.formatearPrecio(costePorBillete);
+		 double precioBillete = formatearPrecio(costePorBillete);
 		
-		return precioBillete;
-	
+		 billete.setPrecio(precioBillete);
 	}
 	
 	/**

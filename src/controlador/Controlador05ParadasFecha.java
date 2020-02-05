@@ -156,10 +156,15 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 				billete.setNombre_Parada_Destino(this.ventanaParadasFecha.getComboBoxDestinoIda().getSelectedItem().toString());
 				billete.setFecha(this.ventanaParadasFecha.getFechaIda());
 				billete.setHora(this.ventanaParadasFecha.getComboBoxHorariosIda().getSelectedItem().toString());
+				
 				paradasBillete = Calculo.filtrarParadas(listaParadas, billete);
+				
 				autobus = AutobusDAO.mObtenerBus(billete);
-				billete.setPrecio(Calculo.formatearPrecio(Calculo.calcularPrecioBillete(billete, paradasBillete, autobus)));
+			
+				Calculo.calcularPrecioBillete(billete, paradasBillete, autobus);
+				
 				billete.setCod_Bus(autobus.getCodAutobus());	
+				
 				Billete billete2 = new Billete();
 				Parada paradaOrigen = new Parada();
 				paradaOrigen = (Parada) this.ventanaParadasFecha.getComboBoxOrigenIda().getSelectedItem();
@@ -180,10 +185,13 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 					billete2.setNombre_Parada_Destino(billete.getNombre_Parada_Origen());
 					billete2.setFecha(this.ventanaParadasFecha.getFechaVuelta());
 					billete2.setHora(this.ventanaParadasFecha.getComboBoxHorariosVuelta().getSelectedItem().toString());
+					
 					Autobus autobus2 = new Autobus();
 					autobus2 = AutobusDAO.mObtenerBus(billete2);
+					
 					paradasBillete2 = Calculo.filtrarParadas(listaParadas, billete2);
-					billete2.setPrecio(Calculo.calcularPrecioBillete(billete2, paradasBillete2, autobus2));
+					Calculo.calcularPrecioBillete(billete2, paradasBillete2, autobus2);
+					
 					billete2.setCod_Bus(autobus2.getCodAutobus());
 				
 				}

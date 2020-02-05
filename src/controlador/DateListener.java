@@ -29,5 +29,9 @@ public class DateListener implements PropertyChangeListener {
 			ventana05ParadasFecha.getComboBoxHorariosIda().removeAllItems();
 			ventana05ParadasFecha.getComboBoxHorariosVuelta().removeAllItems();
 			ventana05ParadasFecha.rellenarComboBoxHorarios(horarios);
+			ventana05ParadasFecha.getDateChooserVuelta().setMinSelectableDate(ventana05ParadasFecha.getDateChooserIda().getDate());
+			if (ventana05ParadasFecha.getDateChooserIda().getDate() == null) {
+				ventana05ParadasFecha.getComboBoxHorariosIda().setEnabled(true);
+			}
 	}
 }
