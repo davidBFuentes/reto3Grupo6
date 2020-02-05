@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.beans.PropertyChangeEvent;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -41,6 +42,9 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 	ArrayList<Parada> paradasBillete;
 	ArrayList<Parada> paradasBillete2;
 	Autobus autobus;
+	private int dia;
+	private int mes;
+	private int año;
 	
 	//Constructor que inicializara el funcionamiento del controlador habiendo recibido tres parametros (la ventana de trayectos, el objeto linea y el objeto billete)
 	public Controlador05ParadasFecha (Ventana05ParadasFecha pVentana05, Linea pLinea, Billete pBillete, Cliente pCliente) {
@@ -53,7 +57,7 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 		
 		//Cargamos los arraylist de paradas y horarios en funcion de la linea seleccionada previamente
 		listaParadas = ParadaDAO.mObtenerParadas(linea);
-		horarios = HorariosDAO.mObtenerHorarios(linea);
+//		horarios = HorariosDAO.mObtenerHorarios(linea,dia);
 
 		//Iniciamos el controlador
 		mIniciarControlador();
@@ -76,6 +80,7 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 		this.ventanaParadasFecha.getBtnVolver().setName("Volver");
 		this.ventanaParadasFecha.getBtnSalir().addMouseListener(this);
 		this.ventanaParadasFecha.getBtnSalir().setName("Salir");
+//		this.ventanaParadasFecha.addPropertyChangeListener("day", new PropertyChangeListener()
 		
 		
 	}
@@ -212,6 +217,16 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 			Controlador04Trayectos controlador2 = new Controlador04Trayectos(window3, billete, cliente);
 			window3.getFrame().setVisible(true);
 			this.ventanaParadasFecha.getFrame().dispose();
+			break;
+		
+//		case "Dia":
+//			
+//			if ( this.ventanaParadasFecha.getDateChooserIda().isEnabled() == true) {
+//				this.ventanaParadasFecha.getComboBoxHorariosIda().setEnabled(true);
+//				dia = this.ventanaParadasFecha.getDateChooserIda().getCalendarButton().getText();
+//				horarios = HorariosDAO.mObtenerHorarios(linea,dia);
+//				
+//			} 
 			
 		}
 		
@@ -258,5 +273,15 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 		// TODO Apéndice de método generado automáticamente
 		
 	}
+	
+
+	    public void propertyChange(PropertyChangeEvent e) {
+	    	this.ventanaParadasFecha.getComboBoxHorariosIda().setEnabled(true);
+	    	dia = this.ventanaParadasFecha.getDateChooserIda().getDate().getDay();
+	    	mes = this.ventanaParadasFecha.getDateChooserIda().getDate().getMonth();
+	    	año = this.ventanaParadasFecha.getDateChooserIda().getDate().getDate();
+	    	horarios = HorariosDAO.mObtenerHorarios(linea,dia,mes,año);
+	    	
+	    }
 	
 }

@@ -125,9 +125,9 @@ public class Controlador07Pago implements MouseListener {
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-		e.getComponent().getName();
+		String iopc =e.getComponent().getName();
 		
-		switch(e.getComponent().getName()) {
+		switch(iopc) {
 		
 		case "Salir":
 			
@@ -140,193 +140,62 @@ public class Controlador07Pago implements MouseListener {
 		case "0":
 			
 			
-			if (comprobarComa == false) {
-				if (this.ventanaPago.getTxtIntroducido().getText().length()<3) {
-					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "0");
-				}else {
-					JOptionPane.showMessageDialog(null, "Maximo de 3 numeros antes de la coma", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
-				}
-			} else {
-
-				if (distancia < decimales) {
-					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "0");
-					distancia++;
-				}else {
-					JOptionPane.showMessageDialog(null, "Maximo de 2 decimales", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
-				}
-			}	
+			extracted(iopc);	
 
 			break;
 			
 		case "1":
 
-			if (comprobarComa == false) {
-				if (this.ventanaPago.getTxtIntroducido().getText().length()<3) {
-					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "1");
-				}else {
-					JOptionPane.showMessageDialog(null, "Maximo de 3 numeros antes de la coma", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
-				}
-			} else {
-
-				if (distancia < decimales) {
-					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "1");
-					distancia++;
-				}else {
-					JOptionPane.showMessageDialog(null, "Maximo de 2 decimales", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
-				}
-			}	
+			extracted(iopc);	
+	
 
 			break;
 
 		case "2":
 
-			if (comprobarComa == false) {
-				if (this.ventanaPago.getTxtIntroducido().getText().length()<3) {
-					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "2");
-				}else {
-					JOptionPane.showMessageDialog(null, "Maximo de 3 numeros antes de la coma", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
-				}
-			} else {
+			extracted(iopc);	
 
-				if (distancia < decimales) {
-					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "2");
-					distancia++;
-				}else {
-					JOptionPane.showMessageDialog(null, "Maximo de 2 decimales", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
-				}
-			}	
 			break;
 		case "3":
 
-			if (comprobarComa == false) {
-				if (this.ventanaPago.getTxtIntroducido().getText().length()<3) {
-					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "3");
-				}else {
-					JOptionPane.showMessageDialog(null, "Maximo de 3 numeros antes de la coma", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
-				}
-			} else {
+			extracted(iopc);	
 
-				if (distancia < decimales) {
-					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "3");
-					distancia++;
-				}else {
-					JOptionPane.showMessageDialog(null, "Maximo de 2 decimales", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
-				}
-			}	
 			break;
 
 		case "4":
 
-			if (comprobarComa == false) {
-				if (this.ventanaPago.getTxtIntroducido().getText().length()<3) {
-					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "4");
-				}else {
-					JOptionPane.showMessageDialog(null, "Maximo de 3 numeros antes de la coma", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
-				}
-			} else {
+			extracted(iopc);	
 
-				if (distancia < decimales) {
-					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "4");
-					distancia++;
-				}else {
-					JOptionPane.showMessageDialog(null, "Maximo de 2 decimales", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
-				}
-			}	
 			break;
 
 		case "5":
  
-			if (comprobarComa == false) {
-				if (this.ventanaPago.getTxtIntroducido().getText().length()<3) {
-					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "5");
-				}else {
-					JOptionPane.showMessageDialog(null, "Maximo de 3 numeros antes de la coma", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
-				}
-			} else {
+			extracted(iopc);	
 
-				if (distancia < decimales) {
-					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "5");
-					distancia++;
-				}else {
-					JOptionPane.showMessageDialog(null, "Maximo de 2 decimales", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
-				}
-			}	
 			break;
 
 		case "6":
 
-			if (comprobarComa == false) {
-				if (this.ventanaPago.getTxtIntroducido().getText().length()<3) {
-					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "6");
-				}else {
-					JOptionPane.showMessageDialog(null, "Maximo de 3 numeros antes de la coma", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
-				}
-			} else {
+			extracted(iopc);	
 
-				if (distancia < decimales) {
-					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "6");
-					distancia++;
-				}else {
-					JOptionPane.showMessageDialog(null, "Maximo de 2 decimales", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
-				}
-			}	
 			break;
 
 		case "7":
 			
-			if (comprobarComa == false) {
-				if (this.ventanaPago.getTxtIntroducido().getText().length()<3) {
-					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "7");
-				}else {
-					JOptionPane.showMessageDialog(null, "Maximo de 3 numeros antes de la coma", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
-				}
-			} else {
+			extracted(iopc);	
 
-				if (distancia < decimales) {
-					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "7");
-					distancia++;
-				}else {
-					JOptionPane.showMessageDialog(null, "Maximo de 2 decimales", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
-				}
-			}	
 			break;
 
 		case "8":
 
-			if (comprobarComa == false) {
-				if (this.ventanaPago.getTxtIntroducido().getText().length()<3) {
-					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "8");
-				}else {
-					JOptionPane.showMessageDialog(null, "Maximo de 3 numeros antes de la coma", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
-				}
-			} else {
+			extracted(iopc);	
 
-				if (distancia < decimales) {
-					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "8");
-					distancia++;
-				}else {
-					JOptionPane.showMessageDialog(null, "Maximo de 2 decimales", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
-				}
-			}
 			break;
 
 		case "9":
 			
-			if (comprobarComa == false) {
-				if (this.ventanaPago.getTxtIntroducido().getText().length()<3) {
-					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "9");
-				}else {
-					JOptionPane.showMessageDialog(null, "Maximo de 3 numeros antes de la coma", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
-				}
-			} else {
+			extracted(iopc);	
 
-				if (distancia < decimales) {
-					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + "9");
-					distancia++;
-				}else {
-					JOptionPane.showMessageDialog(null, "Maximo de 2 decimales", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
-				}
-			}
 			break;
 			
 		case "coma":
@@ -439,6 +308,25 @@ public class Controlador07Pago implements MouseListener {
 			this.ventanaPago.Ventana07Pago.dispose();
 			
 			break;
+		}
+	}
+
+
+	private void extracted(String iopc) {
+		if (comprobarComa == false) {
+			if (this.ventanaPago.getTxtIntroducido().getText().length()<3) {
+				this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + iopc);
+			}else {
+				JOptionPane.showMessageDialog(null, "Maximo de 3 numeros antes de la coma", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+			}
+		} else {
+
+			if (distancia < decimales) {
+				this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + iopc);
+				distancia++;
+			}else {
+				JOptionPane.showMessageDialog(null, "Maximo de 2 decimales", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+			}
 		}
 	}
 

@@ -1,31 +1,37 @@
 package metodosDAO;
 
 import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Date;
+
 
 import conexion.ConexionBus;
 import modelo.Linea;
 
 public class HorariosDAO {
 	
-	public static ArrayList<String> mObtenerHorarios(Linea linea) {
+	public static ArrayList<String> mObtenerHorarios(Linea linea, int dia, int año, int mes) {
 		
 		Connection co =null;
-		Statement stm= null;
+		PreparedStatement stm= null;
 		ResultSet rs=null;
 		
-		String sql= "SELECT distinct hora FROM linea_autobus where cod_linea = '" + linea.getCodLinea() +"';";
+		
+		String sql= "SELECT distinct hora FROM linea_autobus where cod_linea = ? and fecha = ?-?-? order by hora;";
 		
 		ArrayList<String> horarios = new ArrayList<String>();
 		
 		
 		try {			
 			co= ConexionBus.conectar();
-			stm=co.createStatement();
+			stm=co.prepareStatement(sql);
+			stm.setString(1, linea.getCodLinea());
+			stm.setInt(2, año);
+			stm.setInt(3, mes);
+			stm.setInt(2, dia);
 			rs=stm.executeQuery(sql);
 			while (rs.next()) {	
 				String horario;
@@ -42,5 +48,9 @@ public class HorariosDAO {
 		System.out.println(horarios);
 		return horarios;
 	}
+
+
+
+
 
 }

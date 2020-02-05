@@ -176,6 +176,7 @@ public class Ventana05ParadasFecha {
 		panel_1.add(cbxDestinoIda);
 		
 		cbxHorariosIda = new JComboBox<String>();
+		cbxHorariosIda.setEnabled(false);
 		cbxHorariosIda.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		cbxHorariosIda.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
 		cbxHorariosIda.setModel(new DefaultComboBoxModel(new String[] {"Seleccione hora"}));
