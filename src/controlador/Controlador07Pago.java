@@ -50,18 +50,17 @@ public class Controlador07Pago implements MouseListener {
 		
 		if (billete.getCod_Linea() == billete2.getCod_Linea()) {
 			preciototal = billete.getPrecio() + billete2.getPrecio();
+			billete.setPrecio(Calculo.formatearPrecio(billete.getPrecio() + billete.getPrecio() * 0.21));
+			billete2.setPrecio(Calculo.formatearPrecio(billete2.getPrecio() + billete2.getPrecio() * 0.21));
 			
 		} else {
 			preciototal = billete.getPrecio();
+			billete.setPrecio(Calculo.formatearPrecio(billete.getPrecio() + billete.getPrecio() * 0.21));
 		}
 		
 		mIniciarControlador();
 		
-		System.out.println(billete2.getCod_Bus());
-		System.out.println(billete2.getHora());
-		System.out.println(billete2.getFecha());
-		System.out.println(billete.getFecha());
-		System.out.println(billete2.getPrecio());
+		
 	}
 
 
