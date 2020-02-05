@@ -36,6 +36,10 @@ public class Controlador07Pago implements MouseListener {
 	private Billete billete2;
 	private Cliente cliente;
 	private double preciototal = 0;
+	private double precioSinIva1 = 0;
+	private double precioConIva1 = 0;
+	private double precioSinIva2 = 0;
+	private double precioConIva2 = 0;
 
 
 	
@@ -49,13 +53,18 @@ public class Controlador07Pago implements MouseListener {
 		this.cliente = pCliente;
 		
 		if (billete.getCod_Linea() == billete2.getCod_Linea()) {
+			this.precioSinIva1 = billete.getPrecio();
+			this.precioSinIva2 = billete2.getPrecio();
+			
 			preciototal = billete.getPrecio() + billete2.getPrecio();
-			billete.setPrecio(Calculo.formatearPrecio(billete.getPrecio() + billete.getPrecio() * 0.21));
-			billete2.setPrecio(Calculo.formatearPrecio(billete2.getPrecio() + billete2.getPrecio() * 0.21));
+			this.precioConIva1 = Calculo.formatearPrecio(billete.getPrecio() + billete.getPrecio() * 0.21);
+			this.precioConIva2 = Calculo.formatearPrecio(billete.getPrecio() + billete.getPrecio() * 0.21);
 			
 		} else {
+			this.precioSinIva1 = billete.getPrecio();
+			this.precioSinIva2 = billete2.getPrecio();
 			preciototal = billete.getPrecio();
-			billete.setPrecio(Calculo.formatearPrecio(billete.getPrecio() + billete.getPrecio() * 0.21));
+			this.precioConIva1 = Calculo.formatearPrecio(billete.getPrecio() + billete.getPrecio() * 0.21);
 		}
 		
 		mIniciarControlador();
@@ -313,7 +322,8 @@ public class Controlador07Pago implements MouseListener {
 					billete2.setCod_Billete(BilleteDAO.mObtenerCodigoBillete(billete2));
 					BilleteDAO.mRegistrarBillete(billete2);
 				}
-				
+				billete.setPrecio(Calculo.formatearPrecio(billete.getPrecio() + billete.getPrecio() * 0.21));
+				billete2.setPrecio(Calculo.formatearPrecio(billete2.getPrecio() + billete2.getPrecio() * 0.21));
 				Ventana08ImprimirBilletes ventana = new Ventana08ImprimirBilletes();
 				Controlador08ImprimirBilletes controladorBienvenida = new Controlador08ImprimirBilletes(ventana, billete, billete2, cliente);
 				ventana.ventana08ImprimirBilletes.setVisible(true);
@@ -324,6 +334,7 @@ public class Controlador07Pago implements MouseListener {
 			break;
 			
 		case "Volver":
+
 			Ventana06Desglose window1 = new Ventana06Desglose();
 			Controlador06Desglose controlador = new Controlador06Desglose(window1, linea, billete, billete2, cliente);
 			window1.Ventana06Desglose.setVisible(true);

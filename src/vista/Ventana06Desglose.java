@@ -207,7 +207,7 @@ public class Ventana06Desglose{
 		JLabel lblPrecio = new JLabel("Precio sin iva");
 		lblPrecio.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPrecio.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblPrecio.setBounds(415, 340, 126, 33);
+		lblPrecio.setBounds(367, 340, 180, 33);
 		panel_1.add(lblPrecio);
 		
 		lblHora2 = new JLabel("");
