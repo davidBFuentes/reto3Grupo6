@@ -26,9 +26,9 @@ public class Controlador07Pago implements MouseListener {
 
 	private int coma;
 	private boolean comprobarComa;
-	private float restante;
-	private float total;
-	private float introducido;
+	private double restante;
+	private double total;
+	private double introducido;
 	private int distancia = 0;
 	private int decimales = 3;
 	private Linea linea;
@@ -235,27 +235,30 @@ public class Controlador07Pago implements MouseListener {
 		
 		case "borrar":
 
-				this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText().substring(0,this.ventanaPago.getTxtIntroducido().getText().length()-1));
-				if (comprobarComa == true && distancia !=0) {
-					distancia--;
+				if(this.ventanaPago.getTxtIntroducido().getText().length()!=0) {
+					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText().substring(0,this.ventanaPago.getTxtIntroducido().getText().length()-1));
+					if (comprobarComa == true && distancia !=0) {
+						distancia--;
+					}
 				}
+				
 				break;
 			
 		case "pagar":
 			
 			
 			if (this.ventanaPago.getTxtPrecioAPagar().getText().length() > 0) {
-				total = Float.valueOf(this.ventanaPago.getTxtPrecioAPagar().getText());
+				total = Double.valueOf(this.ventanaPago.getTxtPrecioAPagar().getText());
 			}
 			if (this.ventanaPago.getTxtIntroducido().getText().length() > 0 ) {
-				introducido = Float.valueOf(this.ventanaPago.getTxtIntroducido().getText());
+				introducido = Double.valueOf(this.ventanaPago.getTxtIntroducido().getText());
 				
 			}	
 
 			if (total > introducido) {
 				restante = total-introducido;
 				restante = (float) (Math.floor(restante*100)/100);
-				this.ventanaPago.getTxtPrecioAPagar().setText(Float.toString(restante));
+				this.ventanaPago.getTxtPrecioAPagar().setText(Double.toString(restante));
 				this.ventanaPago.getTxtIntroducido().setText("");
 				introducido = 0;
 			}

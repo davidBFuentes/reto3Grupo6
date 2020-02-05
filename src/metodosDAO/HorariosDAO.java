@@ -35,7 +35,7 @@ public class HorariosDAO {
 				horarios.add(horario);
 			}
 			
-			stm.close();
+			stmt.close();
 			rs.close();
 			co.close();
 			
