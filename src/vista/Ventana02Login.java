@@ -22,11 +22,11 @@ public class Ventana02Login {
 	private JTextField txtDni;
 	private JPasswordField txtContrasena;
 	private JButton bIdentificarse;
-	private JButton bOmitir;
 	private JButton bRegistrarse;
 	private JPanel panel;
 	private JPanel panel_1;
 	private JPanel panel_2;
+	private JButton bOmitir;
 	
 	
 	public Ventana02Login() {
@@ -62,6 +62,17 @@ public class Ventana02Login {
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
+		bOmitir = new JButton("Omitir");
+		bOmitir.setFont(new Font("Tahoma", Font.PLAIN, 69));
+		bOmitir.setBounds(415, 33, 406, 213);
+		panel.add(bOmitir);
+		
+		JLabel lblCabecera = new JLabel("");
+		lblCabecera.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		lblCabecera.setIcon(new ImageIcon(Ventana02Login.class.getResource("/imagenes/cabeceraVentana02.jpg")));
+		lblCabecera.setBounds(20, 20, 1174, 257);
+		panel.add(lblCabecera);
+		
 		panel_1 = new JPanel();
 		panel_1.setBackground(new Color(245, 245, 220));
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 2));
@@ -89,17 +100,10 @@ public class Ventana02Login {
 		bIdentificarse.setFont(new Font("Tahoma", Font.BOLD, 20));
 		
 		bRegistrarse = new JButton("Registrarse");
-		bRegistrarse.setBounds(21, 20, 251, 131);
+		bRegistrarse.setBounds(21, 31, 251, 252);
 		panel_2.add(bRegistrarse);
 		bRegistrarse.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		bRegistrarse.setFont(new Font("Tahoma", Font.BOLD, 20));
-		
-
-		bOmitir = new JButton("Omitir");
-		bOmitir.setBounds(21, 168, 251, 131);
-		panel_2.add(bOmitir);
-		bOmitir.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		bOmitir.setFont(new Font("Tahoma", Font.BOLD, 20));
 	}
 	
 	private void crearEtiquetas() {
@@ -117,12 +121,6 @@ public class Ventana02Login {
 		lblContrasena.setHorizontalTextPosition(SwingConstants.LEADING);
 		lblContrasena.setHorizontalAlignment(SwingConstants.CENTER);
 		lblContrasena.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		
-		JLabel lblCabecera = new JLabel("");
-		lblCabecera.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		lblCabecera.setIcon(new ImageIcon(Ventana02Login.class.getResource("/imagenes/cabeceraVentana02.jpg")));
-		lblCabecera.setBounds(20, 20, 1174, 257);
-		panel.add(lblCabecera);
 	}
 	
 	private void crearCamposTexto() {
