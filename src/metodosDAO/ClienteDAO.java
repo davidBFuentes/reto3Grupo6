@@ -4,8 +4,11 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.Statement;
 import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
 
 import conexion.ConexionBus;
 import modelo.Cliente;
@@ -38,12 +41,16 @@ public class ClienteDAO {
 			
 		
 		    registrar=true;
-		
-
+		    
+		} catch (SQLIntegrityConstraintViolationException e) {
+			JOptionPane.showMessageDialog(null, "Este DNI ya está registrado", "Mensaje de error", JOptionPane.ERROR_MESSAGE);
+			e.printStackTrace();
+			
 		} catch (SQLException e) {
 			System.out.println("Error: Clase Cliente, método registrar");
 			e.printStackTrace();
 		}
+		
 		return registrar;
 	}
 	
