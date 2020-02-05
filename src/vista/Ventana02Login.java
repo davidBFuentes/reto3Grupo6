@@ -26,6 +26,7 @@ public class Ventana02Login {
 	private JPanel panel;
 	private JPanel panel_1;
 	private JPanel panel_2;
+	private JButton bOmitir;
 	
 	
 	public Ventana02Login() {
@@ -60,6 +61,17 @@ public class Ventana02Login {
 		panel.setBounds(29, 29, 1216, 633);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
+		
+		bOmitir = new JButton("Omitir");
+		bOmitir.setFont(new Font("Tahoma", Font.PLAIN, 69));
+		bOmitir.setBounds(415, 33, 406, 213);
+		panel.add(bOmitir);
+		
+		JLabel lblCabecera = new JLabel("");
+		lblCabecera.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		lblCabecera.setIcon(new ImageIcon(Ventana02Login.class.getResource("/imagenes/cabeceraVentana02.jpg")));
+		lblCabecera.setBounds(20, 20, 1174, 257);
+		panel.add(lblCabecera);
 		
 		panel_1 = new JPanel();
 		panel_1.setBackground(new Color(245, 245, 220));
@@ -109,12 +121,6 @@ public class Ventana02Login {
 		lblContrasena.setHorizontalTextPosition(SwingConstants.LEADING);
 		lblContrasena.setHorizontalAlignment(SwingConstants.CENTER);
 		lblContrasena.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		
-		JLabel lblCabecera = new JLabel("");
-		lblCabecera.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		lblCabecera.setIcon(new ImageIcon(Ventana02Login.class.getResource("/imagenes/cabeceraVentana02.jpg")));
-		lblCabecera.setBounds(20, 20, 1174, 257);
-		panel.add(lblCabecera);
 	}
 	
 	private void crearCamposTexto() {
@@ -176,13 +182,13 @@ public class Ventana02Login {
 		this.bIdentificarse = bIdentificarse;
 	}
 
-//	public JButton getbOmitir() {
-//		return bOmitir;
-//	}
-//
-//	public void setbOmitir(JButton bOmitir) {
-//		this.bOmitir = bOmitir;
-//	}
+	public JButton getbOmitir() {
+		return bOmitir;
+	}
+
+	public void setbOmitir(JButton bOmitir) {
+		this.bOmitir = bOmitir;
+	}
 
 	public JButton getbRegistrarse() {
 		return bRegistrarse;
