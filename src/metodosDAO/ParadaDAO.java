@@ -17,7 +17,8 @@ public class ParadaDAO {
 		PreparedStatement stm= null;
 		ResultSet rs=null;
 		
-		String sql= "SELECT * from parada where Cod_Parada in (select Cod_Parada from linea_parada where cod_linea = ?);";
+		String sql= "SELECT Cod_Parada, LEFT(nombre, CHAR_LENGTH(nombre) - LOCATE('(', REVERSE(nombre))) as Nombre, Calle, "
+				+ "Latitud, Longitud, Cod_Muni from Parada where Cod_Parada in (select Cod_Parada from linea_parada where cod_linea = ?);";
 		ArrayList<Parada> listaParadas = new ArrayList<Parada>();
 		
 		try {			
