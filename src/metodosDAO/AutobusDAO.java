@@ -22,10 +22,6 @@ public class AutobusDAO {
 		PreparedStatement stm= null;
 		ResultSet rs=null;
 		
-		System.out.print(billete.getCod_Linea());
-		System.out.println(billete.getHora());
-		
-		
 		String sql = "SELECT * FROM autobus WHERE Cod_bus = (SELECT Cod_bus FROM linea_autobus WHERE Cod_Linea = ? && Fecha = ? && Hora = ?);"; 
 		
 		Autobus autobus = new Autobus();
