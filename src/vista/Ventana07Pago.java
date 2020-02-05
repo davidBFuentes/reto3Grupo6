@@ -8,16 +8,12 @@ import rojeru_san.RSLabelHora;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Font;
-import java.awt.Window;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JPanel;
 import javax.swing.ImageIcon;
-import java.awt.SystemColor;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class Ventana07Pago{
 

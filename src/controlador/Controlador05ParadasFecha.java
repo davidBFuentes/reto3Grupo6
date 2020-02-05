@@ -7,10 +7,9 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-
 import javax.swing.JOptionPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -18,18 +17,20 @@ import javax.swing.event.ChangeListener;
 import calculosMatematicos.Calculo;
 import metodosDAO.AutobusDAO;
 import metodosDAO.HorariosDAO;
+import metodosDAO.MunicipioDAO;
 import metodosDAO.ParadaDAO;
 import modelo.Autobus;
 import modelo.Billete;
 import modelo.Cliente;
 import modelo.Linea;
+import modelo.Municipio;
 import modelo.Parada;
 import vista.Ventana01Bienvenida;
 import vista.Ventana04Trayectos;
 import vista.Ventana05ParadasFecha;
 import vista.Ventana06Desglose;
 
-public class Controlador05ParadasFecha implements MouseListener, MouseMotionListener, ActionListener  {
+public class Controlador05ParadasFecha implements MouseListener, MouseMotionListener, ActionListener {
 	
 	
 	//Creamos los atributos de la clase que vamos a manipular
@@ -42,11 +43,13 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 	ArrayList<Parada> paradasBillete;
 	ArrayList<Parada> paradasBillete2;
 	Autobus autobus;
-	private int dia;
-	private int mes;
-	private int año;
 	
-	//Constructor que inicializara el funcionamiento del controlador habiendo recibido tres parametros (la ventana de trayectos, el objeto linea y el objeto billete)
+	/**
+	 * Constructor que inicializara el funcionamiento del controlador habiendo recibido tres parametros (la ventana de seleccion de paradas y fecha, el objeto linea y el objeto billete)
+	 * @param pVentana05 
+	 * @param pLinea
+	 * @param pBillete
+	 */
 	public Controlador05ParadasFecha (Ventana05ParadasFecha pVentana05, Linea pLinea, Billete pBillete, Cliente pCliente) {
 		
 		//Recibimos los objetos del controlador anterior
@@ -57,20 +60,22 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 		
 		//Cargamos los arraylist de paradas y horarios en funcion de la linea seleccionada previamente
 		listaParadas = ParadaDAO.mObtenerParadas(linea);
-//		horarios = HorariosDAO.mObtenerHorarios(linea,dia);
+		horarios = HorariosDAO.mObtenerHorarios(linea);
 
 		//Iniciamos el controlador
 		mIniciarControlador();
 		
 		//Rellenamos los combobox con las paradas y horarios cargados
-		rellenarComboBox(Calculo.calcularOrdenParadas(listaParadas), horarios);
+		ventanaParadasFecha.rellenarComboBoxParadas(Calculo.calcularOrdenParadas(listaParadas));
 		
 		//Llamamos al metodo que mostrara las opciones de vuelta, si el checkbox ha sido seleccionado
 		mostrarVuelta();
 		
 	}
 	
-	//Metodo para cargar las acciones de los botones
+	/**
+	 * Metodo para cargar las acciones de los botones
+	 */
 	private void mIniciarControlador() {
 		
 		//Añadimos los mouselistener a los botones
@@ -80,37 +85,12 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 		this.ventanaParadasFecha.getBtnVolver().setName("Volver");
 		this.ventanaParadasFecha.getBtnSalir().addMouseListener(this);
 		this.ventanaParadasFecha.getBtnSalir().setName("Salir");
-//		this.ventanaParadasFecha.addPropertyChangeListener("day", new PropertyChangeListener()
-		
-		
+		this.ventanaParadasFecha.getDateChooserIda().addPropertyChangeListener(new DateListener(linea, ventanaParadasFecha));		
 	}
 	
-	//Metodo para rellenar los combobox a mostrar
-	private void rellenarComboBox(ArrayList<Parada> listaparadas, ArrayList<String> horarios) {
-		
-		
-		for (Parada parada : listaparadas) {
-			ventanaParadasFecha.getComboBoxOrigenIda().addItem(parada);
-		}
-		
-		
-		for (Parada parada : listaparadas) {
-			ventanaParadasFecha.getComboBoxDestinoIda().addItem(parada);
-		}
-		
-		
-		
-		for(String horario: horarios) {
-			ventanaParadasFecha.getComboBoxHorariosIda().addItem(horario);
-		}
-		
-		for(String horario: horarios) {
-			ventanaParadasFecha.getComboBoxHorariosVuelta().addItem(horario);
-		}
-		
-		
-	}
-	
+	/**
+	 * Metodo que muestra las opciones para la vuelta si el checkbox ha sido seleccionado
+	 */
 	private void mostrarVuelta() {
 		
 		ventanaParadasFecha.getCheckBox().addChangeListener(new ChangeListener() {
@@ -129,8 +109,6 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 		});
 	}
 
-	
-	
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
@@ -151,11 +129,26 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 				
 				JOptionPane.showMessageDialog(null, "Ha de seleccionar una parada de destino para continuar", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
 			}
+			else if(this.ventanaParadasFecha.getComboBoxOrigenIda().getSelectedIndex() == this.ventanaParadasFecha.getComboBoxDestinoIda().getSelectedIndex()) {
+				
+				JOptionPane.showMessageDialog(null, "La parada de origen no puede ser la misma que la de destino", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+			}
 			else if(this.ventanaParadasFecha.getFechaIda() == null) {
 				
-				JOptionPane.showMessageDialog(null, "Ha de seleccionar una fecha para continuar", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Ha de seleccionar una fecha de ida para continuar", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
 			}
-
+			else if(this.ventanaParadasFecha.getComboBoxHorariosIda().getSelectedIndex() == 0) {
+				
+				JOptionPane.showMessageDialog(null, "Ha de seleccionar un horario de ida para continuar", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+			}
+			else if(this.ventanaParadasFecha.getCheckBox().isSelected() && this.ventanaParadasFecha.getFechaVuelta() == null) {
+				
+				JOptionPane.showMessageDialog(null, "Ha de seleccionar una fecha de vuelta para continuar", "Mensaje de error",JOptionPane.ERROR_MESSAGE);				
+			}
+			else if(this.ventanaParadasFecha.getCheckBox().isSelected() && this.ventanaParadasFecha.getComboBoxHorariosVuelta().getSelectedIndex() == 0) {
+				
+				JOptionPane.showMessageDialog(null, "Ha de seleccionar un horario de vuelta para continuar", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+			}
 			else {
 				
 				billete.setCod_Parada_Inicio(((Parada) this.ventanaParadasFecha.getComboBoxOrigenIda().getSelectedItem()).getCodParada());
@@ -164,19 +157,25 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 				billete.setNombre_Parada_Destino(this.ventanaParadasFecha.getComboBoxDestinoIda().getSelectedItem().toString());
 				billete.setFecha(this.ventanaParadasFecha.getFechaIda());
 				billete.setHora(this.ventanaParadasFecha.getComboBoxHorariosIda().getSelectedItem().toString());
+				
 				paradasBillete = Calculo.filtrarParadas(listaParadas, billete);
+				
 				autobus = AutobusDAO.mObtenerBus(billete);
-				billete.setPrecio(Calculo.calcularPrecioBillete(billete, paradasBillete, autobus));
+			
+				Calculo.calcularPrecioBillete(billete, paradasBillete, autobus);
+				
 				billete.setCod_Bus(autobus.getCodAutobus());	
+				
 				Billete billete2 = new Billete();
 				Parada paradaOrigen = new Parada();
-				paradaOrigen.setCodParada((((Parada) this.ventanaParadasFecha.getComboBoxOrigenIda().getSelectedItem()).getCodParada()));
+				paradaOrigen = (Parada) this.ventanaParadasFecha.getComboBoxOrigenIda().getSelectedItem();
 				Parada paradaDestino = new Parada();
-				paradaDestino.setCodParada((((Parada) this.ventanaParadasFecha.getComboBoxDestinoIda().getSelectedItem()).getCodParada()));
-				
-				
-			
-				
+				paradaDestino = (Parada) this.ventanaParadasFecha.getComboBoxDestinoIda().getSelectedItem();
+				Municipio municipioOrigen = new Municipio();
+				municipioOrigen = MunicipioDAO.mObtenerMunicipio(paradaOrigen);
+				Municipio municipioDestino = new Municipio();
+				municipioDestino = MunicipioDAO.mObtenerMunicipio(paradaDestino);
+
 				if (this.ventanaParadasFecha.getCheckBox().isSelected()) {
 					
 					billete2.setDni(billete.getDni());
@@ -187,12 +186,15 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 					billete2.setNombre_Parada_Destino(billete.getNombre_Parada_Origen());
 					billete2.setFecha(this.ventanaParadasFecha.getFechaVuelta());
 					billete2.setHora(this.ventanaParadasFecha.getComboBoxHorariosVuelta().getSelectedItem().toString());
+					
 					Autobus autobus2 = new Autobus();
 					autobus2 = AutobusDAO.mObtenerBus(billete2);
-					paradasBillete2 = Calculo.filtrarParadas(listaParadas, billete2);
-					billete2.setPrecio(Calculo.calcularPrecioBillete(billete2, paradasBillete2, autobus2));
-					billete2.setCod_Bus(autobus2.getCodAutobus());
 					
+					paradasBillete2 = Calculo.filtrarParadas(listaParadas, billete2);
+					Calculo.calcularPrecioBillete(billete2, paradasBillete2, autobus2);
+					
+					billete2.setCod_Bus(autobus2.getCodAutobus());
+				
 				}
 				
 				Ventana06Desglose window1 = new Ventana06Desglose();
@@ -217,16 +219,6 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 			Controlador04Trayectos controlador2 = new Controlador04Trayectos(window3, billete, cliente);
 			window3.getFrame().setVisible(true);
 			this.ventanaParadasFecha.getFrame().dispose();
-			break;
-		
-//		case "Dia":
-//			
-//			if ( this.ventanaParadasFecha.getDateChooserIda().isEnabled() == true) {
-//				this.ventanaParadasFecha.getComboBoxHorariosIda().setEnabled(true);
-//				dia = this.ventanaParadasFecha.getDateChooserIda().getCalendarButton().getText();
-//				horarios = HorariosDAO.mObtenerHorarios(linea,dia);
-//				
-//			} 
 			
 		}
 		
@@ -274,14 +266,5 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 		
 	}
 	
-
-	    public void propertyChange(PropertyChangeEvent e) {
-	    	this.ventanaParadasFecha.getComboBoxHorariosIda().setEnabled(true);
-	    	dia = this.ventanaParadasFecha.getDateChooserIda().getDate().getDay();
-	    	mes = this.ventanaParadasFecha.getDateChooserIda().getDate().getMonth();
-	    	año = this.ventanaParadasFecha.getDateChooserIda().getDate().getDate();
-	    	horarios = HorariosDAO.mObtenerHorarios(linea,dia,mes,año);
-	    	
-	    }
 	
 }

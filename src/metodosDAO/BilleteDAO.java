@@ -5,11 +5,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-
 import conexion.ConexionBus;
 import modelo.Billete;
-import modelo.Cliente;
 
 public class BilleteDAO {
 	
@@ -47,7 +44,7 @@ public class BilleteDAO {
 		
 
 		} catch (SQLException e) {
-			System.out.println("Error: Clase Cliente, método registrar");
+			System.out.println("Error: Clase Billete, método mRegistrarBillete");
 			e.printStackTrace();
 		}
 		return registrar;

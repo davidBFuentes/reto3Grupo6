@@ -269,7 +269,7 @@ public class Ventana08ImprimirBilletes {
 		lblPrecioVuelta2 = new JLabel("");
 		lblPrecioVuelta2.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblPrecioVuelta2.setHorizontalAlignment(SwingConstants.LEFT);
-		lblPrecioVuelta2.setBounds(434, 99, 48, 45);
+		lblPrecioVuelta2.setBounds(434, 99, 96, 45);
 		panel_5.add(lblPrecioVuelta2);
 		
 		lblNBilleteVuelta = new JLabel("N\u00BA Billete");

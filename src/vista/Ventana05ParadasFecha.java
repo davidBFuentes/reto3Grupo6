@@ -9,6 +9,9 @@ import javax.swing.JButton;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+
 import com.toedter.calendar.JDateChooser;
 
 import modelo.Parada;
@@ -17,6 +20,7 @@ import rojeru_san.RSLabelHora;
 import javax.swing.JCheckBox;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
@@ -163,14 +167,14 @@ public class Ventana05ParadasFecha {
 		
 		cbxOrigenIda = new JComboBox<Parada>();
 		cbxOrigenIda.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		cbxOrigenIda.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
+		cbxOrigenIda.setFont(new Font("Trebuchet MS", Font.BOLD, 13));
 		cbxOrigenIda.setModel(new DefaultComboBoxModel(new String[] {"Seleccione su parada de origen"}));
 		cbxOrigenIda.setBounds(50, 52, 344, 30);
 		panel_1.add(cbxOrigenIda);
 		
 		cbxDestinoIda = new JComboBox<Parada>();
 		cbxDestinoIda.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		cbxDestinoIda.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
+		cbxDestinoIda.setFont(new Font("Trebuchet MS", Font.BOLD, 13));
 		cbxDestinoIda.setModel(new DefaultComboBoxModel(new String[] {"Seleccione su parada de destino"}));
 		cbxDestinoIda.setBounds(456, 52, 344, 30);
 		panel_1.add(cbxDestinoIda);
@@ -178,8 +182,7 @@ public class Ventana05ParadasFecha {
 		cbxHorariosIda = new JComboBox<String>();
 		cbxHorariosIda.setEnabled(false);
 		cbxHorariosIda.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		cbxHorariosIda.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
-		cbxHorariosIda.setModel(new DefaultComboBoxModel(new String[] {"Seleccione hora"}));
+		cbxHorariosIda.setFont(new Font("Trebuchet MS", Font.BOLD, 13));
 		cbxHorariosIda.setBounds(456, 168, 344, 30);
 		panel_1.add(cbxHorariosIda);
 		
@@ -187,8 +190,7 @@ public class Ventana05ParadasFecha {
 		cbxHorariosVuelta.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		cbxHorariosVuelta.setBounds(33, 169, 233, 30);
 		panel_3.add(cbxHorariosVuelta);
-		cbxHorariosVuelta.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
-		cbxHorariosVuelta.setModel(new DefaultComboBoxModel(new String[] {"Seleccione hora de vuelta"}));
+		cbxHorariosVuelta.setFont(new Font("Trebuchet MS", Font.BOLD, 13));
 		cbxHorariosVuelta.setVisible(false);
 		dateChooserVuelta.setVisible(false);
 		lblSeleccionFechaVuelta.setVisible(false);
@@ -211,6 +213,7 @@ public class Ventana05ParadasFecha {
 		dateChooserIda = new JDateChooser();
 		dateChooserIda.setBounds(50, 169, 344, 30);
 		panel_1.add(dateChooserIda);
+		//Model 
 		dateChooserIda.setMinSelectableDate(localDate);
 		dateChooserIda.setMaxSelectableDate(maxDate);
 		
@@ -362,5 +365,34 @@ public class Ventana05ParadasFecha {
 	public void setBtnVolver(JButton btnVolver) {
 		
 		this.btnVolver = btnVolver;
+	}
+	/**
+	 * Metodo para rellenar los combobox a mostrar
+	 * @param listaparadas
+	 * @param horarios
+	 */
+	public void rellenarComboBoxParadas(ArrayList<Parada> listaparadas) {
+		
+		
+		for (Parada parada : listaparadas) {
+			getComboBoxOrigenIda().addItem(parada);
+		}
+		
+		for (Parada parada : listaparadas) {
+			getComboBoxDestinoIda().addItem(parada);
+		}
+	}
+	
+	public void rellenarComboBoxHorarios(ArrayList<String> horarios) {	
+		getComboBoxHorariosIda().addItem("Seleccione hora de ida");
+		for(String horario: horarios) {
+			getComboBoxHorariosIda().addItem(horario);
+		}
+		getComboBoxHorariosVuelta().addItem("Seleccione hora de vuelta");
+		for(String horario: horarios) {
+			getComboBoxHorariosVuelta().addItem(horario);
+		}
+		
+		
 	}
 }

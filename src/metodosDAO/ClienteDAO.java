@@ -47,6 +47,29 @@ public class ClienteDAO {
 		return registrar;
 	}
 	
+	public static boolean mIdentificarCliente(Cliente cliente) {
+		
+		boolean login = false;
+		ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
+		
+		listaClientes = mObtenerClientes();
+		
+		for(Cliente cliente1: listaClientes) {
+			if (cliente1.getDni().equals(cliente.getDni()) && cliente1.getContrasena().equals(cliente.getContrasena())) {
+				cliente.setNombre(cliente1.getNombre());
+				cliente.setApellido(cliente1.getApellido());
+				cliente.setDni(cliente1.getDni());
+				cliente.setNacimiento(cliente1.getNacimiento());
+				cliente.setSexo(cliente1.getSexo());
+				login = true;		
+			}
+		}
+		
+		return login;
+	}
+	
+	
+	
 	public static ArrayList<Cliente> mObtenerClientes() {
 		Connection co =null;
 		Statement stm= null;

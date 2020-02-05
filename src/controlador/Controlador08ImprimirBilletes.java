@@ -3,9 +3,13 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.IOException;
+
+import javax.swing.JOptionPane;
 
 import modelo.Billete;
 import modelo.Cliente;
+import modelo.Fichero;
 import vista.Ventana01Bienvenida;
 import vista.Ventana08ImprimirBilletes;
 import vista.Ventana09Fin;
@@ -88,14 +92,23 @@ public class Controlador08ImprimirBilletes implements MouseListener  {
 			
 		case "Finalizar":
 			
-			Ventana09Fin ventana = new Ventana09Fin();
-			Controlador09Fin controladorFin = new Controlador09Fin(ventana);
-			ventana.getFrame().setVisible(true);
-			this.ventanaImprimirBilletes.getventana08ImprimirBilletes().dispose();
+				Ventana09Fin ventana = new Ventana09Fin();
+				Controlador09Fin controladorFin = new Controlador09Fin(ventana);
+				ventana.getFrame().setVisible(true);
+				this.ventanaImprimirBilletes.getventana08ImprimirBilletes().dispose();
+			break;
 				
 		case "Imprimir":
 			
 			//Crear fichero en caso de que no exista y escribirlo
+			try {
+				Fichero.mImprimirBillete(this.billete, this.billete2);
+				JOptionPane.showMessageDialog(null, "Billete imprimido", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+				this.ventanaImprimirBilletes.getBtnImprimirBillete().setEnabled(false);
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			break;
 
 		}

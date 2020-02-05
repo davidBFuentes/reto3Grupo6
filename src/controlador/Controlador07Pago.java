@@ -6,6 +6,7 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JOptionPane;
 
+import calculosMatematicos.Calculo;
 import controlador.ControladorVueltas;
 import metodosDAO.BilleteDAO;
 import modelo.Billete;
@@ -68,8 +69,8 @@ public class Controlador07Pago implements MouseListener {
 		
 
 		
-		this.ventanaPago.getTxtPrecioSinIva().setText(Double.toString(this.preciototal));
-		this.ventanaPago.getTxtPrecioConIva().setText(Double.toString(this.preciototal + this.preciototal*0.21));
+		this.ventanaPago.getTxtPrecioSinIva().setText(Double.toString(Calculo.formatearPrecio(this.preciototal)));
+		this.ventanaPago.getTxtPrecioConIva().setText(Double.toString(Calculo.formatearPrecio(this.preciototal + this.preciototal*0.21)));
 		this.ventanaPago.getTxtPrecioAPagar().setText(this.ventanaPago.getTxtPrecioConIva().getText());
 		
 		
@@ -125,9 +126,9 @@ public class Controlador07Pago implements MouseListener {
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-		String iopc =e.getComponent().getName();
+		String opcion = e.getComponent().getName();
 		
-		switch(iopc) {
+		switch(opcion) {
 		
 		case "Salir":
 			
@@ -140,61 +141,61 @@ public class Controlador07Pago implements MouseListener {
 		case "0":
 			
 			
-			extracted(iopc);	
+			extracted(opcion);	
 
 			break;
 			
 		case "1":
 
-			extracted(iopc);	
+			extracted(opcion);	
 	
 
 			break;
 
 		case "2":
 
-			extracted(iopc);	
+			extracted(opcion);	
 
 			break;
 		case "3":
 
-			extracted(iopc);	
+			extracted(opcion);	
 
 			break;
 
 		case "4":
 
-			extracted(iopc);	
+			extracted(opcion);	
 
 			break;
 
 		case "5":
  
-			extracted(iopc);	
+			extracted(opcion);	
 
 			break;
 
 		case "6":
 
-			extracted(iopc);	
+			extracted(opcion);	
 
 			break;
 
 		case "7":
 			
-			extracted(iopc);	
+			extracted(opcion);	
 
 			break;
 
 		case "8":
 
-			extracted(iopc);	
+			extracted(opcion);	
 
 			break;
 
 		case "9":
 			
-			extracted(iopc);	
+			extracted(opcion);	
 
 			break;
 			
@@ -274,6 +275,25 @@ public class Controlador07Pago implements MouseListener {
 				introducido = 0;
 			}
 			
+			if(Integer.parseInt(this.ventanaPago.getTxtPrecioAPagar().getText())<=0) {
+				this.ventanaPago.getBtn_0().setEnabled(false);
+				this.ventanaPago.getBtn_1().setEnabled(false);
+				this.ventanaPago.getBtn_2().setEnabled(false);
+				this.ventanaPago.getBtn_3().setEnabled(false);
+				this.ventanaPago.getBtn_4().setEnabled(false);
+				this.ventanaPago.getBtn_5().setEnabled(false);
+				this.ventanaPago.getBtn_6().setEnabled(false);
+				this.ventanaPago.getBtn_7().setEnabled(false);
+				this.ventanaPago.getBtn_8().setEnabled(false);
+				this.ventanaPago.getBtn_9().setEnabled(false);
+				this.ventanaPago.getBtn_coma().setEnabled(false);
+				this.ventanaPago.getBtn_borrar().setEnabled(false);
+				this.ventanaPago.getBtn_pagar().setEnabled(false);
+				this.ventanaPago.getBtn_c().setEnabled(false);
+				this.ventanaPago.getBtnSalir().setEnabled(false);
+				this.ventanaPago.getBtnVolver().setEnabled(false);
+			}
+			
 			break;
 			
 		case "Continuar":
@@ -312,17 +332,17 @@ public class Controlador07Pago implements MouseListener {
 	}
 
 
-	private void extracted(String iopc) {
+	private void extracted(String opcion) {
 		if (comprobarComa == false) {
 			if (this.ventanaPago.getTxtIntroducido().getText().length()<3) {
-				this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + iopc);
+				this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + opcion);
 			}else {
 				JOptionPane.showMessageDialog(null, "Maximo de 3 numeros antes de la coma", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
 			}
 		} else {
 
 			if (distancia < decimales) {
-				this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + iopc);
+				this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + opcion);
 				distancia++;
 			}else {
 				JOptionPane.showMessageDialog(null, "Maximo de 2 decimales", "Mensaje de error",JOptionPane.ERROR_MESSAGE);

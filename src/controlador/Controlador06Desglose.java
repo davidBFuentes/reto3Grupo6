@@ -27,10 +27,10 @@ public class Controlador06Desglose implements MouseListener {
 	public Controlador06Desglose (Ventana06Desglose pVentana06, Linea pLinea, Billete pBillete, Billete pBillete2, Cliente pCliente) {
 		
 		this.ventanadeglose = pVentana06;
-		this.linea = pLinea;
 		this.billete = pBillete;
 		this.billete2 = pBillete2;
 		this.cliente = pCliente;
+		this.linea = pLinea;
 		
 		mIniciarControlador();
 		
@@ -45,6 +45,13 @@ public class Controlador06Desglose implements MouseListener {
 		this.ventanadeglose.getTxtApellidos().setText(cliente.getApellido());
 		this.ventanadeglose.getTxtOrigen().setText(billete.getNombre_Parada_Origen());
 		this.ventanadeglose.getTxtDestino().setText(billete.getNombre_Parada_Destino());
+		this.ventanadeglose.getTxtFecha().setText(billete.getFecha() + " " + billete.getHora());	
+		
+		System.out.println(billete.getCod_Bus());
+		
+		
+		this.ventanadeglose.getTxtNAutobus().setText(billete.getCod_Bus());
+		
 		this.ventanadeglose.getTxtFecha().setText(billete.getFecha());
 		this.ventanadeglose.getTxtNAutobus().setText(billete.getCod_Bus());	
 		this.ventanadeglose.getLblHora2().setText(billete.getHora());
@@ -119,10 +126,11 @@ public class Controlador06Desglose implements MouseListener {
 			break;
 			
 		case "Volver":
-			Ventana05ParadasFecha window2 = new Ventana05ParadasFecha();
-			Controlador05ParadasFecha controlador05 = new Controlador05ParadasFecha(window2, linea, billete, cliente);
-			window2.getFrame().setVisible(true);
-			this.ventanadeglose.Ventana06Desglose.dispose();
+				Ventana05ParadasFecha window2 = new Ventana05ParadasFecha();
+				Controlador05ParadasFecha controlador05 = new Controlador05ParadasFecha(window2, linea, billete, cliente);
+				window2.getFrame().setVisible(true);
+				this.ventanadeglose.Ventana06Desglose.dispose();
+			break;
 
 		}
 		// TODO Auto-generated method stub

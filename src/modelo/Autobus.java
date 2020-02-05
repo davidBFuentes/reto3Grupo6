@@ -9,6 +9,7 @@ public class Autobus {
 	private double consumo;
 	private String color;
 	
+	
 	public Autobus() {
 		
 	}

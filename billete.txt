@@ -1,0 +1,11 @@
+Código Billete: 2
+ Código Linea: A3225
+Código de autobús: 1157
+Código de la parada de origen: 4256
+Parada de origen: MOYUA PLAZA (DEUTSCHE BANK) (4256)
+Código de la parada de destino: 686
+Parada de destino: ASUA (686)
+Fecha: 2020-02-20
+Hora: 13:45:00
+DNI: null
+Precio: 9.72
