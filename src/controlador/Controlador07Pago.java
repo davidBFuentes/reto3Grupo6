@@ -26,9 +26,9 @@ public class Controlador07Pago implements MouseListener {
 
 	private int coma;
 	private boolean comprobarComa;
-	private float restante;
-	private float total;
-	private float introducido;
+	private double restante;
+	private double total;
+	private double introducido;
 	private int distancia = 0;
 	private int decimales = 3;
 	private Linea linea;
@@ -36,6 +36,10 @@ public class Controlador07Pago implements MouseListener {
 	private Billete billete2;
 	private Cliente cliente;
 	private double preciototal = 0;
+	private double precioSinIva1 = 0;
+	private double precioConIva1 = 0;
+	private double precioSinIva2 = 0;
+	private double precioConIva2 = 0;
 
 
 	
@@ -49,13 +53,18 @@ public class Controlador07Pago implements MouseListener {
 		this.cliente = pCliente;
 		
 		if (billete.getCod_Linea() == billete2.getCod_Linea()) {
+			this.precioSinIva1 = billete.getPrecio();
+			this.precioSinIva2 = billete2.getPrecio();
+			
 			preciototal = billete.getPrecio() + billete2.getPrecio();
-			billete.setPrecio(Calculo.formatearPrecio(billete.getPrecio() + billete.getPrecio() * 0.21));
-			billete2.setPrecio(Calculo.formatearPrecio(billete2.getPrecio() + billete2.getPrecio() * 0.21));
+			this.precioConIva1 = Calculo.formatearPrecio(billete.getPrecio() + billete.getPrecio() * 0.21);
+			this.precioConIva2 = Calculo.formatearPrecio(billete.getPrecio() + billete.getPrecio() * 0.21);
 			
 		} else {
+			this.precioSinIva1 = billete.getPrecio();
+			this.precioSinIva2 = billete2.getPrecio();
 			preciototal = billete.getPrecio();
-			billete.setPrecio(Calculo.formatearPrecio(billete.getPrecio() + billete.getPrecio() * 0.21));
+			this.precioConIva1 = Calculo.formatearPrecio(billete.getPrecio() + billete.getPrecio() * 0.21);
 		}
 		
 		mIniciarControlador();
@@ -140,62 +149,62 @@ public class Controlador07Pago implements MouseListener {
 		case "0":
 			
 			
-			escribir_botones(opcion);	
+			extracted(opcion);	
 
 			break;
 			
 		case "1":
 
-			escribir_botones(opcion);		
+			extracted(opcion);	
+	
 
 			break;
 
 		case "2":
 
-			escribir_botones(opcion);	
-			
+			extracted(opcion);	
+
 			break;
 		case "3":
 
-			escribir_botones(opcion);	
-			
+			extracted(opcion);	
+
 			break;
 
 		case "4":
 
+			extracted(opcion);	
 
-			escribir_botones(opcion);	
-			
 			break;
 
 		case "5":
  
-			escribir_botones(opcion);	
-			
+			extracted(opcion);	
+
 			break;
 
 		case "6":
 
-			escribir_botones(opcion);	
-			
+			extracted(opcion);	
+
 			break;
 
 		case "7":
 			
-			escribir_botones(opcion);	
-			
+			extracted(opcion);	
+
 			break;
 
 		case "8":
 
-			escribir_botones(opcion);	
-			
+			extracted(opcion);	
+
 			break;
 
 		case "9":
 			
-			escribir_botones(opcion);	
-			
+			extracted(opcion);	
+
 			break;
 			
 		case "coma":
@@ -234,27 +243,30 @@ public class Controlador07Pago implements MouseListener {
 		
 		case "borrar":
 
-				this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText().substring(0,this.ventanaPago.getTxtIntroducido().getText().length()-1));
-				if (comprobarComa == true && distancia !=0) {
-					distancia--;
+				if(this.ventanaPago.getTxtIntroducido().getText().length()!=0) {
+					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText().substring(0,this.ventanaPago.getTxtIntroducido().getText().length()-1));
+					if (comprobarComa == true && distancia !=0) {
+						distancia--;
+					}
 				}
+				
 				break;
 			
 		case "pagar":
 			
 			
 			if (this.ventanaPago.getTxtPrecioAPagar().getText().length() > 0) {
-				total = Float.valueOf(this.ventanaPago.getTxtPrecioAPagar().getText());
+				total = Double.valueOf(this.ventanaPago.getTxtPrecioAPagar().getText());
 			}
 			if (this.ventanaPago.getTxtIntroducido().getText().length() > 0 ) {
-				introducido = Float.valueOf(this.ventanaPago.getTxtIntroducido().getText());
+				introducido = Double.valueOf(this.ventanaPago.getTxtIntroducido().getText());
 				
 			}	
 
 			if (total > introducido) {
 				restante = total-introducido;
 				restante = (float) (Math.floor(restante*100)/100);
-				this.ventanaPago.getTxtPrecioAPagar().setText(Float.toString(restante));
+				this.ventanaPago.getTxtPrecioAPagar().setText(Double.toString(restante));
 				this.ventanaPago.getTxtIntroducido().setText("");
 				introducido = 0;
 			}
@@ -310,7 +322,8 @@ public class Controlador07Pago implements MouseListener {
 					billete2.setCod_Billete(BilleteDAO.mObtenerCodigoBillete(billete2));
 					BilleteDAO.mRegistrarBillete(billete2);
 				}
-				
+				billete.setPrecio(Calculo.formatearPrecio(billete.getPrecio() + billete.getPrecio() * 0.21));
+				billete2.setPrecio(Calculo.formatearPrecio(billete2.getPrecio() + billete2.getPrecio() * 0.21));
 				Ventana08ImprimirBilletes ventana = new Ventana08ImprimirBilletes();
 				Controlador08ImprimirBilletes controladorBienvenida = new Controlador08ImprimirBilletes(ventana, billete, billete2, cliente);
 				ventana.ventana08ImprimirBilletes.setVisible(true);
@@ -321,6 +334,7 @@ public class Controlador07Pago implements MouseListener {
 			break;
 			
 		case "Volver":
+
 			Ventana06Desglose window1 = new Ventana06Desglose();
 			Controlador06Desglose controlador = new Controlador06Desglose(window1, linea, billete, billete2, cliente);
 			window1.Ventana06Desglose.setVisible(true);
@@ -331,7 +345,7 @@ public class Controlador07Pago implements MouseListener {
 	}
 
 
-	private void escribir_botones(String opcion) {
+	private void extracted(String opcion) {
 		if (comprobarComa == false) {
 			if (this.ventanaPago.getTxtIntroducido().getText().length()<3) {
 				this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + opcion);

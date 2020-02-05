@@ -32,8 +32,8 @@ public class Controlador02Login implements KeyListener, MouseListener {
 		
 		this.ventanalogin.getbIdentificarse().addMouseListener(this);
 		this.ventanalogin.getbIdentificarse().setName("Identificarse");
-		this.ventanalogin.getbOmitir().addMouseListener(this);
-		this.ventanalogin.getbOmitir().setName("Omitir");
+//		this.ventanalogin.getbOmitir().addMouseListener(this);
+//		this.ventanalogin.getbOmitir().setName("Omitir");
 		this.ventanalogin.getbRegistrarse().addMouseListener(this);
 		this.ventanalogin.getbRegistrarse().setName("Registrarse");
 		this.ventanalogin.getTxtDni().addKeyListener(this);

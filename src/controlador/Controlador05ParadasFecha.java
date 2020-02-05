@@ -7,6 +7,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -77,7 +78,7 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 	 */
 	private void mIniciarControlador() {
 		
-		//Añadimos los listeners a los botones
+		//Añadimos los mouselistener a los botones
 		this.ventanaParadasFecha.getBtnProcederAlPago().addMouseListener(this);
 		this.ventanaParadasFecha.getBtnProcederAlPago().setName("Proceder al pago");
 		this.ventanaParadasFecha.getBtnVolver().addMouseListener(this);
@@ -265,6 +266,5 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 		
 	}
 	
-
 	
 }

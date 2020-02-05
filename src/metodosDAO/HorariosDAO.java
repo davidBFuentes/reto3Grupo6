@@ -21,8 +21,8 @@ public class HorariosDAO {
 		ArrayList<String> horarios = new ArrayList<String>();
 		
 		
-		try {		
-			
+		try {			
+
 			co= ConexionBus.conectar();
 			
 			stmt = co.prepareStatement(sql);
