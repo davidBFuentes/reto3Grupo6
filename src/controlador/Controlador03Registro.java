@@ -21,12 +21,14 @@ import vista.Ventana04Trayectos;
 public class Controlador03Registro implements MouseListener, KeyListener {
 
 	private Ventana03Registro ventana03registro;
+	private String dni;
 
 	public Controlador03Registro(Ventana03Registro pVentana02) {
 
 		this.ventana03registro = pVentana02;
 		mInicializarControlador();
 	}
+	
 
 	private void mInicializarControlador() {
 
@@ -64,6 +66,8 @@ public class Controlador03Registro implements MouseListener, KeyListener {
 
 		case "Registrarse":
 			
+			ValidadorDNI dni = new ValidadorDNI(this.ventana03registro.getTxtDni().getText());
+			
 			if (this.ventana03registro.getTxtDni().getText().length() != 0
 					&& this.ventana03registro.getTxtNombre().getText().length() != 0
 					&& this.ventana03registro.getTxtApellido().getText().length() != 0
@@ -75,7 +79,9 @@ public class Controlador03Registro implements MouseListener, KeyListener {
 					&& this.ventana03registro.getTxtDni().getText().length() == 9
 					&& this.ventana03registro.getPassContrasena().getText().equals
 					(this.ventana03registro.getPassContrasena2().getText())
-					&& validarFecha(this.ventana03registro.getTxtFechaNacimiento().getText()) == true) {
+					&& dni.validar()
+					&& validarFecha(this.ventana03registro.getTxtFechaNacimiento().getText())) {
+				   
 				
 					Cliente cliente;
 	
@@ -124,7 +130,7 @@ public class Controlador03Registro implements MouseListener, KeyListener {
 					JOptionPane.showMessageDialog(null, "Debe rellenar todos los campos", "Mensaje de error",
 							JOptionPane.ERROR_MESSAGE);
 					
-				} if (this.ventana03registro.getTxtDni().getText().length() < 9) {
+				} if (!dni.validar()) {
 					JOptionPane.showMessageDialog(null, "No ha introducido un DNI válido", "Mensaje de error",
 							JOptionPane.ERROR_MESSAGE);
 					
@@ -133,7 +139,7 @@ public class Controlador03Registro implements MouseListener, KeyListener {
 					JOptionPane.showMessageDialog(null, "No ha repetido la contraseña", "Mensaje de error",
 							JOptionPane.ERROR_MESSAGE);
 
-				} if (validarFecha(this.ventana03registro.getTxtFechaNacimiento().getText()) == false) {
+				} if (!validarFecha(this.ventana03registro.getTxtFechaNacimiento().getText())) {
 					JOptionPane.showMessageDialog(null, "Formato de fecha inválido, ha de ser aaaa/mm/dd", "Mensaje de error",
 							JOptionPane.ERROR_MESSAGE);
 				}
@@ -184,25 +190,25 @@ public class Controlador03Registro implements MouseListener, KeyListener {
 			break;
 
 		case "Nombre":
-			 if(this.ventana03registro.getTxtNombre().getText().length()>10) {  
+			 if(this.ventana03registro.getTxtNombre().getText().length()>12) {  
 				   e.consume();
 				 }
 			break;
 			
 		case "Apellido":
-			if(this.ventana03registro.getTxtApellido().getText().length()>10) {  
+			if(this.ventana03registro.getTxtApellido().getText().length()>12) {  
 				   e.consume();
 				 }
 			break;
 			
 		case "Pass":
-			if(this.ventana03registro.getPassContrasena().getText().length()>10) {  
+			if(this.ventana03registro.getPassContrasena().getText().length()>12) {  
 				   e.consume();
 				 }
 			break;
 			
 		case "Pass2":
-			if(this.ventana03registro.getPassContrasena2().getText().length()>10) {  
+			if(this.ventana03registro.getPassContrasena2().getText().length()>12) {  
 				   e.consume();
 				 }
 			break;
@@ -239,4 +245,5 @@ public class Controlador03Registro implements MouseListener, KeyListener {
         }
         return true;
     }
+		
 }
