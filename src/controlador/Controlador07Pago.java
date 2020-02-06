@@ -117,11 +117,6 @@ public class Controlador07Pago implements MouseListener {
 		this.ventanaPago.getBtn_pagar().setName("pagar");
 		this.ventanaPago.getBtnVolver().addMouseListener(this);
 		this.ventanaPago.getBtnVolver().setName("Volver");
-		
-		
-		
-		
-	
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -129,8 +124,6 @@ public class Controlador07Pago implements MouseListener {
 		
 	}
 	
-	
-
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub

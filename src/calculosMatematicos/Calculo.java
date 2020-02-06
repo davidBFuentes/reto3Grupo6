@@ -3,8 +3,6 @@ package calculosMatematicos;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
-import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -173,16 +171,21 @@ public class Calculo {
 		
 	}
 	
-	public static double formatearPrecio(double valorInicial) {
+	/**
+	 * Metodo que formatea un numero de tipo double con la precision escogida
+	 * @param numeroSinFormatear Numero de tipo double
+	 * @return Devuelve el numero de tipo double formateado
+	 */
+	public static double formatearPrecio(double numeroSinFormatear) {
        
 		int numeroDecimales = 2;
-		double parteEntera, resultado;
-        resultado = valorInicial;
-        parteEntera = Math.floor(resultado);
-        resultado=(resultado-parteEntera)*Math.pow(10, numeroDecimales);
-        resultado=Math.round(resultado);
-        resultado=(resultado/Math.pow(10, numeroDecimales))+parteEntera;
-        return resultado;
+		double parteEntera, numeroFormateado;
+        
+        parteEntera = Math.floor(numeroSinFormatear);
+        numeroSinFormatear = (numeroSinFormatear - parteEntera) * Math.pow(10, numeroDecimales);
+        numeroSinFormatear = Math.round(numeroSinFormatear);
+        numeroFormateado = (numeroSinFormatear / Math.pow(10, numeroDecimales)) + parteEntera;
+        return numeroFormateado;
     }
 
 	
