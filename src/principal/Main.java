@@ -13,8 +13,8 @@ public class Main {
 		
 		Ventana01Bienvenida ventana01 = new Ventana01Bienvenida();
 		Controlador01Bienvenida controladorBienvenida = new Controlador01Bienvenida(ventana01);
-		ventana01.getFrame().setVisible(true);
-
+		controladorBienvenida.mMostrarFrame();
+		
 	}
 
 }

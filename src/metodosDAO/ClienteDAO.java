@@ -2,12 +2,10 @@ package metodosDAO;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
-import java.sql.Statement;
-import java.util.ArrayList;
-
 import javax.swing.JOptionPane;
 
 import conexion.ConexionBus;
@@ -54,61 +52,40 @@ public class ClienteDAO {
 		return registrar;
 	}
 	
-	public static boolean mIdentificarCliente(Cliente cliente) {
+	public static Cliente mIdentificarCliente(String dni, String contrasena) {
 		
-		boolean login = false;
-		ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
-		
-		listaClientes = mObtenerClientes();
-		
-		for(Cliente cliente1: listaClientes) {
-			if (cliente1.getDni().equals(cliente.getDni()) && cliente1.getContrasena().equals(cliente.getContrasena())) {
-				cliente.setNombre(cliente1.getNombre());
-				cliente.setApellido(cliente1.getApellido());
-				cliente.setDni(cliente1.getDni());
-				cliente.setNacimiento(cliente1.getNacimiento());
-				cliente.setSexo(cliente1.getSexo());
-				login = true;		
-			}
-		}
-		
-		return login;
-	}
-	
-	
-	
-	public static ArrayList<Cliente> mObtenerClientes() {
 		Connection co =null;
-		Statement stm= null;
+		PreparedStatement stm= null;
 		ResultSet rs=null;
 		
-		String sql="SELECT * FROM cliente;";
 		
-		ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
+		Cliente cliente = new Cliente();
 		
+		String sql="SELECT * from cliente where dni = ? and contraseña = ?;";
+
 		try {			
 			co= ConexionBus.conectar();
-			stm=co.createStatement();
-			rs=stm.executeQuery(sql);
+			stm=co.prepareStatement(sql);
+			stm.setString(1, dni);
+			stm.setString(2, contrasena);
+			rs=stm.executeQuery();
 			while (rs.next()) {
-				Cliente c=new Cliente();
-				c.setDni(rs.getString(1));
-				c.setNombre(rs.getString(2));
-				c.setApellido(rs.getString(3));
-				c.setNacimiento(rs.getString(4));
-				c.setSexo(rs.getString(5));
-				c.setContrasena(rs.getString(6));
-				listaClientes.add(c);
+				cliente.setDni(rs.getString(1));
+				cliente.setNombre(rs.getString(2));
+				cliente.setApellido(rs.getString(3));
+				cliente.setNacimiento(rs.getString(4));
+				cliente.setSexo(rs.getString(5));
+				cliente.setContrasena(rs.getString(6));
 			}
 			stm.close();
 			rs.close();
 			co.close();
 		} catch (SQLException e) {
-			System.out.println("Error: Clase Cliente, método mObtenerClientes");
+			System.out.println("Error: Clase LineaDAO, método mObtenerLineas");
 			e.printStackTrace();
 		}
 		
-		return listaClientes;
+		return cliente;
 	}
 
 }

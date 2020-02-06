@@ -4,13 +4,13 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
 import metodosDAO.ClienteDAO;
 import modelo.Billete;
 import modelo.Cliente;
+import modelo.Codificacion;
 import vista.Ventana02Login;
 import vista.Ventana03Registro;
 import vista.Ventana04Trayectos;
@@ -40,8 +40,7 @@ public class Controlador02Login implements KeyListener, MouseListener {
 		this.ventanalogin.getTxtDni().setName("dni");
 		this.ventanalogin.getTxtContrasena().addKeyListener(this);
 		this.ventanalogin.getTxtContrasena().setName("pass");
-		
-			
+					
 	}
 
 	@Override
@@ -95,12 +94,10 @@ public class Controlador02Login implements KeyListener, MouseListener {
 				
 				} else {
 					
-					boolean login = false;
-					
-					Cliente cliente = new Cliente(this.ventanalogin.getTxtDni().getText(), "x", "x", "x", "x", this.ventanalogin.getTxtContrasena().getText());
-					login = ClienteDAO.mIdentificarCliente(cliente);
+					Cliente cliente = new Cliente();
+					cliente = ClienteDAO.mIdentificarCliente(this.ventanalogin.getTxtDni().getText(), Codificacion.md5(this.ventanalogin.getTxtContrasena().getText()));
 									
-					if (login == true) {
+					if (cliente.getDni() != null) {
 				
 							Billete billete = new Billete();
 							billete.setDni(cliente.getDni());
