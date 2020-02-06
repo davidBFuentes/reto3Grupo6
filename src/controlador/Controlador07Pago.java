@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.mail.MessagingException;
 import javax.swing.JOptionPane;
 
 import calculosMatematicos.Calculo;
@@ -134,7 +135,12 @@ public class Controlador07Pago implements MouseListener {
 		case "Salir":
 			
 				Ventana01Bienvenida window = new Ventana01Bienvenida();
+			try {
 				Controlador01Bienvenida controladorbienvenida = new Controlador01Bienvenida(window);
+			} catch (MessagingException e1) {
+				// TODO Bloque catch generado automáticamente
+				e1.printStackTrace();
+			}
 				window.getFrame().setVisible(true);
 				this.ventanaPago.Ventana07Pago.dispose();
 			break;

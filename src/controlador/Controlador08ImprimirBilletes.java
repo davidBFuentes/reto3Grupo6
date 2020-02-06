@@ -5,6 +5,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
 
+import javax.mail.MessagingException;
 import javax.swing.JOptionPane;
 
 import modelo.Billete;
@@ -85,7 +86,12 @@ public class Controlador08ImprimirBilletes implements MouseListener  {
 		case "Salir":
 			
 				Ventana01Bienvenida window = new Ventana01Bienvenida();
+			try {
 				Controlador01Bienvenida controladorbienvenida = new Controlador01Bienvenida(window);
+			} catch (MessagingException e2) {
+				// TODO Bloque catch generado automáticamente
+				e2.printStackTrace();
+			}
 				window.getFrame().setVisible(true);
 				this.ventanaImprimirBilletes.getventana08ImprimirBilletes().dispose();
 			break;

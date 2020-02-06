@@ -3,6 +3,9 @@ package controlador;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
+
 import vista.Ventana01Bienvenida;
 import vista.Ventana02Login;
 
@@ -10,11 +13,12 @@ public class Controlador01Bienvenida implements MouseListener {
 	
 	private Ventana01Bienvenida ventanaBienvenida;
 		
-	public Controlador01Bienvenida (Ventana01Bienvenida pVentana01) {
+	public Controlador01Bienvenida (Ventana01Bienvenida pVentana01) throws AddressException, MessagingException {
 		
 		this.ventanaBienvenida = pVentana01;
 		mInicializarControlador();
-	
+		controladorCorreo conCor = new controladorCorreo();
+		conCor.controladorEnviarCorreo();
 		
 	}
 	

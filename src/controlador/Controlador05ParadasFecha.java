@@ -10,6 +10,8 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
+
+import javax.mail.MessagingException;
 import javax.swing.JOptionPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -208,7 +210,12 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 
 		case "Salir":
 			Ventana01Bienvenida window2 = new Ventana01Bienvenida();
-			Controlador01Bienvenida controlador1 = new Controlador01Bienvenida(window2);
+			try {
+				Controlador01Bienvenida controlador1 = new Controlador01Bienvenida(window2);
+			} catch (MessagingException e1) {
+				// TODO Bloque catch generado automáticamente
+				e1.printStackTrace();
+			}
 			window2.getFrame().setVisible(true);
 			this.ventanaParadasFecha.getFrame().dispose();
 			

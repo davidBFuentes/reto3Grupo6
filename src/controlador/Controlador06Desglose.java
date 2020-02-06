@@ -6,6 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.mail.MessagingException;
+
 import modelo.Billete;
 import modelo.Cliente;
 import modelo.Linea;
@@ -112,7 +114,12 @@ public class Controlador06Desglose implements MouseListener {
 		
 		case "Salir":
 				Ventana01Bienvenida window = new Ventana01Bienvenida();
+			try {
 				Controlador01Bienvenida controladorbienvenida = new Controlador01Bienvenida(window);
+			} catch (MessagingException e1) {
+				// TODO Bloque catch generado automáticamente
+				e1.printStackTrace();
+			}
 				window.getFrame().setVisible(true);
 				this.ventanadeglose.Ventana06Desglose.setVisible(false);
 			break;

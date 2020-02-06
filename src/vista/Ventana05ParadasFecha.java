@@ -230,8 +230,7 @@ public class Ventana05ParadasFecha {
 		((JTextField)dateChooserVuelta.getDateEditor().getUiComponent()).setText("Seleccione fecha de vuelta");
 		((JTextField)dateChooserVuelta.getDateEditor().getUiComponent()).setForeground(Color.BLACK);
 		dateChooserVuelta.setMinSelectableDate(localDate);
-		dateChooserVuelta.setMaxSelectableDate(maxDate);
-		
+		dateChooserVuelta.setMaxSelectableDate(maxDate);	
 	}
 	
 	private void crearCheckBox() {

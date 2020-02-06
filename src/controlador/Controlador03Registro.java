@@ -7,6 +7,7 @@ import java.awt.event.MouseListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+import javax.mail.MessagingException;
 import javax.swing.JOptionPane;
 
 import metodosDAO.ClienteDAO;
@@ -55,7 +56,12 @@ public class Controlador03Registro implements MouseListener, KeyListener {
 
 		case "Salir":
 			Ventana01Bienvenida window = new Ventana01Bienvenida();
-			Controlador01Bienvenida controladorbienvenida = new Controlador01Bienvenida(window);
+			try {
+				Controlador01Bienvenida controladorbienvenida = new Controlador01Bienvenida(window);
+			} catch (MessagingException e1) {
+				// TODO Bloque catch generado automáticamente
+				e1.printStackTrace();
+			}
 			window.getFrame().setVisible(true);
 			this.ventana03registro.getFrame().dispose();
 
