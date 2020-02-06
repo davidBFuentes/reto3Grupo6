@@ -135,41 +135,13 @@ public class Controlador04Trayectos implements MouseListener, MouseMotionListene
 	public void mouseMoved(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
-		
-		
+
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
-		e.getActionCommand();
-		
-		switch (e.getActionCommand()) {
-		case "Combo":
-			
-			if(this.ventanatrayectos.getComboLineas().getSelectedItem().toString().contains("1")) {
-				this.ventanatrayectos.getLblFondoVentana04().setIcon(new ImageIcon(Ventana04Trayectos.class.getResource("/imagenes/fondoPlentziaVentana04.png")));
-			} 
-			
-			if(this.ventanatrayectos.getComboLineas().getSelectedItem().toString().contains("2")) {
-				this.ventanatrayectos.getLblFondoVentana04().setIcon(new ImageIcon(Ventana04Trayectos.class.getResource("/imagenes/fondoMuskizVentana04.png")));
-			}
-			
-			if(this.ventanatrayectos.getComboLineas().getSelectedItem().toString().contains("3")) {
-				this.ventanatrayectos.getLblFondoVentana04().setIcon(new ImageIcon(Ventana04Trayectos.class.getResource("/imagenes/fondoBalmasedaVentana04.png")));
-			}
-			
-			if(this.ventanatrayectos.getComboLineas().getSelectedItem().toString().contains("4")) {
-				this.ventanatrayectos.getLblFondoVentana04().setIcon(new ImageIcon(Ventana04Trayectos.class.getResource("/imagenes/fondoDurangoVentana04.png")));
-			} 
-			
-			if(this.ventanatrayectos.getComboLineas().getSelectedItem().toString().contains("Elija")) {
-				this.ventanatrayectos.getLblFondoVentana04().setIcon(new ImageIcon(Ventana04Trayectos.class.getResource("/imagenes/fondoBilbaoVentana04.png")));
-			} 
-			break;
-	
-		}
+
 		
 	}
 

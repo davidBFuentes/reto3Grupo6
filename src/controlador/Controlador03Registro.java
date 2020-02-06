@@ -4,7 +4,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -13,7 +12,6 @@ import javax.swing.JOptionPane;
 import metodosDAO.ClienteDAO;
 import modelo.Billete;
 import modelo.Cliente;
-import modelo.Fichero;
 import vista.Ventana01Bienvenida;
 import vista.Ventana03Registro;
 import vista.Ventana04Trayectos;
@@ -21,7 +19,6 @@ import vista.Ventana04Trayectos;
 public class Controlador03Registro implements MouseListener, KeyListener {
 
 	private Ventana03Registro ventana03registro;
-	private String dni;
 
 	public Controlador03Registro(Ventana03Registro pVentana02) {
 
@@ -97,14 +94,6 @@ public class Controlador03Registro implements MouseListener, KeyListener {
 					}
 	
 					if (ClienteDAO.mRegistrarCliente(cliente)) {
-	
-						try {
-							Fichero.mCrearFichero(cliente.getDni(),
-									cliente.getContrasena());
-						} catch (IOException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}
 						
 						JOptionPane.showMessageDialog(null, "Registro realizado  con éxito", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
 						Billete billete = new Billete();

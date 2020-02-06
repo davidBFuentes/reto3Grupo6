@@ -30,8 +30,8 @@ public class Ventana04Trayectos {
 	private JButton btnContinuar;
 	private JComboBox <Linea> comboLineas;
 	private JPanel panel;
+	private JPanel panel_1;
 	private JPanel panel_2;
-	private JLabel lblFondoVentana04;
 	
 	public Ventana04Trayectos() {
 		
@@ -58,11 +58,18 @@ public class Ventana04Trayectos {
 	private void crearPaneles() {
 		
 		panel = new JPanel();
-		panel.setBorder(new LineBorder(Color.BLACK, 2));
+		panel.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		panel.setBackground(new Color(255, 255, 255));
 		panel.setBounds(29, 29, 1216, 633);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
+		
+		panel_1 = new JPanel();
+		panel_1.setBackground(new Color(245, 245, 220));
+		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		panel_1.setBounds(20, 20, 862, 98);
+		panel.add(panel_1);
+		panel_1.setLayout(null);
 		
 		panel_2 = new JPanel();
 		panel_2.setBackground(new Color(245, 245, 220));
@@ -70,7 +77,7 @@ public class Ventana04Trayectos {
 		panel_2.setBounds(901, 294, 293, 319);
 		panel.add(panel_2);
 		panel_2.setLayout(null);
-		
+	
 	}
 		
 	private void crearBotones() {
@@ -87,9 +94,20 @@ public class Ventana04Trayectos {
 		panel_2.add(btnSalir);
 		btnSalir.setFont(new Font("Tahoma", Font.BOLD, 20));
 		
+		JButton btnControlUsuario = new JButton("");
+		btnControlUsuario.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		btnControlUsuario.setIcon(new ImageIcon(Ventana04Trayectos.class.getResource("/imagenes/pefilChico.jpg")));
+		btnControlUsuario.setBounds(1059, 20, 135, 135);
+		panel.add(btnControlUsuario);
+		
 	}
 	
 	private void crearEtiquetas() {
+		
+		JLabel lblImagenFondo = new JLabel("");
+		lblImagenFondo.setIcon(new ImageIcon(Ventana04Trayectos.class.getResource("/imagenes/fondoTrayectos.png")));
+		lblImagenFondo.setBounds(20, 20, 1174, 593);
+		panel.add(lblImagenFondo);
 		
 	}
 
@@ -110,20 +128,14 @@ public class Ventana04Trayectos {
 	public void crearCombobox() {
 		
 		comboLineas = new JComboBox<Linea>();
+		comboLineas.setBounds(20, 20, 822, 59);
+		panel_1.add(comboLineas);
 		comboLineas.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		comboLineas.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		comboLineas.setMaximumRowCount(10);
 		comboLineas.setModel(new DefaultComboBoxModel(new String[] {"Elija su l\u00EDnea"}));
-		comboLineas.setBounds(20, 20, 824, 59);
-		panel.add(comboLineas);
 		comboLineas.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
 		
-		lblFondoVentana04 = new JLabel("");
-		lblFondoVentana04.setIcon(new ImageIcon(Ventana04Trayectos.class.getResource("/imagenes/fondoBilbaoVentana04.png")));
-		lblFondoVentana04.setBounds(20, 20, 1174, 593);
-		panel.add(lblFondoVentana04);
-		
-	
 	}
 
 	public JButton getBtnSalir() {
@@ -156,13 +168,5 @@ public class Ventana04Trayectos {
 
 	public void setFrame(JFrame frame) {
 		this.frame = frame;
-	}
-
-	public JLabel getLblFondoVentana04() {
-		return lblFondoVentana04;
-	}
-
-	public void setLblFondoVentana04(JLabel lblFondoCiudad) {
-		this.lblFondoVentana04 = lblFondoCiudad;
 	}
 }

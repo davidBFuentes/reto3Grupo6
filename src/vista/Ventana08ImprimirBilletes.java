@@ -135,7 +135,7 @@ public class Ventana08ImprimirBilletes {
 		
 		JLabel lblDNI = new JLabel("DNI");
 		lblDNI.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblDNI.setBounds(10, 87, 92, 27);
+		lblDNI.setBounds(10, 87, 92, 22);
 		panel.add(lblDNI);
 		lblDNI.setFont(new Font("Tahoma", Font.BOLD, 20));
 		
@@ -164,51 +164,51 @@ public class Ventana08ImprimirBilletes {
 		lblLinea2.setFont(new Font("Tahoma", Font.BOLD, 20));
 		
 		JLabel lblOrigen = new JLabel("Origen");
-		lblOrigen.setHorizontalAlignment(SwingConstants.CENTER);
+		lblOrigen.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblOrigen.setBounds(30, 131, 100, 33);
 		panel_1.add(lblOrigen);
 		lblOrigen.setFont(new Font("Tahoma", Font.BOLD, 20));
 		
 		JLabel lblDestino = new JLabel("Destino");
-		lblDestino.setHorizontalAlignment(SwingConstants.CENTER);
-		lblDestino.setBounds(415, 131, 126, 33);
+		lblDestino.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblDestino.setBounds(450, 131, 91, 33);
 		panel_1.add(lblDestino);
 		lblDestino.setFont(new Font("Tahoma", Font.BOLD, 20));
 		
 		JLabel lblFecha = new JLabel("Fecha");
-		lblFecha.setHorizontalAlignment(SwingConstants.CENTER);
+		lblFecha.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblFecha.setBounds(30, 236, 100, 33);
 		panel_1.add(lblFecha);
 		lblFecha.setFont(new Font("Tahoma", Font.BOLD, 20));
 		
 		JLabel lblNAutobus = new JLabel("N\u00BA Autob\u00FAs");
-		lblNAutobus.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNAutobus.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNAutobus.setBounds(415, 236, 126, 33);
 		panel_1.add(lblNAutobus);
 		lblNAutobus.setFont(new Font("Tahoma", Font.BOLD, 20));
 		
 		JLabel lblHora = new JLabel("Hora");
-		lblHora.setHorizontalAlignment(SwingConstants.CENTER);
+		lblHora.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblHora.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblHora.setBounds(30, 340, 100, 33);
 		panel_1.add(lblHora);
 		
 		JLabel lblPrecio = new JLabel("Precio");
-		lblPrecio.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPrecio.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblPrecio.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblPrecio.setBounds(415, 340, 126, 33);
+		lblPrecio.setBounds(478, 340, 63, 33);
 		panel_1.add(lblPrecio);
 		
 		lblHora2 = new JLabel("");
-		lblHora2.setHorizontalAlignment(SwingConstants.LEFT);
+		lblHora2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblHora2.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblHora2.setBounds(140, 340, 200, 33);
+		lblHora2.setBounds(132, 340, 286, 33);
 		panel_1.add(lblHora2);
 		
 		lblPrecio2 = new JLabel("");
-		lblPrecio2.setHorizontalAlignment(SwingConstants.LEFT);
+		lblPrecio2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPrecio2.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblPrecio2.setBounds(551, 340, 200, 33);
+		lblPrecio2.setBounds(551, 340, 302, 33);
 		panel_1.add(lblPrecio2);
 		
 		JLabel lblDetallesVuelta = new JLabel("Detalles de la vuelta");
@@ -301,68 +301,71 @@ public class Ventana08ImprimirBilletes {
 	private void crearCamposTexto() {
 		
 		txtDNI = new JTextField();
+		txtDNI.setHorizontalAlignment(SwingConstants.CENTER);
 		txtDNI.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		txtDNI.setBorder(null);
 		txtDNI.setOpaque(false);
-		txtDNI.setBounds(126, 89, 135, 27);
+		txtDNI.setBounds(112, 87, 171, 22);
 		panel.add(txtDNI);
 		txtDNI.setEditable(false);
 		txtDNI.setColumns(10);
 		
 		txtNombre = new JTextField();
+		txtNombre.setHorizontalAlignment(SwingConstants.CENTER);
 		txtNombre.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		txtNombre.setBorder(null);
 		txtNombre.setOpaque(false);
-		txtNombre.setBounds(126, 141, 143, 27);
+		txtNombre.setBounds(112, 141, 171, 22);
 		panel.add(txtNombre);
 		txtNombre.setEditable(false);
 		txtNombre.setColumns(10);
 		
 		txtApellidos = new JTextField();
+		txtApellidos.setHorizontalAlignment(SwingConstants.CENTER);
 		txtApellidos.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		txtApellidos.setBorder(null);
 		txtApellidos.setOpaque(false);
-		txtApellidos.setBounds(126, 193, 143, 27);
+		txtApellidos.setBounds(112, 193, 171, 22);
 		panel.add(txtApellidos);
 		txtApellidos.setEditable(false);
 		txtApellidos.setColumns(10);
 		
 		txtNAutobus = new JTextField();
-		txtNAutobus.setHorizontalAlignment(SwingConstants.LEFT);
+		txtNAutobus.setHorizontalAlignment(SwingConstants.CENTER);
 		txtNAutobus.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		txtNAutobus.setBorder(null);
 		txtNAutobus.setOpaque(false);
-		txtNAutobus.setBounds(551, 236, 200, 33);
+		txtNAutobus.setBounds(551, 236, 302, 33);
 		panel_1.add(txtNAutobus);
 		txtNAutobus.setEditable(false);
 		txtNAutobus.setColumns(10);
 		
 		txtFecha = new JTextField();
-		txtFecha.setHorizontalAlignment(SwingConstants.LEFT);
+		txtFecha.setHorizontalAlignment(SwingConstants.CENTER);
 		txtFecha.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		txtFecha.setBorder(null);
 		txtFecha.setOpaque(false);
-		txtFecha.setBounds(140, 236, 216, 33);
+		txtFecha.setBounds(132, 236, 286, 33);
 		panel_1.add(txtFecha);
 		txtFecha.setEditable(false);
 		txtFecha.setColumns(10);
 		
 		txtDestino = new JTextField();
-		txtDestino.setHorizontalAlignment(SwingConstants.LEFT);
-		txtDestino.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		txtDestino.setHorizontalAlignment(SwingConstants.CENTER);
+		txtDestino.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		txtDestino.setBorder(null);
 		txtDestino.setOpaque(false);
-		txtDestino.setBounds(529, 131, 324, 33);
+		txtDestino.setBounds(544, 131, 309, 33);
 		panel_1.add(txtDestino);
 		txtDestino.setEditable(false);
 		txtDestino.setColumns(10);
 		
 		txtOrigen = new JTextField();
-		txtOrigen.setHorizontalAlignment(SwingConstants.LEFT);
+		txtOrigen.setHorizontalAlignment(SwingConstants.CENTER);
 		txtOrigen.setOpaque(false);
 		txtOrigen.setBorder(null);
-		txtOrigen.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		txtOrigen.setBounds(122, 131, 310, 33);
+		txtOrigen.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		txtOrigen.setBounds(132, 131, 318, 33);
 		panel_1.add(txtOrigen);
 		txtOrigen.setEditable(false);
 		txtOrigen.setColumns(10);
