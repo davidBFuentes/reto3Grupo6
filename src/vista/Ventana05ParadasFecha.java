@@ -3,8 +3,11 @@ package vista;
 import javax.swing.JFrame;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
+import javax.swing.text.Caret;
 import javax.swing.JButton;
 
 import java.awt.Color;
@@ -211,15 +214,21 @@ public class Ventana05ParadasFecha {
 		Date maxDate = cal.getTime();
 		
 		dateChooserIda = new JDateChooser();
+		dateChooserIda.setForeground(Color.BLACK);
 		dateChooserIda.setBounds(50, 169, 344, 30);
 		panel_1.add(dateChooserIda);
-		//Model 
+		((JTextField)dateChooserIda.getDateEditor().getUiComponent()).setFont(new Font("Trebuchet MS", Font.BOLD, 13));
+		((JTextField)dateChooserIda.getDateEditor().getUiComponent()).setText("Seleccione fecha de ida");
+		((JTextField)dateChooserIda.getDateEditor().getUiComponent()).setForeground(Color.BLACK);
 		dateChooserIda.setMinSelectableDate(localDate);
 		dateChooserIda.setMaxSelectableDate(maxDate);
 		
 		dateChooserVuelta = new JDateChooser();
 		dateChooserVuelta.setBounds(33, 82, 233, 30);
 		panel_3.add(dateChooserVuelta);
+		((JTextField)dateChooserVuelta.getDateEditor().getUiComponent()).setFont(new Font("Trebuchet MS", Font.BOLD, 13));
+		((JTextField)dateChooserVuelta.getDateEditor().getUiComponent()).setText("Seleccione fecha de vuelta");
+		((JTextField)dateChooserVuelta.getDateEditor().getUiComponent()).setForeground(Color.BLACK);
 		dateChooserVuelta.setMinSelectableDate(localDate);
 		dateChooserVuelta.setMaxSelectableDate(maxDate);
 		
