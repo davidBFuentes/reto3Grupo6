@@ -8,7 +8,7 @@ import vista.Ventana02Login;
 
 public class Controlador01Bienvenida implements MouseListener {
 	
-	// Atributo del constructor
+	// Atributo del constructor 
 	
 	private Ventana01Bienvenida ventanaBienvenida;
 	
