@@ -53,6 +53,7 @@ public class Ventana03Registro {
 	private void crearVentana() {
 		
 		frame = new JFrame();
+		frame.setResizable(false);
 		frame.getContentPane().setBackground(new Color(245, 245, 220));
 		frame.setBounds(100, 100, 1280, 720);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
