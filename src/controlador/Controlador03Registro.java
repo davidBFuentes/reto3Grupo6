@@ -56,12 +56,8 @@ public class Controlador03Registro implements MouseListener, KeyListener {
 
 		case "Salir":
 			Ventana01Bienvenida window = new Ventana01Bienvenida();
-			try {
-				Controlador01Bienvenida controladorbienvenida = new Controlador01Bienvenida(window);
-			} catch (MessagingException e1) {
-				// TODO Bloque catch generado automáticamente
-				e1.printStackTrace();
-			}
+
+			Controlador01Bienvenida controladorbienvenida = new Controlador01Bienvenida(window);
 			window.getFrame().setVisible(true);
 			this.ventana03registro.getFrame().dispose();
 

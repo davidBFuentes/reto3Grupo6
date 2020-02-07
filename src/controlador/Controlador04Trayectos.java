@@ -83,12 +83,8 @@ public class Controlador04Trayectos implements MouseListener, MouseMotionListene
 				
 			case "Salir":
 				Ventana01Bienvenida window2 = new Ventana01Bienvenida();
-			try {
 				Controlador01Bienvenida controlador = new Controlador01Bienvenida(window2);
-			} catch (MessagingException e1) {
-				// TODO Bloque catch generado automáticamente
-				e1.printStackTrace();
-			}
+
 				window2.getFrame().setVisible(true);
 				this.ventanatrayectos.getFrame().dispose();
 				break;

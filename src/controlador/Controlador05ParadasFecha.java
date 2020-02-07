@@ -7,8 +7,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 import javax.mail.MessagingException;
@@ -72,7 +72,7 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 		
 		//Llamamos al metodo que mostrara las opciones de vuelta, si el checkbox ha sido seleccionado
 		mostrarVuelta();
-		
+
 	}
 	
 	/**
@@ -121,40 +121,49 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 			if ((this.ventanaParadasFecha.getComboBoxOrigenIda().getSelectedIndex() == 0) 
 					&& (this.ventanaParadasFecha.getComboBoxDestinoIda().getSelectedIndex() == 0)){
 				
-				JOptionPane.showMessageDialog(null, "Ha de seleccionar una parada de origen y otra de destino para continuar", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Ha de seleccionar una parada de origen y otra de destino para continuar", "Mensaje de error", JOptionPane.ERROR_MESSAGE);
 			}	
 			else if (this.ventanaParadasFecha.getComboBoxOrigenIda().getSelectedIndex() == 0) {
 				
-				JOptionPane.showMessageDialog(null, "Ha de seleccionar una parada de origen para continuar", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Ha de seleccionar una parada de origen para continuar", "Mensaje de error", JOptionPane.ERROR_MESSAGE);
 			}
 			else if(this.ventanaParadasFecha.getComboBoxDestinoIda().getSelectedIndex() == 0) {
 				
-				JOptionPane.showMessageDialog(null, "Ha de seleccionar una parada de destino para continuar", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Ha de seleccionar una parada de destino para continuar", "Mensaje de error", JOptionPane.ERROR_MESSAGE);
 			}
 			else if(this.ventanaParadasFecha.getComboBoxOrigenIda().getSelectedIndex() == this.ventanaParadasFecha.getComboBoxDestinoIda().getSelectedIndex()) {
 				
-				JOptionPane.showMessageDialog(null, "La parada de origen no puede ser la misma que la de destino", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "La parada de origen no puede ser la misma que la de destino", "Mensaje de error", JOptionPane.ERROR_MESSAGE);
 			}
 			else if(this.ventanaParadasFecha.getFechaIda() == null) {
 				
-				JOptionPane.showMessageDialog(null, "Ha de seleccionar una fecha de ida para continuar", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Ha de seleccionar una fecha de ida para continuar", "Mensaje de error", JOptionPane.ERROR_MESSAGE);
 			}
 			else if(this.ventanaParadasFecha.getComboBoxHorariosIda().getSelectedIndex() == 0) {
 				
-				JOptionPane.showMessageDialog(null, "Ha de seleccionar un horario de ida para continuar", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Ha de seleccionar un horario de ida para continuar", "Mensaje de error", JOptionPane.ERROR_MESSAGE);
 			}
 			else if(this.ventanaParadasFecha.getCheckBox().isSelected() && this.ventanaParadasFecha.getFechaVuelta() == null) {
 				
-				JOptionPane.showMessageDialog(null, "Ha de seleccionar una fecha de vuelta para continuar", "Mensaje de error",JOptionPane.ERROR_MESSAGE);				
+				JOptionPane.showMessageDialog(null, "Ha de seleccionar una fecha de vuelta para continuar", "Mensaje de error", JOptionPane.ERROR_MESSAGE);				
 			}
 			else if(this.ventanaParadasFecha.getCheckBox().isSelected() && this.ventanaParadasFecha.getComboBoxHorariosVuelta().getSelectedIndex() == 0) {
 				
-				JOptionPane.showMessageDialog(null, "Ha de seleccionar un horario de vuelta para continuar", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Ha de seleccionar un horario de vuelta para continuar", "Mensaje de error", JOptionPane.ERROR_MESSAGE);
 			}
-			else {
+			
+			/* else if(this.ventanaParadasFecha.getCheckBox().isSelected() && 
+			 
+					this.ventanaParadasFecha.getDateChooserIda().getDate().equals(this.ventanaParadasFecha.getDateChooserVuelta()) &&
+					this.ventanaParadasFecha.getComboBoxHorariosIda().getSelectedItem().equals(this.ventanaParadasFecha.getComboBoxHorariosVuelta().getSelectedItem())) {
 				
+				JOptionPane.showMessageDialog(null, "La hora de ida y de vuelta no puede ser la misma", "Mensaje de error", JOptionPane.ERROR_MESSAGE );
+			}*/
+			else {
+				billete.setNum_Parada_Inicio(((Parada) this.ventanaParadasFecha.getComboBoxOrigenIda().getSelectedItem()).getNumParada());
 				billete.setCod_Parada_Inicio(((Parada) this.ventanaParadasFecha.getComboBoxOrigenIda().getSelectedItem()).getCodParada());
 				billete.setNombre_Parada_Origen(this.ventanaParadasFecha.getComboBoxOrigenIda().getSelectedItem().toString());
+				billete.setNum_Parada_Fin(((Parada) this.ventanaParadasFecha.getComboBoxDestinoIda().getSelectedItem()).getNumParada());
 				billete.setCod_Parada_Fin(((Parada) this.ventanaParadasFecha.getComboBoxDestinoIda().getSelectedItem()).getCodParada());
 				billete.setNombre_Parada_Destino(this.ventanaParadasFecha.getComboBoxDestinoIda().getSelectedItem().toString());
 				billete.setFecha(this.ventanaParadasFecha.getFechaIda());
@@ -164,7 +173,7 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 				
 				autobus = AutobusDAO.mObtenerBus(billete);
 			
-				Calculo.calcularPrecioBillete(billete, paradasBillete, autobus);
+				billete.setPrecio(Calculo.calcularPrecioBillete(billete, paradasBillete, autobus));
 				
 				billete.setCod_Bus(autobus.getCodAutobus());	
 				
@@ -192,8 +201,9 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 					Autobus autobus2 = new Autobus();
 					autobus2 = AutobusDAO.mObtenerBus(billete2);
 					
-					paradasBillete2 = Calculo.filtrarParadas(listaParadas, billete2);
-					Calculo.calcularPrecioBillete(billete2, paradasBillete2, autobus2);
+					paradasBillete2 = paradasBillete;
+					System.out.println("Aki");
+					billete2.setPrecio(Calculo.calcularPrecioBillete(billete2, paradasBillete2, autobus2));
 					
 					billete2.setCod_Bus(autobus2.getCodAutobus());
 				
@@ -210,12 +220,8 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 
 		case "Salir":
 			Ventana01Bienvenida window2 = new Ventana01Bienvenida();
-			try {
-				Controlador01Bienvenida controlador1 = new Controlador01Bienvenida(window2);
-			} catch (MessagingException e1) {
-				// TODO Bloque catch generado automáticamente
-				e1.printStackTrace();
-			}
+			Controlador01Bienvenida controlador1 = new Controlador01Bienvenida(window2);
+			
 			window2.getFrame().setVisible(true);
 			this.ventanaParadasFecha.getFrame().dispose();
 			

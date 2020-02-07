@@ -13,13 +13,11 @@ public class Controlador01Bienvenida implements MouseListener {
 	
 	private Ventana01Bienvenida ventanaBienvenida;
 		
-	public Controlador01Bienvenida (Ventana01Bienvenida pVentana01) throws AddressException, MessagingException {
+	public Controlador01Bienvenida (Ventana01Bienvenida pVentana01) {
 		
 		this.ventanaBienvenida = pVentana01;
 		mInicializarControlador();
-		controladorCorreo conCor = new controladorCorreo();
-		conCor.controladorEnviarCorreo();
-		
+	
 	}
 	
 	private void mInicializarControlador () {
