@@ -100,12 +100,10 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 				if (ventanaParadasFecha.getCheckBox().isSelected()){
 					ventanaParadasFecha.getDateChooserVuelta().setVisible(true);
 					ventanaParadasFecha.getComboBoxHorariosVuelta().setVisible(true);
-					ventanaParadasFecha.getLblSeleccionFechaDeVuelta().setVisible(true);
 				}
 				else {
 					ventanaParadasFecha.getDateChooserVuelta().setVisible(false);
 					ventanaParadasFecha.getComboBoxHorariosVuelta().setVisible(false);
-					ventanaParadasFecha.getLblSeleccionFechaDeVuelta().setVisible(false);
 				}
 			}
 		});
@@ -169,7 +167,11 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 				billete.setFecha(this.ventanaParadasFecha.getFechaIda());
 				billete.setHora(this.ventanaParadasFecha.getComboBoxHorariosIda().getSelectedItem().toString());
 				
-				paradasBillete = Calculo.filtrarParadas(listaParadas, billete);
+				paradasBillete = Calculo.calcularOrdenParadas(Calculo.filtrarParadas(listaParadas, billete));
+				
+				for (Parada parada : paradasBillete) {
+					System.out.println(parada.getNumParada());
+				}
 				
 				autobus = AutobusDAO.mObtenerBus(billete);
 			

@@ -38,7 +38,6 @@ public class Ventana05ParadasFecha {
 	private JButton btnProcederAlPago;
 	private JButton btnSalir;
 	private JButton btnVolver;
-	private JLabel lblSeleccionFechaVuelta;
 	private JComboBox<Parada> cbxOrigenIda;
 	private JComboBox<Parada> cbxDestinoIda;
 	private JComboBox<String> cbxHorariosIda;
@@ -142,22 +141,10 @@ public class Ventana05ParadasFecha {
 	
 	private void crearEtiquetas(){
 		
-		JLabel lblSeleccionFechaIda = new JLabel("Seleccione fecha:");
-		lblSeleccionFechaIda.setHorizontalAlignment(SwingConstants.CENTER);
-		lblSeleccionFechaIda.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblSeleccionFechaIda.setBounds(50, 131, 344, 22);
-		panel_1.add(lblSeleccionFechaIda);
-		
 		JLabel lblFondoVentana05 = new JLabel("");
 		lblFondoVentana05.setIcon(new ImageIcon(Ventana05ParadasFecha.class.getResource("/imagenes/fondoVentana005.png")));
 		lblFondoVentana05.setBounds(20, 295, 862, 318);
 		panel.add(lblFondoVentana05);
-		
-		lblSeleccionFechaVuelta = new JLabel("Seleccione fecha de vuelta:");
-		lblSeleccionFechaVuelta.setBounds(0, 49, 293, 22);
-		panel_3.add(lblSeleccionFechaVuelta);
-		lblSeleccionFechaVuelta.setHorizontalAlignment(SwingConstants.CENTER);
-		lblSeleccionFechaVuelta.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		
 	}
 		
@@ -191,7 +178,6 @@ public class Ventana05ParadasFecha {
 		cbxHorariosVuelta.setFont(new Font("Trebuchet MS", Font.BOLD, 13));
 		cbxHorariosVuelta.setVisible(false);
 		dateChooserVuelta.setVisible(false);
-		lblSeleccionFechaVuelta.setVisible(false);
 		
 	}
 	
@@ -280,15 +266,6 @@ public class Ventana05ParadasFecha {
 	
 	public JCheckBox getCheckBox() {
 		return chkbxIdaYVuelta;
-	}
-	
-	public JLabel getLblSeleccionFechaVuelta() {
-		return lblSeleccionFechaVuelta;
-	}
-
-	
-	public JLabel getLblSeleccionFechaDeVuelta() {
-		return lblSeleccionFechaVuelta;
 	}
 	
 	public JComboBox<Parada> getComboBoxOrigenIda() {
