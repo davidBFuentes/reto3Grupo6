@@ -62,7 +62,7 @@ public class Controlador08ImprimirBilletes implements MouseListener  {
 			this.ventanaImprimirBilletes.getPanel_5().setVisible(true);
 			this.ventanaImprimirBilletes.getLblNBilleteVuelta_2().setText(String.valueOf(Calculo.formatearPrecio1(billete2.getCod_Billete()))); 
 			this.ventanaImprimirBilletes.getLblNAutobusVuelta2().setText(billete2.getCod_Bus());
-			this.ventanaImprimirBilletes.getLblFechaVuelta2().setText(billete2.getFecha());
+			this.ventanaImprimirBilletes.getLblFechaVuelta2().setText(billete2.getFecha()); 
 			this.ventanaImprimirBilletes.getLblHoraVuelta2().setText(billete2.getHora());
 			this.ventanaImprimirBilletes.getLblPrecioVuelta2().setText(String.valueOf(Calculo.formatearPrecio1(billete2.getPrecio())) + " €" );
 			
