@@ -60,5 +60,10 @@ public class Controlador01Bienvenida implements MouseListener {
 		// TODO Auto-generated method stub
 		
 	}
-
+	
+	public void mMostrarFrame() {
+		
+		this.ventanaBienvenida.getFrame().setVisible(true);
+	}
+	
 }
