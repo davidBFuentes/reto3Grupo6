@@ -11,14 +11,20 @@ import vista.Ventana02Login;
 
 public class Controlador01Bienvenida implements MouseListener {
 	
+	// Atributo del constructor 
+	
 	private Ventana01Bienvenida ventanaBienvenida;
+	
+	// Constructor del controlador, que recibe los elementos de la ventana
 		
 	public Controlador01Bienvenida (Ventana01Bienvenida pVentana01) {
 		
 		this.ventanaBienvenida = pVentana01;
 		mInicializarControlador();
-	
+		
 	}
+	
+	// Se le añade un listener al botón y se le da nombre.
 	
 	private void mInicializarControlador () {
 		
@@ -26,6 +32,8 @@ public class Controlador01Bienvenida implements MouseListener {
 		this.ventanaBienvenida.getBtnVentana02().setName("Ventana02");
 		
 	}
+	
+	// Acción de hacer click en la ventana, que lanza la siguiente ventana y oculta la actual.
 
 	@Override
 	public void mouseClicked(MouseEvent e) {

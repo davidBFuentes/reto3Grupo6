@@ -8,6 +8,7 @@ import java.io.IOException;
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 import javax.swing.JOptionPane;
+import calculosMatematicos.Calculo;
 
 import modelo.Billete;
 import modelo.Cliente;
@@ -50,7 +51,7 @@ public class Controlador08ImprimirBilletes implements MouseListener  {
 		this.ventanaImprimirBilletes.getTxtFecha().setText(billete.getFecha());
 		this.ventanaImprimirBilletes.getTxtNAutobus().setText(billete.getCod_Bus());	
 		this.ventanaImprimirBilletes.getLblHora2().setText(billete.getHora());
-		this.ventanaImprimirBilletes.getLblPrecio2().setText(String.valueOf(billete.getPrecio()) + " €");
+		this.ventanaImprimirBilletes.getLblPrecio2().setText(String.valueOf(Calculo.formatearPrecio1(billete.getPrecio())) + " €");
 		this.ventanaImprimirBilletes.getLblNBillete_2().setText(String.valueOf(billete.getCod_Billete())); 
 		
 
@@ -63,11 +64,11 @@ public class Controlador08ImprimirBilletes implements MouseListener  {
 			
 			this.ventanaImprimirBilletes.getLblImagen().setVisible(false);
 			this.ventanaImprimirBilletes.getPanel_5().setVisible(true);
-			this.ventanaImprimirBilletes.getLblNBilleteVuelta_2().setText(String.valueOf(billete2.getCod_Billete())); 
+			this.ventanaImprimirBilletes.getLblNBilleteVuelta_2().setText(String.valueOf(Calculo.formatearPrecio1(billete2.getCod_Billete()))); 
 			this.ventanaImprimirBilletes.getLblNAutobusVuelta2().setText(billete2.getCod_Bus());
-			this.ventanaImprimirBilletes.getLblFechaVuelta2().setText(billete2.getFecha());
+			this.ventanaImprimirBilletes.getLblFechaVuelta2().setText(billete2.getFecha()); 
 			this.ventanaImprimirBilletes.getLblHoraVuelta2().setText(billete2.getHora());
-			this.ventanaImprimirBilletes.getLblPrecioVuelta2().setText(String.valueOf(billete2.getPrecio()) + " €" );
+			this.ventanaImprimirBilletes.getLblPrecioVuelta2().setText(String.valueOf(Calculo.formatearPrecio1(billete2.getPrecio())) + " €" );
 			
 		}
 	

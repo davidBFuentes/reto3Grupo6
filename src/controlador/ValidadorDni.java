@@ -1,10 +1,10 @@
 package controlador;
 
-class ValidadorDNI
+class ValidadorDni
 {
     private String dni;
  
-        public ValidadorDNI(String dni) {
+        public ValidadorDni(String dni) {
             this.dni = dni;
         }
  

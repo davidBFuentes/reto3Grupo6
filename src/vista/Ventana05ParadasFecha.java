@@ -3,18 +3,13 @@ package vista;
 import javax.swing.JFrame;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
-import javax.swing.text.Caret;
 import javax.swing.JButton;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
-
 import com.toedter.calendar.JDateChooser;
 
 import modelo.Parada;

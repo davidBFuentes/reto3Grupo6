@@ -259,28 +259,7 @@ public class Controlador07Pago implements MouseListener {
 				
 			}	
 
-			if (total > introducido) {
-				restante = total-introducido;
-				restante = (float) (Math.floor(restante*100)/100);
-				this.ventanaPago.getTxtPrecioAPagar().setText(Double.toString(restante));
-				this.ventanaPago.getTxtIntroducido().setText("");
-				introducido = 0;
-			}
-		
-			if (total < introducido) {
-				restante = introducido - total;
-				this.ventanaPago.getTxtVueltas().setText(ControladorVueltas.adevolver(restante));
-				this.ventanaPago.getTxtPrecioAPagar().setText("0");
-				this.ventanaPago.getTxtIntroducido().setText("");
-				introducido = 0;
-			}
-		
-			if (total == introducido) {
-				this.ventanaPago.getTxtPrecioAPagar().setText("0");
-				this.ventanaPago.getTxtVueltas().setText("Gracias por su compra \n retire sus productos \n pulse continuar");
-				this.ventanaPago.getTxtIntroducido().setText("");
-				introducido = 0;
-			}
+			pagar(total, introducido);
 			
 			if(Integer.parseInt(this.ventanaPago.getTxtPrecioAPagar().getText())<=0) {
 				this.ventanaPago.getBtn_0().setEnabled(false);
@@ -337,6 +316,28 @@ public class Controlador07Pago implements MouseListener {
 			this.ventanaPago.Ventana07Pago.dispose();
 			
 			break;
+		}
+	}
+
+
+	private void pagar(double total, double introducido) {
+		if (total > introducido) {
+			restante = total-introducido;
+			restante = (float) (Math.floor(restante*100)/100);
+			this.ventanaPago.getTxtPrecioAPagar().setText(Double.toString(restante));
+			this.ventanaPago.getTxtIntroducido().setText("");
+			introducido = 0;
+		}else if (total < introducido) {
+			restante = introducido - total;
+			this.ventanaPago.getTxtVueltas().setText(ControladorVueltas.adevolver(restante));
+			this.ventanaPago.getTxtPrecioAPagar().setText("0");
+			this.ventanaPago.getTxtIntroducido().setText("");
+			introducido = 0;
+		}else {
+			this.ventanaPago.getTxtPrecioAPagar().setText("0");
+			this.ventanaPago.getTxtVueltas().setText("Gracias por su compra \n retire sus productos \n pulse continuar");
+			this.ventanaPago.getTxtIntroducido().setText("");
+			introducido = 0;
 		}
 	}
 
