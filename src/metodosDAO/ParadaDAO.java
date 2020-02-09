@@ -56,7 +56,7 @@ public class ParadaDAO {
 			System.out.println("Error: Clase ParadaDAO, método mObtenerParadas");
 			e.printStackTrace();
 		}
-		System.out.println("numero paradalista" + listaParadas.get(2).getNumParada());
+		
 		return listaParadas;
 	}
 	

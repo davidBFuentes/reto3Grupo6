@@ -185,7 +185,7 @@ public class Calculo {
 	 * @param numeroSinFormatear Numero de tipo double
 	 * @return Devuelve el numero de tipo double formateado
 	 */
-	public static double formatearPrecio(double numeroSinFormatear) {
+	public static double formatearPrecio2(double numeroSinFormatear) {
        
 		int numeroDecimales = 2;
 		double parteEntera, numeroFormateado;
@@ -196,6 +196,16 @@ public class Calculo {
         numeroFormateado = (numeroSinFormatear / Math.pow(10, numeroDecimales)) + parteEntera;
         return numeroFormateado;
     }
-
+	
+	/**
+	 * Metodo que formatea un numero de tipo double con la precision escogida
+	 * @param numeroSinFormatear Numero de tipo double
+	 * @return Devuelve el numero de tipo double formateado
+	 */
+	public static double formatearPrecio(double numeroSinFormatear) {
+       
+		double numeroFormateado = Math.round(numeroSinFormatear * 100) / 100d;
+        return numeroFormateado;
+    }
 	
 }

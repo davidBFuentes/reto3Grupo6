@@ -43,7 +43,7 @@ public class HorariosDAO {
 			System.out.println("Error: Clase HorariosDAO, método mObtenerHorarios");
 			e.printStackTrace();
 		}
-		System.out.println(horarios);
+		//System.out.println(horarios);
 		return horarios;
 	}
 
