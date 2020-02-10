@@ -70,7 +70,7 @@ public class Calculo {
 	 */
 	
 	//METODO OBSOLETO!! El orden de las paradas viene dado por el atributo num_parada desde la consulta a la base de datos
-	/*public static ArrayList<Parada> calcularOrdenParadasEu(ArrayList<Parada> listaParadas) {
+	public static ArrayList<Parada> calcularOrdenParadasEu(ArrayList<Parada> listaParadas) {
 		
 		
 		Parada paradaTermibus = listaParadas.get(0);
@@ -85,9 +85,13 @@ public class Calculo {
 		}
 		return listaParadas;	
 		 
-	}*/
+	}
 	
-	
+	/**
+	 * Metodo que recibe un arraylist de paradas y las ordena en funcion del atributo numParada 
+	 * @param listaParadas Arraylist que contiene las paradas a ordenar
+	 * @return Devuelve el arraylist recibido con las paradas ordenadas
+	 */
 	public static ArrayList<Parada> calcularOrdenParadas(ArrayList<Parada> listaParadas) {
 		
 		Collections.sort(listaParadas);

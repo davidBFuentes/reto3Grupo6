@@ -2,6 +2,7 @@ package controlador;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 import modelo.Linea;
@@ -10,7 +11,7 @@ import vista.Ventana05ParadasFecha;
 public class DateListener implements PropertyChangeListener {
 	
 	private Linea linea;
-	ArrayList<String> horarios;
+	ArrayList<LocalTime> horarios;
 	Ventana05ParadasFecha ventana05ParadasFecha;
 
 

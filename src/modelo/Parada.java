@@ -12,7 +12,7 @@ public class Parada implements Comparable<Parada> {
 	private Float longitud;
 	private String codigoPostal;
 	//ATRIBUTO EN DESUSO
-	//private double distanciaATermibus;
+	private double distanciaATermibus;
 	
 	public Parada() {
 		
@@ -84,7 +84,7 @@ public class Parada implements Comparable<Parada> {
 	public void setCodigoPostal(String codigoPostal) {
 		this.codigoPostal = codigoPostal;
 	}
-	/*METODOS EN DESUSO
+	//METODOS EN DESUSO
 	public void setDistanciaATermibus(double distanciaATermibus) {
 		this.distanciaATermibus = distanciaATermibus;
 	}
@@ -92,7 +92,7 @@ public class Parada implements Comparable<Parada> {
 	public double getDistanciaATermibus() {
 		return distanciaATermibus;
 	}
-	*/
+	
 	public String toString () {
 		
 		return this.getNombre();

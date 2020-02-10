@@ -4,21 +4,27 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import conexion.ConexionBus;
 import modelo.Linea;
 
 public class HorariosDAO {
 	
-	public static ArrayList<String> mObtenerHorarios(Linea linea) {
+	public static ArrayList<LocalTime> mObtenerHorarios(Linea linea) {
 		
 		Connection co = null;
 		ResultSet rs = null;
 		PreparedStatement stmt = null;
 		
+		DateTimeFormatter formatoHora = DateTimeFormatter.ofPattern("HH:mm:ss");	
+		LocalTime horaFormateada = null;
+
+		
 		String sql= "SELECT distinct hora FROM linea_autobus where cod_linea = ? order by hora;";
 		
-		ArrayList<String> horarios = new ArrayList<String>();
+		ArrayList<LocalTime> horarios = new ArrayList<LocalTime>();
 		
 		
 		try {			
@@ -32,7 +38,8 @@ public class HorariosDAO {
 			while (rs.next()) {	
 				String horario;
 				horario = (rs.getString(1));
-				horarios.add(horario);
+				horaFormateada = LocalTime.parse(horario, formatoHora);
+				horarios.add(horaFormateada);
 			}
 			
 			stmt.close();
