@@ -142,7 +142,6 @@ public class ControladorVueltas {
 
 			}
 
-
 		} else {
 			//si se paga el dinero exacto se le dara las gracias 
 			System.out.println("Gracias por su compra");

@@ -33,7 +33,6 @@ public class Controlador09Fin {
 					window.getFrame().setVisible(true);
 					ventanaFin.getFrame().dispose();
 					
-					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
