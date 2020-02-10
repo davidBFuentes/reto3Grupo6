@@ -40,7 +40,7 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 	private Ventana05ParadasFecha ventanaParadasFecha;
 	private Linea linea;
 	private Billete billete;
-	private Billete billete2;
+	private Billete billete2 = null;
 	private Cliente cliente;
 	ArrayList<Parada> listaParadas;
 	ArrayList<LocalTime> horarios;
@@ -131,9 +131,9 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 				billete.setNum_Parada_Inicio(((Parada) this.ventanaParadasFecha.getComboBoxParadaOrigen().getSelectedItem()).getNumParada());
 				billete.setCod_Parada_Inicio(((Parada) this.ventanaParadasFecha.getComboBoxParadaOrigen().getSelectedItem()).getCodParada());
 				billete.setNombre_Parada_Origen(this.ventanaParadasFecha.getComboBoxParadaOrigen().getSelectedItem().toString());
-				billete.setNum_Parada_Fin(((Parada) this.ventanaParadasFecha.getComboBoxParadaOrigen().getSelectedItem()).getNumParada());
-				billete.setCod_Parada_Fin(((Parada) this.ventanaParadasFecha.getComboBoxParadaOrigen().getSelectedItem()).getCodParada());
-				billete.setNombre_Parada_Destino(this.ventanaParadasFecha.getComboBoxParadaOrigen().getSelectedItem().toString());
+				billete.setNum_Parada_Fin(((Parada) this.ventanaParadasFecha.getComboBoxParadaDestino().getSelectedItem()).getNumParada());
+				billete.setCod_Parada_Fin(((Parada) this.ventanaParadasFecha.getComboBoxParadaDestino().getSelectedItem()).getCodParada());
+				billete.setNombre_Parada_Destino(this.ventanaParadasFecha.getComboBoxParadaDestino().getSelectedItem().toString());
 				billete.setFecha(this.ventanaParadasFecha.getFechaIda());
 				billete.setHora(this.ventanaParadasFecha.getComboBoxHorariosIda().getSelectedItem().toString());
 				
@@ -185,17 +185,17 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 					billete2.setCod_Bus(autobus2.getCodAutobus());
 				
 				}
-				if (AutobusDAO.mComprobarAsientosLibres(autobus, billete)) {
+				if (!AutobusDAO.mComprobarAsientosLibres(autobus, billete)) {
 					
 					JOptionPane.showMessageDialog(null, "No hay asientos disponibles para el viaje de ida", "Mensaje de error", JOptionPane.ERROR_MESSAGE);
 				}
 				
-				else if (AutobusDAO.mComprobarAsientosLibres(autobus2, billete2)) {
+				else if (ventanaParadasFecha.getCheckBox().isSelected() && !AutobusDAO.mComprobarAsientosLibres(autobus2, billete2)) {
 					
 					JOptionPane.showMessageDialog(null, "No hay asientos disponibles para el viaje de vuelta", "Mensaje de error", JOptionPane.ERROR_MESSAGE);
 
 				}
-				else {
+				else{
 					//Cargamos la ventana y el controlador siguiente, ocultando la actual
 					Ventana06Desglose window1 = new Ventana06Desglose();
 					Controlador06Desglose controlador = new Controlador06Desglose(window1, linea, billete, billete2, cliente);
