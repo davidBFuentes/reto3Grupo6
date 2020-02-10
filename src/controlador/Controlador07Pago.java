@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import javax.mail.MessagingException;
 import javax.swing.JOptionPane;
 
 import calculosMatematicos.Calculo;
@@ -13,6 +12,7 @@ import metodosDAO.BilleteDAO;
 import modelo.Billete;
 import modelo.Cliente;
 import modelo.Linea;
+import modelo.Municipio;
 import vista.Ventana01Bienvenida;
 import vista.Ventana06Desglose;
 import vista.Ventana08ImprimirBilletes;
@@ -36,15 +36,13 @@ public class Controlador07Pago implements MouseListener {
 	private Billete billete;
 	private Billete billete2;
 	private Cliente cliente;
+	private Municipio municipioOrigen;
+	private Municipio municipioDestino;
 	private double preciototal = 0;
-	private double precioSinIva1 = 0;
-	private double precioConIva1 = 0;
-	private double precioSinIva2 = 0;
-	private double precioConIva2 = 0;
-
+	
 
 	
-	public Controlador07Pago (Ventana07Pago window, Linea pLinea, Billete pbillete, Billete pBillete2, Cliente pCliente) {
+	public Controlador07Pago (Ventana07Pago window, Linea pLinea, Billete pbillete, Billete pBillete2, Cliente pCliente, Municipio pMunicipioOrigen, Municipio pMunicipioDestino) {
 		// TODO Auto-generated constructor stub
 		
 		this.ventanaPago = window;
@@ -52,20 +50,19 @@ public class Controlador07Pago implements MouseListener {
 		this.billete = pbillete;
 		this.billete2 = pBillete2;
 		this.cliente = pCliente;
+		this.municipioOrigen = pMunicipioOrigen;
+		this.municipioDestino = pMunicipioDestino;
+		
 		
 		if (billete.getCod_Linea() == billete2.getCod_Linea()) {
-			this.precioSinIva1 = billete.getPrecio();
-			this.precioSinIva2 = billete2.getPrecio();
 			
 			preciototal = billete.getPrecio() + billete2.getPrecio();
-			this.precioConIva1 = Calculo.formatearPrecio(billete.getPrecio() + billete.getPrecio() * 0.21);
-			this.precioConIva2 = Calculo.formatearPrecio(billete.getPrecio() + billete.getPrecio() * 0.21);
+			
 			
 		} else {
-			this.precioSinIva1 = billete.getPrecio();
-			this.precioSinIva2 = billete2.getPrecio();
+			
 			preciototal = billete.getPrecio();
-			this.precioConIva1 = Calculo.formatearPrecio(billete.getPrecio() + billete.getPrecio() * 0.21);
+			
 		}
 		
 		mIniciarControlador();
@@ -136,7 +133,7 @@ public class Controlador07Pago implements MouseListener {
 			
 			Ventana01Bienvenida window = new Ventana01Bienvenida();
 		
-			Controlador01Bienvenida controladorbienvenida = new Controlador01Bienvenida(window);
+			@SuppressWarnings("unused") Controlador01Bienvenida controladorbienvenida = new Controlador01Bienvenida(window);
 		
 			window.getFrame().setVisible(true);
 			this.ventanaPago.Ventana07Pago.dispose();
@@ -300,7 +297,8 @@ public class Controlador07Pago implements MouseListener {
 				billete.setPrecio(Calculo.formatearPrecio(billete.getPrecio() + billete.getPrecio() * 0.21));
 				billete2.setPrecio(Calculo.formatearPrecio(billete2.getPrecio() + billete2.getPrecio() * 0.21));
 				Ventana08ImprimirBilletes ventana = new Ventana08ImprimirBilletes();
-				Controlador08ImprimirBilletes controladorBienvenida = new Controlador08ImprimirBilletes(ventana, billete, billete2, cliente);
+				@SuppressWarnings("unused")
+				Controlador08ImprimirBilletes controladorBienvenida = new Controlador08ImprimirBilletes(ventana, billete, billete2, cliente, municipioOrigen, municipioDestino);
 				ventana.ventana08ImprimirBilletes.setVisible(true);
 				this.ventanaPago.Ventana07Pago.dispose();
 			}
@@ -311,7 +309,7 @@ public class Controlador07Pago implements MouseListener {
 		case "Volver":
 
 			Ventana06Desglose window1 = new Ventana06Desglose();
-			Controlador06Desglose controlador = new Controlador06Desglose(window1, linea, billete, billete2, cliente);
+			@SuppressWarnings("unused") Controlador06Desglose controlador = new Controlador06Desglose(window1, linea, billete, billete2, cliente, municipioOrigen, municipioDestino);
 			window1.Ventana06Desglose.setVisible(true);
 			this.ventanaPago.Ventana07Pago.dispose();
 			

@@ -5,7 +5,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
 
-import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 import javax.swing.JOptionPane;
 import calculosMatematicos.Calculo;
@@ -13,6 +12,7 @@ import calculosMatematicos.Calculo;
 import modelo.Billete;
 import modelo.Cliente;
 import modelo.Fichero;
+import modelo.Municipio;
 import vista.Ventana01Bienvenida;
 import vista.Ventana08ImprimirBilletes;
 import vista.Ventana09Fin;
@@ -23,14 +23,18 @@ public class Controlador08ImprimirBilletes implements MouseListener  {
 	private Billete billete;
 	private Billete billete2;
 	private Cliente cliente;
+	private Municipio municipioOrigen;
+	private Municipio municipioDestino;
 	
-	public Controlador08ImprimirBilletes(Ventana08ImprimirBilletes pVentana08, Billete pBillete, Billete pBillete2, Cliente pCliente) {
+	public Controlador08ImprimirBilletes(Ventana08ImprimirBilletes pVentana08, Billete pBillete, Billete pBillete2, Cliente pCliente, Municipio pMunicipioOrigen, Municipio pMunicipioDestino) {
 		// TODO Auto-generated constructor stub
 		
 		this.ventanaImprimirBilletes = pVentana08;
 		this.billete = pBillete;
 		this.billete2 = pBillete2;
 		this.cliente = pCliente;
+		this.municipioOrigen = pMunicipioOrigen;
+		this.municipioDestino = pMunicipioDestino;
 		mIniciarControlador();
 	}
 
@@ -90,7 +94,7 @@ public class Controlador08ImprimirBilletes implements MouseListener  {
 		case "Salir":
 			
 			Ventana01Bienvenida window = new Ventana01Bienvenida();
-			Controlador01Bienvenida controladorbienvenida = new Controlador01Bienvenida(window);
+			@SuppressWarnings("unused") Controlador01Bienvenida controladorbienvenida = new Controlador01Bienvenida(window);
 			window.getFrame().setVisible(true);
 			this.ventanaImprimirBilletes.getventana08ImprimirBilletes().dispose();
 			
@@ -99,7 +103,7 @@ public class Controlador08ImprimirBilletes implements MouseListener  {
 		case "Finalizar":
 		
 			Ventana09Fin ventana = new Ventana09Fin();
-			Controlador09Fin controladorFin = new Controlador09Fin(ventana);
+			@SuppressWarnings("unused") Controlador09Fin controladorFin = new Controlador09Fin(ventana, municipioOrigen, municipioDestino);
 			ventana.getFrame().setVisible(true);
 			this.ventanaImprimirBilletes.getventana08ImprimirBilletes().dispose();
 			
