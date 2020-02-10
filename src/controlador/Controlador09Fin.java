@@ -12,17 +12,14 @@ public class Controlador09Fin {
 	private Municipio municipioOrigen;
 	private Municipio municipioDestino;
 
-<<<<<<< HEAD
-	
-	public Controlador09Fin(Ventana09Fin pVentana09, Municipio pMunicipioOrigen, Municipio pMunicipioDestino) {
-=======
+
 	/**
 	 * Creamos el controlador al que le mandaremos la ventana final (Ventana09Fin pVentana09)
 	 * @param pVentana09
 	 */
-	public Controlador09Fin(Ventana09Fin pVentana09) {
->>>>>>> branch 'master' of https://github.com/davidBFuentes/reto3grupo6
-		
+	
+	public Controlador09Fin(Ventana09Fin pVentana09, Municipio pMunicipioOrigen, Municipio pMunicipioDestino) {
+
 		this.ventanaFin = pVentana09;
 		this.municipioOrigen = pMunicipioOrigen;
 		this.municipioDestino = pMunicipioDestino;
