@@ -178,6 +178,7 @@ public class Controlador07Pago implements MouseListener {
 
 		case "4":
 
+			//en el caso de los numeros llama a un metodo que encontraremos al salir del switch 
 			extracted(opcion);	
 
 			break;
