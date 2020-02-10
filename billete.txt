@@ -1,11 +1,23 @@
-Código Billete: 1
+Código Billete: 3
+Código Linea: A0652
+Código de autobús: 781
+Código de la parada de origen: 3721
+Parada de origen: LIGUETI 
+Código de la parada de destino: 1255
+Parada de destino: LA FLOR (EL PARAÍSO) 
+Fecha: 2020-02-13
+Hora: 10:20:00
+DNI: 16092745J
+Precio: 7.38
+
+Código Billete: 4
  Código Linea: A0652
 Código de autobús: 777
-Código de la parada de origen: 3721
-Parada de origen: LIGUETI (3721)
-Código de la parada de destino: 1254
-Parada de destino: OTXARAN (1254)
-Fecha: 2020-02-06
-Hora: 08:30:00
+Código de la parada de origen: 1255
+Parada de origen: LA FLOR (EL PARAÍSO) 
+Código de la parada de destino: 3721
+Parada de destino: LIGUETI 
+Fecha: 2020-02-13
+Hora: 10:30:00
 DNI: 16092745J
-Precio: 12.0
+Precio: 14.01

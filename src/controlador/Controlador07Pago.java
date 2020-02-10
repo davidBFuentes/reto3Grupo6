@@ -338,6 +338,7 @@ public class Controlador07Pago implements MouseListener {
 		}
 	}
 
+	
 
 	private void extracted(String opcion) {
 		if (comprobarComa == false) {
