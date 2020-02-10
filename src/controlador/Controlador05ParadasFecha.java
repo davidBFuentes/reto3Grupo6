@@ -200,7 +200,8 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 				else {
 					//Cargamos la ventana y el controlador siguiente, ocultando la actual
 					Ventana06Desglose window1 = new Ventana06Desglose();
-					Controlador06Desglose controlador = new Controlador06Desglose(window1, linea, billete, billete2, cliente);
+					@SuppressWarnings("unused")
+					Controlador06Desglose controlador = new Controlador06Desglose(window1, linea, billete, billete2, cliente, municipioOrigen, municipioDestino);
 					window1.getVentana06Desglose().setVisible(true);
 					this.ventanaParadasFecha.getFrame().dispose();
 				}
