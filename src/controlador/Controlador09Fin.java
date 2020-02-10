@@ -9,7 +9,10 @@ public class Controlador09Fin {
 
 	private Ventana09Fin ventanaFin;
 
-	
+	/**
+	 * Creamos el controlador al que le mandaremos la ventana final (Ventana09Fin pVentana09)
+	 * @param pVentana09
+	 */
 	public Controlador09Fin(Ventana09Fin pVentana09) {
 		
 		this.ventanaFin = pVentana09;
@@ -17,8 +20,10 @@ public class Controlador09Fin {
 		
 	}
 	
+	//Iniciamos el controlador
 	private void mIniciarControlador() {
 		
+		//le decimos que despues de 2 segundos vovlera a la ventana de inicio
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
