@@ -15,14 +15,20 @@ import vista.Ventana02Login;
 import vista.Ventana03Registro;
 import vista.Ventana04Trayectos;
 
-
+/**
+ * Clase Controlador02Login, gestiona el funcionamiento de la Ventana02Login
+ *
+ */
 public class Controlador02Login implements KeyListener, MouseListener {
 	
 	// Atributo del constructor.
 	
 	private Ventana02Login ventanalogin;
 	
-	// Constructor del controlador, que recibe los elementos de la ventana.
+	/**
+	 * Constructor del controlador, que recibe los elementos de la ventana.
+	 * @param pVentana02
+	 */
 	
 	public Controlador02Login (Ventana02Login pVentana02) {
 		
@@ -31,7 +37,9 @@ public class Controlador02Login implements KeyListener, MouseListener {
 		
 	}
 	
-	// Se añaden listeners a los botones y se les da nombre para identificarlos.
+	/**
+	 * Metodo que añade listeners a los botones y les da nombre para identificarlos.
+	 */
 	
 	private void mInicializarControlador () {
 		
@@ -52,7 +60,9 @@ public class Controlador02Login implements KeyListener, MouseListener {
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
 		
-		// Detector de teclas pulsadas para que los campos tengan límite de carácteres introducidos.
+		/**
+		 * Metodo que detecta la pulsacion de las teclas para que los campos tengan límite de carácteres introducidos.
+		 */
 		
 		e.getComponent().getName();
 		
@@ -85,6 +95,9 @@ public class Controlador02Login implements KeyListener, MouseListener {
 		
 	}
 
+	/**
+	 * Metodo que controla las acciones de los botones
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub

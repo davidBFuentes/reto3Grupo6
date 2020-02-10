@@ -491,5 +491,4 @@ public class Ventana06Desglose{
 	public void setBtnVolver(JButton btnVolver) {
 		this.btnVolver = btnVolver;
 	}
-	
 }
