@@ -363,7 +363,7 @@ public class Controlador07Pago implements MouseListener {
 	}
 
 	/**
-	 * metodo para pagar al que le pasaremos le dinero uqe falta por pagar y el dinero con el que nos esta pagando (double total, double introducido)
+	 * Metodo para pagar al que le pasaremos le dinero uqe falta por pagar y el dinero con el que nos esta pagando (double total, double introducido)
 	 * @param total
 	 * @param introducido
 	 */
