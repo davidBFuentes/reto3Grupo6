@@ -149,6 +149,7 @@ public class Controlador08ImprimirBilletes implements MouseListener  {
 				JOptionPane.showMessageDialog(null, "El correo electronico no es valido", "ERROR", JOptionPane.ERROR_MESSAGE);
 			}
 			break;
+			
 		}
 	}
 
