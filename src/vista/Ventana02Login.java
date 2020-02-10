@@ -25,7 +25,6 @@ public class Ventana02Login {
 	private JButton bRegistrarse;
 	private JPanel panel;
 	private JPanel panel_1;
-	private JPanel panel_2;
 	private JButton bOmitir;
 	
 	
@@ -76,16 +75,9 @@ public class Ventana02Login {
 		panel_1 = new JPanel();
 		panel_1.setBackground(new Color(245, 245, 220));
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		panel_1.setBounds(20, 294, 864, 319);
+		panel_1.setBounds(20, 294, 1174, 319);
 		panel.add(panel_1);
 		panel_1.setLayout(null);
-		
-		panel_2 = new JPanel();
-		panel_2.setBackground(new Color(245, 245, 220));
-		panel_2.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		panel_2.setBounds(901, 294, 293, 319);
-		panel.add(panel_2);
-		panel_2.setLayout(null);
 		
 		
 	}
@@ -94,33 +86,27 @@ public class Ventana02Login {
 		
 		bIdentificarse = new JButton("Iniciar sesi\u00F3n");
 		bIdentificarse.setHorizontalAlignment(SwingConstants.CENTER);
-		bIdentificarse.setBounds(611, 30, 231, 254);
+		bIdentificarse.setBounds(835, 30, 296, 116);
 		panel_1.add(bIdentificarse);
 		bIdentificarse.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		bIdentificarse.setFont(new Font("Tahoma", Font.BOLD, 20));
-		
-		bRegistrarse = new JButton("Registrarse");
-		bRegistrarse.setBounds(21, 31, 251, 252);
-		panel_2.add(bRegistrarse);
-		bRegistrarse.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		bRegistrarse.setFont(new Font("Tahoma", Font.BOLD, 20));
 	}
 	
 	private void crearEtiquetas() {
 		
 		JLabel lblDni = new JLabel("DNI");
-		lblDni.setBounds(0, 30, 293, 116);
+		lblDni.setBounds(0, 30, 395, 116);
 		panel_1.add(lblDni);
 		lblDni.setHorizontalAlignment(SwingConstants.CENTER);
 		lblDni.setHorizontalTextPosition(SwingConstants.LEADING);
-		lblDni.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		lblDni.setFont(new Font("Tahoma", Font.PLAIN, 50));
 		
 		JLabel lblContrasena = new JLabel("Contrase\u00F1a");
-		lblContrasena.setBounds(0, 167, 293, 116);
+		lblContrasena.setBounds(0, 174, 395, 116);
 		panel_1.add(lblContrasena);
 		lblContrasena.setHorizontalTextPosition(SwingConstants.LEADING);
 		lblContrasena.setHorizontalAlignment(SwingConstants.CENTER);
-		lblContrasena.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		lblContrasena.setFont(new Font("Tahoma", Font.PLAIN, 50));
 	}
 	
 	private void crearCamposTexto() {
@@ -128,7 +114,7 @@ public class Ventana02Login {
 		txtContrasena = new JPasswordField();
 		txtContrasena.setHorizontalAlignment(SwingConstants.CENTER);
 		txtContrasena.setMargin(new Insets(0, 5, 5, 0));
-		txtContrasena.setBounds(291, 168, 300, 116);
+		txtContrasena.setBounds(390, 175, 395, 116);
 		panel_1.add(txtContrasena);
 		txtContrasena.setFont(new Font("Tahoma", Font.PLAIN, 40));
 		txtContrasena.setColumns(10);
@@ -138,10 +124,16 @@ public class Ventana02Login {
 		txtDni.setBorder(new LineBorder(Color.BLACK, 2));
 		txtDni.setHorizontalAlignment(SwingConstants.CENTER);
 		txtDni.setMargin(new Insets(0, 5, 0, 5));
-		txtDni.setBounds(291, 30, 300, 116);
+		txtDni.setBounds(390, 30, 395, 116);
 		panel_1.add(txtDni);
 		txtDni.setFont(new Font("Tahoma", Font.PLAIN, 40));
 		txtDni.setColumns(10);
+		
+		bRegistrarse = new JButton("Registrarse");
+		bRegistrarse.setBounds(835, 175, 296, 116);
+		panel_1.add(bRegistrarse);
+		bRegistrarse.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		bRegistrarse.setFont(new Font("Tahoma", Font.BOLD, 20));
 	}
 	
 	

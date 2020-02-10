@@ -12,6 +12,7 @@ import metodosDAO.BilleteDAO;
 import modelo.Billete;
 import modelo.Cliente;
 import modelo.Linea;
+import modelo.Municipio;
 import vista.Ventana01Bienvenida;
 import vista.Ventana06Desglose;
 import vista.Ventana08ImprimirBilletes;
@@ -35,8 +36,10 @@ public class Controlador07Pago implements MouseListener {
 	private Billete billete;
 	private Billete billete2;
 	private Cliente cliente;
+	private Municipio municipioOrigen;
+	private Municipio municipioDestino;
 	private double preciototal = 0;
-
+	
 
 	/**
 	 * Constructor que inicializara el funcionamiento del controlador habiendo recibido 5 parametros (la ventana de pago, el objeto linea, el objeto billete, el objeto billete de vuelta y el objeto cliente)
@@ -48,7 +51,7 @@ public class Controlador07Pago implements MouseListener {
 	 * @param pCliente
 	 * 
 	 */
-	public Controlador07Pago (Ventana07Pago window, Linea pLinea, Billete pbillete, Billete pBillete2, Cliente pCliente) {
+	public Controlador07Pago (Ventana07Pago window, Linea pLinea, Billete pbillete, Billete pBillete2, Cliente pCliente, Municipio pMunicipioOrigen, Municipio pMunicipioDestino) {
 		// TODO Auto-generated constructor stub
 		
 		this.ventanaPago = window;
@@ -56,17 +59,22 @@ public class Controlador07Pago implements MouseListener {
 		this.billete = pbillete;
 		this.billete2 = pBillete2;
 		this.cliente = pCliente;
+		this.municipioOrigen = pMunicipioOrigen;
+		this.municipioDestino = pMunicipioDestino;
+		
 		
 		if (billete.getCod_Linea() == billete2.getCod_Linea()) {
+			
 
 			//en caso de que haya 2 billetes el precio total sera la suma de ambos
 			preciototal = billete.getPrecio() + billete2.getPrecio();
-
+			
 			
 		} else {
+			
 			//sino solo el precio de ambos
 			preciototal = billete.getPrecio();
-
+			
 		}
 		
 		mIniciarControlador();
@@ -141,8 +149,7 @@ public class Controlador07Pago implements MouseListener {
 			//en el caso de salir volvera a la ventana de bienvenida
 			Ventana01Bienvenida window = new Ventana01Bienvenida();
 		
-			@SuppressWarnings("unused") 
-			Controlador01Bienvenida controladorbienvenida = new Controlador01Bienvenida(window);
+			@SuppressWarnings("unused") Controlador01Bienvenida controladorbienvenida = new Controlador01Bienvenida(window);
 		
 			window.getFrame().setVisible(true);
 			this.ventanaPago.Ventana07Pago.dispose();
@@ -341,7 +348,7 @@ public class Controlador07Pago implements MouseListener {
 				//avanzamos a la siguienete ventana
 				Ventana08ImprimirBilletes ventana = new Ventana08ImprimirBilletes();
 				@SuppressWarnings("unused")
-				Controlador08ImprimirBilletes controladorBienvenida = new Controlador08ImprimirBilletes(ventana, billete, billete2, cliente);
+				Controlador08ImprimirBilletes controladorBienvenida = new Controlador08ImprimirBilletes(ventana, billete, billete2, cliente, municipioOrigen, municipioDestino);
 				ventana.ventana08ImprimirBilletes.setVisible(true);
 				this.ventanaPago.Ventana07Pago.dispose();
 			}
@@ -353,8 +360,7 @@ public class Controlador07Pago implements MouseListener {
 
 			//en el caso de querer volver a la ventana anterior se volvera
 			Ventana06Desglose window1 = new Ventana06Desglose();
-			@SuppressWarnings("unused") 
-			Controlador06Desglose controlador = new Controlador06Desglose(window1, linea, billete, billete2, cliente);
+			@SuppressWarnings("unused") Controlador06Desglose controlador = new Controlador06Desglose(window1, linea, billete, billete2, cliente, municipioOrigen, municipioDestino);
 			window1.Ventana06Desglose.setVisible(true);
 			this.ventanaPago.Ventana07Pago.dispose();
 			

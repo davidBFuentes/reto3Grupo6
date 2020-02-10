@@ -194,11 +194,14 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 					
 					JOptionPane.showMessageDialog(null, "No hay asientos disponibles para el viaje de vuelta", "Mensaje de error", JOptionPane.ERROR_MESSAGE);
 
+				
+				
 				}
 				else{
 					//Cargamos la ventana y el controlador siguiente, ocultando la actual
 					Ventana06Desglose window1 = new Ventana06Desglose();
-					Controlador06Desglose controlador = new Controlador06Desglose(window1, linea, billete, billete2, cliente);
+					@SuppressWarnings("unused")
+					Controlador06Desglose controlador = new Controlador06Desglose(window1, linea, billete, billete2, cliente, municipioOrigen, municipioDestino);
 					window1.getVentana06Desglose().setVisible(true);
 					this.ventanaParadasFecha.getFrame().dispose();
 				}
@@ -211,7 +214,8 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 			
 			//Cargaremos la ventana de inicio con su controlador y ocultaremos la actual
 			Ventana01Bienvenida window2 = new Ventana01Bienvenida();
-			Controlador01Bienvenida controlador1 = new Controlador01Bienvenida(window2);
+			@SuppressWarnings("unused") Controlador01Bienvenida controlador1 = new Controlador01Bienvenida(window2);
+			
 			window2.getFrame().setVisible(true);
 			this.ventanaParadasFecha.getFrame().dispose();
 			
@@ -222,7 +226,7 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 			
 			//Cargaremos la ventana anterior con su respectivo controlador y ocultaremos la actual
 			Ventana04Trayectos window3 = new Ventana04Trayectos();
-			Controlador04Trayectos controlador2 = new Controlador04Trayectos(window3, billete, cliente);
+			@SuppressWarnings("unused") Controlador04Trayectos controlador2 = new Controlador04Trayectos(window3, billete, cliente);
 			window3.getFrame().setVisible(true);
 			this.ventanaParadasFecha.getFrame().dispose();
 			
