@@ -68,7 +68,9 @@ public class Calculo {
 	 * @param listaParadas Arraylist que contiene las paradas a ordenar
 	 * @return Devuelve el arraylist recibido con las paradas ordenadas
 	 */
-	public static ArrayList<Parada> calcularOrdenParadas(ArrayList<Parada> listaParadas) {
+	
+	//METODO OBSOLETO!! El orden de las paradas viene dado por el atributo num_parada desde la consulta a la base de datos
+	/*public static ArrayList<Parada> calcularOrdenParadasEu(ArrayList<Parada> listaParadas) {
 		
 		
 		Parada paradaTermibus = listaParadas.get(0);
@@ -83,6 +85,13 @@ public class Calculo {
 		}
 		return listaParadas;	
 		 
+	}*/
+	
+	
+	public static ArrayList<Parada> calcularOrdenParadas(ArrayList<Parada> listaParadas) {
+		
+		Collections.sort(listaParadas);
+		return listaParadas;
 	}
 	
 	
@@ -97,8 +106,8 @@ public class Calculo {
 		ArrayList<Parada> paradasBillete = new ArrayList<>();
 		
 		for(Parada parada : listaParadas) {
-			if (parada.getCodParada() >= billete.getCod_Parada_Inicio() && parada.getCodParada() <= billete.getCod_Parada_Fin() 
-					|| parada.getCodParada() <= billete.getCod_Parada_Inicio() && parada.getCodParada() >= billete.getCod_Parada_Fin()) {
+			if (parada.getNumParada() >= billete.getNum_Parada_Inicio() && parada.getNumParada() <= billete.getNum_Parada_Fin() 
+					|| parada.getNumParada() <= billete.getNum_Parada_Inicio() && parada.getNumParada() >= billete.getNum_Parada_Fin()) {
 				
 				paradasBillete.add(parada);
 			}
@@ -137,8 +146,9 @@ public class Calculo {
 	 * @param billete 
 	 * @param paradasBillete Arraylist 
 	 * @param autobus Objeto autobus del trayecto seleccionado
+	 * @return 
 	 */
-	public static void calcularPrecioBillete(Billete billete, ArrayList<Parada> paradasBillete, Autobus autobus) {
+	public static double calcularPrecioBillete(Billete billete, ArrayList<Parada> paradasBillete, Autobus autobus) {
 		
 		//Calculamos el precio del billete
 		double costeTotal = calcularDistanciaBillete(paradasBillete) * autobus.getConsumo() * Autobus.PRECIO_DIESEL;
@@ -146,9 +156,9 @@ public class Calculo {
 		double beneficioPorBillete = beneficioTotal / autobus.getNumPlazas();
 		double costePorBillete = (calcularDistanciaBillete(paradasBillete) * autobus.getConsumo() * Autobus.PRECIO_DIESEL) + beneficioPorBillete;
 
-		 double precioBillete = formatearPrecio(costePorBillete);
+		double precioBillete = formatearPrecio(costePorBillete);
 		
-		 billete.setPrecio(precioBillete);
+		return precioBillete;
 	}
 	
 	/**
@@ -175,7 +185,7 @@ public class Calculo {
 	 * @param numeroSinFormatear Numero de tipo double
 	 * @return Devuelve el numero de tipo double formateado
 	 */
-	public static double formatearPrecio(double numeroSinFormatear) {
+	public static double formatearPrecio2(double numeroSinFormatear) {
        
 		int numeroDecimales = 2;
 		double parteEntera, numeroFormateado;
@@ -186,6 +196,16 @@ public class Calculo {
         numeroFormateado = (numeroSinFormatear / Math.pow(10, numeroDecimales)) + parteEntera;
         return numeroFormateado;
     }
-
+	
+	/**
+	 * Metodo que formatea un numero de tipo double con la precision escogida
+	 * @param numeroSinFormatear Numero de tipo double
+	 * @return Devuelve el numero de tipo double formateado
+	 */
+	public static double formatearPrecio(double numeroSinFormatear) {
+       
+		double numeroFormateado = Math.round(numeroSinFormatear * 100) / 100d;
+        return numeroFormateado;
+    }
 	
 }

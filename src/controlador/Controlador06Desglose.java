@@ -6,6 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.mail.MessagingException;
+
 import modelo.Billete;
 import modelo.Cliente;
 import modelo.Linea;
@@ -46,8 +48,6 @@ public class Controlador06Desglose implements MouseListener {
 		this.ventanadeglose.getTxtOrigen().setText(billete.getNombre_Parada_Origen());
 		this.ventanadeglose.getTxtDestino().setText(billete.getNombre_Parada_Destino());
 		this.ventanadeglose.getTxtFecha().setText(billete.getFecha() + " " + billete.getHora());	
-		
-		System.out.println(billete.getCod_Bus());
 		
 		
 		this.ventanadeglose.getTxtNAutobus().setText(billete.getCod_Bus());
@@ -111,10 +111,12 @@ public class Controlador06Desglose implements MouseListener {
 		switch(e.getComponent().getName()) {
 		
 		case "Salir":
-				Ventana01Bienvenida window = new Ventana01Bienvenida();
-				Controlador01Bienvenida controladorbienvenida = new Controlador01Bienvenida(window);
-				window.getFrame().setVisible(true);
-				this.ventanadeglose.Ventana06Desglose.setVisible(false);
+			Ventana01Bienvenida window = new Ventana01Bienvenida();
+	
+			Controlador01Bienvenida controladorbienvenida = new Controlador01Bienvenida(window);
+		
+			window.getFrame().setVisible(true);
+			this.ventanadeglose.Ventana06Desglose.setVisible(false);
 			break;
 			
 		case "Continuar":

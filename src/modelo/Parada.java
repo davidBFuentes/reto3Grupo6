@@ -4,21 +4,23 @@ import java.util.Comparator;
 
 
 public class Parada implements Comparable<Parada> {
-	
+	private int numParada;
 	private int codParada;
 	private String calle;
 	private String nombre;
 	private Float latitud;
 	private Float longitud;
 	private String codigoPostal;
-	private double distanciaATermibus;
+	//ATRIBUTO EN DESUSO
+	//private double distanciaATermibus;
 	
 	public Parada() {
 		
 	}
 	
-	public Parada(int pCodParada, String pCalle, String pNombre, Float pLatitud, Float pLongitud, String pCodigoPostal) {
+	public Parada(int pNumParada, int pCodParada, String pCalle, String pNombre, Float pLatitud, Float pLongitud, String pCodigoPostal) {
 		
+		this.numParada = pNumParada;
 		this.codParada = pCodParada;
 		this.calle = pCalle;
 		this.nombre = pNombre;
@@ -27,6 +29,14 @@ public class Parada implements Comparable<Parada> {
 		this.codigoPostal = pCodigoPostal;
 	}
 
+	public int getNumParada() {
+		return numParada;
+	}
+
+	public void setNumParada(int numParada) {
+		this.numParada = numParada;
+	}
+	
 	public int getCodParada() {
 		return codParada;
 	}
@@ -74,7 +84,7 @@ public class Parada implements Comparable<Parada> {
 	public void setCodigoPostal(String codigoPostal) {
 		this.codigoPostal = codigoPostal;
 	}
-	
+	/*METODOS EN DESUSO
 	public void setDistanciaATermibus(double distanciaATermibus) {
 		this.distanciaATermibus = distanciaATermibus;
 	}
@@ -82,7 +92,7 @@ public class Parada implements Comparable<Parada> {
 	public double getDistanciaATermibus() {
 		return distanciaATermibus;
 	}
-	
+	*/
 	public String toString () {
 		
 		return this.getNombre();
@@ -90,14 +100,15 @@ public class Parada implements Comparable<Parada> {
 
 	@Override
 	public int compareTo(Parada o) {
-        if (this.distanciaATermibus < o.distanciaATermibus) {
+        if (this.numParada < o.numParada) {
             return -1;
         }
-        if (this.distanciaATermibus > o.distanciaATermibus) {
+        if (this.numParada > o.numParada) {
             return 1;
         }
         return 0;
     }
+
 }
 
 

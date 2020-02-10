@@ -32,6 +32,7 @@ public class Ventana08ImprimirBilletes {
 	private JPanel panel_5;
 	private JButton btnFinalizar;
 	private JButton BtnImprimirBillete;
+	private JButton btnEnviarCorreo;
 	private JLabel lblFechaVuelta2;
 	private JLabel lblNAutobusVuelta2;
 	private JLabel lblImagen;
@@ -43,6 +44,7 @@ public class Ventana08ImprimirBilletes {
 	private JLabel lblNBilleteVuelta;
 	private JLabel lblNBillete_2;
 	private JLabel lblNBilleteVuelta_2;
+	private JTextField txtFldCorreo;
 	
 	public Ventana08ImprimirBilletes () {
 		
@@ -117,6 +119,12 @@ public class Ventana08ImprimirBilletes {
 		BtnImprimirBillete.setFont(new Font("Tahoma", Font.BOLD, 20));
 		BtnImprimirBillete.setBounds(21, 20, 251, 131);
 		panel_2.add(BtnImprimirBillete);
+		
+		btnEnviarCorreo = new JButton("Enviar billetes al siguiente correo:");
+		btnEnviarCorreo.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		btnEnviarCorreo.setBounds(83, 358, 286, 33);
+		btnEnviarCorreo.setFont(new Font("Tahoma", Font.BOLD, 15));
+		panel_1.add(btnEnviarCorreo);
 	}
 	
 	private void crearEtiquetas() {
@@ -177,38 +185,38 @@ public class Ventana08ImprimirBilletes {
 		
 		JLabel lblFecha = new JLabel("Fecha");
 		lblFecha.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblFecha.setBounds(30, 236, 100, 33);
+		lblFecha.setBounds(30, 205, 100, 33);
 		panel_1.add(lblFecha);
 		lblFecha.setFont(new Font("Tahoma", Font.BOLD, 20));
 		
 		JLabel lblNAutobus = new JLabel("N\u00BA Autob\u00FAs");
 		lblNAutobus.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNAutobus.setBounds(415, 236, 126, 33);
+		lblNAutobus.setBounds(415, 205, 126, 33);
 		panel_1.add(lblNAutobus);
 		lblNAutobus.setFont(new Font("Tahoma", Font.BOLD, 20));
 		
 		JLabel lblHora = new JLabel("Hora");
 		lblHora.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblHora.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblHora.setBounds(30, 340, 100, 33);
+		lblHora.setBounds(30, 271, 100, 33);
 		panel_1.add(lblHora);
 		
 		JLabel lblPrecio = new JLabel("Precio");
 		lblPrecio.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblPrecio.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblPrecio.setBounds(478, 340, 63, 33);
+		lblPrecio.setBounds(478, 271, 63, 33);
 		panel_1.add(lblPrecio);
 		
 		lblHora2 = new JLabel("");
 		lblHora2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblHora2.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblHora2.setBounds(132, 340, 286, 33);
+		lblHora2.setBounds(132, 271, 286, 33);
 		panel_1.add(lblHora2);
 		
 		lblPrecio2 = new JLabel("");
 		lblPrecio2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPrecio2.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblPrecio2.setBounds(551, 340, 302, 33);
+		lblPrecio2.setBounds(551, 271, 302, 33);
 		panel_1.add(lblPrecio2);
 		
 		JLabel lblDetallesVuelta = new JLabel("Detalles de la vuelta");
@@ -335,7 +343,7 @@ public class Ventana08ImprimirBilletes {
 		txtNAutobus.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		txtNAutobus.setBorder(null);
 		txtNAutobus.setOpaque(false);
-		txtNAutobus.setBounds(551, 236, 302, 33);
+		txtNAutobus.setBounds(561, 205, 302, 33);
 		panel_1.add(txtNAutobus);
 		txtNAutobus.setEditable(false);
 		txtNAutobus.setColumns(10);
@@ -345,7 +353,7 @@ public class Ventana08ImprimirBilletes {
 		txtFecha.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		txtFecha.setBorder(null);
 		txtFecha.setOpaque(false);
-		txtFecha.setBounds(132, 236, 286, 33);
+		txtFecha.setBounds(132, 205, 286, 33);
 		panel_1.add(txtFecha);
 		txtFecha.setEditable(false);
 		txtFecha.setColumns(10);
@@ -383,6 +391,13 @@ public class Ventana08ImprimirBilletes {
 		lblNBillete_2.setBackground(Color.BLACK);
 		lblNBillete_2.setBounds(10, 41, 100, 27);
 		panel_1.add(lblNBillete_2);
+		
+		txtFldCorreo = new JTextField();
+		txtFldCorreo.setBounds(404, 358, 352, 33);
+		txtFldCorreo.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		panel_1.add(txtFldCorreo);
+		txtFldCorreo.setColumns(10);
+
 		
 	}
 	
@@ -506,6 +521,14 @@ public class Ventana08ImprimirBilletes {
 		return BtnImprimirBillete;
 	}
 
+	public JTextField getTxtFldCorreo() {
+		return txtFldCorreo;
+	}
+
+	public void setTxtFldCorreo(JTextField txtFldCorreo) {
+		this.txtFldCorreo = txtFldCorreo;
+	}
+
 	public void setBtnImprimirBillete(JButton btnImprimirBillete) {
 		BtnImprimirBillete = btnImprimirBillete;
 	}
@@ -524,5 +547,13 @@ public class Ventana08ImprimirBilletes {
 
 	public void setLblNBilleteVuelta_2(JLabel lblNBilleteVuelta_2) {
 		this.lblNBilleteVuelta_2 = lblNBilleteVuelta_2;
+	}
+
+	public JButton getBtnEnviarCorreo() {
+		return btnEnviarCorreo;
+	}
+
+	public void setBtnEnviarCorreo(JButton btnEnviarCorreo) {
+		this.btnEnviarCorreo = btnEnviarCorreo;
 	}
 }

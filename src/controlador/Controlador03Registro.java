@@ -7,6 +7,7 @@ import java.awt.event.MouseListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+import javax.mail.MessagingException;
 import javax.swing.JOptionPane;
 
 import metodosDAO.ClienteDAO;
@@ -17,8 +18,12 @@ import vista.Ventana03Registro;
 import vista.Ventana04Trayectos;
 
 public class Controlador03Registro implements MouseListener, KeyListener {
+	
+	// Atributo del constructor.
 
 	private Ventana03Registro ventana03registro;
+	
+	// Constructor del controlador, que recibe los elementos de la ventana.
 
 	public Controlador03Registro(Ventana03Registro pVentana02) {
 
@@ -26,7 +31,8 @@ public class Controlador03Registro implements MouseListener, KeyListener {
 		mInicializarControlador();
 	}
 	
-
+	// Se añaden listeners a los botones y se les da nombre para identificarlos.
+	
 	private void mInicializarControlador() {
 
 		this.ventana03registro.getBtnSalir().addMouseListener(this);
@@ -50,34 +56,43 @@ public class Controlador03Registro implements MouseListener, KeyListener {
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-
+		
+		// Acciones de los distintos botones
+		
 		switch (e.getComponent().getName()) {
+		
+		// Acciones del botón de salir. Carga la primera ventana con su controlador, la muestra y cierra la actual.
 
 		case "Salir":
 			Ventana01Bienvenida window = new Ventana01Bienvenida();
-			Controlador01Bienvenida controladorbienvenida = new Controlador01Bienvenida(window);
+			@SuppressWarnings("unused") Controlador01Bienvenida controladorbienvenida = new Controlador01Bienvenida(window);
 			window.getFrame().setVisible(true);
 			this.ventana03registro.getFrame().dispose();
 
 			break;
+			
+		// Acciones del botón de registro. Antes de hacer comprobaciones crea un objeto dni con el constructor del validador
+		// para validarlo después.
 
 		case "Registrarse":
 			
-			ValidadorDNI dni = new ValidadorDNI(this.ventana03registro.getTxtDni().getText());
+			ValidadorDni dni = new ValidadorDni(this.ventana03registro.getTxtDni().getText());
+			
+			// Para que el registro se realice todos los campos tienen que estar 
 			
 			if (this.ventana03registro.getTxtDni().getText().length() != 0
-					&& this.ventana03registro.getTxtNombre().getText().length() != 0
-					&& this.ventana03registro.getTxtApellido().getText().length() != 0
-					&& this.ventana03registro.getPassContrasena().getText().length() != 0
-					&& this.ventana03registro.getPassContrasena2().getText().length() != 0
-					&& this.ventana03registro.getTxtFechaNacimiento().getText().length() != 0 
-					&& (this.ventana03registro.getCheckHombre().isSelected()
-					|| this.ventana03registro.getCheckMujer().isSelected())
-					&& this.ventana03registro.getTxtDni().getText().length() == 9
-					&& this.ventana03registro.getPassContrasena().getText().equals
-					(this.ventana03registro.getPassContrasena2().getText())
-					&& dni.validar()
-					&& validarFecha(this.ventana03registro.getTxtFechaNacimiento().getText())) {
+			&& this.ventana03registro.getTxtNombre().getText().length() != 0
+			&& this.ventana03registro.getTxtApellido().getText().length() != 0
+			&& String.valueOf(this.ventana03registro.getPassContrasena().getPassword()).length() != 0
+			&& String.valueOf(this.ventana03registro.getPassContrasena2().getPassword()).length() != 0
+			&& this.ventana03registro.getTxtFechaNacimiento().getText().length() != 0 
+			&& (this.ventana03registro.getCheckHombre().isSelected()
+			|| this.ventana03registro.getCheckMujer().isSelected())
+			&& this.ventana03registro.getTxtDni().getText().length() == 9
+			&& String.valueOf(this.ventana03registro.getPassContrasena().getPassword()).equals
+			(String.valueOf(this.ventana03registro.getPassContrasena2().getPassword()))
+			&& dni.validar()
+			&& validarFecha(this.ventana03registro.getTxtFechaNacimiento().getText())) {
 				   
 				
 					Cliente cliente;
@@ -85,12 +100,14 @@ public class Controlador03Registro implements MouseListener, KeyListener {
 					if (this.ventana03registro.getCheckHombre().isSelected()) {
 						cliente = new Cliente(this.ventana03registro.getTxtDni().getText(),
 								this.ventana03registro.getTxtNombre().getText(),
-								this.ventana03registro.getTxtApellido().getText(), this.ventana03registro.getTxtFechaNacimiento().getText(), "V", this.ventana03registro.getPassContrasena().getText());
+								this.ventana03registro.getTxtApellido().getText(), this.ventana03registro.getTxtFechaNacimiento().getText(), "V",
+								String.valueOf(this.ventana03registro.getPassContrasena().getPassword()));
 	
 					} else {
 						cliente = new Cliente(this.ventana03registro.getTxtDni().getText(),
 								this.ventana03registro.getTxtNombre().getText(),
-								this.ventana03registro.getTxtApellido().getText(), this.ventana03registro.getTxtFechaNacimiento().getText(), "M", this.ventana03registro.getPassContrasena().getText());
+								this.ventana03registro.getTxtApellido().getText(), this.ventana03registro.getTxtFechaNacimiento().getText(), "M", 
+								String.valueOf(this.ventana03registro.getPassContrasena().getPassword()));
 					}
 	
 					if (ClienteDAO.mRegistrarCliente(cliente)) {
@@ -99,6 +116,7 @@ public class Controlador03Registro implements MouseListener, KeyListener {
 						Billete billete = new Billete();
 						billete.setDni(cliente.getDni());
 						Ventana04Trayectos window1 = new Ventana04Trayectos();
+						@SuppressWarnings("unused")
 						Controlador04Trayectos controlador = new Controlador04Trayectos(window1, billete, cliente);
 						window1.getFrame().setVisible(true);
 						this.ventana03registro.getFrame().dispose();
@@ -110,8 +128,8 @@ public class Controlador03Registro implements MouseListener, KeyListener {
 				if (this.ventana03registro.getTxtDni().getText().length() == 0
 					|| this.ventana03registro.getTxtNombre().getText().length() == 0
 					|| this.ventana03registro.getTxtApellido().getText().length() == 0
-					|| this.ventana03registro.getPassContrasena().getText().length() == 0
-					|| this.ventana03registro.getPassContrasena2().getText().length() == 0
+					|| String.valueOf(this.ventana03registro.getPassContrasena().getPassword()).length() == 0
+					|| String.valueOf(this.ventana03registro.getPassContrasena2().getPassword()).length() == 0
 					|| this.ventana03registro.getTxtFechaNacimiento().getText().length() == 0 
 					|| (!this.ventana03registro.getCheckHombre().isSelected()
 					&&  !this.ventana03registro.getCheckMujer().isSelected())) {
@@ -123,8 +141,8 @@ public class Controlador03Registro implements MouseListener, KeyListener {
 					JOptionPane.showMessageDialog(null, "No ha introducido un DNI válido", "Mensaje de error",
 							JOptionPane.ERROR_MESSAGE);
 					
-				} if (!this.ventana03registro.getPassContrasena().getText()
-						.equals(this.ventana03registro.getPassContrasena2().getText())) {
+				} if (!String.valueOf(this.ventana03registro.getPassContrasena().getPassword())
+						.equals(String.valueOf(this.ventana03registro.getPassContrasena2().getPassword()))) {
 					JOptionPane.showMessageDialog(null, "No ha repetido la contraseña", "Mensaje de error",
 							JOptionPane.ERROR_MESSAGE);
 
@@ -191,13 +209,13 @@ public class Controlador03Registro implements MouseListener, KeyListener {
 			break;
 			
 		case "Pass":
-			if(this.ventana03registro.getPassContrasena().getText().length()>12) {  
+			if(String.valueOf(this.ventana03registro.getPassContrasena().getPassword()).length()>12) {  
 				   e.consume();
 				 }
 			break;
 			
 		case "Pass2":
-			if(this.ventana03registro.getPassContrasena2().getText().length()>12) {  
+			if(String.valueOf(this.ventana03registro.getPassContrasena2().getPassword()).length()>12) {  
 				   e.consume();
 				 }
 			break;

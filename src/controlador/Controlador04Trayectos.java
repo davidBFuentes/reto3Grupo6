@@ -7,6 +7,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 
+import javax.mail.MessagingException;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -83,6 +84,7 @@ public class Controlador04Trayectos implements MouseListener, MouseMotionListene
 			case "Salir":
 				Ventana01Bienvenida window2 = new Ventana01Bienvenida();
 				Controlador01Bienvenida controlador = new Controlador01Bienvenida(window2);
+
 				window2.getFrame().setVisible(true);
 				this.ventanatrayectos.getFrame().dispose();
 				break;

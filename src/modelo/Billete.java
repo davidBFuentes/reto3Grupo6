@@ -5,8 +5,10 @@ public class Billete {
 	private int cod_Billete;
 	private String cod_Linea;
 	private String cod_Bus;
+	private int num_Parada_Inicio;
 	private int cod_Parada_Inicio;
 	private String nombre_Parada_Origen;
+	private int num_Parada_Fin;
 	private int cod_Parada_Fin;
 	private String nombre_Parada_Destino;
 	private String fecha;
@@ -18,14 +20,16 @@ public class Billete {
 		
 	}
 	
-	public Billete (int pCod_Billete, String pCod_Linea, String pCod_Bus, int pCod_Parada_Inicio, 
-			String pNombre_Parada_Origen, int pCod_Parada_Fin, String pNombre_Parada_Destino, String pFecha, String pHora, String pDni, double pPrecio) {
+	public Billete (int pCod_Billete, String pCod_Linea, String pCod_Bus,int pNum_Parada_Inicio, int pCod_Parada_Inicio, 
+			String pNombre_Parada_Origen, int pNum_Parada_Fin, int pCod_Parada_Fin, String pNombre_Parada_Destino, String pFecha, String pHora, String pDni, double pPrecio) {
 		
 		this.cod_Billete = pCod_Billete;
 		this.cod_Linea = pCod_Linea;
 		this.cod_Bus = pCod_Bus;
+		this.num_Parada_Inicio = pNum_Parada_Inicio;
 		this.cod_Parada_Inicio = pCod_Parada_Inicio;
 		this.nombre_Parada_Origen = pNombre_Parada_Origen;
+		this.num_Parada_Fin = pNum_Parada_Fin;
 		this.cod_Parada_Fin = pCod_Parada_Fin;
 		this.nombre_Parada_Destino = pNombre_Parada_Destino;
 		this.fecha = pFecha;
@@ -57,6 +61,22 @@ public class Billete {
 
 	public void setCod_Bus(String cod_Bus) {
 		this.cod_Bus = cod_Bus;
+	}
+	
+	public int getNum_Parada_Inicio() {
+		return num_Parada_Inicio;
+	}
+
+	public void setNum_Parada_Inicio(int num_Parada_Inicio) {
+		this.num_Parada_Inicio = num_Parada_Inicio;
+	}	
+	
+	public int getNum_Parada_Fin() {
+		return num_Parada_Fin;
+	}
+
+	public void setNum_Parada_Fin(int num_Parada_Fin) {
+		this.num_Parada_Fin = num_Parada_Fin;
 	}
 
 	public int getCod_Parada_Inicio() {
@@ -121,5 +141,5 @@ public class Billete {
 
 	public void setNombre_Parada_Destino(String nombre_Parada_Destino) {
 		this.nombre_Parada_Destino = nombre_Parada_Destino;
-	}	
+	}
 }

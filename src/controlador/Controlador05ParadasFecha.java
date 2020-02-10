@@ -6,11 +6,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
+
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
@@ -70,7 +67,7 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 		
 		//Llamamos al metodo que mostrara las opciones de vuelta, si el checkbox ha sido seleccionado
 		mostrarVuelta();
-		
+
 	}
 	
 	/**
@@ -98,12 +95,10 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 				if (ventanaParadasFecha.getCheckBox().isSelected()){
 					ventanaParadasFecha.getDateChooserVuelta().setVisible(true);
 					ventanaParadasFecha.getComboBoxHorariosVuelta().setVisible(true);
-					ventanaParadasFecha.getLblSeleccionFechaDeVuelta().setVisible(true);
 				}
 				else {
 					ventanaParadasFecha.getDateChooserVuelta().setVisible(false);
 					ventanaParadasFecha.getComboBoxHorariosVuelta().setVisible(false);
-					ventanaParadasFecha.getLblSeleccionFechaDeVuelta().setVisible(false);
 				}
 			}
 		});
@@ -116,53 +111,23 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 		switch (e.getComponent().getName()) {
 		case "Proceder al pago":
 			
-			if ((this.ventanaParadasFecha.getComboBoxOrigenIda().getSelectedIndex() == 0) 
-					&& (this.ventanaParadasFecha.getComboBoxDestinoIda().getSelectedIndex() == 0)){
+			
+			if (!ErroresControlador.verificarErroresControlador5(ventanaParadasFecha)) {
 				
-				JOptionPane.showMessageDialog(null, "Ha de seleccionar una parada de origen y otra de destino para continuar", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
-			}	
-			else if (this.ventanaParadasFecha.getComboBoxOrigenIda().getSelectedIndex() == 0) {
-				
-				JOptionPane.showMessageDialog(null, "Ha de seleccionar una parada de origen para continuar", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
-			}
-			else if(this.ventanaParadasFecha.getComboBoxDestinoIda().getSelectedIndex() == 0) {
-				
-				JOptionPane.showMessageDialog(null, "Ha de seleccionar una parada de destino para continuar", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
-			}
-			else if(this.ventanaParadasFecha.getComboBoxOrigenIda().getSelectedIndex() == this.ventanaParadasFecha.getComboBoxDestinoIda().getSelectedIndex()) {
-				
-				JOptionPane.showMessageDialog(null, "La parada de origen no puede ser la misma que la de destino", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
-			}
-			else if(this.ventanaParadasFecha.getFechaIda() == null) {
-				
-				JOptionPane.showMessageDialog(null, "Ha de seleccionar una fecha de ida para continuar", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
-			}
-			else if(this.ventanaParadasFecha.getComboBoxHorariosIda().getSelectedIndex() == 0) {
-				
-				JOptionPane.showMessageDialog(null, "Ha de seleccionar un horario de ida para continuar", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
-			}
-			else if(this.ventanaParadasFecha.getCheckBox().isSelected() && this.ventanaParadasFecha.getFechaVuelta() == null) {
-				
-				JOptionPane.showMessageDialog(null, "Ha de seleccionar una fecha de vuelta para continuar", "Mensaje de error",JOptionPane.ERROR_MESSAGE);				
-			}
-			else if(this.ventanaParadasFecha.getCheckBox().isSelected() && this.ventanaParadasFecha.getComboBoxHorariosVuelta().getSelectedIndex() == 0) {
-				
-				JOptionPane.showMessageDialog(null, "Ha de seleccionar un horario de vuelta para continuar", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
-			}
-			else {
-				
+				billete.setNum_Parada_Inicio(((Parada) this.ventanaParadasFecha.getComboBoxOrigenIda().getSelectedItem()).getNumParada());
 				billete.setCod_Parada_Inicio(((Parada) this.ventanaParadasFecha.getComboBoxOrigenIda().getSelectedItem()).getCodParada());
 				billete.setNombre_Parada_Origen(this.ventanaParadasFecha.getComboBoxOrigenIda().getSelectedItem().toString());
+				billete.setNum_Parada_Fin(((Parada) this.ventanaParadasFecha.getComboBoxDestinoIda().getSelectedItem()).getNumParada());
 				billete.setCod_Parada_Fin(((Parada) this.ventanaParadasFecha.getComboBoxDestinoIda().getSelectedItem()).getCodParada());
 				billete.setNombre_Parada_Destino(this.ventanaParadasFecha.getComboBoxDestinoIda().getSelectedItem().toString());
 				billete.setFecha(this.ventanaParadasFecha.getFechaIda());
 				billete.setHora(this.ventanaParadasFecha.getComboBoxHorariosIda().getSelectedItem().toString());
 				
-				paradasBillete = Calculo.filtrarParadas(listaParadas, billete);
+				paradasBillete = Calculo.calcularOrdenParadas(Calculo.filtrarParadas(listaParadas, billete));
 				
 				autobus = AutobusDAO.mObtenerBus(billete);
 			
-				Calculo.calcularPrecioBillete(billete, paradasBillete, autobus);
+				billete.setPrecio(Calculo.calcularPrecioBillete(billete, paradasBillete, autobus));
 				
 				billete.setCod_Bus(autobus.getCodAutobus());	
 				
@@ -190,13 +155,14 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 					Autobus autobus2 = new Autobus();
 					autobus2 = AutobusDAO.mObtenerBus(billete2);
 					
-					paradasBillete2 = Calculo.filtrarParadas(listaParadas, billete2);
-					Calculo.calcularPrecioBillete(billete2, paradasBillete2, autobus2);
+					paradasBillete2 = paradasBillete;
+
+					billete2.setPrecio(Calculo.calcularPrecioBillete(billete2, paradasBillete2, autobus2));
 					
 					billete2.setCod_Bus(autobus2.getCodAutobus());
 				
 				}
-				
+
 				Ventana06Desglose window1 = new Ventana06Desglose();
 				Controlador06Desglose controlador = new Controlador06Desglose(window1, linea, billete, billete2, cliente);
 				window1.getVentana06Desglose().setVisible(true);
@@ -209,6 +175,7 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 		case "Salir":
 			Ventana01Bienvenida window2 = new Ventana01Bienvenida();
 			Controlador01Bienvenida controlador1 = new Controlador01Bienvenida(window2);
+			
 			window2.getFrame().setVisible(true);
 			this.ventanaParadasFecha.getFrame().dispose();
 			

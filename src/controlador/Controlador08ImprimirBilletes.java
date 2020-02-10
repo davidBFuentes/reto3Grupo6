@@ -5,6 +5,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
 
+import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
 import javax.swing.JOptionPane;
 import calculosMatematicos.Calculo;
 
@@ -39,6 +41,8 @@ public class Controlador08ImprimirBilletes implements MouseListener  {
 		this.ventanaImprimirBilletes.getBtnFinalizar().setName("Finalizar");
 		this.ventanaImprimirBilletes.getBtnImprimirBillete().addMouseListener(this);
 		this.ventanaImprimirBilletes.getBtnImprimirBillete().setName("Imprimir");
+		this.ventanaImprimirBilletes.getBtnEnviarCorreo().addMouseListener(this);
+		this.ventanaImprimirBilletes.getBtnEnviarCorreo().setName("EnviarCorreo");
 		this.ventanaImprimirBilletes.getTxtDNI().setText(cliente.getDni());
 		this.ventanaImprimirBilletes.getTxtNombre().setText(cliente.getNombre());
 		this.ventanaImprimirBilletes.getTxtApellidos().setText(cliente.getApellido());
@@ -85,18 +89,20 @@ public class Controlador08ImprimirBilletes implements MouseListener  {
 		
 		case "Salir":
 			
-				Ventana01Bienvenida window = new Ventana01Bienvenida();
-				Controlador01Bienvenida controladorbienvenida = new Controlador01Bienvenida(window);
-				window.getFrame().setVisible(true);
-				this.ventanaImprimirBilletes.getventana08ImprimirBilletes().dispose();
+			Ventana01Bienvenida window = new Ventana01Bienvenida();
+			Controlador01Bienvenida controladorbienvenida = new Controlador01Bienvenida(window);
+			window.getFrame().setVisible(true);
+			this.ventanaImprimirBilletes.getventana08ImprimirBilletes().dispose();
+			
 			break;
 			
 		case "Finalizar":
+		
+			Ventana09Fin ventana = new Ventana09Fin();
+			Controlador09Fin controladorFin = new Controlador09Fin(ventana);
+			ventana.getFrame().setVisible(true);
+			this.ventanaImprimirBilletes.getventana08ImprimirBilletes().dispose();
 			
-				Ventana09Fin ventana = new Ventana09Fin();
-				Controlador09Fin controladorFin = new Controlador09Fin(ventana);
-				ventana.getFrame().setVisible(true);
-				this.ventanaImprimirBilletes.getventana08ImprimirBilletes().dispose();
 			break;
 				
 		case "Imprimir":
@@ -111,7 +117,22 @@ public class Controlador08ImprimirBilletes implements MouseListener  {
 				e1.printStackTrace();
 			}
 			break;
-
+		case "EnviarCorreo":
+			
+			if (GestorCorreo.validarEmail(ventanaImprimirBilletes.getTxtFldCorreo().getText())) {
+				try {
+					GestorCorreo.enviarCorreo(ventanaImprimirBilletes.getTxtFldCorreo().getText(), billete, billete2);
+				} catch (AddressException e1) {
+					// TODO Bloque catch generado automáticamente
+					e1.printStackTrace();
+				}
+				JOptionPane.showMessageDialog(null, "Correo enviado", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+				ventanaImprimirBilletes.getBtnEnviarCorreo().setEnabled(false);
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "El correo electronico no es valido", "ERROR", JOptionPane.ERROR_MESSAGE);
+			}
+			break;
 		}
 	}
 
