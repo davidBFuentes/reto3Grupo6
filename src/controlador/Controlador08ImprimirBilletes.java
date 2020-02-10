@@ -19,6 +19,7 @@ import vista.Ventana09Fin;
 
 public class Controlador08ImprimirBilletes implements MouseListener  {
 
+	//crear las variables que vamos a usar 
 	private Ventana08ImprimirBilletes ventanaImprimirBilletes;
 	private Billete billete;
 	private Billete billete2;
@@ -26,6 +27,14 @@ public class Controlador08ImprimirBilletes implements MouseListener  {
 	private Municipio municipioOrigen;
 	private Municipio municipioDestino;
 	
+	/**
+	 * creamos el constructor que vamos a usar para usar esta ventana (la ventana nnueva, el billete, el billete de vuelta, el objeto cliente)
+	 * 
+	 * @param pVentana08
+	 * @param pBillete
+	 * @param pBillete2
+	 * @param pCliente
+	 */
 	public Controlador08ImprimirBilletes(Ventana08ImprimirBilletes pVentana08, Billete pBillete, Billete pBillete2, Cliente pCliente, Municipio pMunicipioOrigen, Municipio pMunicipioDestino) {
 		// TODO Auto-generated constructor stub
 		
@@ -38,9 +47,12 @@ public class Controlador08ImprimirBilletes implements MouseListener  {
 		mIniciarControlador();
 	}
 
-	
+	/**
+	 * Metodo para cargar las acciones de los botones
+	 */
 	private void mIniciarControlador() {
 		
+		//Añadimos los mouselistener a los botones
 		this.ventanaImprimirBilletes.getBtnFinalizar().addMouseListener(this);
 		this.ventanaImprimirBilletes.getBtnFinalizar().setName("Finalizar");
 		this.ventanaImprimirBilletes.getBtnImprimirBillete().addMouseListener(this);
@@ -58,14 +70,15 @@ public class Controlador08ImprimirBilletes implements MouseListener  {
 		this.ventanaImprimirBilletes.getLblPrecio2().setText(String.valueOf(Calculo.formatearPrecio1(billete.getPrecio())) + " €");
 		this.ventanaImprimirBilletes.getLblNBillete_2().setText(String.valueOf(billete.getCod_Billete())); 
 		
-
+		//en caso de que no tengamos billete de vuelta
 		if (billete2.getCod_Linea() == null) {
 			
+			//haremos que aparezca una imagen en vez de un billete vacio
 			this.ventanaImprimirBilletes.getPanel_5().setVisible(false);
 			this.ventanaImprimirBilletes.getLblImagen().setVisible(true);
 			
 		} else {
-			
+			//en caso de que hay billete de vuelta enseñaremos los datos del billete en vez de la imagen
 			this.ventanaImprimirBilletes.getLblImagen().setVisible(false);
 			this.ventanaImprimirBilletes.getPanel_5().setVisible(true);
 			this.ventanaImprimirBilletes.getLblNBilleteVuelta_2().setText(String.valueOf(Calculo.formatearPrecio1(billete2.getCod_Billete()))); 
@@ -87,12 +100,12 @@ public class Controlador08ImprimirBilletes implements MouseListener  {
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
 
-		e.getComponent().getName();
-		
+		//creamos un switch con el que pondremos las acciones de los botones dependiendo de su nombre
 		switch(e.getComponent().getName()) {
 		
 		case "Salir":
 			
+			//al pulsar salir volveremos a la pantalla de inicio PERO no se devolvera el dinero 
 			Ventana01Bienvenida window = new Ventana01Bienvenida();
 			@SuppressWarnings("unused") Controlador01Bienvenida controladorbienvenida = new Controlador01Bienvenida(window);
 			window.getFrame().setVisible(true);
@@ -102,6 +115,7 @@ public class Controlador08ImprimirBilletes implements MouseListener  {
 			
 		case "Finalizar":
 		
+			//al pulsar continuar iremos a la ventana final
 			Ventana09Fin ventana = new Ventana09Fin();
 			@SuppressWarnings("unused") Controlador09Fin controladorFin = new Controlador09Fin(ventana, municipioOrigen, municipioDestino);
 			ventana.getFrame().setVisible(true);
@@ -123,6 +137,7 @@ public class Controlador08ImprimirBilletes implements MouseListener  {
 			break;
 		case "EnviarCorreo":
 			
+			//nos escriben por teclado el correo electronico al que quieren mandar el correo, si no se quiere mandar no pondra nada
 			if (GestorCorreo.validarEmail(ventanaImprimirBilletes.getTxtFldCorreo().getText())) {
 				try {
 					GestorCorreo.enviarCorreo(ventanaImprimirBilletes.getTxtFldCorreo().getText(), billete, billete2);
@@ -133,6 +148,7 @@ public class Controlador08ImprimirBilletes implements MouseListener  {
 				JOptionPane.showMessageDialog(null, "Correo enviado", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
 				ventanaImprimirBilletes.getBtnEnviarCorreo().setEnabled(false);
 			}
+			//si el correo no es valido saldra un mensaje de error
 			else {
 				JOptionPane.showMessageDialog(null, "El correo electronico no es valido", "ERROR", JOptionPane.ERROR_MESSAGE);
 			}
