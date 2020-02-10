@@ -9,6 +9,7 @@ import java.awt.event.MouseMotionListener;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
@@ -39,12 +40,14 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 	private Ventana05ParadasFecha ventanaParadasFecha;
 	private Linea linea;
 	private Billete billete;
+	private Billete billete2;
 	private Cliente cliente;
 	ArrayList<Parada> listaParadas;
 	ArrayList<LocalTime> horarios;
 	ArrayList<Parada> paradasBillete;
 	ArrayList<Parada> paradasBillete2;
-	Autobus autobus;
+	private Autobus autobus;
+	private Autobus autobus2;
 	
 	/**
 	 * Constructor que inicializara el funcionamiento del controlador habiendo recibido tres parametros (la ventana de seleccion de paradas y fecha, el objeto linea y el objeto billete)
@@ -153,7 +156,7 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 				municipioDestino = MunicipioDAO.mObtenerMunicipio((Parada) this.ventanaParadasFecha.getComboBoxParadaDestino().getSelectedItem());
 				
 				//Creamos el objeto billete2 por si han seleccio
-				Billete billete2 = new Billete();
+				billete2 = new Billete();
 				
 				//Si el checkbox de vuelta ha sido seleccionado
 				if (this.ventanaParadasFecha.getCheckBox().isSelected()) {
@@ -169,7 +172,7 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 					billete2.setHora(this.ventanaParadasFecha.getComboBoxHorariosVuelta().getSelectedItem().toString());
 					
 					//Creamos el objeto autobus2 que alamacenara los datos de la vuelta
-					Autobus autobus2 = new Autobus();
+					autobus2 = new Autobus();
 					autobus2 = AutobusDAO.mObtenerBus(billete2);
 					
 					//Cargamos el arraylist de paradas de la ida, ya que las paradas no van a variar
@@ -182,13 +185,23 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 					billete2.setCod_Bus(autobus2.getCodAutobus());
 				
 				}
+				if (AutobusDAO.mComprobarAsientosLibres(autobus, billete)) {
+					
+					JOptionPane.showMessageDialog(null, "No hay asientos disponibles para el viaje de ida", "Mensaje de error", JOptionPane.ERROR_MESSAGE);
+				}
 				
-				//Cargamos la ventana y el controlador siguiente, ocultando la actual
-				Ventana06Desglose window1 = new Ventana06Desglose();
-				Controlador06Desglose controlador = new Controlador06Desglose(window1, linea, billete, billete2, cliente);
-				window1.getVentana06Desglose().setVisible(true);
-				this.ventanaParadasFecha.getFrame().dispose();
-				
+				else if (AutobusDAO.mComprobarAsientosLibres(autobus2, billete2)) {
+					
+					JOptionPane.showMessageDialog(null, "No hay asientos disponibles para el viaje de vuelta", "Mensaje de error", JOptionPane.ERROR_MESSAGE);
+
+				}
+				else {
+					//Cargamos la ventana y el controlador siguiente, ocultando la actual
+					Ventana06Desglose window1 = new Ventana06Desglose();
+					Controlador06Desglose controlador = new Controlador06Desglose(window1, linea, billete, billete2, cliente);
+					window1.getVentana06Desglose().setVisible(true);
+					this.ventanaParadasFecha.getFrame().dispose();
+				}
 			}
 			
 			break;

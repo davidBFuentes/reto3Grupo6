@@ -62,13 +62,13 @@ public class AutobusDAO {
 	 * @param billete
 	 * @return
 	 */
-	public boolean mComprobarAsientosLibres(Autobus autobus, Billete billete) {
+	public static boolean mComprobarAsientosLibres(Autobus autobus, Billete billete) {
 		
 		Connection co =null;
 		PreparedStatement stm= null;
 		ResultSet rs=null;
 		
-		String sql = "SELECT max(Cod_Billete) from billete where Fecha = ? && Cod_Bus = ? && Hora = ?;"; 
+		String sql = "SELECT count(Cod_Billete) from billete where Fecha = ? && Cod_Bus = ? && Hora = ?;"; 
 		int billetesvendidos = 0;
 		
 		try {			
@@ -76,7 +76,7 @@ public class AutobusDAO {
 			stm=co.prepareStatement(sql);
 			stm.setString(1, billete.getFecha());
 			stm.setString(2, billete.getCod_Bus());
-			stm.setString(3, billete.getFecha());
+			stm.setString(3, billete.getHora());
 			rs=stm.executeQuery();
 			while (rs.next()) {
 				
