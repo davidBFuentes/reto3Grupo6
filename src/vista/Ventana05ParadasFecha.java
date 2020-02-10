@@ -18,6 +18,7 @@ import rojeru_san.RSLabelHora;
 import javax.swing.JCheckBox;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -38,21 +39,22 @@ public class Ventana05ParadasFecha {
 	private JButton btnProcederAlPago;
 	private JButton btnSalir;
 	private JButton btnVolver;
-	private JComboBox<Parada> cbxOrigenIda;
-	private JComboBox<Parada> cbxDestinoIda;
-	private JComboBox<String> cbxHorariosIda;
-	private JComboBox<String> cbxHorariosVuelta;
+	private JComboBox<Parada> cbxParadaOrigen;
+	private JComboBox<Parada> cbxParadaDestino;
+	private JComboBox<LocalTime> cbxHorariosIda;
+	private JComboBox<LocalTime> cbxHorariosVuelta;
 	private JCheckBox chkbxIdaYVuelta;
 	private JDateChooser dateChooserIda;
 	private JDateChooser dateChooserVuelta;
-	private DateFormat formatoFecha;
 	
-
 	private String fechaIda;
 	private String fechaVuelta;
 	private JPanel panel_3;
 	private JPanel panel_4;
 	
+	
+	SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+
 	public Ventana05ParadasFecha(){
 		
 		crearVentana();
@@ -150,28 +152,28 @@ public class Ventana05ParadasFecha {
 		
 	private void crearComboBox() {
 		
-		cbxOrigenIda = new JComboBox<Parada>();
-		cbxOrigenIda.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		cbxOrigenIda.setFont(new Font("Trebuchet MS", Font.BOLD, 13));
-		cbxOrigenIda.setModel(new DefaultComboBoxModel(new String[] {"Seleccione su parada de origen"}));
-		cbxOrigenIda.setBounds(50, 52, 344, 30);
-		panel_1.add(cbxOrigenIda);
+		cbxParadaOrigen = new JComboBox<Parada>();
+		cbxParadaOrigen.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		cbxParadaOrigen.setFont(new Font("Trebuchet MS", Font.BOLD, 13));
+		cbxParadaOrigen.setModel(new DefaultComboBoxModel(new String[] {"Seleccione su parada de origen"}));
+		cbxParadaOrigen.setBounds(50, 52, 344, 30);
+		panel_1.add(cbxParadaOrigen);
 		
-		cbxDestinoIda = new JComboBox<Parada>();
-		cbxDestinoIda.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		cbxDestinoIda.setFont(new Font("Trebuchet MS", Font.BOLD, 13));
-		cbxDestinoIda.setModel(new DefaultComboBoxModel(new String[] {"Seleccione su parada de destino"}));
-		cbxDestinoIda.setBounds(456, 52, 344, 30);
-		panel_1.add(cbxDestinoIda);
+		cbxParadaDestino = new JComboBox<Parada>();
+		cbxParadaDestino.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		cbxParadaDestino.setFont(new Font("Trebuchet MS", Font.BOLD, 13));
+		cbxParadaDestino.setModel(new DefaultComboBoxModel(new String[] {"Seleccione su parada de destino"}));
+		cbxParadaDestino.setBounds(456, 52, 344, 30);
+		panel_1.add(cbxParadaDestino);
 		
-		cbxHorariosIda = new JComboBox<String>();
+		cbxHorariosIda = new JComboBox<LocalTime>();
 		cbxHorariosIda.setEnabled(false);
 		cbxHorariosIda.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		cbxHorariosIda.setFont(new Font("Trebuchet MS", Font.BOLD, 13));
 		cbxHorariosIda.setBounds(456, 168, 344, 30);
 		panel_1.add(cbxHorariosIda);
 		
-		cbxHorariosVuelta = new JComboBox<String>();
+		cbxHorariosVuelta = new JComboBox<LocalTime>();
 		cbxHorariosVuelta.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		cbxHorariosVuelta.setBounds(33, 169, 233, 30);
 		panel_3.add(cbxHorariosVuelta);
@@ -268,14 +270,14 @@ public class Ventana05ParadasFecha {
 		return chkbxIdaYVuelta;
 	}
 	
-	public JComboBox<Parada> getComboBoxOrigenIda() {
+	public JComboBox<Parada> getComboBoxParadaOrigen() {
 		
-		return cbxOrigenIda;
+		return cbxParadaOrigen;
 	}
 	
-	public JComboBox<Parada> getComboBoxDestinoIda() {
+	public JComboBox<Parada> getComboBoxParadaDestino() {
 		
-		return cbxDestinoIda;
+		return cbxParadaDestino;
 	}
 	
 	
@@ -288,19 +290,19 @@ public class Ventana05ParadasFecha {
 	}
 	
 
-	public JComboBox<String> getComboBoxHorariosIda() {
+	public JComboBox<LocalTime> getComboBoxHorariosIda() {
 		return cbxHorariosIda;
 	}
 
-	public void setComboBoxHorariosIda(JComboBox<String> horarios) {
+	public void setComboBoxHorariosIda(JComboBox<LocalTime> horarios) {
 		cbxHorariosIda = horarios;
 	}
 
-	public JComboBox<String> getComboBoxHorariosVuelta() {
+	public JComboBox<LocalTime> getComboBoxHorariosVuelta() {
 		return cbxHorariosVuelta;
 	}
 
-	public void setComboBoxHorariosVuelta(JComboBox<String> cbxHorariosVuelta) {
+	public void setComboBoxHorariosVuelta(JComboBox<LocalTime> cbxHorariosVuelta) {
 		this.cbxHorariosVuelta = cbxHorariosVuelta;
 	}
 	
@@ -308,7 +310,6 @@ public class Ventana05ParadasFecha {
 			
 		try{
 			
-			formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
 			fechaIda = formatoFecha.format(dateChooserIda.getDate());
 		}
 		
@@ -325,7 +326,6 @@ public class Ventana05ParadasFecha {
 			
 		try{
 			
-			formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
 			fechaVuelta = formatoFecha.format(dateChooserVuelta.getDate());
 		}
 		
@@ -355,21 +355,25 @@ public class Ventana05ParadasFecha {
 		
 		
 		for (Parada parada : listaparadas) {
-			getComboBoxOrigenIda().addItem(parada);
+			getComboBoxParadaOrigen().addItem(parada);
 		}
 		
 		for (Parada parada : listaparadas) {
-			getComboBoxDestinoIda().addItem(parada);
+			getComboBoxParadaDestino().addItem(parada);
 		}
 	}
 	
-	public void rellenarComboBoxHorarios(ArrayList<String> horarios) {	
-		getComboBoxHorariosIda().addItem("Seleccione hora de ida");
-		for(String horario: horarios) {
+	public void rellenarComboBoxHorarios(ArrayList<LocalTime> horarios) {	
+		cbxHorariosIda.setModel(new DefaultComboBoxModel(new String[] {"Seleccione su hora de ida"}));
+
+		//getComboBoxHorariosIda().addItem("Seleccione hora de ida");
+		for(LocalTime horario: horarios) {
 			getComboBoxHorariosIda().addItem(horario);
 		}
-		getComboBoxHorariosVuelta().addItem("Seleccione hora de vuelta");
-		for(String horario: horarios) {
+		cbxHorariosVuelta.setModel(new DefaultComboBoxModel(new String[] {"Seleccione su hora de vuelta"}));
+
+		//getComboBoxHorariosVuelta().addItem("Seleccione hora de vuelta");
+		for(LocalTime horario: horarios) {
 			getComboBoxHorariosVuelta().addItem(horario);
 		}
 		

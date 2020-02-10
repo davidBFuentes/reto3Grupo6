@@ -11,6 +11,11 @@ import javax.swing.JOptionPane;
 
 public class ConexionBus {
 	
+	/**
+	 * Metodo que
+	 *  crea la conexion con la base de datos
+	 * @return Devuelve la conexion con la base de datos
+	 */
 	public static Connection conectar() {
 		Connection con = null;
 		String password = null;
