@@ -21,9 +21,12 @@ import vista.Ventana05ParadasFecha;
 
 public class Controlador04Trayectos implements MouseListener, MouseMotionListener, ActionListener {
 	
+	// Crear atributos del controlador
+	
 	private Ventana04Trayectos ventanatrayectos;
 	private Billete billete;
 	private Cliente cliente;
+	
 	
 	public Controlador04Trayectos (Ventana04Trayectos pVentana02, Billete pBillete, Cliente pCliente) {
 		
