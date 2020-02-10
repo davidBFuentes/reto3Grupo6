@@ -5,7 +5,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
 
-import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 import javax.swing.JOptionPane;
 import calculosMatematicos.Calculo;

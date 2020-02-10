@@ -6,8 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import javax.mail.MessagingException;
-
 import modelo.Billete;
 import modelo.Cliente;
 import modelo.Linea;
