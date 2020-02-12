@@ -24,7 +24,7 @@ public class ClienteDAO {
 		Connection con=null;
 		
 
-		String sql = "INSERT INTO cliente (DNI, Nombre, Apellidos, Fecha_nac, Sexo, Contraseña) VALUES(upper(?),?,?,?,?,?);"; 
+		String sql = "INSERT INTO cliente (DNI, Nombre, Apellidos, Fecha_nac, Sexo, Contraseña) VALUES(?,?,?,?,?,?);"; 
 		
 		try {
 			con=ConexionBus.conectar();

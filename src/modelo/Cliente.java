@@ -21,7 +21,7 @@ public class Cliente {
 		
 		public Cliente(String pDni, String pNombre, String pApellido, String pNacimiento, String pSexo, String pContrasena){
 			
-			this.dni = pDni;
+			this.dni = pDni.toUpperCase();
 			this.nombre = pNombre;
 			this.apellido = pApellido;
 			this.nacimiento= pNacimiento;

@@ -74,8 +74,7 @@ public class Controlador02Login implements KeyListener, MouseListener {
 			break;
 
 		case "pass":
-			 if(String.valueOf(this.ventanalogin.getTxtContrasena().getPassword()).length()>9) {  
-				 
+			if(String.valueOf(this.ventanalogin.getTxtContrasena().getPassword()).length()>12) {  
 				   e.consume();
 				 }
 			break;
