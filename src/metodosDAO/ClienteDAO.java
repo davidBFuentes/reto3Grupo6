@@ -45,7 +45,7 @@ public class ClienteDAO {
 			e.printStackTrace();
 			
 		} catch (SQLException e) {
-			System.out.println("Error: Clase Cliente, método registrar");
+			System.out.println("Error: Clase ClienteDAO, método registrar");
 			e.printStackTrace();
 		}
 		
@@ -57,8 +57,7 @@ public class ClienteDAO {
 		Connection co =null;
 		PreparedStatement stm= null;
 		ResultSet rs=null;
-		
-		
+			
 		Cliente cliente = new Cliente();
 		
 		String sql="SELECT * from cliente where dni = ? and contraseña = ?;";
@@ -81,11 +80,36 @@ public class ClienteDAO {
 			rs.close();
 			co.close();
 		} catch (SQLException e) {
-			System.out.println("Error: Clase LineaDAO, método mObtenerLineas");
+			System.out.println("Error: Clase ClienteDAO, método mIdentificarCliente");
 			e.printStackTrace();
 		}
 		
 		return cliente;
+	}
+	
+	public static boolean mCambiarContrasena(Cliente cliente) {
+		
+		boolean cambiar = false;
+		
+		Connection co =null;
+		PreparedStatement stm= null;
+
+		String sql = "UPDATE cliente set Contraseña = ? WHERE DNI = ?;"; 
+		
+		try {			
+			co= ConexionBus.conectar();
+			stm=co.prepareStatement(sql);
+			stm.setString(1, cliente.getContrasena());
+			stm.setString(2, cliente.getDni());
+			stm.executeUpdate();
+			cambiar = true;
+			stm.close();
+		} catch (SQLException e) {
+			System.out.println("Error: Clase ClienteDAO, método mCambiarContrasena");
+			e.printStackTrace();
+		}
+		
+		return cambiar;
 	}
 
 }

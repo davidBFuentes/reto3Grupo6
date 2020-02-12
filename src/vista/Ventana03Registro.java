@@ -89,12 +89,14 @@ public class Ventana03Registro {
 	private void crearBotones() {
 		
 		btnSalir = new JButton("Salir");
+		btnSalir.setFocusPainted(false);
 		btnSalir.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		btnSalir.setBounds(21, 168, 251, 131);
 		panel_2.add(btnSalir);
 		btnSalir.setFont(new Font("Tahoma", Font.BOLD, 20));
 		
 		btnRegistrarse = new JButton("Registrarse");
+		btnRegistrarse.setFocusPainted(false);
 		btnRegistrarse.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		btnRegistrarse.setBounds(21, 20, 251, 131);
 		panel_2.add(btnRegistrarse);

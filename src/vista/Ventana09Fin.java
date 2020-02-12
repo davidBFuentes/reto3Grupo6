@@ -18,6 +18,7 @@ public class Ventana09Fin {
 	private JFrame frame;
 	private JPanel panel;
 	private JPanel panel_1;
+	private JLabel lblMensaje1;
 
 	/**
 	 * Metodo que inicializa todos los objetos que contendra todos los objetos de la VentanaFin
@@ -72,13 +73,13 @@ public class Ventana09Fin {
 	
 		JLabel lblMensaje = new JLabel("\u00A1Gracias por su compra!");
 		lblMensaje.setHorizontalAlignment(SwingConstants.CENTER);
-		lblMensaje.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		lblMensaje.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lblMensaje.setBounds(0, 0, 1174, 106);
 		panel_1.add(lblMensaje);
 		
-		JLabel lblMensaje1 = new JLabel("Disfrute del viaje");
+		lblMensaje1 = new JLabel("");
 		lblMensaje1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblMensaje1.setFont(new Font("Tahoma", Font.PLAIN, 28));
+		lblMensaje1.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lblMensaje1.setBounds(0, 54, 1174, 100);
 		panel_1.add(lblMensaje1);
 		
@@ -115,6 +116,14 @@ public class Ventana09Fin {
 
 	public void setFrame(JFrame frame) {
 		this.frame = frame;
+	}
+
+	public JLabel getLblMensaje1() {
+		return lblMensaje1;
+	}
+
+	public void setLblMensaje1(JLabel lblMensaje1) {
+		this.lblMensaje1 = lblMensaje1;
 	}
 
 }

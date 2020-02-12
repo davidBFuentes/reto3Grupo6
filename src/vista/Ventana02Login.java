@@ -85,6 +85,7 @@ public class Ventana02Login {
 	private void crearBotones() {	
 		
 		bIdentificarse = new JButton("Iniciar sesi\u00F3n");
+		bIdentificarse.setFocusPainted(false);
 		bIdentificarse.setHorizontalAlignment(SwingConstants.CENTER);
 		bIdentificarse.setBounds(835, 30, 296, 116);
 		panel_1.add(bIdentificarse);
@@ -116,7 +117,7 @@ public class Ventana02Login {
 		txtContrasena.setMargin(new Insets(0, 5, 5, 0));
 		txtContrasena.setBounds(390, 175, 395, 116);
 		panel_1.add(txtContrasena);
-		txtContrasena.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		txtContrasena.setFont(new Font("Tahoma", Font.PLAIN, 50));
 		txtContrasena.setColumns(10);
 		txtContrasena.setBorder(new LineBorder(Color.BLACK, 2));		
 		
@@ -126,10 +127,11 @@ public class Ventana02Login {
 		txtDni.setMargin(new Insets(0, 5, 0, 5));
 		txtDni.setBounds(390, 30, 395, 116);
 		panel_1.add(txtDni);
-		txtDni.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		txtDni.setFont(new Font("Tahoma", Font.PLAIN, 50));
 		txtDni.setColumns(10);
 		
 		bRegistrarse = new JButton("Registrarse");
+		bRegistrarse.setFocusPainted(false);
 		bRegistrarse.setBounds(835, 175, 296, 116);
 		panel_1.add(bRegistrarse);
 		bRegistrarse.setBorder(new LineBorder(new Color(0, 0, 0), 2));

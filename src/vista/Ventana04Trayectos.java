@@ -28,6 +28,7 @@ public class Ventana04Trayectos {
 	private JFrame frame;
 	private JButton btnSalir;
 	private JButton btnContinuar;
+	private JButton btnControlUsuario;
 	private JComboBox <Linea> comboLineas;
 	private JPanel panel;
 	private JPanel panel_1;
@@ -83,18 +84,20 @@ public class Ventana04Trayectos {
 	private void crearBotones() {
 		
 		btnContinuar = new JButton("Continuar");
+		btnContinuar.setFocusPainted(false);
 		btnContinuar.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		btnContinuar.setBounds(21, 20, 251, 131);
 		panel_2.add(btnContinuar);
 		btnContinuar.setFont(new Font("Tahoma", Font.BOLD, 20));
 		
 		btnSalir = new JButton("Salir");
+		btnSalir.setFocusPainted(false);
 		btnSalir.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		btnSalir.setBounds(21, 168, 251, 131);
 		panel_2.add(btnSalir);
 		btnSalir.setFont(new Font("Tahoma", Font.BOLD, 20));
 		
-		JButton btnControlUsuario = new JButton("");
+		btnControlUsuario = new JButton("");
 		btnControlUsuario.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		btnControlUsuario.setIcon(new ImageIcon(Ventana04Trayectos.class.getResource("/imagenes/pefilChico.jpg")));
 		btnControlUsuario.setBounds(1059, 20, 135, 135);
@@ -168,5 +171,13 @@ public class Ventana04Trayectos {
 
 	public void setFrame(JFrame frame) {
 		this.frame = frame;
+	}
+
+	public JButton getBtnControlUsuario() {
+		return btnControlUsuario;
+	}
+
+	public void setBtnControlUsuario(JButton btnControlUsuario) {
+		this.btnControlUsuario = btnControlUsuario;
 	}
 }

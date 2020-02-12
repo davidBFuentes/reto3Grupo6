@@ -1,7 +1,6 @@
 package controlador;
 
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import vista.Ventana05ParadasFecha;
 
