@@ -276,7 +276,7 @@ public class Controlador07Pago implements MouseListener {
 					//cuando comprobamos lo anterior podemos proceder a quitarle 1 en su tamaño para asi hacer desaparecer lo ultimo introducido
 					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText().substring(0,this.ventanaPago.getTxtIntroducido().getText().length()-1));
 					//tambien tenemos que tener la coma en cuenta
-					if (comprobarComa == false && distancia !=0) {
+					if (comprobarComa == true && distancia !=0) {
 						//en caso de que exista una cosa debemos quitarle 1 en la variable que nos dice cuantos decimales existen 
 						distancia--;
 					}
@@ -291,15 +291,20 @@ public class Controlador07Pago implements MouseListener {
 				total = Double.valueOf(this.ventanaPago.getTxtPrecioAPagar().getText());
 			}
 			//a su vez debemos meter el dinero que nos ha introducido el usuario
-			if (this.ventanaPago.getTxtIntroducido().getText().length() > 0 ) {
+		    if (this.ventanaPago.getTxtIntroducido().getText().length() > 0 ) {
 				introducido = Double.valueOf(this.ventanaPago.getTxtIntroducido().getText());
 				
 			}	
 			//llamamos a un metodo para que trabaje con ellos
 			pagar(total, introducido);
+			if (comprobarComa == true) {
+				distancia = 0;
+				decimales = 3;
+			}
 			
 			//en caso de que nos pague todo o de mas
-			if(Integer.parseInt(this.ventanaPago.getTxtPrecioAPagar().getText())<=0) {
+			
+			if(Double.parseDouble(this.ventanaPago.getTxtPrecioAPagar().getText())<=0) {
 				//bloqueamos los botones salvo el de finalizar
 				this.ventanaPago.getBtn_0().setEnabled(false);
 				this.ventanaPago.getBtn_1().setEnabled(false);
