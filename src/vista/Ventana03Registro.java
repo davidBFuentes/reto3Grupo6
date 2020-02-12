@@ -39,7 +39,9 @@ public class Ventana03Registro {
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private JTextField txtFormatoFecha;
 	
-	
+	/*
+	 * Constructor de la ventana de registro
+	 */
 	public Ventana03Registro() {
 		crearVentana();
 		crearPaneles();
@@ -50,6 +52,9 @@ public class Ventana03Registro {
 		crearFechaHora();
 	}
 		
+	/*
+	 * Metodo que crea la ventana
+	 */
 	private void crearVentana() {
 		
 		frame = new JFrame();
@@ -61,6 +66,9 @@ public class Ventana03Registro {
 		frame.setLocationRelativeTo(null);
 	}
 	
+	/*
+	 * Metodo que crea los paneles de la ventana
+	 */
 	private void crearPaneles() {
 		
 	    panel = new JPanel();
@@ -86,6 +94,9 @@ public class Ventana03Registro {
 
 	}
 	
+	/*
+	 * Metodo que crea los botones de la ventana
+	 */
 	private void crearBotones() {
 		
 		btnSalir = new JButton("Salir");
@@ -102,7 +113,10 @@ public class Ventana03Registro {
 		panel_2.add(btnRegistrarse);
 		btnRegistrarse.setFont(new Font("Tahoma", Font.BOLD, 20));
 	}
-		
+	
+	/*
+	 * Metodo que crea las etiquetas de la ventana
+	 */
 	private void crearEtiquetas() {
 		
 		JLabel lblRepetir1 = new JLabel("Repetir contrase\u00F1a");
@@ -155,6 +169,9 @@ public class Ventana03Registro {
 
 	}
 	
+	/*
+	 * Metodo que crea los JTextField de la ventana
+	 */
 	private void crearCamposTexto() {
 		
 		txtDni = new JTextField();
@@ -207,6 +224,9 @@ public class Ventana03Registro {
 		
 	}
 	
+	/*
+	 * Metodo que crea los checkBox de la ventana
+	 */
 	private void crearCheckBox() {
 		
 		CheckHombre = new JCheckBox("H");
@@ -238,6 +258,9 @@ public class Ventana03Registro {
 			
 	}
 	
+	/*
+	 * Metodo que crea las etiquetas de la fecha y la hora
+	 */
 	public void crearFechaHora() {
 		
 		RSLabelFecha labelFecha = new RSLabelFecha();

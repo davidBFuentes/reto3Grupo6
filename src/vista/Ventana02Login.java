@@ -27,7 +27,9 @@ public class Ventana02Login {
 	private JPanel panel_1;
 	private JButton bOmitir;
 	
-	
+	/*
+	 * Constructor de la ventana de login
+	 */
 	public Ventana02Login() {
 	
 		crearVentana();
@@ -39,6 +41,9 @@ public class Ventana02Login {
 
 	}
 	
+	/*
+	 * Metodo que crea la ventana
+	 */
 	private void crearVentana() {
 		
 		
@@ -52,6 +57,9 @@ public class Ventana02Login {
 		
 	}
 	
+	/*
+	 * Metodo que crea los paneles de la ventana
+	 */
 	private void crearPaneles() {
 		
 		panel = new JPanel();
@@ -82,6 +90,9 @@ public class Ventana02Login {
 		
 	}
 	
+	/*
+	 * Metodo que crea los botones de la ventana
+	 */
 	private void crearBotones() {	
 		
 		bIdentificarse = new JButton("Iniciar sesi\u00F3n");
@@ -93,6 +104,9 @@ public class Ventana02Login {
 		bIdentificarse.setFont(new Font("Tahoma", Font.BOLD, 20));
 	}
 	
+	/*
+	 * Metodo que crea las etiquetas de la ventana
+	 */
 	private void crearEtiquetas() {
 		
 		JLabel lblDni = new JLabel("DNI");
@@ -110,6 +124,9 @@ public class Ventana02Login {
 		lblContrasena.setFont(new Font("Tahoma", Font.PLAIN, 50));
 	}
 	
+	/*
+	 * Metodo que crea los JTextField de la ventana
+	 */
 	private void crearCamposTexto() {
 		
 		txtContrasena = new JPasswordField();
@@ -138,7 +155,9 @@ public class Ventana02Login {
 		bRegistrarse.setFont(new Font("Tahoma", Font.BOLD, 20));
 	}
 	
-	
+	/*
+	 * Metodo que crea las etiquetas de la fecha y la hora
+	 */
 	public void crearFechaHora() {
 		
 		RSLabelFecha labelFecha = new RSLabelFecha();

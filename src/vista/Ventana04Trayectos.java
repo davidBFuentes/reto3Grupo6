@@ -34,6 +34,9 @@ public class Ventana04Trayectos {
 	private JPanel panel_1;
 	private JPanel panel_2;
 	
+	/*
+	 * Constructor de la ventana de trayectos
+	 */
 	public Ventana04Trayectos() {
 		
 		crearVentana();
@@ -45,6 +48,9 @@ public class Ventana04Trayectos {
 
 	}
 	
+	/*
+	 * Metodo que crea la ventana
+	 */
 	private void crearVentana() {
 		
 		frame = new JFrame();
@@ -56,6 +62,9 @@ public class Ventana04Trayectos {
 		frame.setLocationRelativeTo(null);
 	}
 	
+	/*
+	 * Metodo que crea los paneles de la ventana
+	 */
 	private void crearPaneles() {
 		
 		panel = new JPanel();
@@ -81,6 +90,9 @@ public class Ventana04Trayectos {
 	
 	}
 		
+	/*
+	 * Metodo que crea los botones de la ventana
+	 */
 	private void crearBotones() {
 		
 		btnContinuar = new JButton("Continuar");
@@ -105,6 +117,9 @@ public class Ventana04Trayectos {
 		
 	}
 	
+	/*
+	 * Metodo que crea las etiquetas de la ventana
+	 */
 	private void crearEtiquetas() {
 		
 		JLabel lblImagenFondo = new JLabel("");
@@ -114,6 +129,9 @@ public class Ventana04Trayectos {
 		
 	}
 
+	/*
+	 * Metodo que crea las etiquetas de la fecha y la hora
+	 */
 	public void crearFechaHora() {
 		
 		RSLabelFecha labelFecha = new RSLabelFecha();
@@ -128,6 +146,9 @@ public class Ventana04Trayectos {
 		
 	}
 	
+	/*
+	 * Metodo que crea el combobox de la ventana
+	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void crearCombobox() {
 		

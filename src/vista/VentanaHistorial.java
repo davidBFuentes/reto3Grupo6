@@ -34,6 +34,9 @@ public class VentanaHistorial {
 	private JButton btnSalir;
 	private JTextField textMensajeSinCompras;
 	
+	/*
+	 * Constructor de la Ventana Historial
+	 */
 	public VentanaHistorial() {
 		
 		crearVentana();
@@ -46,6 +49,9 @@ public class VentanaHistorial {
 		
 	}
 	
+	/*
+	 * Metodo que crea la ventana
+	 */
 	private void crearVentana() {
 		
 		frame = new JFrame();
@@ -57,7 +63,10 @@ public class VentanaHistorial {
 		frame.setLocationRelativeTo(null);
 		
 	}
-		
+	
+	/*
+	 * Metodo que crea los paneles de la ventana
+	 */
 	private void crearPaneles() {
 		
 		panel = new JPanel();
@@ -83,6 +92,9 @@ public class VentanaHistorial {
 		
 	}
 	
+	/*
+	 * Metodo que crea los botones de la ventana
+	 */
 	private void crearBotones() {
 		
 		btnVolver = new JButton("Volver");
@@ -93,7 +105,10 @@ public class VentanaHistorial {
 		panel_2.add(btnVolver);
 		
 	}
-			
+		
+	/*
+	 * Metodo que crea la tabla de la ventana
+	 */
 	private void crearTabla() {
 		
 		model = new DefaultTableModel();
@@ -107,6 +122,7 @@ public class VentanaHistorial {
 		table = new JTable();
 		table.setRowHeight(80);
 		table.setModel(model);
+
 		
 		table.getColumnModel().getColumn(0).setPreferredWidth(80);
 		table.getColumnModel().getColumn(1).setPreferredWidth(80);
@@ -131,9 +147,13 @@ public class VentanaHistorial {
 		table.getColumnModel().getColumn(4).setCellRenderer( centerRenderer );
 		table.getColumnModel().getColumn(5).setCellRenderer( centerRenderer );
 		table.setFont(new Font("Tahoma", Font.BOLD, 20));
+		table.setDefaultEditor(Object.class, null); 
 
 	}
 	
+	/*
+	 * Metodo que crea las etiquetas de la ventana
+	 */
 	private void crearEtiquetas() {
 		
 		JLabel lblImagen = new JLabel("");
@@ -158,6 +178,9 @@ public class VentanaHistorial {
 	
 	}
 	
+	/*
+	 * Metodo que crea los JtextField de la ventana
+	 */
 	private void crearTexto() {
 		
 		textMensajeSinCompras = new JTextField();
@@ -172,7 +195,9 @@ public class VentanaHistorial {
 	}
 	
 	
-	
+	/*
+	 * Metodo que crea las etiquetas de la fecha y la hora
+	 */
 	private void crearFechaHora() {
 		
 		RSLabelFecha labelFecha = new RSLabelFecha();

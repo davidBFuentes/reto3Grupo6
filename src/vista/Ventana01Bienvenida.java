@@ -21,6 +21,9 @@ public class Ventana01Bienvenida {
 	private JPanel panel;
 	private JButton btnVentana02;
 	
+	/*^
+	 * Contructor de la ventana de bienvenida
+	 */
 	public Ventana01Bienvenida() {
 		
 		crearVentana();
@@ -31,6 +34,9 @@ public class Ventana01Bienvenida {
 
 	}
 	
+	/*
+	 * Metodo que crea la ventana
+	 */
 	private void crearVentana() {
 		
 		frame = new JFrame();
@@ -43,6 +49,9 @@ public class Ventana01Bienvenida {
 		
 	}
 	
+	/*
+	 * Metodo que crea los paneles de la ventana
+	 */
 	private void crearPaneles() {
 		
 		panel = new JPanel();
@@ -61,6 +70,9 @@ public class Ventana01Bienvenida {
 	
 	}
 	
+	/*
+	 * Metodo que crea los botones de la ventana
+	 */
 	private void crearBotones() {
 		
 		btnVentana02 = new JButton("");
@@ -71,6 +83,9 @@ public class Ventana01Bienvenida {
 		
 	}
 	
+	/*
+	 * Metodo que crea las etiquetas de la ventana
+	 */
 	private void crearEtiquetas() {
 		
 		JLabel lblBienvenido = new JLabel("Bienvenido a Termibus ");
@@ -93,6 +108,9 @@ public class Ventana01Bienvenida {
 		
 	}
 	
+	/*
+	 * Metodo que crea las etiquetas de la fecha y la hora 
+	 */
 	public void crearFechaHora() {
 		
 		RSLabelFecha labelFecha = new RSLabelFecha();

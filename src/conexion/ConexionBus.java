@@ -12,8 +12,7 @@ import javax.swing.JOptionPane;
 public class ConexionBus {
 	
 	/**
-	 * Metodo que
-	 *  crea la conexion con la base de datos
+	 * Metodo que crea la conexion con la base de datos
 	 * @return Devuelve la conexion con la base de datos
 	 */
 	public static Connection conectar() {
@@ -31,10 +30,6 @@ public class ConexionBus {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-			
-				
-
-		
 		
 		String url = "jdbc:mysql://localhost:3306/reto3dam?user=" + usuario
 				                                     + "&password=" + password;

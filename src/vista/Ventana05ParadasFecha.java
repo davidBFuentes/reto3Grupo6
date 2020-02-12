@@ -54,6 +54,9 @@ public class Ventana05ParadasFecha {
 	
 	SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
 
+	/*
+	 * Constructor de la ventana 
+	 */
 	public Ventana05ParadasFecha(){
 		
 		crearVentana();

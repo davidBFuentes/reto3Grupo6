@@ -1,11 +1,11 @@
 Código Billete: 7
-Código Linea: A0652
-Código de autobús: 778
-Código de la parada de origen: 1372
-Parada de origen: SANDELOLLA 
-Código de la parada de destino: 1376
-Parada de destino: TRETO 
-Fecha: 2020-02-22
-Hora: 11:00
-DNI: null
-Precio: 1.17€
+Código Linea: A0651
+Código de autobús: 737
+Código de la parada de origen: 1207
+Parada de origen: LUSA 
+Código de la parada de destino: 1208
+Parada de destino: ARANGUREN 
+Fecha: 2020-02-14
+Hora: 07:35
+DNI: 72406034X
+Precio: 0.44€
