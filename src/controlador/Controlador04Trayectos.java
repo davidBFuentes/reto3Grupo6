@@ -16,6 +16,7 @@ import modelo.Linea;
 import vista.Ventana01Bienvenida;
 import vista.Ventana04Trayectos;
 import vista.Ventana05ParadasFecha;
+import vista.VentanaControlUsuario;
 
 public class Controlador04Trayectos implements MouseListener, MouseMotionListener, ActionListener {
 	
@@ -46,6 +47,8 @@ public class Controlador04Trayectos implements MouseListener, MouseMotionListene
 		this.ventanatrayectos.getBtnSalir().setName("Salir");
 		this.ventanatrayectos.getComboLineas().addActionListener(this);
 		this.ventanatrayectos.getComboLineas().setActionCommand("Combo");
+		this.ventanatrayectos.getBtnControlUsuario().addMouseListener(this);
+		this.ventanatrayectos.getBtnControlUsuario().setName("Control");
 		
 		ArrayList <Linea> listalineas = LineaDAO.mObtenerLineas();
 		
@@ -70,6 +73,7 @@ public class Controlador04Trayectos implements MouseListener, MouseMotionListene
 					linea = (Linea) this.ventanatrayectos.getComboLineas().getSelectedItem();
 					billete.setCod_Linea(linea.getCodLinea());
 					Ventana05ParadasFecha window = new Ventana05ParadasFecha();
+					@SuppressWarnings("unused")
 					Controlador05ParadasFecha controlador = new Controlador05ParadasFecha(window, linea, billete, cliente);
 					window.getFrame().setVisible(true);
 					this.ventanatrayectos.getFrame().dispose();
@@ -85,12 +89,18 @@ public class Controlador04Trayectos implements MouseListener, MouseMotionListene
 				
 			case "Salir":
 				Ventana01Bienvenida window2 = new Ventana01Bienvenida();
-				Controlador01Bienvenida controlador = new Controlador01Bienvenida(window2);
+				@SuppressWarnings("unused") Controlador01Bienvenida controlador = new Controlador01Bienvenida(window2);
 
 				window2.getFrame().setVisible(true);
 				this.ventanatrayectos.getFrame().dispose();
 				break;
-			
+				
+			case "Control":
+				VentanaControlUsuario window3 = new VentanaControlUsuario();
+				@SuppressWarnings("unused") ControladorControlUsuario controladorUsuario = new ControladorControlUsuario(window3, cliente, billete);
+				window3.getFrame().setVisible(true);
+				this.ventanatrayectos.getFrame().dispose();
+				break;
 		}
 		
 		

@@ -41,9 +41,9 @@ public class Fichero {
 			"Fecha: " + billete.getFecha() + "\n" +
 			"Hora: " + billete.getHora() + "\n" +
 			"DNI: " + billete.getDni() + "\n" +
-			"Precio: " + String.valueOf(billete.getPrecio()) + "€" + "\n" +
+			"Precio: " + String.valueOf(billete.getPrecio()) + " € \n" +
 			"\n" +
-			"Código Billete: " + String.valueOf(billete2.getCod_Billete()) + "\n " +
+			"Código Billete: " + String.valueOf(billete2.getCod_Billete()) + "\n" +
 			"Código Linea: " + billete2.getCod_Linea() + "\n" +
 			"Código de autobús: " + billete2.getCod_Bus() + "\n" +
 			"Código de la parada de origen: " + billete2.getCod_Parada_Inicio() + "\n" +

@@ -31,11 +31,19 @@ public class Controlador09Fin {
 	//Iniciamos el controlador
 	private void mIniciarControlador() {
 		
-		//le decimos que despues de 2 segundos vovlera a la ventana de inicio
+		if (municipioOrigen.getNombre().equals(municipioDestino.getNombre())) {
+			
+			this.ventanaFin.getLblMensaje1().setText("Disfrute de su viaje por " + municipioOrigen.getNombre());
+		} else {
+		
+			this.ventanaFin.getLblMensaje1().setText("Disfrute de su viaje de " + municipioOrigen.getNombre() + " a " + municipioDestino.getNombre() );
+		}
+		
+		//le decimos que despues de 4 segundos volverá a la ventana de inicio
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Thread.sleep(2000);
+					Thread.sleep(4000);
 					Ventana01Bienvenida window = new Ventana01Bienvenida();
 					@SuppressWarnings("unused")
 					Controlador01Bienvenida controlador = new Controlador01Bienvenida(window);
