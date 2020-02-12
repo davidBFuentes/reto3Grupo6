@@ -1,7 +1,6 @@
 package controlador;
 
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import vista.Ventana05ParadasFecha;
 
@@ -54,7 +53,7 @@ public class ErroresControlador {
 				(((LocalTime) ventanaParadasFecha.getComboBoxHorariosVuelta().getSelectedItem()).isBefore((LocalTime)ventanaParadasFecha.getComboBoxHorariosIda().getSelectedItem()) ||
 				((LocalTime) ventanaParadasFecha.getComboBoxHorariosVuelta().getSelectedItem()).equals(((LocalTime)ventanaParadasFecha.getComboBoxHorariosIda().getSelectedItem())))) {
 			
-			JOptionPane.showMessageDialog(null, "La hora de vuelta no puede ser la misma ni anterior a la de ida", "Mensaje de error", JOptionPane.ERROR_MESSAGE );
+			JOptionPane.showMessageDialog(null, "La hora de vuelta no puede ser ni la misma ni anterior a la de ida", "Mensaje de error", JOptionPane.ERROR_MESSAGE );
 		}
 		
 		else {

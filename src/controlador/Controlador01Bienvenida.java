@@ -40,7 +40,7 @@ public class Controlador01Bienvenida implements MouseListener {
 	}
 	
 	/**
-	 *Metodo que controla la acción de hacer click en la ventana, que lanza la siguiente ventana y oculta la actual.
+	 *Metodo que controla la acción de hacer click en la ventana, lanza la siguiente ventana y oculta la actual.
 	 */
 
 	@Override

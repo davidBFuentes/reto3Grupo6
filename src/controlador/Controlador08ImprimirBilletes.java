@@ -67,7 +67,7 @@ public class Controlador08ImprimirBilletes implements MouseListener  {
 		this.ventanaImprimirBilletes.getTxtFecha().setText(billete.getFecha());
 		this.ventanaImprimirBilletes.getTxtNAutobus().setText(billete.getCod_Bus());	
 		this.ventanaImprimirBilletes.getLblHora2().setText(billete.getHora());
-		this.ventanaImprimirBilletes.getLblPrecio2().setText(String.valueOf(Calculo.formatearPrecio1(billete.getPrecio())) + " €");
+		this.ventanaImprimirBilletes.getLblPrecio2().setText(String.valueOf(Calculo.formatearPrecio(billete.getPrecio())) + " €");
 		this.ventanaImprimirBilletes.getLblNBillete_2().setText(String.valueOf(billete.getCod_Billete())); 
 		
 		//en caso de que no tengamos billete de vuelta
@@ -81,11 +81,11 @@ public class Controlador08ImprimirBilletes implements MouseListener  {
 			//en caso de que hay billete de vuelta enseñaremos los datos del billete en vez de la imagen
 			this.ventanaImprimirBilletes.getLblImagen().setVisible(false);
 			this.ventanaImprimirBilletes.getPanel_5().setVisible(true);
-			this.ventanaImprimirBilletes.getLblNBilleteVuelta_2().setText(String.valueOf(Calculo.formatearPrecio1(billete2.getCod_Billete()))); 
+			this.ventanaImprimirBilletes.getLblNBilleteVuelta_2().setText(String.valueOf(billete2.getCod_Billete())); 
 			this.ventanaImprimirBilletes.getLblNAutobusVuelta2().setText(billete2.getCod_Bus());
 			this.ventanaImprimirBilletes.getLblFechaVuelta2().setText(billete2.getFecha()); 
 			this.ventanaImprimirBilletes.getLblHoraVuelta2().setText(billete2.getHora());
-			this.ventanaImprimirBilletes.getLblPrecioVuelta2().setText(String.valueOf(Calculo.formatearPrecio1(billete2.getPrecio())) + " €" );
+			this.ventanaImprimirBilletes.getLblPrecioVuelta2().setText(String.valueOf(Calculo.formatearPrecio(billete2.getPrecio())) + " €" );
 			
 		}
 	

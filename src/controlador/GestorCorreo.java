@@ -17,6 +17,9 @@ import modelo.Fichero;
 
 public class GestorCorreo {
 	
+	/*
+	 * Metodo que recibe la direccion de correo electronico y los billetes a mandar. Llama al metodo enviarConGmail y envia el correo
+	 */
 	public static void enviarCorreo(String correoElectronico, Billete billete, Billete billete2) throws AddressException {
 		
 		System.out.println(correoElectronico);
@@ -29,6 +32,10 @@ public class GestorCorreo {
 	    enviarConGMail(destinatario, asunto, cuerpo);
 		
 	}
+	
+	/*
+	 * Metodo que configura las opciones para enviar el correo
+	 */
 	public static void enviarConGMail(InternetAddress destinatario, String asunto, String cuerpo) {
 	    // Esto es lo que va delante de @gmail.com en tu cuenta de correo. Es el remitente también.
 	    String remitente = "reto3termibus@gmail.com";  //Para la dirección nomcuenta@gmail.com
@@ -59,6 +66,9 @@ public class GestorCorreo {
 	    }
 	}
 	
+	/*
+	 * Metodo que valida si el correo introducido es correcto
+	 */
 	public static boolean validarEmail(String pEmail) {
 		   // Patrón para validar el email
         Pattern pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");

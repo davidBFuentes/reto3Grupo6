@@ -1,30 +1,29 @@
 package vista;
 
-import javax.swing.JFrame;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.border.LineBorder;
-import javax.swing.JButton;
-
 import java.awt.Color;
 import java.awt.Font;
-import com.toedter.calendar.JDateChooser;
-
-import modelo.Parada;
-import rojeru_san.RSLabelFecha;
-import rojeru_san.RSLabelHora;
-import javax.swing.JCheckBox;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.LineBorder;
+
+import com.toedter.calendar.JDateChooser;
+
+import modelo.Parada;
+import rojeru_san.RSLabelFecha;
+import rojeru_san.RSLabelHora;
 
 
 public class Ventana05ParadasFecha {
@@ -150,6 +149,7 @@ public class Ventana05ParadasFecha {
 		
 	}
 		
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void crearComboBox() {
 		
 		cbxParadaOrigen = new JComboBox<Parada>();
@@ -363,6 +363,7 @@ public class Ventana05ParadasFecha {
 		}
 	}
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void rellenarComboBoxHorarios(ArrayList<LocalTime> horarios) {	
 		cbxHorariosIda.setModel(new DefaultComboBoxModel(new String[] {"Seleccione su hora de ida"}));
 

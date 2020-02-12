@@ -1,7 +1,5 @@
 package modelo;
 
-import java.util.Comparator;
-
 
 public class Parada implements Comparable<Parada> {
 	private int numParada;

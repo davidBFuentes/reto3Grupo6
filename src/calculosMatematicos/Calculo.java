@@ -176,11 +176,11 @@ public class Calculo {
 		//MathContext formatoPrecio = new MathContext(4, RoundingMode.HALF_UP);
 	
 		//Creamos un objeto Bigdecimal pasandole la variable a formatear y el formato creado previamente
-		BigDecimal precioFormateado = new BigDecimal(numeroSinFormatear);
+		BigDecimal numeroFormateado = new BigDecimal(numeroSinFormatear);
 		
-		precioFormateado.setScale(2, RoundingMode.HALF_UP);
+		numeroFormateado.setScale(2, RoundingMode.HALF_UP);
 		
-		return precioFormateado.doubleValue();
+		return numeroFormateado.doubleValue();
 		
 	}
 	

@@ -125,6 +125,7 @@ public class Ventana04Trayectos {
 		
 	}
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void crearCombobox() {
 		
 		comboLineas = new JComboBox<Linea>();

@@ -1,23 +1,11 @@
-Código Billete: 3
+Código Billete: 7
 Código Linea: A0652
-Código de autobús: 781
-Código de la parada de origen: 3721
-Parada de origen: LIGUETI 
-Código de la parada de destino: 1255
-Parada de destino: LA FLOR (EL PARAÍSO) 
-Fecha: 2020-02-13
-Hora: 10:20:00
-DNI: 16092745J
-Precio: 7.38
-
-Código Billete: 4
- Código Linea: A0652
-Código de autobús: 777
-Código de la parada de origen: 1255
-Parada de origen: LA FLOR (EL PARAÍSO) 
-Código de la parada de destino: 3721
-Parada de destino: LIGUETI 
-Fecha: 2020-02-13
-Hora: 10:30:00
-DNI: 16092745J
-Precio: 14.01
+Código de autobús: 778
+Código de la parada de origen: 1372
+Parada de origen: SANDELOLLA 
+Código de la parada de destino: 1376
+Parada de destino: TRETO 
+Fecha: 2020-02-22
+Hora: 11:00
+DNI: null
+Precio: 1.17€

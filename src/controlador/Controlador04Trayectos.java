@@ -7,8 +7,6 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 
-import javax.mail.MessagingException;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 import metodosDAO.LineaDAO;
@@ -59,6 +57,7 @@ public class Controlador04Trayectos implements MouseListener, MouseMotionListene
 	
 	}
 
+	@SuppressWarnings("unused")
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub

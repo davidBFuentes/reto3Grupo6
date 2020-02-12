@@ -7,7 +7,6 @@ import java.awt.event.MouseListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-import javax.mail.MessagingException;
 import javax.swing.JOptionPane;
 
 import metodosDAO.ClienteDAO;
