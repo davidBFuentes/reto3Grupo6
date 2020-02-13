@@ -1,6 +1,5 @@
 package metodosDAO;
 
-import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,29 +18,27 @@ public class ClienteDAO {
 	 * Metodo que hace una llamada ala base de datos y registra el cliente recibido como parametro
 	 */
 	public static boolean mRegistrarCliente(Cliente cliente) {
+		
 		boolean registrar = false;
 		
-		Connection con=null;
+		Connection co =null;
+		PreparedStatement stm= null;
 		
-
 		String sql = "INSERT INTO cliente (DNI, Nombre, Apellidos, Fecha_nac, Sexo, Contraseña) VALUES(?,?,?,?,?,?);"; 
 		
 		try {
-			con=ConexionBus.conectar();
-			
-		    CallableStatement cs = con.prepareCall(sql);
-		    
-		    cs.setString(1, cliente.getDni());
-		    cs.setString(2, cliente.getNombre());
-		    cs.setString(3, cliente.getApellido());
-		    cs.setString(4, cliente.getNacimiento());
-		    cs.setString(5, cliente.getSexo());
-		    cs.setString(6, cliente.getContrasena());
-		    
-		    cs.execute();
-			
-		
+			co= ConexionBus.conectar();
+			stm=co.prepareStatement(sql);
+			stm.setString(1, cliente.getDni());
+			stm.setString(2, cliente.getNombre());
+			stm.setString(3, cliente.getApellido());
+			stm.setString(4, cliente.getNacimiento());
+			stm.setString(5, cliente.getSexo());
+			stm.setString(6, cliente.getContrasena());
+			stm.execute();
 		    registrar=true;
+		    stm.close();
+			co.close();
 		    
 		} catch (SQLIntegrityConstraintViolationException e) {
 			JOptionPane.showMessageDialog(null, "Este DNI ya está registrado", "Mensaje de error", JOptionPane.ERROR_MESSAGE);

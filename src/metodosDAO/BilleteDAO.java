@@ -1,6 +1,5 @@
 package metodosDAO;
 
-import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,34 +17,30 @@ public class BilleteDAO {
 	public static boolean mRegistrarBillete(Billete billete) {
 		boolean registrar = false;
 		
-		Connection con=null;
+		Connection co =null;
+		PreparedStatement stm= null;
 		
-
+		
 		String sql = "INSERT INTO billete (Cod_Billete, Cod_Linea, Cod_Bus,	Cod_Parada_Inicio, Cod_Parada_Fin, Fecha, Hora, DNI, Precio" + 
 				") VALUES(?,?,?,?,?,?,?,?,?);"; 
 		
 		try {
-			con=ConexionBus.conectar();
-			
-		    CallableStatement cs = con.prepareCall(sql);
-		    
-		    cs.setInt(1, billete.getCod_Billete());
-		    cs.setString(2, billete.getCod_Linea());
-		    cs.setString(3, billete.getCod_Bus());
-		    cs.setInt(4, billete.getCod_Parada_Inicio());
-		    cs.setInt(5, billete.getCod_Parada_Fin());
-		    cs.setString(6, billete.getFecha());
-		    cs.setString(7, billete.getHora());
-		    cs.setString(8, billete.getDni());
-		    cs.setDouble(9, billete.getPrecio());
-		    
-		    
-		    cs.execute();
-			
-		
+			co= ConexionBus.conectar();
+			stm=co.prepareStatement(sql);
+		    stm.setInt(1, billete.getCod_Billete());
+		    stm.setString(2, billete.getCod_Linea());
+		    stm.setString(3, billete.getCod_Bus());
+		    stm.setInt(4, billete.getCod_Parada_Inicio());
+		    stm.setInt(5, billete.getCod_Parada_Fin());
+		    stm.setString(6, billete.getFecha());
+		    stm.setString(7, billete.getHora());
+		    stm.setString(8, billete.getDni());
+		    stm.setDouble(9, billete.getPrecio());
+		    stm.execute();
 		    registrar=true;
-		
-
+		    stm.close();
+			co.close();
+		    
 		} catch (SQLException e) {
 			System.out.println("Error: Clase Billete, método mRegistrarBillete");
 			e.printStackTrace();

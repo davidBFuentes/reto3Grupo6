@@ -33,14 +33,9 @@ public class ControladorHistorial implements MouseListener {
 		this.ventanaHistorial.getBtnSalir().addMouseListener(this);
 		this.ventanaHistorial.getBtnSalir().setName("Salir");
 		
-		if (cliente.getDni() == null) {
-			this.ventanaHistorial.getScrollPane().setVisible(false);
-			this.ventanaHistorial.getTextMensajeSinCompras().setText("Aún no ha comprado ningún billete");
-			
-		}
-		
 		ArrayList <Billete> listaBilletes = BilleteDAO.mObtenerBilletes(cliente);	
 		listaBilletes.toArray();
+		
 		for (int i = 0; i < (listaBilletes.size()); i++) {
 		      this.ventanaHistorial.getModel().addRow(new Object[] { 
 		    	  String.valueOf(listaBilletes.get(i).getCod_Billete()),
@@ -54,6 +49,12 @@ public class ControladorHistorial implements MouseListener {
 
 		    }
 		
+		if (listaBilletes.size() == 0) {
+			this.ventanaHistorial.getScrollPane().setVisible(false);
+			this.ventanaHistorial.getTextMensajeSinCompras().setText("Aún no ha comprado ningún billete");
+			
+		}
+			
 	}
 
 	@Override

@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 import conexion.ConexionBus;
@@ -14,7 +13,7 @@ public class LineaDAO {
 	
 	public static ArrayList<Linea> mObtenerLineas() {
 		Connection co =null;
-		Statement stm= null;
+		PreparedStatement stm= null;
 		ResultSet rs=null;
 		
 		String sql="SELECT cod_linea, upper(nombre) FROM linea;";
@@ -23,8 +22,8 @@ public class LineaDAO {
 		
 		try {			
 			co= ConexionBus.conectar();
-			stm=co.createStatement();
-			rs=stm.executeQuery(sql);
+			stm=co.prepareStatement(sql);
+			rs=stm.executeQuery();
 			while (rs.next()) {
 				Linea l=new Linea();
 				l.setCodLinea(rs.getString(1));
