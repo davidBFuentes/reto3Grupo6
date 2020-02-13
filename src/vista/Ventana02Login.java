@@ -70,6 +70,7 @@ public class Ventana02Login {
 		panel.setLayout(null);
 		
 		bOmitir = new JButton("Omitir");
+		bOmitir.setVisible(false);
 		bOmitir.setFont(new Font("Tahoma", Font.PLAIN, 69));
 		bOmitir.setBounds(415, 33, 406, 213);
 		panel.add(bOmitir);

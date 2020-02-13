@@ -4,7 +4,6 @@ public class ControladorVueltas {
 	public static String adevolver(double restante) {
 		//Función para la devolución exacta de dinero al cliente, calculando la cantidad de billetes y monedas
 		
-		
 		restante = Calculo.formatearPrecio(restante);
 		Double totaldevolver = (double) 0;
 		String devolver="Te sobra " + restante + "€ \n";
@@ -18,6 +17,8 @@ public class ControladorVueltas {
 				devolver = devolver + ("Devolver " + bmdevolver + " billete(s) de 500€ \n");
 			}
 			
+			restante = Calculo.formatearPrecio(restante);
+			
 			if (restante >= 200f) {
 				totaldevolver = restante / 200;
 				totaldevolver = (Math.floor(totaldevolver*1)/1);
@@ -25,6 +26,8 @@ public class ControladorVueltas {
 				restante = restante % 200;
 				devolver = devolver + ("Devolver " + bmdevolver + " billete(s) de 200€ \n");
 			}
+			
+			restante = Calculo.formatearPrecio(restante);
 			
 			if (restante >= 100f) {
 				totaldevolver = restante / 100;
@@ -35,6 +38,8 @@ public class ControladorVueltas {
 
 			}
 			
+			restante = Calculo.formatearPrecio(restante);
+			
 			if (restante >= 50f) {
 				totaldevolver = restante / 50;
 				totaldevolver =  (Math.floor(totaldevolver*1)/1);
@@ -44,6 +49,8 @@ public class ControladorVueltas {
 
 			}
 			
+			restante = Calculo.formatearPrecio(restante);
+			
 			if (restante >= 20f) {
 				totaldevolver = restante / 20;
 				totaldevolver = (Math.floor(totaldevolver*1)/1);
@@ -52,6 +59,7 @@ public class ControladorVueltas {
 				devolver = devolver + ("Devolver " + bmdevolver + " billete(s) de 20€ \n");
 
 			}
+			restante = Calculo.formatearPrecio(restante);
 			
 			if (restante >= 10f) {
 				totaldevolver = restante / 10;
@@ -62,6 +70,8 @@ public class ControladorVueltas {
 
 			}
 			
+			restante = Calculo.formatearPrecio(restante);
+			
 			if (restante >= 5f) {
 				totaldevolver = restante / 5;
 				totaldevolver = (Math.floor(totaldevolver*1)/1);
@@ -70,6 +80,8 @@ public class ControladorVueltas {
 				devolver = devolver + ("Devolver " + bmdevolver + " billete(s) de 5€ \n");
 
 			}
+			
+			restante = Calculo.formatearPrecio(restante);
 			
 			if (restante >= 2f) {
 				totaldevolver = restante / 2;
@@ -80,6 +92,8 @@ public class ControladorVueltas {
 
 			}
 			
+			restante = Calculo.formatearPrecio(restante);
+			
 			if (restante >= 1f) {
 				totaldevolver = restante / 1;
 				totaldevolver = (Math.floor(totaldevolver*1)/1);
@@ -87,6 +101,8 @@ public class ControladorVueltas {
 				restante = restante % 1;
 				devolver = devolver + ("Devolver " + bmdevolver + " moneda(s) de 1€ \n");
 			}
+			
+			restante = Calculo.formatearPrecio(restante);
 			
 			if (restante >= 0.50f) {
 				totaldevolver = restante / 0.50f;
@@ -96,6 +112,8 @@ public class ControladorVueltas {
 				devolver = devolver + ("Devolver " + bmdevolver + " moneda(s) de 0.50€ \n");
 
 			}
+			
+			restante = Calculo.formatearPrecio(restante);
 			
 			
 			if (restante >= 0.20f) {
@@ -107,6 +125,8 @@ public class ControladorVueltas {
 
 			}
 			
+			restante = Calculo.formatearPrecio(restante);
+			
 			if (restante >= 0.10f) {
 				totaldevolver = restante / 0.10f;
 				totaldevolver =  (Math.floor(totaldevolver*1)/1);
@@ -116,6 +136,8 @@ public class ControladorVueltas {
 
 			}
 			
+			restante = Calculo.formatearPrecio(restante);
+			
 			if (restante >= 0.05f) {
 				totaldevolver = restante / 0.05f;
 				totaldevolver =  (Math.floor(totaldevolver*1)/1);
@@ -123,6 +145,8 @@ public class ControladorVueltas {
 				restante = restante % 0.05f;
 				devolver = devolver + ("Devolver " + bmdevolver + " moneda(s) de 0.05€ \n");
 			}
+			
+			restante = Calculo.formatearPrecio(restante);
 			
 			if (restante >= 0.02f) {
 				totaldevolver = restante / 0.02f;
@@ -132,6 +156,8 @@ public class ControladorVueltas {
 				devolver = devolver + ("Devolver " + bmdevolver + " moneda(s) de 0.02€ \n");
 
 			}
+			
+			restante = Calculo.formatearPrecio(restante);
 			
 			if (restante >= 0.01f) {
 				totaldevolver = restante / 0.01f;
