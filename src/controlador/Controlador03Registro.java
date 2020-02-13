@@ -22,15 +22,19 @@ public class Controlador03Registro implements MouseListener, KeyListener {
 
 	private Ventana03Registro ventana03registro;
 	
-	// Constructor del controlador, que recibe los elementos de la ventana.
-
+	/**
+	 * Constructor del controlador, que recibe los elementos de la ventana.
+	 * @param pVentana02
+	 */
 	public Controlador03Registro(Ventana03Registro pVentana02) {
 
 		this.ventana03registro = pVentana02;
 		mInicializarControlador();
 	}
 	
-	// Se añaden listeners a los botones y se les da nombre para identificarlos.
+	/**
+	 *  Método que añade los listeners a los botones y les da nombre para identificarlos.
+	 */
 	
 	private void mInicializarControlador() {
 
@@ -51,7 +55,7 @@ public class Controlador03Registro implements MouseListener, KeyListener {
 		this.ventana03registro.getTxtFechaNacimiento().addKeyListener(this);
 		this.ventana03registro.getTxtFechaNacimiento().setName("Nacimiento");
 	}
-
+	
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
@@ -77,7 +81,7 @@ public class Controlador03Registro implements MouseListener, KeyListener {
 			
 			ValidadorDni dni = new ValidadorDni(this.ventana03registro.getTxtDni().getText());
 			
-			// Para que el registro se realice todos los campos tienen que estar 
+			// Para que el registro se realice ningún campo tiene que estar vacío y el Dni ha de ser válido
 			
 			if (this.ventana03registro.getTxtDni().getText().length() != 0
 			&& this.ventana03registro.getTxtNombre().getText().length() != 0
@@ -93,6 +97,7 @@ public class Controlador03Registro implements MouseListener, KeyListener {
 			&& dni.validar()
 			&& validarFecha(this.ventana03registro.getTxtFechaNacimiento().getText())) {
 				   
+				// Si las condiciones se cumplen se crea un objeto cliente con la información introducida por el usuario y se registra en la base de datos
 				
 					Cliente cliente;
 	
@@ -121,7 +126,9 @@ public class Controlador03Registro implements MouseListener, KeyListener {
 						this.ventana03registro.getFrame().dispose();
 					}
 					
-
+			// En el caso de que no se pueda realizar el registro los siguientes ifs dan distintos mensajes de error
+			// dependiendo de la razón
+					
 			} else {
 				
 				if (this.ventana03registro.getTxtDni().getText().length() == 0
@@ -186,6 +193,9 @@ public class Controlador03Registro implements MouseListener, KeyListener {
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
 		
+		// Cada vez que se pulsa una tecla hay que pasar por este switch. Si el campo de texto tiene ya una cantidad de carácteres
+		// determinada, la acción se descarta. De esta manera se limita la cantidad de texto que se puede escribir en un campo.
+		
 		e.getComponent().getName();
 		
 		switch (e.getComponent().getName()) {
@@ -241,7 +251,14 @@ public class Controlador03Registro implements MouseListener, KeyListener {
 		
 	}
 	
+	/**
+	 *  Método que valida si la fecha introducida tiene formato correcto.
+	 * @param fecha
+	 * @return
+	 */
+	
 	public static boolean validarFecha(String fecha) {
+		
         try {
             SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy/MM/dd");
             formatoFecha.setLenient(false);
