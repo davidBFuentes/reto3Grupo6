@@ -8,6 +8,9 @@ import vista.Ventana01Bienvenida;
 
 public class Main {
 
+	/*
+	 * Metodo principal de la aplicacion
+	 */
 	public static void main(String[] args) throws AddressException, MessagingException {
 		// TODO Auto-generated method stub
 		

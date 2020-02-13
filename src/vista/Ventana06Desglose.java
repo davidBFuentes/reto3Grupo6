@@ -42,6 +42,9 @@ public class Ventana06Desglose{
 	private JLabel lblHora2;
 	private JLabel lblPrecio2;
 	
+	/* 
+	 * Constructor de la ventana de desglose
+	 */
 	public Ventana06Desglose() {
 		
 		crearVentana();
@@ -53,6 +56,9 @@ public class Ventana06Desglose{
 			
 	}
 	
+	/*
+	 * Metodo que crea la ventana
+	 */
 	private void crearVentana() {
 		Ventana06Desglose = new JFrame();
 		Ventana06Desglose.setResizable(false);
@@ -63,6 +69,9 @@ public class Ventana06Desglose{
 		Ventana06Desglose.setLocationRelativeTo(null);
 	}
 	
+	/*
+	 * Metodo que crea los paneles de la ventana
+	 */
 	private void crearPaneles() {
 		
 		panel_4 = new JPanel();
@@ -109,6 +118,9 @@ public class Ventana06Desglose{
 		
 	}
 	
+	/*
+	 * Metodo que crea los botones de la ventana
+	 */
 	private void crearBotones() {
 		
 		btnVolver = new JButton("Volver");
@@ -130,6 +142,9 @@ public class Ventana06Desglose{
 		panel_2.add(btnSalir);
 	}
 	
+	/*
+	 * Metodo que crea las etiquetas de la ventana
+	 */
 	private void crearEtiquetas() {
 		
 		JLabel lblDatosPasajero = new JLabel("Datos del pasajero");
@@ -291,6 +306,9 @@ public class Ventana06Desglose{
 		
 	}
 		
+	/*
+	 * Metodo que crea los JTextField de la ventana
+	 */
 	private void crearCamposTexto() {
 		
 		txtDNI = new JTextField();
@@ -365,6 +383,9 @@ public class Ventana06Desglose{
 		
 	}
 	
+	/*
+	 * Metodo que crea las etiquetas de la fecha y la hora
+	 */
 	public void crearFechaHora() {
 		
 		RSLabelHora labelHora = new RSLabelHora();

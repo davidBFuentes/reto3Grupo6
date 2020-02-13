@@ -39,7 +39,7 @@ public class Ventana03Registro {
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private JTextField txtFormatoFecha;
 	
-	/*
+	/**
 	 * Constructor de la ventana de registro
 	 */
 	public Ventana03Registro() {
@@ -52,7 +52,7 @@ public class Ventana03Registro {
 		crearFechaHora();
 	}
 		
-	/*
+	/**
 	 * Metodo que crea la ventana
 	 */
 	private void crearVentana() {
@@ -66,7 +66,7 @@ public class Ventana03Registro {
 		frame.setLocationRelativeTo(null);
 	}
 	
-	/*
+	/**
 	 * Metodo que crea los paneles de la ventana
 	 */
 	private void crearPaneles() {
@@ -94,7 +94,7 @@ public class Ventana03Registro {
 
 	}
 	
-	/*
+	/**
 	 * Metodo que crea los botones de la ventana
 	 */
 	private void crearBotones() {
@@ -114,7 +114,7 @@ public class Ventana03Registro {
 		btnRegistrarse.setFont(new Font("Tahoma", Font.BOLD, 20));
 	}
 	
-	/*
+	/**
 	 * Metodo que crea las etiquetas de la ventana
 	 */
 	private void crearEtiquetas() {
@@ -169,7 +169,7 @@ public class Ventana03Registro {
 
 	}
 	
-	/*
+	/**
 	 * Metodo que crea los JTextField de la ventana
 	 */
 	private void crearCamposTexto() {
@@ -224,7 +224,7 @@ public class Ventana03Registro {
 		
 	}
 	
-	/*
+	/**
 	 * Metodo que crea los checkBox de la ventana
 	 */
 	private void crearCheckBox() {
@@ -258,7 +258,7 @@ public class Ventana03Registro {
 			
 	}
 	
-	/*
+	/**
 	 * Metodo que crea las etiquetas de la fecha y la hora
 	 */
 	public void crearFechaHora() {
@@ -274,90 +274,178 @@ public class Ventana03Registro {
 		labelHora.setForeground(Color.BLACK);
 	}
 
+	/**
+	 * Metodo que devuelve el JFrame frame
+	 * @return frame
+	 */
 	public JFrame getFrame() {
 		return frame;
 	}
 
+	/**
+	 * Metodo que establece el atributo frame como el JFrame que recibe como parametro
+	 * @param frame
+	 */
 	public void setFrame(JFrame frame) {
 		this.frame = frame;
 	}
 
+	/**
+	 * Metodo que devuelve el JTextField txtDni
+	 * @return txtDni
+	 */
 	public JTextField getTxtDni() {
 		return txtDni;
 	}
 
+	/**
+	 * Metodo que establece el atributo txtDni como el JTextField que recibe como parametro
+	 * @param txtDni
+	 */
 	public void setTxtDni(JTextField txtDni) {
 		this.txtDni = txtDni;
 	}
 
+	/**
+	 * Metodo que devuelve el JTextField txtNombre
+	 * @return txtNombre
+	 */
 	public JTextField getTxtNombre() {
 		return txtNombre;
 	}
 
+	/**
+	 * Metodo que establece el atributo txtNombre como el JTextField que recibe como parametro
+	 * @param txtNombre
+	 */
 	public void setTxtNombre(JTextField txtNombre) {
 		this.txtNombre = txtNombre;
 	}
 
+	/**
+	 * Metodo que devuelve el JTextField txtApelllido
+	 * @return txtApellido
+	 */
 	public JTextField getTxtApellido() {
 		return txtApellido;
 	}
 
+	/**
+	 * Metodo que establece el atributo txtApellido como el JTextField que recibe como parametro
+	 * @param txtApellido
+	 */
 	public void setTxtApellido(JTextField txtApellido) {
 		this.txtApellido = txtApellido;
 	}
 
+	/**
+	 * Metodo que devuelve el JPasswordField passContrasena
+	 * @return passContrasena
+	 */
 	public JPasswordField getPassContrasena() {
 		return passContrasena;
 	}
 
+	/**
+	 * Metodo que establece el atributo passContrasena como el JPasswordField que recibe como parametro
+	 * @param passContrasena
+	 */
 	public void setPassContrasena(JPasswordField passContrasena) {
 		this.passContrasena = passContrasena;
 	}
 
+	/**
+	 * Metodo que devuelve el JPasswordField passContrasena2
+	 * @return frame
+	 */
 	public JPasswordField getPassContrasena2() {
 		return passContrasena2;
 	}
 
+	/**
+	 * Metodo que establece el atributo passContrasena2 como el JPasswordField que recibe como parametro
+	 * @param passContrasena2
+	 */
 	public void setPassContrasena2(JPasswordField passContrasena2) {
 		this.passContrasena2 = passContrasena2;
 	}
 
+	/**
+	 * Metodo que devuelve el JButton btnRegistrarse
+	 * @return btnRegistrarse
+	 */
 	public JButton getBtnRegistrarse() {
 		return btnRegistrarse;
 	}
 
+	/**
+	 * Metodo que establece el atributo btnRegistrarse como el JButton que recibe como parametro
+	 * @param btnRegistrarse
+	 */
 	public void setBtnRegistrarse(JButton btnRegistrarse) {
 		this.btnRegistrarse = btnRegistrarse;
 	}
 
+	/**
+	 * Metodo que devuelve el JButton btnSalir
+	 * @return btnSalir
+	 */
 	public JButton getBtnSalir() {
 		return btnSalir;
 	}
 
+	/**
+	 * Metodo que establece el atributo btnSalir como el JButton que recibe como parametro
+	 * @param btnSalir
+	 */
 	public void setBtnSalir(JButton btnSalir) {
 		this.btnSalir = btnSalir;
 	}
 
+	/**
+	 * Metodo que devuelve el CheckBox CheckHombre
+	 * @return frame
+	 */
 	public JCheckBox getCheckHombre() {
 		return CheckHombre;
 	}
 
+	/**
+	 * Metodo que establece el atributo CheckHombre como el JCheckBox que recibe como parametro
+	 * @param CheckHombre
+	 */
 	public void setCheckHombre(JCheckBox checkHombre) {
 		CheckHombre = checkHombre;
 	}
-
+	
+	/**
+	 * Metodo que devuelve el JCheckBox CheckMujer
+	 * @return frame
+	 */
 	public JCheckBox getCheckMujer() {
 		return CheckMujer;
 	}
 
+	/**
+	 * Metodo que establece el atributo CheckMujer como el JCheckBoX que recibe como parametro
+	 * @param CheckMujer
+	 */
 	public void setCheckMujer(JCheckBox checkMujer) {
 		CheckMujer = checkMujer;
 	}
 
+	/**
+	 * Metodo que devuelve el JTextField txtFechaNacimiento
+	 * @return txtFechaNacimiento
+	 */
 	public JTextField getTxtFechaNacimiento() {
 		return txtFechaNacimiento;
 	}
 
+	/**
+	 * Metodo que establece el atributo txtFechaNacimiento como el JTextField que recibe como parametro
+	 * @param txtFechaNacimiento
+	 */
 	public void setTxtFechaNacimiento(JTextField txtFechaNacimiento) {
 		this.txtFechaNacimiento = txtFechaNacimiento;
 	}

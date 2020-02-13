@@ -40,20 +40,27 @@ public class ErroresControlador {
 			
 			JOptionPane.showMessageDialog(null, "Ha de seleccionar un horario de ida para continuar", "Mensaje de error", JOptionPane.ERROR_MESSAGE);
 		}
-		else if(ventanaParadasFecha.getCheckBox().isSelected() && ventanaParadasFecha.getFechaVuelta() == null) {
+		else if(ventanaParadasFecha.getCheckBox().isSelected()){ 
 			
-			JOptionPane.showMessageDialog(null, "Ha de seleccionar una fecha de vuelta para continuar", "Mensaje de error", JOptionPane.ERROR_MESSAGE);				
-		}
-		else if(ventanaParadasFecha.getCheckBox().isSelected() && ventanaParadasFecha.getComboBoxHorariosVuelta().getSelectedIndex() == 0) {
+			if (ventanaParadasFecha.getFechaVuelta() == null) {
 			
-			JOptionPane.showMessageDialog(null, "Ha de seleccionar un horario de vuelta para continuar", "Mensaje de error", JOptionPane.ERROR_MESSAGE);
-		}
-		else if (ventanaParadasFecha.getCheckBox().isSelected() &&
-				ventanaParadasFecha.getFechaIda().equals(ventanaParadasFecha.getFechaVuelta()) && 
+				JOptionPane.showMessageDialog(null, "Ha de seleccionar una fecha de vuelta para continuar", "Mensaje de error", JOptionPane.ERROR_MESSAGE);				
+			}
+		
+			else if(ventanaParadasFecha.getComboBoxHorariosVuelta().getSelectedIndex() == 0) {
+			
+				JOptionPane.showMessageDialog(null, "Ha de seleccionar un horario de vuelta para continuar", "Mensaje de error", JOptionPane.ERROR_MESSAGE);
+			}
+			
+			else if (ventanaParadasFecha.getFechaIda().equals(ventanaParadasFecha.getFechaVuelta()) && 
 				(((LocalTime) ventanaParadasFecha.getComboBoxHorariosVuelta().getSelectedItem()).isBefore((LocalTime)ventanaParadasFecha.getComboBoxHorariosIda().getSelectedItem()) ||
 				((LocalTime) ventanaParadasFecha.getComboBoxHorariosVuelta().getSelectedItem()).equals(((LocalTime)ventanaParadasFecha.getComboBoxHorariosIda().getSelectedItem())))) {
 			
-			JOptionPane.showMessageDialog(null, "La hora de vuelta no puede ser ni la misma ni anterior a la de ida", "Mensaje de error", JOptionPane.ERROR_MESSAGE );
+				JOptionPane.showMessageDialog(null, "La hora de vuelta no puede ser ni la misma ni anterior a la de ida", "Mensaje de error", JOptionPane.ERROR_MESSAGE );
+			}
+			else {
+				error = false;
+			}
 		}
 		
 		else {

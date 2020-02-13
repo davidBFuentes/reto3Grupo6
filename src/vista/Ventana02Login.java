@@ -27,7 +27,7 @@ public class Ventana02Login {
 	private JPanel panel_1;
 	private JButton bOmitir;
 	
-	/*
+	/**
 	 * Constructor de la ventana de login
 	 */
 	public Ventana02Login() {
@@ -41,7 +41,7 @@ public class Ventana02Login {
 
 	}
 	
-	/*
+	/**
 	 * Metodo que crea la ventana
 	 */
 	private void crearVentana() {
@@ -57,7 +57,7 @@ public class Ventana02Login {
 		
 	}
 	
-	/*
+	/**
 	 * Metodo que crea los paneles de la ventana
 	 */
 	private void crearPaneles() {
@@ -90,7 +90,7 @@ public class Ventana02Login {
 		
 	}
 	
-	/*
+	/**
 	 * Metodo que crea los botones de la ventana
 	 */
 	private void crearBotones() {	
@@ -104,7 +104,7 @@ public class Ventana02Login {
 		bIdentificarse.setFont(new Font("Tahoma", Font.BOLD, 20));
 	}
 	
-	/*
+	/**
 	 * Metodo que crea las etiquetas de la ventana
 	 */
 	private void crearEtiquetas() {
@@ -155,7 +155,7 @@ public class Ventana02Login {
 		bRegistrarse.setFont(new Font("Tahoma", Font.BOLD, 20));
 	}
 	
-	/*
+	/**
 	 * Metodo que crea las etiquetas de la fecha y la hora
 	 */
 	public void crearFechaHora() {
@@ -171,26 +171,50 @@ public class Ventana02Login {
 		labelHora.setForeground(Color.BLACK);
 	}
 
+	/**
+	 * Metodo que devuelve el JTextField txtDni 
+	 * @return txtDni
+	 */
 	public JTextField getTxtDni() {
 		return txtDni;
 	}
 
+	/**
+	 * Metodo que establece el atributo txtDni como el JTextField que recibe como parametro
+	 * @param txtDni
+	 */
 	public void setTxtDni(JTextField txtDni) {
 		this.txtDni = txtDni;
 	}
 
+	/**
+	 * Metodo que devuelve el JPasswordField txtContrasena
+	 * @return txtContrasena
+	 */
 	public JPasswordField getTxtContrasena() {
 		return txtContrasena;
 	}
 
+	/**
+	 * Metodo que establece el atributo txtContrasena como el JPasswordField que recibe como parametro 
+	 * @param txtContrasena
+	 */
 	public void setTxtContrasena(JPasswordField txtContrasena) {
 		this.txtContrasena = txtContrasena;
 	}
 
+	/**
+	 * Metodo que devuelve el JButton bIdentificarse
+	 * @return
+	 */
 	public JButton getbIdentificarse() {
 		return bIdentificarse;
 	}
 
+	/**
+	 * Metodo que establece el atributo bIdentificarse como el JButton que recibe como parametro
+	 * @param bIdentificarse
+	 */
 	public void setbIdentificarse(JButton bIdentificarse) {
 		this.bIdentificarse = bIdentificarse;
 	}
@@ -203,18 +227,34 @@ public class Ventana02Login {
 		this.bOmitir = bOmitir;
 	}
 
+	/**
+	 * Metodo que devuelve el JButton bRegistrarse
+	 * @return bRegistrarse
+	 */
 	public JButton getbRegistrarse() {
 		return bRegistrarse;
 	}
 
+	/**
+	 * Metodo que establece el atributo bRegistrarse como el JButton que recibe como parametro
+	 * @param bRegistrarse
+	 */
 	public void setbRegistrarse(JButton bRegistrarse) {
 		this.bRegistrarse = bRegistrarse;
 	}
 
+	/**
+	 * Metodo que devuelve el JFrame getLogin
+	 * @return getLogin
+	 */
 	public JFrame getLogin() {
 		return frame;
 	}
-
+	
+	/**
+	 * Metodo que establece el atributo login como el JFrame que recibe como parametro
+	 * @param login
+	 */
 	public void setLogin(JFrame login) {
 		this.frame = login;
 	}

@@ -28,6 +28,9 @@ public class VentanaControlUsuario {
 	private JButton btnPerfil;
 	private JLabel lblImagenFondo;
 	
+	/*
+	 * Constructor de la ventana de control de usuario
+	 */
 	public VentanaControlUsuario() {
 		
 		crearVentana();
@@ -37,6 +40,9 @@ public class VentanaControlUsuario {
 		
 	}
 
+	/*
+	 * Metodo que crea la ventana
+	 */
 	private void crearVentana() {
 		
 		frame = new JFrame();
@@ -49,6 +55,9 @@ public class VentanaControlUsuario {
 		
 	}
 	
+	/*
+	 * Metodo que crea los paneles de la ventana
+	 */
 	private void crearPaneles() {
 		
 		panel = new JPanel();
@@ -74,6 +83,9 @@ public class VentanaControlUsuario {
 		
 	}
 	
+	/*
+	 * Metodo que crea los botones de la ventana
+	 */
 	private void crearBotones() {
 		
 		btnVolver = new JButton("Volver");
@@ -125,6 +137,9 @@ public class VentanaControlUsuario {
 		
 	}
 	
+	/*
+	 * Metodo que crea las etiquetas de la fecha y la hora
+	 */
 	public void crearFechaHora() {
 		
 		RSLabelFecha labelFecha = new RSLabelFecha();

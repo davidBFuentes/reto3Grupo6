@@ -53,9 +53,10 @@ public class Ventana05ParadasFecha {
 	
 	
 	SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+	
 
 	/*
-	 * Constructor de la ventana 
+	 * Constructor de la ventana paradas fecha
 	 */
 	public Ventana05ParadasFecha(){
 		
@@ -69,6 +70,9 @@ public class Ventana05ParadasFecha {
 		crearFechaHora();
 	}
 	
+	/*
+	 * Metodo que crea la ventana
+	 */
 	private void crearVentana() {
 		
 		frame = new JFrame();
@@ -82,6 +86,9 @@ public class Ventana05ParadasFecha {
 				
 	}
 	
+	/*
+	 * Metodo que crea los paneles de la ventana
+	 */
 	private void crearPaneles() {
 		
 		panel = new JPanel();
@@ -121,6 +128,9 @@ public class Ventana05ParadasFecha {
 		
 	}
 	
+	/*
+	 * Metodo que crea los botones de la ventana
+	 */
 	private void crearBotones() {
 		
 		btnProcederAlPago = new JButton("Proceder al pago");
@@ -143,6 +153,9 @@ public class Ventana05ParadasFecha {
 		
 	}
 	
+	/*
+	 * Metodo que crea las etiquetas de la ventana
+	 */
 	private void crearEtiquetas(){
 		
 		JLabel lblFondoVentana05 = new JLabel("");
@@ -152,6 +165,9 @@ public class Ventana05ParadasFecha {
 		
 	}
 		
+	/*
+	 * Metodo que crea los combobox de la ventana
+	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void crearComboBox() {
 		
@@ -186,6 +202,9 @@ public class Ventana05ParadasFecha {
 		
 	}
 	
+	/**
+	 * Metodo que crea los calendarios de la ventana
+	 */
 	private void crearCalendarios() {
 		
 		/*Otra forma de obtener SYSDATE
@@ -219,6 +238,9 @@ public class Ventana05ParadasFecha {
 		dateChooserVuelta.setMaxSelectableDate(maxDate);	
 	}
 	
+	/**
+	 * Metodo que crea el checkbox de vuelta
+	 */
 	private void crearCheckBox() {
 		
 		chkbxIdaYVuelta= new JCheckBox("A\u00F1adir vuelta");
@@ -228,7 +250,10 @@ public class Ventana05ParadasFecha {
 		chkbxIdaYVuelta.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		
 	}
-		
+	
+	/**
+	 * Metodo que crea la etiqueta de la fecha y la hora
+	 */
 	private void crearFechaHora() {
 		
 		RSLabelHora labelHora = new RSLabelHora();
@@ -240,15 +265,16 @@ public class Ventana05ParadasFecha {
 		labelFecha.setForeground(Color.BLACK);
 		labelFecha.setBounds(29, 0, 100, 30);
 		frame.getContentPane().add(labelFecha);
-		
-
 	}
-	
 	
 	public JFrame getFrame() {
 		return frame;
 	}
 
+	/**
+	 * Metodo que establece el atributo frame como el JFrame que recibe como parametro
+	 * @param frame
+	 */
 	public void setFrame(JFrame frame) {
 		this.frame = frame;
 	}
@@ -257,6 +283,10 @@ public class Ventana05ParadasFecha {
 		return btnSalir;
 	}
 
+	/**
+	 * Metodo que establece el atributo btnSalir como el JButton que recibe como parametro
+	 * @param btnSalir
+	 */
 	public void setBtnSalir(JButton btnSalir) {
 		this.btnSalir = btnSalir;
 	}
@@ -265,6 +295,10 @@ public class Ventana05ParadasFecha {
 		return btnProcederAlPago;
 	}
 
+	/**
+	 * Metodo que establece el atributo btnProcederAlPago como el JButton que recibe como parametro
+	 * @param btnProcederAlPago
+	 */
 	public void setBtnProcederAlPago(JButton btnProcedeerAlPago) {
 		this.btnProcederAlPago = btnProcedeerAlPago;
 	}
@@ -283,32 +317,58 @@ public class Ventana05ParadasFecha {
 		return cbxParadaDestino;
 	}
 	
-	
+	/**
+	 * Metodo que devuelve el JDateChooser dateChooserIda
+	 * @return dateChooserIda
+	 */
 	public JDateChooser getDateChooserIda() {
 		return dateChooserIda;
 	}
 	
+	/**
+	 * Metodo que devuelve el JDateChooser dateChooserVuelta
+	 * @return dateChooserVuelta
+	 */
 	public JDateChooser getDateChooserVuelta() {
 		return dateChooserVuelta;
 	}
 	
-
+	/**
+	 * Metodo que devuelve el JComboBox<LocalTime> cbxHorariosIda
+	 * @return cbxHorariosIda
+	 */
 	public JComboBox<LocalTime> getComboBoxHorariosIda() {
 		return cbxHorariosIda;
 	}
 
+	/**
+	 * Metodo que establece el atributo horarios como el JComboBox<LocalTime> que recibe como parametro
+	 * @param horarios
+	 */
 	public void setComboBoxHorariosIda(JComboBox<LocalTime> horarios) {
 		cbxHorariosIda = horarios;
 	}
 
+	/**
+	 * Metodo que devuelve el JComboBox<LocalTime> cbxHorariosVuelta
+	 * @return cbxHorariosVuelta
+	 */
 	public JComboBox<LocalTime> getComboBoxHorariosVuelta() {
 		return cbxHorariosVuelta;
 	}
 
+	/**
+	 * Metodo que establece el atributo cbxHorariosVuelta como el JComboBox que recibe como parametro
+	 * @param cbxHorariosVuelta
+	 */
 	public void setComboBoxHorariosVuelta(JComboBox<LocalTime> cbxHorariosVuelta) {
 		this.cbxHorariosVuelta = cbxHorariosVuelta;
 	}
 	
+	/**
+	 * Metodo que devuelve la fecha seleccionada en el dateChooserIda
+	 * @return fechaIda
+	 */
 	public String getFechaIda() {
 			
 		try{
@@ -324,38 +384,46 @@ public class Ventana05ParadasFecha {
 		return fechaIda;
 				
 	}
-		
+	
+	/**
+	 * Metodo que devuelve la fecha seleccionada en el dateChooserVuelta
+	 * @return fechaVuelta
+	 */
 	public String getFechaVuelta() {
 			
 		try{
 			
 			fechaVuelta = formatoFecha.format(dateChooserVuelta.getDate());
 		}
-		
-			catch(NullPointerException e){
+		catch(NullPointerException e){
 			return null;
 		}
 		
-		return fechaVuelta;
-				
+		return fechaVuelta;		
 	}
 
+	/**
+	 * Metodo que devuelve el JButton btnVolver
+	 * @return btnVolver
+	 */
 	public JButton getBtnVolver() {
 		
 		return btnVolver;
 	}
 
+	/**
+	 * Metodo que establece el atributo btnVolver como el JButton btnVolver que recibe como parametro
+	 * @param btnVolver
+	 */
 	public void setBtnVolver(JButton btnVolver) {
 		
 		this.btnVolver = btnVolver;
 	}
 	/**
 	 * Metodo para rellenar los combobox a mostrar
-	 * @param listaparadas
-	 * @param horarios
+	 * @param ArrayList<Parada> listaparadas
 	 */
 	public void rellenarComboBoxParadas(ArrayList<Parada> listaparadas) {
-		
 		
 		for (Parada parada : listaparadas) {
 			getComboBoxParadaOrigen().addItem(parada);
@@ -366,17 +434,19 @@ public class Ventana05ParadasFecha {
 		}
 	}
 	
+	/**
+	 * Metodo que rellena los combobox con los horarios del trayecto seleccionado
+	 * @param ArrayList<LocalTime> horarios
+	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void rellenarComboBoxHorarios(ArrayList<LocalTime> horarios) {	
 		cbxHorariosIda.setModel(new DefaultComboBoxModel(new String[] {"Seleccione su hora de ida"}));
 
-		//getComboBoxHorariosIda().addItem("Seleccione hora de ida");
 		for(LocalTime horario: horarios) {
 			getComboBoxHorariosIda().addItem(horario);
 		}
 		cbxHorariosVuelta.setModel(new DefaultComboBoxModel(new String[] {"Seleccione su hora de vuelta"}));
 
-		//getComboBoxHorariosVuelta().addItem("Seleccione hora de vuelta");
 		for(LocalTime horario: horarios) {
 			getComboBoxHorariosVuelta().addItem(horario);
 		}

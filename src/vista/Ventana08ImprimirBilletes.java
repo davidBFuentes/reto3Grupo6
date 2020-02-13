@@ -46,6 +46,9 @@ public class Ventana08ImprimirBilletes {
 	private JLabel lblNBilleteVuelta_2;
 	private JTextField txtFldCorreo;
 	
+	/*
+	 * Constructor de la ventana de imprimir billetes
+	 */
 	public Ventana08ImprimirBilletes () {
 		
 		crearVentana();
@@ -57,6 +60,9 @@ public class Ventana08ImprimirBilletes {
 			
 	}
 	
+	/*
+	 * Metodo que crea la ventana
+	 */
 	private void crearVentana() {
 		ventana08ImprimirBilletes = new JFrame();
 		ventana08ImprimirBilletes.setResizable(false);
@@ -67,6 +73,9 @@ public class Ventana08ImprimirBilletes {
 		ventana08ImprimirBilletes.setLocationRelativeTo(null);
 	}
 	
+	/*
+	 * Metodo que crea los paneles de la ventana
+	 */
 	private void crearPaneles() {
 		
 		panel_4 = new JPanel();
@@ -106,6 +115,9 @@ public class Ventana08ImprimirBilletes {
 		
 	}
 	
+	/*
+	 * Metodo que crea los botones de la ventana
+	 */
 	private void crearBotones() {
 		
 		btnFinalizar = new JButton("Finalizar");
@@ -127,6 +139,9 @@ public class Ventana08ImprimirBilletes {
 		panel_1.add(btnEnviarCorreo);
 	}
 	
+	/*
+	 * Metodo que crea las etiquetas de la ventana
+	 */
 	private void crearEtiquetas() {
 		
 		JLabel lblDatosPasajero = new JLabel("Datos del pasajero");
@@ -306,6 +321,9 @@ public class Ventana08ImprimirBilletes {
 		
 	}
 		
+	/*
+	 * Metodo que crea los JTextField de la ventana
+	 */
 	private void crearCamposTexto() {
 		
 		txtDNI = new JTextField();
@@ -401,6 +419,9 @@ public class Ventana08ImprimirBilletes {
 		
 	}
 	
+	/*
+	 * Metodo que crea las etiquetas de la fecha y la hora
+	 */
 	public void crearFechaHora() {
 		
 		RSLabelHora labelHora = new RSLabelHora();

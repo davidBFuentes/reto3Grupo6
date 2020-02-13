@@ -21,7 +21,7 @@ public class Ventana01Bienvenida {
 	private JPanel panel;
 	private JButton btnVentana02;
 	
-	/*^
+	/**
 	 * Contructor de la ventana de bienvenida
 	 */
 	public Ventana01Bienvenida() {
@@ -34,7 +34,7 @@ public class Ventana01Bienvenida {
 
 	}
 	
-	/*
+	/**
 	 * Metodo que crea la ventana
 	 */
 	private void crearVentana() {
@@ -49,7 +49,7 @@ public class Ventana01Bienvenida {
 		
 	}
 	
-	/*
+	/**
 	 * Metodo que crea los paneles de la ventana
 	 */
 	private void crearPaneles() {
@@ -70,7 +70,7 @@ public class Ventana01Bienvenida {
 	
 	}
 	
-	/*
+	/**
 	 * Metodo que crea los botones de la ventana
 	 */
 	private void crearBotones() {
@@ -83,7 +83,7 @@ public class Ventana01Bienvenida {
 		
 	}
 	
-	/*
+	/**
 	 * Metodo que crea las etiquetas de la ventana
 	 */
 	private void crearEtiquetas() {
@@ -108,7 +108,7 @@ public class Ventana01Bienvenida {
 		
 	}
 	
-	/*
+	/**
 	 * Metodo que crea las etiquetas de la fecha y la hora 
 	 */
 	public void crearFechaHora() {
@@ -126,18 +126,34 @@ public class Ventana01Bienvenida {
 		
 	}
 
+	/**
+	 * Metodo que devuelve el JButton btnVentana2
+	 * @return btnVentana02
+	 */
 	public JButton getBtnVentana02() {
 		return btnVentana02;
 	}
 
+	/**
+	 * Metodo que establece el atributo btnVentana02 como el JButton que recibe como parametro
+	 * @param btnVentana02
+	 */
 	public void setBtnVentana02(JButton btnVentana02) {
 		this.btnVentana02 = btnVentana02;
 	}
 
+	/**
+	 * Metodo que devuelve el JFrame frame
+	 * @return frame
+	 */
 	public JFrame getFrame() {
 		return frame;
 	}
 
+	/**
+	 * Metodo que establece el atributo frame como el JFrame que recibe como parametro
+	 * @param frame
+	 */
 	public void setFrame(JFrame frame) {
 		this.frame = frame;
 	}

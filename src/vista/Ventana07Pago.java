@@ -48,6 +48,9 @@ public class Ventana07Pago{
 	private JPanel panel_4;
 	private JPanel panel_6;
 	
+	/*
+	 * Contructor de la ventana de pago
+	 */
 	public Ventana07Pago() {
 		
 		crearVentana();
@@ -59,6 +62,9 @@ public class Ventana07Pago{
 		crearFechaHora();
 	}
 
+	/*
+	 * Metodo que crea la ventana
+	 */
 	private void crearVentana() {
 		
 		Ventana07Pago = new JFrame();
@@ -70,6 +76,9 @@ public class Ventana07Pago{
 		Ventana07Pago.setLocationRelativeTo(null);
 	}
 	
+	/*
+	 * Metodo que crea los paneles de la ventana
+	 */
 	private void crearPaneles() {
 		
 		panel = new JPanel();
@@ -116,6 +125,9 @@ public class Ventana07Pago{
 		
 	}
 	
+	/*
+	 * Metodo que crea los botones de la ventana
+	 */
 	private void crearBotones() {
 		
 		btnContinuar = new JButton("Continuar");
@@ -144,6 +156,9 @@ public class Ventana07Pago{
 		
 	}
 	
+	/*
+	 * Metodo que crea las etiquetas de la ventana
+	 */
 	private void crearEtiquetas() {
 		
 		JLabel lblPrecioSinIVA = new JLabel("Precio sin IVA");
@@ -199,6 +214,9 @@ public class Ventana07Pago{
 		panel.add(lblNewLabel);	
 	}
 	
+	/*
+	 * Metodo que crea el teclada numerico de la ventana
+	 */
 	private void crearTecladoNumerico() {
 		
 		btn_7 = new JButton("7");
@@ -283,6 +301,9 @@ public class Ventana07Pago{
 		
 	}
 		
+	/*
+	 * Metodo que crea los JPanel de la ventana
+	 */
 	private void crearPanelesTexto() {
 		
 		txtPrecioSinIva = new JTextField();
@@ -327,6 +348,9 @@ public class Ventana07Pago{
 		
 	}
 	
+	/*
+	 * Metodo que crea las etiquetas de la fecha y la hora
+	 */
 	public void crearFechaHora() {
 		
 		RSLabelHora labelHora = new RSLabelHora();

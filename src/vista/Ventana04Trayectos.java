@@ -34,7 +34,7 @@ public class Ventana04Trayectos {
 	private JPanel panel_1;
 	private JPanel panel_2;
 	
-	/*
+	/**
 	 * Constructor de la ventana de trayectos
 	 */
 	public Ventana04Trayectos() {
@@ -48,7 +48,7 @@ public class Ventana04Trayectos {
 
 	}
 	
-	/*
+	/**
 	 * Metodo que crea la ventana
 	 */
 	private void crearVentana() {
@@ -62,7 +62,7 @@ public class Ventana04Trayectos {
 		frame.setLocationRelativeTo(null);
 	}
 	
-	/*
+	/**
 	 * Metodo que crea los paneles de la ventana
 	 */
 	private void crearPaneles() {
@@ -90,7 +90,7 @@ public class Ventana04Trayectos {
 	
 	}
 		
-	/*
+	/**
 	 * Metodo que crea los botones de la ventana
 	 */
 	private void crearBotones() {
@@ -117,7 +117,7 @@ public class Ventana04Trayectos {
 		
 	}
 	
-	/*
+	/**
 	 * Metodo que crea las etiquetas de la ventana
 	 */
 	private void crearEtiquetas() {
@@ -129,7 +129,7 @@ public class Ventana04Trayectos {
 		
 	}
 
-	/*
+	/**
 	 * Metodo que crea las etiquetas de la fecha y la hora
 	 */
 	public void crearFechaHora() {
@@ -146,7 +146,7 @@ public class Ventana04Trayectos {
 		
 	}
 	
-	/*
+	/**
 	 * Metodo que crea el combobox de la ventana
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
@@ -163,42 +163,82 @@ public class Ventana04Trayectos {
 		
 	}
 
+	/**
+	 * Metodo que devuelve el JButton btnSalir
+	 * @return btnSalir
+	 */
 	public JButton getBtnSalir() {
 		return btnSalir;
 	}
 
+	/**
+	 * Metodo que establece el atributo btnSalir como el JButton que recibe como parametro
+	 * @param btnSalir
+	 */
 	public void setBtnSalir(JButton btnSalir) {
 		this.btnSalir = btnSalir;
 	}
 
+	/**
+	 * Metodo que devuelve el JButton btnContinuar
+	 * @return frame
+	 */
 	public JButton getBtnContinuar() {
 		return btnContinuar;
 	}
 
+	/**
+	 * Metodo que establece el atributo btnContinuar como el JButton que recibe como parametro
+	 * @param btnContinuar
+	 */
 	public void setBtnContinuar(JButton btnContinuar) {
 		this.btnContinuar = btnContinuar;
 	}
 
+	/**
+	 * Metodo que devuelve el JComboBox comboLineas
+	 * @return frame
+	 */
 	public JComboBox<Linea> getComboLineas() {
 		return comboLineas;
 	}
 
+	/**
+	 * Metodo que establece el atributo comboLineas como el JComboBox que recibe como parametro
+	 * @param comboLineas
+	 */
 	public void setComboLineas(JComboBox<Linea> comboLineas) {
 		this.comboLineas = comboLineas;
 	}
 
+	/**
+	 * Metodo que devuelve el JFrame frame
+	 * @return frame
+	 */
 	public JFrame getFrame() {
 		return frame;
 	}
 
+	/**
+	 * Metodo que establece el atributo frame como el JFrame que recibe como parametro
+	 * @param frame
+	 */
 	public void setFrame(JFrame frame) {
 		this.frame = frame;
 	}
 
+	/**
+	 * Metodo que devuelve el JButton btnControlUsuario
+	 * @return frame
+	 */
 	public JButton getBtnControlUsuario() {
 		return btnControlUsuario;
 	}
 
+	/**
+	 * Metodo que establece el atributo btnControlUsuario como el JButton que recibe como parametro
+	 * @param btnControlUsuario
+	 */
 	public void setBtnControlUsuario(JButton btnControlUsuario) {
 		this.btnControlUsuario = btnControlUsuario;
 	}

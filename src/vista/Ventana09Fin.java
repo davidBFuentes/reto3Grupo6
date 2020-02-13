@@ -32,7 +32,7 @@ public class Ventana09Fin {
 	}
 	
 	/**
-	 * Metodo que crea una ventana
+	 * Metodo que crea la ventana
 	 */
 	private void crearVentana() {
 		
@@ -47,7 +47,7 @@ public class Ventana09Fin {
 	
 	
 	/**
-	 * Metodo que crea los botones de la VentanaFin 
+	 * Metodo que crea los botones de la ventana 
 	 */
 	private void crearPaneles() {
 		
@@ -67,7 +67,7 @@ public class Ventana09Fin {
 	}
 	
 	/**
-	 * Metodo que crea las etiquetas de la VentanaFin
+	 * Metodo que crea las etiquetas de la ventana
 	 */
 	private void crearEtiquetas() {
 	
@@ -91,7 +91,7 @@ public class Ventana09Fin {
 	}
 	
 	/**
-	 * Metodo que carga la fecha y hora
+	 * Metodo que crea las etiquetas de la fecha y la hora
 	 */
 	private void crearFechaHora() {
 		RSLabelHora labelHora = new RSLabelHora();
@@ -106,10 +106,6 @@ public class Ventana09Fin {
 		
 	}
 	
-	/**
-	 * Metodo que devuelve la ventana
-	 *
-	 */
 	public JFrame getFrame() {
 		return frame;
 	}

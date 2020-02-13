@@ -30,6 +30,9 @@ public class VentanaPerfil {
 	private JPanel panel_4_1;
 	private JLabel lblImagen;
 	
+	/*
+	 * Constructor de la ventana perfil
+	 */
 	public VentanaPerfil() {
 		crearVentana();
 		crearPaneles();
@@ -39,6 +42,9 @@ public class VentanaPerfil {
 		crearFechaHora();
 	}
 		
+	/*
+	 * Metodo que crea la ventana
+	 */
 	private void crearVentana() {
 		
 		frame = new JFrame();
@@ -50,6 +56,9 @@ public class VentanaPerfil {
 		frame.setLocationRelativeTo(null);
 	}
 	
+	/*
+	 * Metodo que crea los paneles de la ventana
+	 */
 	private void crearPaneles() {
 		
 	    panel = new JPanel();
@@ -88,6 +97,9 @@ public class VentanaPerfil {
 
 	}
 	
+	/*
+	 * Metodo que crea los botones de la ventana
+	 */
 	private void crearBotones() {
 		
 		btnVolver = new JButton("Volver");
@@ -105,6 +117,9 @@ public class VentanaPerfil {
 		
 	}
 		
+	/*
+	 * Metodo que crea las etiquetas de la ventana
+	 */
 	private void crearEtiquetas() {
 		
 		JLabel lblNombre = new JLabel("Nombre:");
@@ -137,6 +152,9 @@ public class VentanaPerfil {
 
 	}
 	
+	/*
+	 * Metodo que crea los JTextField de la ventana
+	 */
 	private void crearCamposTexto() {
 		
 		txtDni = new JTextField();
@@ -183,6 +201,9 @@ public class VentanaPerfil {
 		
 	}
 
+	/*
+	 * Metodo que crea las etiquetas de la fecha y la hora
+	 */
 	public void crearFechaHora() {
 		
 		RSLabelFecha labelFecha = new RSLabelFecha();

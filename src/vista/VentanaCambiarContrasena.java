@@ -29,17 +29,22 @@ public class VentanaCambiarContrasena {
 	private JButton btnSalir;
 	private JButton btnCambiarContrasena;
 	
+	/*
+	 * Constructor de la ventana para cambiar contraseña
+	 */
 	public VentanaCambiarContrasena() {
 		
 		crearVentana();
 		crearPaneles();
-		crearEtiquetas();
 		crearBotones();
 		crearCamposDeTexto();
 		crearFechaHora();
 
 	}
 	
+	/*
+	 * Metodo que crea la ventana
+	 */
 	private void crearVentana() {
 		
 		frame = new JFrame();
@@ -52,6 +57,9 @@ public class VentanaCambiarContrasena {
 		
 	}
 	
+	/*
+	 * Metodo que crea los paneles de la ventana
+	 */
 	private void crearPaneles() {
 		
 		panel = new JPanel();
@@ -84,6 +92,9 @@ public class VentanaCambiarContrasena {
 		
 	}
 		
+	/*
+	 * Metodo que crea los botones de la ventana
+	 */
 	private void crearBotones() {
 		
 		btnCambiarContrasena = new JButton("Cambiar contrase\u00F1a");
@@ -109,11 +120,10 @@ public class VentanaCambiarContrasena {
 		
 	}
 	
-	private void crearEtiquetas() {
-		
-		
-	}
 	
+	/*
+	 * Metodo que crea los JTextField de la ventana
+	 */
 	private void crearCamposDeTexto() {
 		
 	
@@ -157,7 +167,9 @@ public class VentanaCambiarContrasena {
 		panel_1.add(passContrasena2);
 	}
 
-	
+	/*
+	 * Metodo que crea las etiquetas de la fecha y la hora
+	 */
 	private void crearFechaHora() {
 		
 		RSLabelFecha labelFecha = new RSLabelFecha();

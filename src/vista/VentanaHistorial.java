@@ -20,6 +20,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+
 public class VentanaHistorial {
 	
 	private JFrame frame; 

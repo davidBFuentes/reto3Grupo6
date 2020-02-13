@@ -9,11 +9,20 @@ public class Autobus {
 	private double consumo;
 	private String color;
 	
-	
+	/**
+	 *  Metodo constructor del objeto autobus
+	 */
 	public Autobus() {
 		
 	}
 	
+	/**
+	 * Metodo constructor del objeto autobus
+	 * @param codAutobus Codigo del autobus
+	 * @param numPlazas Numero maxima de plazas
+	 * @param consumo Consumo del autobus, dado en Litros/km
+	 * @param color Color del autobus
+	 */
 	public Autobus (String codAutobus, int numPlazas, float consumo, String color) {
 		
 	}
