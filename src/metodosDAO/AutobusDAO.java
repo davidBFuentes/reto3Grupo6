@@ -91,8 +91,7 @@ public class AutobusDAO {
 			System.out.println("Error: Clase AutobusDAO, método mObtenerAsientosLibres");
 			e.printStackTrace();
 		}
-		System.out.println(autobus.getNumPlazas());
-		System.out.println(billetesvendidos);
+		
 		if (autobus.getNumPlazas() - billetesvendidos == 0) {
 			
 			return false;

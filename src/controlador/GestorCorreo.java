@@ -1,6 +1,9 @@
 package controlador;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Properties;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -26,7 +29,10 @@ public class GestorCorreo {
 		//String destinatarioString =  "emailPrueba@server.com"; //A quien le quieres escribir.
 		
 		InternetAddress destinatario = new InternetAddress(correoElectronico);
-	    String asunto = "Correo de prueba enviado desde Java";
+	    String asunto = "No reply - " + "Billete nº" + billete.getCod_Billete();
+	    if (billete2.getCod_Billete() != 0) {
+	    	 asunto = "No reply - " + "Billete nº" + billete.getCod_Billete() + " y  billete nº" + billete2.getCod_Billete();
+	    }
 	    String cuerpo = Fichero.toString(billete, billete2);
 
 	    enviarConGMail(destinatario, asunto, cuerpo);
@@ -38,12 +44,29 @@ public class GestorCorreo {
 	 */
 	public static void enviarConGMail(InternetAddress destinatario, String asunto, String cuerpo) {
 	    // Esto es lo que va delante de @gmail.com en tu cuenta de correo. Es el remitente también.
-	    String remitente = "reto3termibus@gmail.com";  //Para la dirección nomcuenta@gmail.com
+		
+		File archivoConexion = new File("datosconexion.txt");
+		Scanner lector;
+		String remitente = "";
+		String password = "";
+		
+		try {
+			lector = new Scanner(archivoConexion);
+			lector.nextLine();
+			lector.nextLine();
+			remitente = lector.nextLine();
+			password = lector.nextLine();
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+	    // String remitente = "reto3termibus@gmail.com";  //Para la dirección nomcuenta@gmail.com
 
 	    Properties props = System.getProperties();
 	    props.put("mail.smtp.host", "smtp.gmail.com");  //El servidor SMTP de Google
 	    props.put("mail.smtp.user", remitente);
-	    props.put("mail.smtp.clave", "elorrieta");    //La clave de la cuenta
+	    props.put("mail.smtp.clave", password);    //La clave de la cuenta
 	    props.put("mail.smtp.auth", "true");    //Usar autenticación mediante usuario y clave
 	    props.put("mail.smtp.starttls.enable", "true"); //Para conectar de manera segura al servidor SMTP
 	    props.put("mail.smtp.port", "587"); //El puerto SMTP seguro de Google

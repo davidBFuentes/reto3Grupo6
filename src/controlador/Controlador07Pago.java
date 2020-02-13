@@ -147,19 +147,24 @@ public class Controlador07Pago implements MouseListener {
 		
 		case "Salir":
 			//en el caso de salir volvera a la ventana de bienvenida
+			
+			if (this.ventanaPago.getBtnSalir().isEnabled()) {
 			Ventana01Bienvenida window = new Ventana01Bienvenida();
 		
 			@SuppressWarnings("unused") Controlador01Bienvenida controladorbienvenida = new Controlador01Bienvenida(window);
 		
 			window.getFrame().setVisible(true);
 			this.ventanaPago.Ventana07Pago.dispose();
+			}
 			break;
 				
 		case "0":
 			
 			//en el caso de los numeros llama a un metodo que encontraremos al salir del switch 
-			extracted(opcion);	
-
+			
+				extracted(opcion);	
+		
+				
 			break;
 			
 		case "1":
@@ -364,10 +369,13 @@ public class Controlador07Pago implements MouseListener {
 		case "Volver":
 
 			//en el caso de querer volver a la ventana anterior se volvera
+			
+			if(this.ventanaPago.getBtnVolver().isEnabled()) {
 			Ventana06Desglose window1 = new Ventana06Desglose();
 			@SuppressWarnings("unused") Controlador06Desglose controlador = new Controlador06Desglose(window1, linea, billete, billete2, cliente, municipioOrigen, municipioDestino);
 			window1.Ventana06Desglose.setVisible(true);
 			this.ventanaPago.Ventana07Pago.dispose();
+			}
 			
 			break;
 		}
@@ -414,23 +422,27 @@ public class Controlador07Pago implements MouseListener {
 	 */
 	private void extracted(String opcion) {
 		//en caso de que no haya una coma
-		if (comprobarComa == false) {
-			//podremos poner hasta un maximo de 3 numeros para asi solo aceptar hasta 999€ y en caso de que se pueda escribir el numero lo escribe
-			if (this.ventanaPago.getTxtIntroducido().getText().length()<3) {
-				this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + opcion);
-			}else {
-				//en caso de que no se puedan poner mas numeros nos saldra un mensaje de error
-				JOptionPane.showMessageDialog(null, "Maximo de 3 numeros antes de la coma", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
-			}
-		} else {
-			//miraremos la distancia en la que esta la coma, adema veremos cual es el maximo de decimales que podemos meter
-			if (distancia < decimales) {
-				//si se pueden introducir decimales los introducira y sumara 1 a la distancia
-				this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + opcion);
-				distancia++;
-			}else {
-				//en caso negativo saldra un mensaje de error
-				JOptionPane.showMessageDialog(null, "Maximo de 2 decimales", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+		
+		if (!this.ventanaPago.getTxtPrecioAPagar().getText().equals("0")) {
+			
+			if (comprobarComa == false) {
+				//podremos poner hasta un maximo de 3 numeros para asi solo aceptar hasta 999€ y en caso de que se pueda escribir el numero lo escribe
+				if (this.ventanaPago.getTxtIntroducido().getText().length()<3) {
+					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + opcion);
+				}else {
+					//en caso de que no se puedan poner mas numeros nos saldra un mensaje de error
+					JOptionPane.showMessageDialog(null, "Maximo de 3 numeros antes de la coma", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+				}
+			} else {
+				//miraremos la distancia en la que esta la coma, adema veremos cual es el maximo de decimales que podemos meter
+				if (distancia < decimales) {
+					//si se pueden introducir decimales los introducira y sumara 1 a la distancia
+					this.ventanaPago.getTxtIntroducido().setText(this.ventanaPago.getTxtIntroducido().getText() + opcion);
+					distancia++;
+				}else {
+					//en caso negativo saldra un mensaje de error
+					JOptionPane.showMessageDialog(null, "Maximo de 2 decimales", "Mensaje de error",JOptionPane.ERROR_MESSAGE);
+				}
 			}
 		}
 	}
