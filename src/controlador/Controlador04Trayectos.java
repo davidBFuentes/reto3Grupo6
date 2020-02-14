@@ -7,6 +7,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 import metodosDAO.LineaDAO;
@@ -34,6 +35,10 @@ public class Controlador04Trayectos implements MouseListener, MouseMotionListene
 		this.billete = pBillete;
 		this.cliente = pCliente;
 		
+		if (cliente.getSexo().equals("M")) {
+			this.ventanatrayectos.getBtnControlUsuario().setIcon(new ImageIcon(Ventana04Trayectos.class.getResource("/imagenes/perfilChica.jpg")));
+		}
+
 		mIniciarControlador();
 		
 	}
@@ -73,7 +78,6 @@ public class Controlador04Trayectos implements MouseListener, MouseMotionListene
 					linea = (Linea) this.ventanatrayectos.getComboLineas().getSelectedItem();
 					billete.setCod_Linea(linea.getCodLinea());
 					Ventana05ParadasFecha window = new Ventana05ParadasFecha();
-					@SuppressWarnings("unused")
 					Controlador05ParadasFecha controlador = new Controlador05ParadasFecha(window, linea, billete, cliente);
 					window.getFrame().setVisible(true);
 					this.ventanatrayectos.getFrame().dispose();
@@ -89,7 +93,7 @@ public class Controlador04Trayectos implements MouseListener, MouseMotionListene
 				
 			case "Salir":
 				Ventana01Bienvenida window2 = new Ventana01Bienvenida();
-				@SuppressWarnings("unused") Controlador01Bienvenida controlador = new Controlador01Bienvenida(window2);
+				Controlador01Bienvenida controlador = new Controlador01Bienvenida(window2);
 
 				window2.getFrame().setVisible(true);
 				this.ventanatrayectos.getFrame().dispose();
@@ -97,7 +101,7 @@ public class Controlador04Trayectos implements MouseListener, MouseMotionListene
 				
 			case "Control":
 				VentanaControlUsuario window3 = new VentanaControlUsuario();
-				@SuppressWarnings("unused") ControladorControlUsuario controladorUsuario = new ControladorControlUsuario(window3, cliente, billete);
+				ControladorControlUsuario controladorUsuario = new ControladorControlUsuario(window3, cliente, billete);
 				window3.getFrame().setVisible(true);
 				this.ventanatrayectos.getFrame().dispose();
 				break;

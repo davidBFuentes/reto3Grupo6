@@ -1,5 +1,7 @@
 package modelo;
 
+import controlador.Codificacion;
+
 public class Cliente {
 		
 		//*** Atributos ***

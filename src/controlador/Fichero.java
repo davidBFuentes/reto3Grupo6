@@ -1,8 +1,10 @@
-package modelo;
+package controlador;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+
+import modelo.Billete;
 
 public class Fichero {
 	

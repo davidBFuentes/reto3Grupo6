@@ -212,7 +212,7 @@ public class Controlador03Registro implements MouseListener, KeyListener {
 			break;
 			
 		case "Apellido":
-			if(this.ventana03registro.getTxtApellido().getText().length()>12) {  
+			if(this.ventana03registro.getTxtApellido().getText().length()>20) {  
 				   e.consume();
 				 }
 			break;
