@@ -16,7 +16,6 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import modelo.Billete;
-import modelo.Fichero;
 
 public class GestorCorreo {
 	

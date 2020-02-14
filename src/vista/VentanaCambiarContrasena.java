@@ -1,6 +1,7 @@
 package vista;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
@@ -11,6 +12,7 @@ import java.awt.Color;
 import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
 
@@ -36,6 +38,7 @@ public class VentanaCambiarContrasena {
 		
 		crearVentana();
 		crearPaneles();
+		crearEtiquetas();
 		crearBotones();
 		crearCamposDeTexto();
 		crearFechaHora();
@@ -120,6 +123,16 @@ public class VentanaCambiarContrasena {
 		
 	}
 	
+
+	private void crearEtiquetas() {
+		
+		JLabel lblImagen = new JLabel("");
+		lblImagen.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		lblImagen.setIcon(new ImageIcon(VentanaCambiarContrasena.class.getResource("/imagenes/imagenCambiarContrasena.jpg")));
+		lblImagen.setBounds(325, 458, 560, 155);
+		panel.add(lblImagen);
+
+	}
 	
 	/**
 	 * Metodo que crea los JTextField de la ventana

@@ -10,7 +10,6 @@ import javax.swing.JOptionPane;
 import metodosDAO.ClienteDAO;
 import modelo.Billete;
 import modelo.Cliente;
-import modelo.Codificacion;
 import vista.Ventana01Bienvenida;
 import vista.VentanaCambiarContrasena;
 import vista.VentanaControlUsuario;

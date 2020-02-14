@@ -10,7 +10,6 @@ import javax.swing.JOptionPane;
 import metodosDAO.ClienteDAO;
 import modelo.Billete;
 import modelo.Cliente;
-import modelo.Codificacion;
 import vista.Ventana02Login;
 import vista.Ventana03Registro;
 import vista.Ventana04Trayectos;
@@ -141,7 +140,12 @@ public class Controlador02Login implements KeyListener, MouseListener {
 				
 							Billete billete = new Billete();
 							billete.setDni(cliente.getDni());
-							JOptionPane.showMessageDialog(null, "Bienvenido, "+ cliente.getNombre(), "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+							if (cliente.getSexo().contentEquals("V")) {
+								JOptionPane.showMessageDialog(null, "Bienvenido, "+ cliente.getNombre(), "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+							} else {
+								JOptionPane.showMessageDialog(null, "Bienvenida, "+ cliente.getNombre(), "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+
+							}
 							Ventana04Trayectos window4 = new Ventana04Trayectos();
 							@SuppressWarnings("unused")
 							Controlador04Trayectos controlador = new Controlador04Trayectos(window4, billete, cliente);

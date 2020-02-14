@@ -194,7 +194,7 @@ public class Ventana03Registro {
 		txtApellido.setBounds(355, 216, 300, 75);
 		panel_1.add(txtApellido);
 		txtApellido.setHorizontalAlignment(SwingConstants.CENTER);
-		txtApellido.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		txtApellido.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		txtApellido.setColumns(10);
 		txtApellido.setBorder(new LineBorder(Color.BLACK, 2));
 		

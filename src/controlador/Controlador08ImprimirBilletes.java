@@ -8,10 +8,8 @@ import java.io.IOException;
 import javax.mail.internet.AddressException;
 import javax.swing.JOptionPane;
 import calculosMatematicos.Calculo;
-
 import modelo.Billete;
 import modelo.Cliente;
-import modelo.Fichero;
 import modelo.Municipio;
 import vista.Ventana01Bienvenida;
 import vista.Ventana08ImprimirBilletes;
