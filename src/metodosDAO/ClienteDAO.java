@@ -14,8 +14,10 @@ public class ClienteDAO {
 	
 	//*** Métodos CRUD ***
 	
-	/*
-	 * Metodo que hace una llamada ala base de datos y registra el cliente recibido como parametro
+	/**
+	 * Metodo que hace una llamada a la base de datos y registra el cliente recibido como parametro
+	 * @param cliente
+	 * @return
 	 */
 	public static boolean mRegistrarCliente(Cliente cliente) {
 		
@@ -52,8 +54,11 @@ public class ClienteDAO {
 		return registrar;
 	}
 	
-	/*
+	/**
 	 * Metodo que trae de la base de datos los datos del usuario introducido
+	 * @param dni
+	 * @param contrasena
+	 * @return
 	 */
 	public static Cliente mIdentificarCliente(String dni, String contrasena) {
 		
@@ -90,8 +95,10 @@ public class ClienteDAO {
 		return cliente;
 	}
 	
-	/*
+	/**
 	 * Metodo que actualiza la contraseña del usuario introducido
+	 * @param cliente
+	 * @return
 	 */
 	public static boolean mCambiarContrasena(Cliente cliente) {
 		

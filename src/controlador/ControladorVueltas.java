@@ -1,8 +1,13 @@
 package controlador;
 import calculosMatematicos.Calculo;
 public class ControladorVueltas {
-	public static String adevolver(double restante) {
-		//Función para la devolución exacta de dinero al cliente, calculando la cantidad de billetes y monedas
+	
+	/**
+	 * Metodo para la devolución exacta de dinero al cliente, calculando la cantidad de billetes y monedas
+	 * @param restante
+	 * @return
+	 */
+	public static String adevolver(double restante) { 
 		
 		restante = Calculo.formatearPrecio(restante);
 		Double totaldevolver = (double) 0;

@@ -56,6 +56,9 @@ public class Controlador03Registro implements MouseListener, KeyListener {
 		this.ventana03registro.getTxtFechaNacimiento().setName("Nacimiento");
 	}
 	
+	/**
+	 * Metodo que controla las acciones de los botones
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
@@ -189,6 +192,9 @@ public class Controlador03Registro implements MouseListener, KeyListener {
 
 	}
 
+	/**
+	 * Metodo que controla la pulsacion de las teclas
+	 */
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub

@@ -48,7 +48,7 @@ public class Ventana07Pago{
 	private JPanel panel_4;
 	private JPanel panel_6;
 	
-	/*
+	/**
 	 * Contructor de la ventana de pago
 	 */
 	public Ventana07Pago() {
@@ -62,7 +62,7 @@ public class Ventana07Pago{
 		crearFechaHora();
 	}
 
-	/*
+	/**
 	 * Metodo que crea la ventana
 	 */
 	private void crearVentana() {
@@ -76,7 +76,7 @@ public class Ventana07Pago{
 		Ventana07Pago.setLocationRelativeTo(null);
 	}
 	
-	/*
+	/**
 	 * Metodo que crea los paneles de la ventana
 	 */
 	private void crearPaneles() {
@@ -125,7 +125,7 @@ public class Ventana07Pago{
 		
 	}
 	
-	/*
+	/**
 	 * Metodo que crea los botones de la ventana
 	 */
 	private void crearBotones() {
@@ -156,7 +156,7 @@ public class Ventana07Pago{
 		
 	}
 	
-	/*
+	/**
 	 * Metodo que crea las etiquetas de la ventana
 	 */
 	private void crearEtiquetas() {
@@ -214,7 +214,7 @@ public class Ventana07Pago{
 		panel.add(lblNewLabel);	
 	}
 	
-	/*
+	/**
 	 * Metodo que crea el teclada numerico de la ventana
 	 */
 	private void crearTecladoNumerico() {
@@ -301,7 +301,7 @@ public class Ventana07Pago{
 		
 	}
 		
-	/*
+	/**
 	 * Metodo que crea los JPanel de la ventana
 	 */
 	private void crearPanelesTexto() {
@@ -348,7 +348,7 @@ public class Ventana07Pago{
 		
 	}
 	
-	/*
+	/**
 	 * Metodo que crea las etiquetas de la fecha y la hora
 	 */
 	public void crearFechaHora() {

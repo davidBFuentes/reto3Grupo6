@@ -20,8 +20,12 @@ import modelo.Fichero;
 
 public class GestorCorreo {
 	
-	/*
+	/**
 	 * Metodo que recibe la direccion de correo electronico y los billetes a mandar. Llama al metodo enviarConGmail y envia el correo
+	 * @param correoElectronico
+	 * @param billete
+	 * @param billete2
+	 * @throws AddressException
 	 */
 	public static void enviarCorreo(String correoElectronico, Billete billete, Billete billete2) throws AddressException {
 		
@@ -39,8 +43,11 @@ public class GestorCorreo {
 		
 	}
 	
-	/*
+	/**
 	 * Metodo que configura las opciones para enviar el correo
+	 * @param destinatario
+	 * @param asunto
+	 * @param cuerpo
 	 */
 	public static void enviarConGMail(InternetAddress destinatario, String asunto, String cuerpo) {
 	    // Esto es lo que va delante de @gmail.com en tu cuenta de correo. Es el remitente también.
@@ -89,8 +96,10 @@ public class GestorCorreo {
 	    }
 	}
 	
-	/*
+	/**
 	 * Metodo que valida si el correo introducido es correcto
+	 * @param pEmail
+	 * @return
 	 */
 	public static boolean validarEmail(String pEmail) {
 		   // Patrón para validar el email

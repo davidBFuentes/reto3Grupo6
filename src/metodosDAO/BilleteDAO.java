@@ -14,6 +14,11 @@ public class BilleteDAO {
 	
 	//*** Métodos CRUD ***
 	
+	/**
+	 * Metodo que hace una llamada a la base de datos e inserta los atributos del objeto billete
+	 * @param billete
+	 * @return
+	 */
 	public static boolean mRegistrarBillete(Billete billete) {
 		boolean registrar = false;
 		
@@ -48,6 +53,11 @@ public class BilleteDAO {
 		return registrar;
 	}
 	
+	/**
+	 * Metodo que hace una llamada a la base de datos y obtiene el numero de billete
+	 * @param billete
+	 * @return
+	 */
 	public static int mObtenerCodigoBillete(Billete billete) {
 		
 		Connection co =null;

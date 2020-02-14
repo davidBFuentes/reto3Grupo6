@@ -6,6 +6,12 @@ import java.io.IOException;
 
 public class Fichero {
 	
+	/**
+	 * Metodo que importa los datos del billete a un fichero .txt
+	 * @param billete
+	 * @param billete2
+	 * @throws IOException
+	 */
 	public static void mImprimirBillete (Billete billete, Billete billete2) throws IOException {
 		
 		File ficheroBillete = new File ("billete.txt");
@@ -26,6 +32,12 @@ public class Fichero {
 		
 	}
 	
+	/**
+	 * Metodo que formatea la salida de texto de los objetos billete recibidos por parametro
+	 * @param billete
+	 * @param billete2
+	 * @return
+	 */
 	public static String toString (Billete billete, Billete billete2) {
 		
 		String texto = "";

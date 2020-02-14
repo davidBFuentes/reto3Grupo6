@@ -28,7 +28,7 @@ public class Controlador08ImprimirBilletes implements MouseListener  {
 	private Municipio municipioDestino;
 	
 	/**
-	 * creamos el constructor que vamos a usar para usar esta ventana (la ventana nnueva, el billete, el billete de vuelta, el objeto cliente)
+	 * Constructor del controlador, recibe por parametros (la ventana nnueva, el billete, el billete de vuelta, el objeto cliente)
 	 * 
 	 * @param pVentana08
 	 * @param pBillete
@@ -96,6 +96,10 @@ public class Controlador08ImprimirBilletes implements MouseListener  {
 	
 		
 	}
+	
+	/**
+	 * Metodo que controla las acciones de  los botones
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub

@@ -56,13 +56,14 @@ public class Controlador02Login implements KeyListener, MouseListener {
 					
 	}
 
+	/**
+	 * Metodo que detecta la pulsacion de las teclas para que los campos tengan límite de carácteres introducidos.
+	 */
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
 		
-		/**
-		 * Metodo que detecta la pulsacion de las teclas para que los campos tengan límite de carácteres introducidos.
-		 */
+		
 		
 		e.getComponent().getName();
 		

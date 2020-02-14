@@ -4,9 +4,10 @@ class ValidadorDni
 {
     private String dni;
  
-        public ValidadorDni(String dni) {
-            this.dni = dni;
-        }
+  
+    public ValidadorDni(String dni) {
+        this.dni = dni;
+    }
  
      
     public boolean validar() {
@@ -57,7 +58,8 @@ class ValidadorDni
                 return true;
             }
         }
- 
+        
+        
         private String letraDNI() {
         // El método es privado porque lo voy a usar internamente en esta clase, no se necesita fuera de ella
  

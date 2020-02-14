@@ -27,6 +27,16 @@ public class Controlador06Desglose implements MouseListener {
 	private Municipio municipioOrigen;
 	private Municipio municipioDestino;
 	
+	/**
+	 * Constructor del controlador, que recibe los elementos de la ventana. 
+	 * @param pVentana06
+	 * @param pLinea
+	 * @param pBillete
+	 * @param pBillete2
+	 * @param pCliente
+	 * @param pMunicipioOrigen
+	 * @param pMunicipioDestino
+	 */
 	public Controlador06Desglose (Ventana06Desglose pVentana06, Linea pLinea, Billete pBillete, Billete pBillete2, Cliente pCliente, Municipio pMunicipioOrigen, Municipio pMunicipioDestino) {
 		
 		this.ventanadeglose = pVentana06;
@@ -42,6 +52,9 @@ public class Controlador06Desglose implements MouseListener {
 		
 	}
 	
+	/**
+	 *  Método que añade los listeners a los botones y les da nombre para identificarlos.
+	 */
 	private void mIniciarControlador() {
 		
 		
@@ -106,6 +119,9 @@ public class Controlador06Desglose implements MouseListener {
 		
 	}
 
+	/**
+	 * Metodo que controla las acciones de los botones
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		

@@ -14,15 +14,17 @@ public class DateListener implements PropertyChangeListener {
 	ArrayList<LocalTime> horarios;
 	Ventana05ParadasFecha ventana05ParadasFecha;
 
-	/*
+	/**
 	 * Contructor del objeto DateListener. Recibira como parametros el objeto linea y el objeto ventana05ParadasFecha.
+	 * @param linea
+	 * @param ventana05ParadasFecha
 	 */
 	public DateListener(Linea linea, Ventana05ParadasFecha ventana05ParadasFecha) {
 		this.linea = linea;
 		this.ventana05ParadasFecha = ventana05ParadasFecha;
 	}
 	
-	/*
+	/**
 	 * Metodo que controla la accion a realizar en caso de que perciba algun cambio en las propiedades del objeto
 	 */
 	@Override

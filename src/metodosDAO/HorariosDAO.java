@@ -12,6 +12,11 @@ import modelo.Linea;
 
 public class HorariosDAO {
 	
+	/**
+	 * Metodo que hace una llamada a la base de datos y obtiene los horarios de la linea recibida como parametro
+	 * @param linea
+	 * @return
+	 */
 	public static ArrayList<LocalTime> mObtenerHorarios(Linea linea) {
 		
 		Connection co = null;

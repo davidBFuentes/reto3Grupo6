@@ -35,7 +35,7 @@ public class VentanaHistorial {
 	private JButton btnSalir;
 	private JTextField textMensajeSinCompras;
 	
-	/*
+	/**
 	 * Constructor de la Ventana Historial
 	 */
 	public VentanaHistorial() {
@@ -50,7 +50,7 @@ public class VentanaHistorial {
 		
 	}
 	
-	/*
+	/**
 	 * Metodo que crea la ventana
 	 */
 	private void crearVentana() {
@@ -65,7 +65,7 @@ public class VentanaHistorial {
 		
 	}
 	
-	/*
+	/**
 	 * Metodo que crea los paneles de la ventana
 	 */
 	private void crearPaneles() {
@@ -93,7 +93,7 @@ public class VentanaHistorial {
 		
 	}
 	
-	/*
+	/**
 	 * Metodo que crea los botones de la ventana
 	 */
 	private void crearBotones() {
@@ -107,7 +107,7 @@ public class VentanaHistorial {
 		
 	}
 		
-	/*
+	/**
 	 * Metodo que crea la tabla de la ventana
 	 */
 	private void crearTabla() {
@@ -152,7 +152,7 @@ public class VentanaHistorial {
 
 	}
 	
-	/*
+	/**
 	 * Metodo que crea las etiquetas de la ventana
 	 */
 	private void crearEtiquetas() {
@@ -179,7 +179,7 @@ public class VentanaHistorial {
 	
 	}
 	
-	/*
+	/**
 	 * Metodo que crea los JtextField de la ventana
 	 */
 	private void crearTexto() {
@@ -196,7 +196,7 @@ public class VentanaHistorial {
 	}
 	
 	
-	/*
+	/**
 	 * Metodo que crea las etiquetas de la fecha y la hora
 	 */
 	private void crearFechaHora() {

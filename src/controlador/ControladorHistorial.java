@@ -17,6 +17,12 @@ public class ControladorHistorial implements MouseListener {
 	private Cliente cliente;
 	private Billete billete;
 	
+	/**
+	 * Constructor del controlador que recibe los parametros de la ventana
+	 * @param pVentanaHistorial
+	 * @param pCliente
+	 * @param pBillete
+	 */
 	public ControladorHistorial (VentanaHistorial pVentanaHistorial, Cliente pCliente, Billete pBillete ) {
 		
 		this.ventanaHistorial = pVentanaHistorial;
@@ -26,6 +32,9 @@ public class ControladorHistorial implements MouseListener {
 	
 	}
 	
+	/**
+	 *  Método que añade los listeners a los botones y les da nombre para identificarlos.
+	 */
 	private void mIniciarControlador() {
 		
 		this.ventanaHistorial.getBtnVolver().addMouseListener(this);
@@ -57,6 +66,9 @@ public class ControladorHistorial implements MouseListener {
 			
 	}
 
+	/**
+	 * Metodo que controla las acciones de los botones
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub

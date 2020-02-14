@@ -55,7 +55,7 @@ public class Ventana05ParadasFecha {
 	SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
 	
 
-	/*
+	/**
 	 * Constructor de la ventana paradas fecha
 	 */
 	public Ventana05ParadasFecha(){
@@ -70,7 +70,7 @@ public class Ventana05ParadasFecha {
 		crearFechaHora();
 	}
 	
-	/*
+	/**
 	 * Metodo que crea la ventana
 	 */
 	private void crearVentana() {
@@ -86,7 +86,7 @@ public class Ventana05ParadasFecha {
 				
 	}
 	
-	/*
+	/**
 	 * Metodo que crea los paneles de la ventana
 	 */
 	private void crearPaneles() {
@@ -128,7 +128,7 @@ public class Ventana05ParadasFecha {
 		
 	}
 	
-	/*
+	/**
 	 * Metodo que crea los botones de la ventana
 	 */
 	private void crearBotones() {
@@ -153,7 +153,7 @@ public class Ventana05ParadasFecha {
 		
 	}
 	
-	/*
+	/**
 	 * Metodo que crea las etiquetas de la ventana
 	 */
 	private void crearEtiquetas(){
@@ -165,7 +165,7 @@ public class Ventana05ParadasFecha {
 		
 	}
 		
-	/*
+	/**
 	 * Metodo que crea los combobox de la ventana
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
@@ -208,7 +208,7 @@ public class Ventana05ParadasFecha {
 	private void crearCalendarios() {
 		
 		/*Otra forma de obtener SYSDATE
-		 * 
+		 
 		LocalDateTime now = LocalDateTime.now();
 		Date localDate = Date.from(now.atZone(ZoneId.systemDefault()).toInstant());
 		*/

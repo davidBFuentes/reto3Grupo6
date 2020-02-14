@@ -12,7 +12,11 @@ import modelo.Parada;
 
 public class ParadaDAO {
 
-
+	/**
+	 * Metodo que hace una llamada a la base de datos y obtiene las paradas de la linea recibida como parametro
+	 * @param linea
+	 * @return
+	 */
 	public static ArrayList<Parada> mObtenerParadas(Linea linea) {
 		Connection co =null;
 		PreparedStatement stm= null;

@@ -18,6 +18,12 @@ public class ControladorControlUsuario implements MouseListener {
 	private Cliente cliente;
 	private Billete billete;
 	
+	/**
+	 * Constructor del controlador que recibe los parametros de la ventana
+	 * @param pVentana
+	 * @param pCliente
+	 * @param pBillete
+	 */
 	public ControladorControlUsuario (VentanaControlUsuario pVentana, Cliente pCliente, Billete pBillete) {
 		
 		this.ventanaControl = pVentana;
@@ -27,6 +33,9 @@ public class ControladorControlUsuario implements MouseListener {
 		
 	}
 	
+	/**
+	 *  Método que añade los listeners a los botones y les da nombre para identificarlos.
+	 */
 	private void mIniciarControlador() {
 		
 		this.ventanaControl.getBtnVolver().addMouseListener(this);
@@ -41,6 +50,9 @@ public class ControladorControlUsuario implements MouseListener {
 		this.ventanaControl.getBtnPerfil().setName("Perfil");
 	}
 
+	/**
+	 * Metodo que controla las acciones de los botones
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub

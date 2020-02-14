@@ -14,7 +14,7 @@ public class Controlador09Fin {
 
 
 	/**
-	 * Creamos el controlador al que le mandaremos la ventana final (Ventana09Fin pVentana09)
+	 * Constructor del controlador al que le mandaremos la ventana final (Ventana09Fin pVentana09)
 	 * @param pVentana09
 	 */
 	
@@ -28,7 +28,9 @@ public class Controlador09Fin {
 	}
 	
 	
-	//Iniciamos el controlador
+	/**
+	 * Metodo que controla el funcionamiento de la ventana 
+	 */
 	private void mIniciarControlador() {
 		
 		if (municipioOrigen.getNombre().equals(municipioDestino.getNombre())) {

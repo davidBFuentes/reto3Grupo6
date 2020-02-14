@@ -21,6 +21,12 @@ public class ControladorCambiarContrasena implements MouseListener, KeyListener 
 	private Cliente cliente;
 	private Billete billete;
 	
+	/**
+	 * Constructor del controlador, que recibe los parametros de la ventana
+	 * @param pVentanaContrasena
+	 * @param pCliente
+	 * @param pBillete
+	 */
 	public ControladorCambiarContrasena (VentanaCambiarContrasena pVentanaContrasena, Cliente pCliente, Billete pBillete) {
 		
 		this.ventanaContrasena = pVentanaContrasena;
@@ -29,6 +35,9 @@ public class ControladorCambiarContrasena implements MouseListener, KeyListener 
 		iniciarControlador();
 	}
 	
+	/**
+	 *  Método que añade los listeners a los botones y les da nombre para identificarlos.
+	 */
 	private void iniciarControlador() {
 		
 		this.ventanaContrasena.getBtnCambiarContrasena().addMouseListener(this);
@@ -44,6 +53,9 @@ public class ControladorCambiarContrasena implements MouseListener, KeyListener 
 		
 	}
 
+	/**
+	 * Metodo que controla las acciones de los botones
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
@@ -123,6 +135,9 @@ public class ControladorCambiarContrasena implements MouseListener, KeyListener 
 		
 	}
 
+	/**
+	 * Metodo que controla la pulsacion de las teclas
+	 */
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub

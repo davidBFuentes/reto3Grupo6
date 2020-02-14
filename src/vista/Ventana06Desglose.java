@@ -42,7 +42,7 @@ public class Ventana06Desglose{
 	private JLabel lblHora2;
 	private JLabel lblPrecio2;
 	
-	/* 
+	/**
 	 * Constructor de la ventana de desglose
 	 */
 	public Ventana06Desglose() {
@@ -56,7 +56,7 @@ public class Ventana06Desglose{
 			
 	}
 	
-	/*
+	/**
 	 * Metodo que crea la ventana
 	 */
 	private void crearVentana() {
@@ -69,7 +69,7 @@ public class Ventana06Desglose{
 		Ventana06Desglose.setLocationRelativeTo(null);
 	}
 	
-	/*
+	/**
 	 * Metodo que crea los paneles de la ventana
 	 */
 	private void crearPaneles() {
@@ -118,7 +118,7 @@ public class Ventana06Desglose{
 		
 	}
 	
-	/*
+	/**
 	 * Metodo que crea los botones de la ventana
 	 */
 	private void crearBotones() {
@@ -142,7 +142,7 @@ public class Ventana06Desglose{
 		panel_2.add(btnSalir);
 	}
 	
-	/*
+	/**
 	 * Metodo que crea las etiquetas de la ventana
 	 */
 	private void crearEtiquetas() {
@@ -306,7 +306,7 @@ public class Ventana06Desglose{
 		
 	}
 		
-	/*
+	/**
 	 * Metodo que crea los JTextField de la ventana
 	 */
 	private void crearCamposTexto() {
@@ -383,7 +383,7 @@ public class Ventana06Desglose{
 		
 	}
 	
-	/*
+	/**
 	 * Metodo que crea las etiquetas de la fecha y la hora
 	 */
 	public void crearFechaHora() {

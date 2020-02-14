@@ -11,6 +11,10 @@ import modelo.Linea;
 
 public class LineaDAO {
 	
+	/**
+	 * Metodo que hace una llamada a la base de datos y obtiene las lineas
+	 * @return
+	 */
 	public static ArrayList<Linea> mObtenerLineas() {
 		Connection co =null;
 		PreparedStatement stm= null;

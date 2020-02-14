@@ -12,6 +12,11 @@ import modelo.Parada;
 
 public class MunicipioDAO {
 	
+	/**
+	 * Metodo que hace una llamada a la base de datos y obtiene el municipio en funcion de la parada recibida como parametro
+	 * @param parada
+	 * @return
+	 */
 	public static Municipio mObtenerMunicipio(Parada parada) {
 		
 		Connection co =null;
@@ -47,6 +52,11 @@ public class MunicipioDAO {
 		
 	}
 	
+	/**
+	 * Metodo que hace una llamada a la base de datos y obtiene las paradas del municipio recibido por parametro
+	 * @param municipio
+	 * @return
+	 */
 	public static Municipio mObtenerParadasMunicipio(Municipio municipio) {
 		
 		

@@ -26,7 +26,12 @@ public class Controlador04Trayectos implements MouseListener, MouseMotionListene
 	private Billete billete;
 	private Cliente cliente;
 	
-	
+	/**
+	 * Constructor del controlador, que recibe los elementos de la ventana. 
+	 * @param pVentana02
+	 * @param pBillete
+	 * @param pCliente
+	 */
 	public Controlador04Trayectos (Ventana04Trayectos pVentana02, Billete pBillete, Cliente pCliente) {
 		
 		
@@ -38,6 +43,9 @@ public class Controlador04Trayectos implements MouseListener, MouseMotionListene
 		
 	}
 	
+	/**
+	 *  Método que añade los listeners a los botones y les da nombre para identificarlos.
+	 */
 	private void mIniciarControlador( ) {
 		
 		
@@ -60,6 +68,9 @@ public class Controlador04Trayectos implements MouseListener, MouseMotionListene
 	
 	}
 
+	/**
+	 * Metodo que controla las acciones de los botones
+	 */
 	@SuppressWarnings("unused")
 	@Override
 	public void mouseClicked(MouseEvent e) {
