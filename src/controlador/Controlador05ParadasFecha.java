@@ -94,7 +94,7 @@ public class Controlador05ParadasFecha implements MouseListener, MouseMotionList
 	}
 	
 	/**
-	 * Metodo que muestra las opciones para la vuelta si el checkbox ha sido seleccionado
+	 * Metodo que muestra las opciones para la vuelta, si el checkbox ha sido seleccionado
 	 */
 	private void mostrarVuelta() {
 		

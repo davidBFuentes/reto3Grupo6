@@ -6,8 +6,18 @@ import java.io.IOException;
 
 import modelo.Billete;
 
+/**
+ * Clase para crear los ficheros de los billetes
+ *
+ */
 public class Fichero {
 	
+	/**
+	 * Metodo que recibe el o los billetes y crea un fichero con ellos
+	 * @param billete
+	 * @param billete2
+	 * @throws IOException
+	 */
 	public static void mImprimirBillete (Billete billete, Billete billete2) throws IOException {
 		
 		File ficheroBillete = new File ("billete.txt");
@@ -28,6 +38,12 @@ public class Fichero {
 		
 	}
 	
+	/**
+	 * Metodo que escribe en el fichero los datos de los billetes recibidos como parametros
+	 * @param billete
+	 * @param billete2
+	 * @return
+	 */
 	public static String toString (Billete billete, Billete billete2) {
 		
 		String texto = "";
