@@ -400,39 +400,87 @@ public class Ventana06Desglose{
 						
 	}
 
+	/**
+	 * Metodo que da el DNI de un usuario
+	 * @return DNI
+	 */
 	public JTextField getTxtDNI() {
 		return txtDNI;
 	}
+	/**
+	 * Metodo que cambia el DNI de un usuario
+	 * @param txtDNI
+	 */
 	public void setTxtDNI(JTextField txtDNI) {
 		this.txtDNI = txtDNI;
 	}
+	/**
+	 * Metodo que da el nombre de un usuario
+	 * @return nombre del usuario
+	 */
 	public JTextField getTxtNombre() {
 		return txtNombre;
 	}
+	/**
+	 * Metodo que cambia el nombre de un usuario
+	 * @param txtNombre
+	 */
 	public void setTxtNombre(JTextField txtNombre) {
 		this.txtNombre = txtNombre;
 	}
+	/**
+	 * 	Metodo que devuelve el apellido de un usuario
+	 * @return
+	 */
 	public JTextField getTxtApellidos() {
 		return txtApellidos;
 	}
+	/**
+	 * Metodo que cambia el apellido de un usuario
+	 * @param nuevos Apellidos
+	 */
 	public void setTxtApellidos(JTextField txtApellidos) {
 		this.txtApellidos = txtApellidos;
 	}
+	/**
+	 * Metodo que devuelve el numero de autobus
+	 * @return numero de autobus
+	 */
 	public JTextField getTxtNAutobus() {
 		return txtNAutobus;
 	}
+	/**
+	 * Metodo que cambia el numero de autobus 
+	 * @param nuevo numero de autobus
+	 */
 	public void setTxtNAutobus(JTextField txtNAutobus) {
 		this.txtNAutobus = txtNAutobus;
 	}
+	/**
+	 * Metodo que devuelve la parada de destino
+	 * @return parada destino
+	 */
 	public JTextField getTxtDestino() {
 		return txtDestino;
 	}
+	/**
+	 * Metodo que cambia la parada de destino por la que se le pasa por parametro
+	 * @param nueva parada de destino
+	 */
 	public void setTxtDestino(JTextField txtDestino) {
 		this.txtDestino = txtDestino;
 	}
+	/**
+	 * Metodo que devuelve la parada de origen
+	 * @return parada de origen
+	 */
 	public JTextField getTxtOrigen() {
 		return txtOrigen;
 	}
+	/**
+	 * Metodo que cambia la parada de origen por la que se le pasa por parametro
+	 * @param nueva parada de origen
+	 */
 	public void setTxtOrigen(JTextField txtOrigen) {
 		this.txtOrigen = txtOrigen;
 	}
@@ -509,7 +557,4 @@ public class Ventana06Desglose{
 		return btnVolver;
 	}
 
-	public void setBtnVolver(JButton btnVolver) {
-		this.btnVolver = btnVolver;
-	}
 }

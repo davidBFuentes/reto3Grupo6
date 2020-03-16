@@ -106,18 +106,34 @@ public class Ventana09Fin {
 		
 	}
 	
+	/**
+	 * Metodo que devuelve el frame de la ventana 
+	 * @return frame de la ventana
+	 */
 	public JFrame getFrame() {
 		return frame;
 	}
 
+	/**
+	 * Metodo que cambia el frame que se le pasa por parametro
+	 * @param nuevo frame
+	 */
 	public void setFrame(JFrame frame) {
 		this.frame = frame;
 	}
 
+	/**
+	 * metodo que devuelve el label 
+	 * @return label
+	 */
 	public JLabel getLblMensaje1() {
 		return lblMensaje1;
 	}
 
+	/**
+	 * Metodo que cambia el label por otro que se le pasa por parametro
+	 * @param lblMensaje1
+	 */
 	public void setLblMensaje1(JLabel lblMensaje1) {
 		this.lblMensaje1 = lblMensaje1;
 	}

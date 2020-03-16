@@ -366,22 +366,39 @@ public class Ventana07Pago{
 	}
 	
 
+	/**
+	 * Metodo que devuelve el dinero que ha introducido el usuario
+	 * @return dinero introducido en la maquina
+	 */
 	public JTextField getTxtIntroducido() {
 		return txtIntroducido;
 	}
-
+	/**
+	 * 
+	 * @param txtIntroducido
+	 */
 	public void setTxtIntroducido(JTextField txtIntroducido) {
 		this.txtIntroducido = txtIntroducido;
 	}
-
+	/**
+	 * devuelve el boton salir
+	 * @return boton salir
+	 */
 	public JButton getBtnSalir() {
 		return btnSalir;
 	}
-
+	/**
+	 * devuelve el boton de continuar 
+	 * @return boton continuar
+	 */
 	public JButton getBtnContinuar() {
 		return btnContinuar;
 	}
 
+	/**
+	 * devuelve el boton 0
+	 * @return boton 0
+	 */
 	public JButton getBtn_0() {
 		return btn_0;
 	}
@@ -398,68 +415,119 @@ public class Ventana07Pago{
 		this.txtPrecioConIva = txtPrecioConIva;
 	}
 
+	/**
+	 * devuelve el boton 1
+	 * @return boton 1
+	 */
 	public JButton getBtn_1() {
 		return btn_1;
 	}
-
+	/**
+	 * devuelve el boton 2
+	 * @return boton 2
+	 */
 	public JButton getBtn_2() {
 		return btn_2;
 	}
-
+	/**
+	 * devuelve el boton 3
+	 * @return boton 3
+	 */
 	public JButton getBtn_3() {
 		return btn_3;
 	}
-
+	/**
+	 * devuelve el boton 4
+	 * @return boton 4
+	 */
 	public JButton getBtn_4() {
 		return btn_4;
 	}
-
+	/**
+	 * devuelve el boton 5
+	 * @return boton 5
+	 */
 	public JButton getBtn_5() {
 		return btn_5;
-	}
+	}	
+	/**
+	 * devuelve el boton 6
+	 * @return boton 6
+	 */
 
 	public JButton getBtn_6() {
 		return btn_6;
 	}
-
+	/**
+	 * devuelve el boton 7
+	 * @return boton 7
+	 */
 	public JButton getBtn_7() {
 		return btn_7;
 	}
-
+	/**
+	 * devuelve el boton 8
+	 * @return boton 8
+	 */
 	public JButton getBtn_8() {
 		return btn_8;
 	}
-
+	/**
+	 * devuelve el boton 9
+	 * @return boton 9
+	 */
 	public JButton getBtn_9() {
 		return btn_9;
 	}
-
+	/**
+	 * devuelve el boton de la coma
+	 * 	 
+	 * @return boton de la coma
+	 */
 	public JButton getBtn_coma() {
 		return btn_coma;
 	}
-	
+	/**
+	 * devuelve el boton de borrarlo todo (c)
+	 * @return boton de borrar todo
+	 */
 	public JButton getBtn_c() {
 		return btn_c;
 	}
-
+	/**
+	 * devuelve el boton borrar lo ultimo introducido
+	 * @return boton borrar lo ultimo introducido
+	 */
 	public JButton getBtn_borrar() {
 		return btn_borrar;
 	}
-	
+	/**
+	 * devuelve el boton de pagar
+	 * @return boton de pagar
+	 */
 	public JButton getBtn_pagar() {
 		return btn_pagar;
 	}
-
+	/**
+	 * devuelve el texto de lo que le devolvemos
+	 * @return texto de lo que devolvemos
+	 */
 	public JTextArea getTxtVueltas() {
 		return txtVueltas;
 	}
 	
-
+	/**
+	 * devuelve el boton 0
+	 * @return boton 0
+	 */
 	public JTextField getTxtPrecioAPagar() {
 		return txtPrecioAPagar;
 	}
 	
-
+	/**
+	 * devuelve el boton 0
+	 * @return boton 0
+	 */
 	public JTextField getTxtPrecioConIva() {
 		return txtPrecioConIva;
 	}
