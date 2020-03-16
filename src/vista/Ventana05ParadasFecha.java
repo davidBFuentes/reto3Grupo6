@@ -25,7 +25,10 @@ import modelo.Parada;
 import rojeru_san.RSLabelFecha;
 import rojeru_san.RSLabelHora;
 
-
+/**
+ * Clase que crea la ventana paradas fecha
+ *
+ */
 public class Ventana05ParadasFecha {
 
 
@@ -303,15 +306,27 @@ public class Ventana05ParadasFecha {
 		this.btnProcederAlPago = btnProcedeerAlPago;
 	}
 	
+	/**
+	 * Metodo que devuelve el checkboxIdaYVuelta
+	 * @return chkbxIdaYVuelta
+	 */
 	public JCheckBox getCheckBox() {
 		return chkbxIdaYVuelta;
 	}
 	
+	/**
+	 * Metodo que devuelve el comboBoxParadaOrigen
+	 * @return cbxParadaOrigen
+	 */
 	public JComboBox<Parada> getComboBoxParadaOrigen() {
 		
 		return cbxParadaOrigen;
 	}
 	
+	/**
+	 * Metodo que devuelve el comboBoxParadaDestino
+	 * @return cbxParadaDestino
+	 */
 	public JComboBox<Parada> getComboBoxParadaDestino() {
 		
 		return cbxParadaDestino;

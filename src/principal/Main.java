@@ -6,9 +6,13 @@ import javax.mail.internet.AddressException;
 import controlador.Controlador01Bienvenida;
 import vista.Ventana01Bienvenida;
 
+/**
+ * Clase principal de la aplicacion
+ *
+ */
 public class Main {
 
-	/*
+	/**
 	 * Metodo principal de la aplicacion
 	 */
 	public static void main(String[] args) throws AddressException, MessagingException {
