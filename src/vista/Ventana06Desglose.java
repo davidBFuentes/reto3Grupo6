@@ -484,75 +484,160 @@ public class Ventana06Desglose{
 	public void setTxtOrigen(JTextField txtOrigen) {
 		this.txtOrigen = txtOrigen;
 	}
+	/**
+	 * devuelve el boton salir 
+	 * @return boton salir
+	 */
 	public JButton getBtnSalir() {
 		return btnSalir;
 	}
-
+	/**
+	 * devuelve el boton continuar
+	 * @return boton continuar
+	 */
 	public JButton getBtnContinuar() {
 		return btnProcederPago;
 	}
-
+	/**
+	 * devuelve el frame de esta ventana
+	 * @return frame de esta ventana
+	 */
 	public JFrame getVentana06Desglose() {
 		// TODO Auto-generated method stub
 		return Ventana06Desglose;
 	}
 
+	/**
+	 * devuelve los detalles de la vuelta
+	 * @return detalles de la vuelta
+	 */
 	public JPanel getPanel_5() {
 		return panel_5;
 	}
+	/**
+	 * cambia los detalles de vuelta por lo que se le pasa por parametro
+	 * @param nuevo panel por el que se quiere cambiar 
+	 */
 	public void setPanel_5(JPanel panel_5) {
 		this.panel_5 = panel_5;
 	}
+	/**
+	 * devuelve la fecha del billete de vuelta
+	 * @return fecha del billete de vuelta
+	 */
 	public JLabel getLblFechaVuelta2() {
 		return lblFechaVuelta2;
 	}
+	/**
+	 * cambia la fecha del billete de vuelta por la que se le pasa por parametro
+	 * @param nueva fecha del billete de vuelta
+	 */
 	public void setLblFechaVuelta2(JLabel lblFechaVuelta2) {
 		this.lblFechaVuelta2 = lblFechaVuelta2;
 	}
+	/**
+	 * devuelve el numero del autobus de vuelta
+	 * @return numero del autobus
+	 */
 	public JLabel getLblNAutobusVuelta2() {
 		return lblNAutobusVuelta2;
 	}
+	/**
+	 * cambia el numero del autobus de vuelta por el que se la pasa por parametro
+	 * @param nuevo numero del autobus de vuelta
+	 */
 	public void setLblNAutobusVuelta2(JLabel lblNAutobusVuelta2) {
 		this.lblNAutobusVuelta2 = lblNAutobusVuelta2;
 	}
+	/**
+	 * devuelve la imagen
+	 * @return imagen
+	 */
 	public JLabel getLblImagen() {
 		return lblImagen;
 	}
+	/**
+	 * cambia la imagen por algo que se le pase por parametro
+	 * @param por lo que se quiere cambiar la imagen
+	 */
 	public void setLblImagen(JLabel lblImagen) {
 		this.lblImagen = lblImagen;
 	}
+	/**
+	 * devuelve la hora de vuelta del autobus
+	 * @return hora de vuelta del autobus 
+	 */
 	public JLabel getLblHoraVuelta2() {
 		return lblHoraVuelta2;
 	}
+	/**
+	 * cambia la hora de vuelta del autobus por la que se le pasa por parametro
+	 * @param nueva hora de vuelta del autobus  
+	 */
 	public void setLblHoraVuelta2(JLabel lblHoraVuelta2) {
 		this.lblHoraVuelta2 = lblHoraVuelta2;
 	}
+	/**
+	 * devuelve el precio del billete de vuelta 
+	 * @param nuevo precio del billete de vuelta
+	 */
 	public JLabel getLblPrecioVuelta2() {
 		return lblPrecioVuelta2;
-	}
+	}	
+	/**
+	 * cambia el precio del billete de ida por la que se le pasa por parametro
+	 * @param nuevo precio del billete de ida
+	 */
 	public void setLblPrecioVuelta2(JLabel lblPrecioVuelta2) {
 		this.lblPrecioVuelta2 = lblPrecioVuelta2;
 	}
+	/**
+	 * devuelve la hora del billete de ida
+	 * @param hora del billete de ida
+	 */
 	public JLabel getLblHora2() {
 		return lblHora2;
 	}
+	/**
+	 * cambia la hora del billete de ida por la que se le pasa por parametro
+	 * @param nueva hora del billete de ida
+	 */
 	public void setLblHora2(JLabel lblHora2) {
 		this.lblHora2 = lblHora2;
 	}
+	/**
+	 * devulve el precio del billete de ida
+	 * @return el precio del billete de ida
+	 */
 	public JLabel getLblPrecio2() {
 		return lblPrecio2;
 	}
+	/**
+	 * cambia el precio del billete de ida
+	 * @param precio del billete de ida
+	 */
 	public void setLblPrecio2(JLabel lblPrecio2) {
 		this.lblPrecio2 = lblPrecio2;
 	}
+	/**
+	 * devuelve la fecha que esta escrita
+	 * @return fecha
+	 */
 	public JTextField getTxtFecha() {
 		
 		return txtFecha;
 	}
+	/**
+	 * cambia la fecha por la nueva que se quiere poner
+	 * @param nueva fecha a poner
+	 */
 	public void setTxtFecha(JTextField txtFecha) {
 		this.txtFecha = txtFecha;
 	}
-
+	/**
+	 * devuelve el boton volver
+	 * @return boton volver
+	 */
 	public JButton getBtnVolver() {
 		return btnVolver;
 	}

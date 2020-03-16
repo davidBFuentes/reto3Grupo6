@@ -121,7 +121,6 @@ public class Ventana09Fin {
 	public void setFrame(JFrame frame) {
 		this.frame = frame;
 	}
-
 	/**
 	 * metodo que devuelve el label 
 	 * @return label

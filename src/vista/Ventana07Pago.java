@@ -374,8 +374,8 @@ public class Ventana07Pago{
 		return txtIntroducido;
 	}
 	/**
-	 * 
-	 * @param txtIntroducido
+	 * cambiar el texto del dinero introducido por el que se le pasa por parametro
+	 * @param dinero nuevo
 	 */
 	public void setTxtIntroducido(JTextField txtIntroducido) {
 		this.txtIntroducido = txtIntroducido;
@@ -402,15 +402,24 @@ public class Ventana07Pago{
 	public JButton getBtn_0() {
 		return btn_0;
 	}
-
+	/**
+ 	* devuelve el precio sin iva
+ 	* @return precio sin iva
+ 	*/
 	public JTextField getTxtPrecioSinIva() {
 		return txtPrecioSinIva;
 	}
-
+	/**
+	 * cambia el precio sin iva por el que se le pasa por iva
+	 * @param precio sin iva nuevo
+	 */
 	public void setTxtPrecioSinIva(JTextField txtPrecioSinIva) {
 		this.txtPrecioSinIva = txtPrecioSinIva;
 	}
-
+	/**
+	 * cambia el precio con iva por el que se le pasa por iva
+	 * @param precio con iva nuevo
+	 */
 	public void setTxtPrecioConIva(JTextField txtPrecioConIva) {
 		this.txtPrecioConIva = txtPrecioConIva;
 	}
@@ -517,49 +526,58 @@ public class Ventana07Pago{
 	}
 	
 	/**
-	 * devuelve el boton 0
-	 * @return boton 0
+	 * devuelve el precio a pagar
+	 * @return precio a pagar
 	 */
 	public JTextField getTxtPrecioAPagar() {
 		return txtPrecioAPagar;
 	}
 	
 	/**
-	 * devuelve el boton 0
-	 * @return boton 0
+	 * devuelve el precio a pagar pero con iva
+	 * @return precio a pagar pero con iva
 	 */
 	public JTextField getTxtPrecioConIva() {
 		return txtPrecioConIva;
 	}
 
+	/**
+	 * cambia el texto de precio a pagar por el que se le pasa por parametro
+	 * @param precio a pagar nuevo
+	 */
 	public void setTxtPrecioAPagar(JTextField txtPrecioAPagar) {
 		this.txtPrecioAPagar = txtPrecioAPagar;
 	}
-
+	/**
+	 * cambia el texto de vueltas por el que le pasamos por parametro
+	 * @param precio a pagar nuevo
+	 */
 	public void setTxtVueltas(JTextArea txtVueltas) {
 		this.txtVueltas = txtVueltas;
 	}
 
-	
+	/**
+	 * devuleve el frame de esta ventana
+	 * @return frame de esta ventana
+	 */
 
 	public JFrame getVentana07Pago() {
 		
 		return Ventana07Pago;
 	}
 
-	public void setTxtIntroducido(String string) {
-		// TODO Auto-generated method stub
-
-	}
-
+	/**
+	 * devuelve el boton devolver
+	 * @return boton devolver
+	 */
 	public JButton getBtnVolver() {
 		return btnVolver;
 	}
 
-	public void setBtnVolver(JButton btnVolver) {
-		this.btnVolver = btnVolver;
-	}
-
+	/**
+	 * cambia el frame de esta ventana por otra que se le pasa por parametro
+	 * @param frame nuevo
+	 */
 	public void setVentana07Pago(JFrame ventana07Pago) {
 		Ventana07Pago = ventana07Pago;
 	}

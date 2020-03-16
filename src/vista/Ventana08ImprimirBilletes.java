@@ -436,145 +436,293 @@ public class Ventana08ImprimirBilletes {
 						
 	}
 
+	/**
+	 * devuelve el dni del usuario
+	 * @return deni 
+	 */
 	public JTextField getTxtDNI() {
 		return txtDNI;
 	}
+	/**
+	 * Metodo que cambia el DNI de un usuario
+	 * @param txtDNI
+	 */
 	public void setTxtDNI(JTextField txtDNI) {
 		this.txtDNI = txtDNI;
 	}
+	/**
+	 * Metodo que da el nombre de un usuario
+	 * @return nombre del usuario
+	 */
 	public JTextField getTxtNombre() {
 		return txtNombre;
 	}
+	/**
+	 * Metodo que cambia el nombre de un usuario
+	 * @param txtNombre
+	 */
 	public void setTxtNombre(JTextField txtNombre) {
 		this.txtNombre = txtNombre;
 	}
+	/**
+	 * 	Metodo que devuelve el apellido de un usuario
+	 * @return
+	 */
 	public JTextField getTxtApellidos() {
 		return txtApellidos;
 	}
+	/**
+	 * Metodo que cambia el apellido de un usuario
+	 * @param nuevos Apellidos
+	 */
 	public void setTxtApellidos(JTextField txtApellidos) {
 		this.txtApellidos = txtApellidos;
 	}
+	/**
+	 * Metodo que devuelve el numero de autobus
+	 * @return numero de autobus
+	 */
 	public JTextField getTxtNAutobus() {
 		return txtNAutobus;
 	}
+	/**
+	 * Metodo que cambia el numero de autobus 
+	 * @param nuevo numero de autobus
+	 */
 	public void setTxtNAutobus(JTextField txtNAutobus) {
 		this.txtNAutobus = txtNAutobus;
 	}
+	/**
+	 * Metodo que devuelve la parada de destino
+	 * @return parada destino
+	 */
 	public JTextField getTxtDestino() {
 		return txtDestino;
 	}
+	/**
+	 * Metodo que cambia la parada de destino por la que se le pasa por parametro
+	 * @param nueva parada de destino
+	 */
 	public void setTxtDestino(JTextField txtDestino) {
 		this.txtDestino = txtDestino;
 	}
+	/**
+	 * Metodo que devuelve la parada de origen
+	 * @return parada de origen
+	 */
 	public JTextField getTxtOrigen() {
 		return txtOrigen;
 	}
+	/**
+	 * Metodo que cambia la parada de origen por la que se le pasa por parametro
+	 * @param nueva parada de origen
+	 */
 	public void setTxtOrigen(JTextField txtOrigen) {
 		this.txtOrigen = txtOrigen;
 	}
-
+	/**
+	 * devuelve el boton finalizar
+	 * @return boton finalizar
+	 */
 	public JButton getBtnFinalizar() {
 		return btnFinalizar;
 	}
-
+	/**
+	 * devuelve el frame de esta ventana
+	 * @return
+	 */
 	public JFrame getventana08ImprimirBilletes() {
 		// TODO Auto-generated method stub
 		return ventana08ImprimirBilletes;
 	}
-
+	/**
+	 * devuelve los detalles de la vuelta
+	 * @return detalles de la vuelta
+	 */
 	public JPanel getPanel_5() {
 		return panel_5;
 	}
+	/**
+	 * cambia los detalles de vuelta por lo que se le pasa por parametro
+	 * @param nuevo panel por el que se quiere cambiar 
+	 */
 	public void setPanel_5(JPanel panel_5) {
 		this.panel_5 = panel_5;
 	}
+	/**
+	 * devuelve la fecha del billete de vuelta
+	 * @return fecha del billete de vuelta
+	 */
 	public JLabel getLblFechaVuelta2() {
 		return lblFechaVuelta2;
 	}
+	/**
+	 * cambia la fecha del billete de vuelta por la que se le pasa por parametro
+	 * @param nueva fecha del billete de vuelta
+	 */
 	public void setLblFechaVuelta2(JLabel lblFechaVuelta2) {
 		this.lblFechaVuelta2 = lblFechaVuelta2;
 	}
+	/**
+	 * devuelve el numero del autobus de vuelta
+	 * @return numero del autobus
+	 */
 	public JLabel getLblNAutobusVuelta2() {
 		return lblNAutobusVuelta2;
 	}
+	/**
+	 * cambia el numero del autobus de vuelta por el que se la pasa por parametro
+	 * @param nuevo numero del autobus de vuelta
+	 */
 	public void setLblNAutobusVuelta2(JLabel lblNAutobusVuelta2) {
 		this.lblNAutobusVuelta2 = lblNAutobusVuelta2;
 	}
+	/**
+	 * devuelve la imagen
+	 * @return imagen
+	 */
 	public JLabel getLblImagen() {
 		return lblImagen;
 	}
+	/**
+	 * cambia la imagen por algo que se le pase por parametro
+	 * @param por lo que se quiere cambiar la imagen
+	 */
 	public void setLblImagen(JLabel lblImagen) {
 		this.lblImagen = lblImagen;
 	}
+	/**
+	 * devuelve la hora de vuelta del autobus
+	 * @return hora de vuelta del autobus 
+	 */
 	public JLabel getLblHoraVuelta2() {
 		return lblHoraVuelta2;
 	}
+	/**
+	 * cambia la hora de vuelta del autobus por la que se le pasa por parametro
+	 * @param nueva hora de vuelta del autobus  
+	 */
 	public void setLblHoraVuelta2(JLabel lblHoraVuelta2) {
 		this.lblHoraVuelta2 = lblHoraVuelta2;
 	}
+	/**
+	 * devuelve el precio del billete de vuelta 
+	 * @param nuevo precio del billete de vuelta
+	 */
 	public JLabel getLblPrecioVuelta2() {
 		return lblPrecioVuelta2;
 	}
+	/**
+	 * cambia el precio del billete de ida por la que se le pasa por parametro
+	 * @param nuevo precio del billete de ida
+	 */
 	public void setLblPrecioVuelta2(JLabel lblPrecioVuelta2) {
 		this.lblPrecioVuelta2 = lblPrecioVuelta2;
 	}
+	/**
+	 * devuelve la hora del billete de ida
+	 * @param hora del billete de ida
+	 */
 	public JLabel getLblHora2() {
 		return lblHora2;
 	}
+	/**
+	 * cambia la hora del billete de ida por la que se le pasa por parametro
+	 * @param nueva hora del billete de ida
+	 */
 	public void setLblHora2(JLabel lblHora2) {
 		this.lblHora2 = lblHora2;
 	}
+	/**
+	 * devulve el precio del billete de ida
+	 * @return el precio del billete de ida
+	 */
 	public JLabel getLblPrecio2() {
 		return lblPrecio2;
 	}
+	/**
+	 * cambia el precio del billete de ida
+	 * @param precio del billete de ida
+	 */
 	public void setLblPrecio2(JLabel lblPrecio2) {
 		this.lblPrecio2 = lblPrecio2;
 	}
+	/**
+	 * devuelve la fecha que esta escrita
+	 * @return fecha
+	 */
 	public JTextField getTxtFecha() {
 		
 		return txtFecha;
 	}
+	/**
+	 * cambia la fecha por la nueva que se quiere poner
+	 * @param nueva fecha a poner
+	 */
 	public void setTxtFecha(JTextField txtFecha) {
 		this.txtFecha = txtFecha;
 	}
 
+	/**
+	 * devuelve el boton de imprimir bilete
+	 * @return boton de imprimir billete
+	 */
 	public JButton getBtnImprimirBillete() {
 		return BtnImprimirBillete;
 	}
 
+	/**
+	 * devuleve el correo que esta escrito
+	 * @return el correo escrito
+	 */
 	public JTextField getTxtFldCorreo() {
 		return txtFldCorreo;
 	}
-
+	
+	/**
+	 *cambia el correo por lo que se le pasa por parametro
+	 * @param correo a escribir
+	 */
 	public void setTxtFldCorreo(JTextField txtFldCorreo) {
 		this.txtFldCorreo = txtFldCorreo;
 	}
 
-	public void setBtnImprimirBillete(JButton btnImprimirBillete) {
-		BtnImprimirBillete = btnImprimirBillete;
-	}
-
+	/**
+	 * devuelve el codigo de billete 
+	 * @return codigo de billete
+	 */
 	public JLabel getLblNBillete_2() {
 		return lblNBillete_2;
 	}
-
+	/**
+	 * cambia el codigo de billete por el que pasa por parametro
+	 * @param nuevo codigo de billete
+	 */
 	public void setLblNBillete_2(JLabel lblNBillete_2) {
 		this.lblNBillete_2 = lblNBillete_2;
 	}
-
+	/**
+	 * devuelve el codigo de billete de vuelta
+	 * @return codigo de billete de vuelta
+	 */
 	public JLabel getLblNBilleteVuelta_2() {
 		return lblNBilleteVuelta_2;
 	}
-
+	/**
+	 * cambia el codigo de billete de vuelta por el que pasa por parametro
+	 * @param nuevo codigo de billete vuelta
+	 */
 	public void setLblNBilleteVuelta_2(JLabel lblNBilleteVuelta_2) {
 		this.lblNBilleteVuelta_2 = lblNBilleteVuelta_2;
 	}
 
+	/**
+	 * devuelve el boton de enviar el correo
+	 * @return boton de enviar el correo
+	 */
 	public JButton getBtnEnviarCorreo() {
 		return btnEnviarCorreo;
 	}
 
-	public void setBtnEnviarCorreo(JButton btnEnviarCorreo) {
-		this.btnEnviarCorreo = btnEnviarCorreo;
-	}
+
 }
