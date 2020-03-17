@@ -79,9 +79,4 @@ public class Controlador01Bienvenida implements MouseListener {
 		
 	}
 	
-	public void mMostrarFrame() {
-		
-		this.ventanaBienvenida.getFrame().setVisible(true);
-	}
-	
 }

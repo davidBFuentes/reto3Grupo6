@@ -96,6 +96,11 @@ public class BilleteDAO {
 		
 	}
 	
+	/**
+	 * Método que hace una llamada a la base de datos y obtiene todos los billetes comprados por un cliente
+	 * @param cliente
+	 * @return
+	 */
 	public static ArrayList <Billete> mObtenerBilletes(Cliente cliente) {
 		
 		Connection co =null;

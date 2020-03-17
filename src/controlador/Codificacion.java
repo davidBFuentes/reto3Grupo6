@@ -2,7 +2,11 @@ package controlador;
 
 public class Codificacion {
 	 
-    /* Retorna un hash a partir de un tipo y un texto */
+	/**
+	 *Devuelve un hash a partir de un tipo y un texto
+	 *@param txt
+	 *@param hashType
+	 */
     public static String getHash(String txt, String hashType) {
         try {
             java.security.MessageDigest md = java.security.MessageDigest
@@ -20,12 +24,18 @@ public class Codificacion {
         return null;
     }
  
-    /* Retorna un hash MD5 a partir de un texto */
+    /**
+	 *Devuelve un texto encriptado utilizando el algoritmo MD5
+	 *@param txt
+	 */
     public static String md5(String txt) {
         return Codificacion.getHash(txt, "MD5");
     }
  
-    /* Retorna un hash SHA1 a partir de un texto */
+    /**
+	 *Devuelve un texto encriptado utilizando el algoritmo SHA1
+	 *@param txt
+	 */
     public static String sha1(String txt) {
         return Codificacion.getHash(txt, "SHA1");
     }

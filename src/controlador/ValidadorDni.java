@@ -1,15 +1,21 @@
 package controlador;
 
-class ValidadorDni
-{
+class ValidadorDni {
+	
     private String dni;
  
-  
+    /**
+     * Constructor de la clase ValidadorDni que crea el objeto a partir del dni que recibe
+     * @param dni
+     */
     public ValidadorDni(String dni) {
         this.dni = dni;
     }
  
      
+    /**
+     * Método que comprueba si el objeto creado es un dni válido y devuelve un boolean
+     */
     public boolean validar() {
  
          
@@ -34,6 +40,9 @@ class ValidadorDni
         }
     }
  
+        /**
+         * Método que comprueba si los primeros ocho caracteres del dni son números
+         */
         private boolean soloNumeros() {
  
             int i, j = 0;
@@ -60,6 +69,9 @@ class ValidadorDni
         }
         
         
+        /**
+         * Método que calcula la letra del dni a partir de sus números
+         */
         private String letraDNI() {
         // El método es privado porque lo voy a usar internamente en esta clase, no se necesita fuera de ella
  

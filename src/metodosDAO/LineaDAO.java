@@ -45,6 +45,11 @@ public class LineaDAO {
 		return listalineas;
 	}
 	
+	/**
+	 * Método que hace una llamada a la base de datos y obtiene la línea solicitada a partir de su código
+	 * @param linea
+	 * @return
+	 */
 	public static Linea mObtenerLinea(Linea linea) {
 		
 		Connection co =null;
