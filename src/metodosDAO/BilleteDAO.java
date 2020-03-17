@@ -16,8 +16,8 @@ public class BilleteDAO {
 	
 	/**
 	 * Metodo que hace una llamada a la base de datos e inserta los atributos del objeto billete
-	 * @param billete
-	 * @return
+	 * @param billete Billete
+	 * @return registrar
 	 */
 	public static boolean mRegistrarBillete(Billete billete) {
 		boolean registrar = false;
@@ -55,8 +55,8 @@ public class BilleteDAO {
 	
 	/**
 	 * Metodo que hace una llamada a la base de datos y obtiene el numero de billete
-	 * @param billete
-	 * @return
+	 * @param billete Billete
+	 * @return Codigo billete
 	 */
 	public static int mObtenerCodigoBillete(Billete billete) {
 		
@@ -98,8 +98,8 @@ public class BilleteDAO {
 	
 	/**
 	 * Método que hace una llamada a la base de datos y obtiene todos los billetes comprados por un cliente
-	 * @param cliente
-	 * @return
+	 * @param cliente Cliente
+	 * @return listaBilletes
 	 */
 	public static ArrayList <Billete> mObtenerBilletes(Cliente cliente) {
 		
