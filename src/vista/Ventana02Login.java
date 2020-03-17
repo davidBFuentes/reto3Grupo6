@@ -15,7 +15,9 @@ import javax.swing.JPasswordField;
 import javax.swing.JPanel;
 import java.awt.Insets;
 import javax.swing.ImageIcon;
-
+/**
+ * clase que crea la ventana de hacer login
+ */
 public class Ventana02Login {
 
 	private JFrame frame;

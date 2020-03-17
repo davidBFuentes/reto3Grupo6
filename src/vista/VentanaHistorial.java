@@ -19,7 +19,9 @@ import javax.swing.JPanel;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-
+/**
+ * Metodo que abre la ventana en la que el ususario puede ver su historial de compras
+ */
 
 public class VentanaHistorial {
 	
@@ -212,59 +214,88 @@ public class VentanaHistorial {
 		labelHora.setForeground(Color.BLACK);
 			
 	}
-
+	/**
+	 * Metodo que devuelve el frame de la ventana
+	 * @return frame de la ventana
+	 */
 	public JFrame getFrame() {
 		return frame;
 	}
-
+	/**
+	 * Metodo que cambia el frame de la ventana por uno nuevo que se le pasa por parametro
+	 * @param nuevo frame
+	 */
 	public void setFrame(JFrame frame) {
 		this.frame = frame;
 	}
-
+	/**
+	 * Metodo que devuelve la tabla
+	 * @return tabla
+	 */
 	public JTable getTable() {
 		return table;
 	}
-
+	/**
+	 * Metodo cambia la tabla por la que se le pasa por parametro
+	 * @param nueva tabla
+	 */
 	public void setTable(JTable table) {
 		this.table = table;
 	}
-
+	/**
+	 * Metodo que devuelve el modelo de la tabla
+	 * @return modelo de la tabla
+	 */
 	public DefaultTableModel getModel() {
 		return model;
 	}
-
+	/**
+	 * Metodo que cambia el modelo de la tabla por el que se le pasa por parametro
+	 * @param modelo nuevo
+	 */
 	public void setModel(DefaultTableModel model) {
 		this.model = model;
 	}
-
+	/**
+	 * Metodo que devuelve el boton salir
+	 * @return salir
+	 */
 	public JButton getBtnSalir() {
 		return btnSalir;
 	}
 
-	public void setBtnSalir(JButton btnSalir) {
-		this.btnSalir = btnSalir;
-	}
-
+	/**
+	 * Metodo que devuelve el boton volver
+	 * @return volver
+	 */
 	public JButton getBtnVolver() {
 		return btnVolver;
 	}
-
-	public void setBtnVolver(JButton btnVolver) {
-		this.btnVolver = btnVolver;
-	}
-
+	/**
+	 * Metodo que devuelve el scroll pane de la tabla
+	 * @return scroll pane
+	 */
 	public JScrollPane getScrollPane() {
 		return scrollPane;
 	}
-
+	/**
+	 * Metodo que cambia el scroll pane por otro pasado por parametro
+	 * @param nuevo scroll pane
+	 */
 	public void setScrollPane(JScrollPane scrollPane) {
 		this.scrollPane = scrollPane;
 	}
-
+	/**
+	 * metodo que devuelve el mensaje que esta escrito si no hay compras
+	 * @return mensaje escrito si no hay compras
+	 */
 	public JTextField getTextMensajeSinCompras() {
 		return textMensajeSinCompras;
 	}
-
+	/**
+	 * metodo que escribe un mensaje pasado por parametro si no tiene compras realizadas
+	 * @param emnsaje si no tiene compras realizadas
+	 */
 	public void setTextMensajeSinCompras(JTextField textMensajeSinCompras) {
 		this.textMensajeSinCompras = textMensajeSinCompras;
 	}

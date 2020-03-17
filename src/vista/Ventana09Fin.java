@@ -12,7 +12,9 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 import java.awt.Font;
-
+/**
+ * clase que crea la ventana de despedida
+ */
 public class Ventana09Fin {
 
 	private JFrame frame;

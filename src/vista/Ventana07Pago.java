@@ -14,7 +14,9 @@ import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JPanel;
 import javax.swing.ImageIcon;
-
+/**
+ * clase que crea la ventana en la que pagamos los billetes
+ */
 public class Ventana07Pago{
 
 	public JFrame Ventana07Pago;

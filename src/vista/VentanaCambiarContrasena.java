@@ -15,7 +15,9 @@ import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
-
+/**
+ * clase que crea la ventana para cambiar la contraseña
+ */
 public class VentanaCambiarContrasena {
 
 	private JFrame frame;
@@ -198,50 +200,67 @@ public class VentanaCambiarContrasena {
 		
 	}
 
+	/**
+	 * Metodo que devuelve el framse de la ventana
+	 * @return nuevo framse
+	 */
 	public JFrame getFrame() {
 		return frame;
 	}
 
+	/**
+	 * Metodo que cambia el frame por el que se le pasa por parametro
+	 * @param frame a poner
+	 */
 	public void setFrame(JFrame frame) {
 		this.frame = frame;
 	}
-
+	/**
+	 * devuelve el boton volver
+	 * @return boton volver
+	 */
 	public JButton getBtnVolver() {
 		return btnVolver;
 	}
-
-	public void setBtnVolver(JButton btnVolver) {
-		this.btnVolver = btnVolver;
-	}
-
+	/**
+	 * devuelve el boton salir
+	 * @return boton salir
+	 */
 	public JButton getBtnSalir() {
 		return btnSalir;
 	}
-
-	public void setBtnSalir(JButton btnSalir) {
-		this.btnSalir = btnSalir;
-	}
-
+	/**
+	 * devuelve el boton cambiar contraseña
+	 * @return boton cambiar contraseña
+	 */
 	public JButton getBtnCambiarContrasena() {
 		return btnCambiarContrasena;
 	}
-
-	public void setBtnCambiarContrasena(JButton btnCambiarContrasena) {
-		this.btnCambiarContrasena = btnCambiarContrasena;
-	}
-
+	/**
+	 * devuelve la contraseña escrita
+	 * @return contraseña
+	 */
 	public JPasswordField getPassContrasena1() {
 		return passContrasena1;
 	}
-
+	/**
+	 * cambia la contraseña escrita
+	 * @param contraseña
+	 */
 	public void setPassContrasena1(JPasswordField passContrasena1) {
 		this.passContrasena1 = passContrasena1;
 	}
-
+	/**
+	 * devuelve la segunda contraseña escrita
+	 * @return contraseña
+	 */
 	public JPasswordField getPassContrasena2() {
 		return passContrasena2;
 	}
-
+	/**
+	 * cambia la segunda contraseña escrita
+	 * @return contraseña
+	 */
 	public void setPassContrasena2(JPasswordField passContrasena2) {
 		this.passContrasena2 = passContrasena2;
 	}

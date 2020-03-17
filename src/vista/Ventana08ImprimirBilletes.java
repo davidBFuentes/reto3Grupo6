@@ -14,7 +14,9 @@ import rojeru_san.RSLabelHora;
 import javax.swing.JTextField;
 import javax.swing.JPanel;
 import javax.swing.ImageIcon;
-
+/**
+ * clase que crea la ventana que imprime el billete y da la opcion de mandarlo al e-mail
+ */
 public class Ventana08ImprimirBilletes {
 
 	public JFrame ventana08ImprimirBilletes;

@@ -13,7 +13,9 @@ import rojeru_san.RSLabelHora;
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.SwingConstants;
-
+/**
+ * clase que crea la ventana de bienvenida
+ */
 public class Ventana01Bienvenida {
 
 	public JFrame frame;

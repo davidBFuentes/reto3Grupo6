@@ -17,7 +17,9 @@ import javax.swing.JButton;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 
-
+/**
+ * clase que crea la ventana registrarse como nuevo usuario
+ */
 public class Ventana03Registro {
 
 	private JFrame frame;

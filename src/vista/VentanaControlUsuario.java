@@ -13,7 +13,9 @@ import rojeru_san.RSLabelHora;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
-
+/**
+ * Metodo que crea la ventana en la que el usuario tiene mas control sobre su cuenta 
+ */
 public class VentanaControlUsuario {
 	
 	private JFrame frame;
@@ -154,59 +156,59 @@ public class VentanaControlUsuario {
 		
 		
 	}
-
+	/**
+	 * Metodo que devuelve el frame de la ventana 
+	 * @return
+	 */
 	public JFrame getFrame() {
 		return frame;
 	}
-
+	/**
+	 * metodo que cambia el frame de la ventana por el que se le pasa por parametro
+	 * @param nuevo framse
+	 */
 
 	public void setFrame(JFrame frame) {
 		this.frame = frame;
 	}
 
-
+	/**
+	 * Metodo que devuelve el boton historial
+	 * @return boton Historial
+	 */
 	public JButton getBtnHistorial() {
 		return btnHistorial;
 	}
-
-
-	public void setBtnHistorial(JButton btnHistorial) {
-		this.btnHistorial = btnHistorial;
-	}
-
-
+	/**
+	 * Metodo que devuelve el boton volver
+	 * @return boton volver
+	 */
 	public JButton getBtnVolver() {
 		return btnVolver;
 	}
-
-
-	public void setBtnVolver(JButton btnVolver) {
-		this.btnVolver = btnVolver;
-	}
-
+	/**
+	 * Metodo que devuelve el boton salir
+	 * @return boton salir
+	 */
 
 	public JButton getBtnSalir() {
 		return btnSalir;
 	}
 
-
-	public void setBtnSalir(JButton btnSalir) {
-		this.btnSalir = btnSalir;
-	}
-
+	/**
+	 * Metodo que devuelve el boton Cambiar Contraseña
+	 * @return boton Cambiar Contraseña
+	 */
 	public JButton getBtnCambiarPass() {
 		return btnCambiarPass;
 	}
 
-	public void setBtnCambiarPass(JButton btnCambiarPass) {
-		this.btnCambiarPass = btnCambiarPass;
-	}
-
+	/**
+	 * Metodo que devuelve el boton perfil
+	 * @return boton perfil
+	 */
 	public JButton getBtnPerfil() {
 		return btnPerfil;
 	}
 
-	public void setBtnPerfil(JButton btnPerfil) {
-		this.btnPerfil = btnPerfil;
-	}
 }

@@ -22,7 +22,9 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.Cursor;
 
-
+/**
+ * clase que crea la ventana para seleccionar los trayectos
+ */
 public class Ventana04Trayectos {
 
 	private JFrame frame;

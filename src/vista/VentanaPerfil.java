@@ -13,7 +13,9 @@ import rojeru_san.RSLabelHora;
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
-
+/**
+ * Metodo que crea la ventana de perfil del usuario
+ */
 
 public class VentanaPerfil {
 
@@ -216,65 +218,97 @@ public class VentanaPerfil {
 		frame.getContentPane().add(labelHora);
 		labelHora.setForeground(Color.BLACK);
 	}
-
+	/**
+	 * metodo que devuelve el frame de la ventana
+	 * @return frame de la ventan
+	 */
 	public JFrame getFrame() {
 		return frame;
 	}
-
+	/**
+	 * metodo que cambia el frame de la ventana por el que se le pasa por parametro
+	 * @param nuevo frame
+	 */
 	public void setFrame(JFrame frame) {
 		this.frame = frame;
 	}
-
+	/**
+	 * Metodo que devuelve el dni que esta escrito
+	 * @return dni
+	 */
 	public JTextField getTxtDni() {
 		return txtDni;
 	}
 
+	/**
+	 * Metodo que cambia el dni por el que se le pasa por parametro
+	 * @param nuevo dni
+	 */
 	public void setTxtDni(JTextField txtDni) {
 		this.txtDni = txtDni;
 	}
-
+	/**
+	 * Metodo que devuelve el nombre escrito
+	 * @return nombre
+	 */
 	public JTextField getTxtNombre() {
 		return txtNombre;
 	}
-
+	/**
+	 * Metodo que cambia el nombre escrito por el que se le pasa por parametro
+	 * @param nuevo nombre
+	 */
 	public void setTxtNombre(JTextField txtNombre) {
 		this.txtNombre = txtNombre;
 	}
 
+	/**
+	 * devuelve los apellidos escritos
+	 * @return apellidos
+	 */
 	public JTextField getTxtApellido() {
 		return txtApellido;
 	}
+	/**
+	 * metodo que cambia los apellidos por los que se le pasa por parametro
+	 * @param nuevos apellidos
+	 */
 
 	public void setTxtApellido(JTextField txtApellido) {
 		this.txtApellido = txtApellido;
 	}
 
-	
+	/**
+	 * devuelve el boton salir
+	 * @return boton salir
+	 */
 
 	public JButton getBtnSalir() {
 		return btnSalir;
 	}
-
-	public void setBtnSalir(JButton btnSalir) {
-		this.btnSalir = btnSalir;
-	}
-
-	
+	/**
+	 * Metodo que devuelve la fecha de nacimiento escrita
+	 * @return fecha de nacimiento
+	 */
 
 	public JTextField getTxtFechaNacimiento() {
 		return txtFechaNacimiento;
 	}
-
+	/**
+	 * Metodo que cambia la fecha de nacimiento por otra pasada por parametro
+	 * @param nueva fecha de nacimiento
+	 */
 	public void setTxtFechaNacimiento(JTextField txtFechaNacimiento) {
 		this.txtFechaNacimiento = txtFechaNacimiento;
 	}
-
+	/**
+	 * Metodo que devuelve el boton volver
+	 * @return boton volver
+	 */
 	public JButton getBtnVolver() {
 		return btnVolver;
 	}
 
-	public void setBtnVolver(JButton btnVolver) {
-		this.btnVolver = btnVolver;
-	}
+
 	
 }

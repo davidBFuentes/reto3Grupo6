@@ -14,7 +14,9 @@ import rojeru_san.RSLabelHora;
 import javax.swing.JTextField;
 import javax.swing.JPanel;
 import javax.swing.ImageIcon;
-
+/**
+ * clase que crea la ventana que nos muestra lo que hemos seleccionado hasta el momento
+ */
 public class Ventana06Desglose{
 
 	public JFrame Ventana06Desglose;
